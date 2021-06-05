@@ -1,4 +1,5 @@
 const utils = require("./utils");
+const fallback = require("./items-fallback.js");
 
 const items = {};
 
@@ -7,9 +8,15 @@ const regex = /(?<itemNumId>\d+): (?<itemId>\w+)\s+: (?<itemName>[^\n]+)/g;
 async function init() {
   console.info("Loading AO items...");
 
-  const data = await utils.request(
-    "https://raw.githubusercontent.com/broderickhyman/ao-bin-dumps/master/formatted/items.txt"
-  );
+  let data = "";
+
+  try {
+    data = await utils.request(
+      "https://raw.githubusercontent.com/broderickhyman/ao-bin-dumps/master/formatted/items.txtxxx"
+    );
+  } catch (error) {
+    data = fallback;
+  }
 
   const matches = data.matchAll(regex);
 

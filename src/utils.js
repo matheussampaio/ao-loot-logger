@@ -10,7 +10,7 @@ function request(url) {
           res.resume();
 
           return reject(
-            new Error("Request Failed.\n" + `Status Code: ${statusCode}`)
+            new Error("Request Failed.\n" + `Status Code: ${res.statusCode}`)
           );
         }
 
