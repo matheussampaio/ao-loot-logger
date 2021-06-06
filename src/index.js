@@ -1,6 +1,6 @@
-#!/usr/bin/env node
+process.env.EDGE_CS_NATIVE = "./edge-cs.dll";
 
-const { Cap, decoders } = require("cap");
+// const { Cap, decoders } = require("cap");
 const edge = require("edge-js");
 
 const items = require("./items");
@@ -8,7 +8,7 @@ const BufferReader = require("./buffer-reader");
 const logger = require("./logger");
 
 const deserializeEventData = edge.func(`
-  #r "lib/Photon3Unity3D.dll"
+  #r "Photon3Unity3D.dll"
 
   using ExitGames.Client.Photon;
   using System.Threading.Tasks;
@@ -47,10 +47,8 @@ const deserializeEventData = edge.func(`
   }
 `);
 
-const PROTOCOL = decoders.PROTOCOL;
-
-main();
-// dev();
+// main();
+dev();
 
 async function main() {
   await items.init();
@@ -98,54 +96,54 @@ function onKeypressed(key) {
   }
 }
 
-function addListener(addr) {
-  const c = new Cap();
+// function addListener(addr) {
+//   const c = new Cap();
 
-  const filter = "ip and udp port 5056";
-  const bufSize = 10 * 65536;
-  const buffer = Buffer.alloc(65535);
-  const device = Cap.findDevice(addr);
+//   const filter = "ip and udp port 5056";
+//   const bufSize = 10 * 65536;
+//   const buffer = Buffer.alloc(65535);
+//   const device = Cap.findDevice(addr);
 
-  const linkType = c.open(device, filter, bufSize, buffer);
+//   const linkType = c.open(device, filter, bufSize, buffer);
 
-  if (linkType !== "ETHERNET") {
-    return c.close();
-  }
+//   if (linkType !== "ETHERNET") {
+//     return c.close();
+//   }
 
-  process.on("SIGTERM", () => {
-    c.close();
-  });
+//   process.on("SIGTERM", () => {
+//     c.close();
+//   });
 
-  if (c.setMinBytes != null) {
-    c.setMinBytes(0);
-  }
+//   if (c.setMinBytes != null) {
+//     c.setMinBytes(0);
+//   }
 
-  c.on("packet", (nbytes, trunc) => {
-    let ret = decoders.Ethernet(buffer);
+//   c.on("packet", (nbytes, trunc) => {
+//     let ret = decoders.Ethernet(buffer);
 
-    if (ret.info.type !== PROTOCOL.ETHERNET.IPV4) {
-      return console.log(
-        "Unsupported Ethertype: " + PROTOCOL.ETHERNET[ret.info.type]
-      );
-    }
+//     if (ret.info.type !== decoders.PROTOCOL.ETHERNET.IPV4) {
+//       return console.log(
+//         "Unsupported Ethertype: " + decoders.PROTOCOL.ETHERNET[ret.info.type]
+//       );
+//     }
 
-    ret = decoders.IPV4(buffer, ret.offset);
+//     ret = decoders.IPV4(buffer, ret.offset);
 
-    if (ret.info.protocol !== PROTOCOL.IP.UDP) {
-      return console.log(
-        "Unsupported IPv4 protocol: " + PROTOCOL.IP[ret.info.protocol]
-      );
-    }
+//     if (ret.info.protocol !== decoders.PROTOCOL.IP.UDP) {
+//       return console.log(
+//         "Unsupported IPv4 protocol: " + decoders.PROTOCOL.IP[ret.info.protocol]
+//       );
+//     }
 
-    ret = decoders.UDP(buffer, ret.offset);
+//     ret = decoders.UDP(buffer, ret.offset);
 
-    const br = new BufferReader(
-      buffer.slice(ret.offset, ret.offset + ret.info.length)
-    );
+//     const br = new BufferReader(
+//       buffer.slice(ret.offset, ret.offset + ret.info.length)
+//     );
 
-    parseBuffer(br);
-  });
-}
+//     parseBuffer(br);
+//   });
+// }
 
 async function dev() {
   await items.init();

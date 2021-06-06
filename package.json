@@ -10,17 +10,16 @@
   },
   "author": "Matheus Sampaio <matheus@sampaio.us>",
   "dependencies": {
-    "cap": "^0.2.1",
     "edge-js": "^15.5.2"
   },
   "pkg": {
-    "scripts": "src/index.js",
+    "scripts": "src/**/*.js",
     "assets": [
-      "lib/Photon3Unity3D.dll"
+      "lib/Photon3Unity3D.dll",
+      "node_modules/edge-js/lib/native/win32/x64/12.13.0/edge_nativeclr.node",
+      "node_modules/edge-cs/lib/edge-cs.dll"
     ],
-    "targets": [
-      "host"
-    ],
+    "targets": ["host"],
     "outputPath": "dist"
   }
 }
