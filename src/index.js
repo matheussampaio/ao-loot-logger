@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { Cap, decoders } = require("cap");
 const edge = require("edge-js");
 

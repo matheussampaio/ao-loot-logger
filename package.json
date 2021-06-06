@@ -1,17 +1,26 @@
 {
   "name": "ao-loot-logger",
   "version": "1.0.0",
-  "description": "",
+  "description": "Logs loots grabbed by other players in Albion Online",
   "main": "src/index.js",
+  "bin": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Matheus Sampaio <matheus@sampaio.us>",
   "dependencies": {
     "cap": "^0.2.1",
     "edge-js": "^15.5.2"
+  },
+  "pkg": {
+    "scripts": "src/index.js",
+    "assets": [
+      "lib/Photon3Unity3D.dll"
+    ],
+    "targets": [
+      "host"
+    ],
+    "outputPath": "dist"
   }
 }
