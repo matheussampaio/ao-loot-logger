@@ -28,4 +28,18 @@ function request(url) {
   });
 }
 
-module.exports = { request };
+function prettyPrintBuffer(buffer, { sep = " ", col = 10 } = {}) {
+  const arr = [];
+
+  for (let i = 0; i < buffer.length; i += col) {
+    const row = Array.from(buffer.slice(i, i + col))
+      .map((n) => n.toString(16).padStart(2, "0").toUpperCase())
+      .join(sep);
+
+    arr.push(row);
+  }
+
+  return arr.join("\n");
+}
+
+module.exports = { request, prettyPrintBuffer };

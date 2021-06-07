@@ -1,8 +1,10 @@
-process.env.EDGE_CS_NATIVE = "./edge-cs.dll";
+if (process.pkg) {
+  process.env.EDGE_CS_NATIVE = "./edge-cs.dll";
+}
 
-// const { Cap, decoders } = require("cap");
+const { Cap, decoders } = require("cap");
 const edge = require("edge-js");
-
+const { prettyPrintBuffer } = require("./utils");
 const items = require("./items");
 const BufferReader = require("./buffer-reader");
 const logger = require("./logger");
@@ -47,8 +49,8 @@ const deserializeEventData = edge.func(`
   }
 `);
 
-// main();
-dev();
+main();
+// dev();
 
 async function main() {
   await items.init();
@@ -96,103 +98,107 @@ function onKeypressed(key) {
   }
 }
 
-// function addListener(addr) {
-//   const c = new Cap();
+function addListener(addr) {
+  const c = new Cap();
 
-//   const filter = "ip and udp port 5056";
-//   const bufSize = 10 * 65536;
-//   const buffer = Buffer.alloc(65535);
-//   const device = Cap.findDevice(addr);
+  const filter = "ip and udp port 5056";
+  const bufSize = 10 * 65536;
+  const buffer = Buffer.alloc(65535);
+  const device = Cap.findDevice(addr);
 
-//   const linkType = c.open(device, filter, bufSize, buffer);
+  const linkType = c.open(device, filter, bufSize, buffer);
 
-//   if (linkType !== "ETHERNET") {
-//     return c.close();
-//   }
+  if (linkType !== "ETHERNET") {
+    return c.close();
+  }
 
-//   process.on("SIGTERM", () => {
-//     c.close();
-//   });
+  process.on("SIGTERM", () => {
+    c.close();
+  });
 
-//   if (c.setMinBytes != null) {
-//     c.setMinBytes(0);
-//   }
+  if (c.setMinBytes != null) {
+    c.setMinBytes(0);
+  }
 
-//   c.on("packet", (nbytes, trunc) => {
-//     let ret = decoders.Ethernet(buffer);
+  c.on("packet", (nbytes, trunc) => {
+    let ret = decoders.Ethernet(buffer);
 
-//     if (ret.info.type !== decoders.PROTOCOL.ETHERNET.IPV4) {
-//       return console.log(
-//         "Unsupported Ethertype: " + decoders.PROTOCOL.ETHERNET[ret.info.type]
-//       );
-//     }
+    if (ret.info.type !== decoders.PROTOCOL.ETHERNET.IPV4) {
+      return console.log(
+        "Unsupported Ethertype: " + decoders.PROTOCOL.ETHERNET[ret.info.type]
+      );
+    }
 
-//     ret = decoders.IPV4(buffer, ret.offset);
+    ret = decoders.IPV4(buffer, ret.offset);
 
-//     if (ret.info.protocol !== decoders.PROTOCOL.IP.UDP) {
-//       return console.log(
-//         "Unsupported IPv4 protocol: " + decoders.PROTOCOL.IP[ret.info.protocol]
-//       );
-//     }
+    if (ret.info.protocol !== decoders.PROTOCOL.IP.UDP) {
+      return console.log(
+        "Unsupported IPv4 protocol: " + decoders.PROTOCOL.IP[ret.info.protocol]
+      );
+    }
 
-//     ret = decoders.UDP(buffer, ret.offset);
+    ret = decoders.UDP(buffer, ret.offset);
 
-//     const br = new BufferReader(
-//       buffer.slice(ret.offset, ret.offset + ret.info.length)
-//     );
+    const br = new BufferReader(
+      buffer.slice(ret.offset, ret.offset + ret.info.length)
+    );
+
+    try {
+      parseBuffer(br);
+    } catch (error) {
+      console.error(error);
+    }
+  });
+}
+
+// async function dev() {
+//   await items.init();
+
+//   const packets = [
+//     `00 00 00 01 99 2E EC FF 6B EE
+//     BA 1F 06 00 01 00 00 00 00 34
+//     00 00 01 B8 F3 04 01 00 06 00
+//     6B 1A C2 01 73 00 06 42 65 6C
+//     6C 61 67 02 73 00 06 42 65 6C
+//     6C 61 67 04 6B 01 D0 05 62 02
+//     FC 6B 01 04`,
+//     `00 00 00 01 99 2F 09 CE 6B EE
+//     BA 1F 06 00 01 00 00 00 00 34
+//     00 00 01 B9 F3 04 01 00 06 00
+//     6B 1A C2 01 73 00 06 42 65 6C
+//     6C 61 67 02 73 00 06 42 65 6C
+//     6C 61 67 04 6B 02 00 05 62 03
+//     FC 6B 01 04`,
+//     `00 00 00 01 99 2F 1E 60 6B EE
+//     BA 1F 06 00 01 00 00 00 00 34
+//     00 00 01 BA F3 04 01 00 06 00
+//     6B 1A C2 01 73 00 06 42 65 6C
+//     6C 61 67 02 73 00 06 42 65 6C
+//     6C 61 67 04 6B 01 D8 05 62 02
+//     FC 6B 01 04`,
+//     `00 00 00 01 99 2F 21 DB 6B EE
+//     BA 1F 06 00 01 00 00 00 00 34
+//     00 00 01 BB F3 04 01 00 06 00
+//     6B 1A C2 01 73 00 06 42 65 6C
+//     6C 61 67 02 73 00 06 42 65 6C
+//     6C 61 67 04 6B 01 C6 05 62 02
+//     FC 6B 01 04`,
+//   ];
+
+//   for (const packet of packets) {
+//     const data = packet
+//       .replace(/\s+/g, " ")
+//       .trim()
+//       .split(" ")
+//       .map((e) => parseInt(e, 16));
+
+//     const buffer = Buffer.from(data);
+
+//     const br = new BufferReader(buffer, 0, data.length);
 
 //     parseBuffer(br);
-//   });
+//   }
 // }
-
-async function dev() {
-  await items.init();
-
-  const packets = [
-    `00 00 00 01 99 2E EC FF 6B EE
-    BA 1F 06 00 01 00 00 00 00 34
-    00 00 01 B8 F3 04 01 00 06 00
-    6B 1A C2 01 73 00 06 42 65 6C
-    6C 61 67 02 73 00 06 42 65 6C
-    6C 61 67 04 6B 01 D0 05 62 02
-    FC 6B 01 04`,
-    `00 00 00 01 99 2F 09 CE 6B EE
-    BA 1F 06 00 01 00 00 00 00 34
-    00 00 01 B9 F3 04 01 00 06 00
-    6B 1A C2 01 73 00 06 42 65 6C
-    6C 61 67 02 73 00 06 42 65 6C
-    6C 61 67 04 6B 02 00 05 62 03
-    FC 6B 01 04`,
-    `00 00 00 01 99 2F 1E 60 6B EE
-    BA 1F 06 00 01 00 00 00 00 34
-    00 00 01 BA F3 04 01 00 06 00
-    6B 1A C2 01 73 00 06 42 65 6C
-    6C 61 67 02 73 00 06 42 65 6C
-    6C 61 67 04 6B 01 D8 05 62 02
-    FC 6B 01 04`,
-    `00 00 00 01 99 2F 21 DB 6B EE
-    BA 1F 06 00 01 00 00 00 00 34
-    00 00 01 BB F3 04 01 00 06 00
-    6B 1A C2 01 73 00 06 42 65 6C
-    6C 61 67 02 73 00 06 42 65 6C
-    6C 61 67 04 6B 01 C6 05 62 02
-    FC 6B 01 04`,
-  ];
-
-  for (const packet of packets) {
-    const data = packet
-      .replace(/\s+/g, " ")
-      .trim()
-      .split(" ")
-      .map((e) => parseInt(e, 16));
-
-    const buffer = Buffer.from(data);
-
-    const br = new BufferReader(buffer, 0, data.length);
-
-    parseBuffer(br);
-  }
-}
 
 function parseBuffer(br) {
   br.ReadUInt16();
@@ -207,61 +213,61 @@ function parseBuffer(br) {
   const signifierByteLength = 1;
 
   for (let i = 0; i < commandCount; i++) {
-    try {
-      const commandType = br.ReadByte();
+    const commandType = br.ReadByte();
 
-      br.ReadByte();
-      br.ReadByte();
-      br.ReadByte();
+    br.ReadByte();
+    br.ReadByte();
+    br.ReadByte();
 
-      let commandLength = br.ReadInt32BE();
+    let commandLength = br.ReadInt32BE();
 
-      br.ReadInt32();
+    br.ReadInt32();
 
-      if (commandType === 4) {
-        continue;
-      } else if (commandType === 5) {
-        br.position += commandLength - commandHeaderLength;
-        continue;
-      } else if (commandType === 6) {
-      } else if (commandType === 7) {
-        br.position += 4;
-        commandLength -= 4;
-      } else {
-        br.position += commandLength - commandHeaderLength;
-        continue;
+    if (commandType === 4) {
+      continue;
+    } else if (commandType === 5) {
+      br.position += commandLength - commandHeaderLength;
+      continue;
+    } else if (commandType === 6) {
+    } else if (commandType === 7) {
+      br.position += 4;
+      commandLength -= 4;
+    } else {
+      br.position += commandLength - commandHeaderLength;
+      continue;
+    }
+
+    br.position += signifierByteLength;
+
+    const messageType = br.ReadByte();
+    const operationLength = commandLength - commandHeaderLength - 2;
+    const payload = br.ReadBytes(operationLength);
+
+    if (messageType === 2) {
+    } else if (messageType === 3) {
+    } else if (messageType === 4) {
+      const eventData = deserializeEventData(payload, true);
+
+      if (eventData) {
+        onLootGrabbedEvent(eventData, payload);
       }
-
-      br.position += signifierByteLength;
-
-      const messageType = br.ReadByte();
-      const operationLength = commandLength - commandHeaderLength - 2;
-      const payload = br.ReadBytes(operationLength);
-
-      if (messageType === 2) {
-      } else if (messageType === 3) {
-      } else if (messageType === 4) {
-        const eventData = deserializeEventData(payload, true);
-
-        if (eventData) {
-          onLootGrabbedEvent(eventData);
-        }
-      } else {
-        br.position += operationLength;
-      }
-    } catch (error) {
-      console.error(error);
+    } else {
+      br.position += operationLength;
     }
   }
 }
 
-function onLootGrabbedEvent(eventData) {
+function onLootGrabbedEvent(eventData, payload) {
   const { itemId, itemName } = items.get(eventData.itemNumId);
 
   const line = `${new Date().toISOString()};${eventData.lootedBy};${itemId};${
     eventData.quantity
-  };${eventData.lootedFrom}`;
+  };${eventData.lootedFrom};${itemName};${prettyPrintBuffer(payload, {
+    sep: ",",
+    col: Infinity,
+  })}`;
+
+  logger.log(line + "\n");
 
   console.info(line);
-  logger.log(line + "\n");
 }

@@ -1,3 +1,5 @@
+const { prettyPrintBuffer } = require("./utils");
+
 class BufferReader {
   constructor(buffer) {
     this.buffer = buffer;
@@ -45,17 +47,7 @@ class BufferReader {
   }
 
   toString() {
-    const arr = [];
-
-    for (let i = 0; i < this.buffer.length; i += 10) {
-      const row = Array.from(this.buffer.slice(i, i + 10))
-        .map((n) => n.toString(16).padStart(2, "0").toUpperCase())
-        .join(" ");
-
-      arr.push(row);
-    }
-
-    return arr.join("\n");
+    return prettyPrintBuffer(this.buffer);
   }
 }
 

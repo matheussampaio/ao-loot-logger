@@ -27,7 +27,7 @@ function init() {
 
   process.once("SIGTERM", () => {});
 
-  console.info("Logs will be saved to", path.join(__dirname, logFileName));
+  console.info("Logs will be saved to", path.join(process.cwd(), logFileName));
 }
 
 function closeStream() {
