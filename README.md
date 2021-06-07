@@ -4,6 +4,8 @@ With AO Loot Logger you can write all the loot grabbed by other players to a fil
 
 [![Download AO Loot Logger](https://img.shields.io/badge/Download%20AO%20Loot%20Logger-ao--loot--logger.exe-blue)](https://github.com/matheussampaio/ao-loot-logger/releases/latest/download/ao-loot-logger.exe)
 
+**NOTE:** It does not work with a VPN (i.e. Exit Lag) or playing through Geforce Now.
+
 ## How to Use
 
 1. Install [Npcap with WinPcap compatibility](https://nmap.org/npcap).
@@ -18,3 +20,15 @@ With AO Loot Logger you can write all the loot grabbed by other players to a fil
 3. In the project's folder, run `npm install` to install all dependencies.
 4. Start coding.
 5. Run the project with `npm start` or `node src/index.js`.
+
+## Question?
+
+Start a [discussion](https://github.com/matheussampaio/ao-loot-logger/discussions).
+
+## Found any problem?
+
+Create an [issue](https://github.com/matheussampaio/ao-loot-logger/issues) so we can get it fixed.
+
+## Funding
+
+You can always [buy me a coffee](https://www.buymeacoffee.com/MatheusSampaio) or [sponsor me](https://github.com/sponsors/matheussampaio). ❤️
