@@ -1,16 +1,13 @@
 const BufferReader = require('./buffer-reader')
-// const items = require("./items");
 
 function onEventParser(buffer, cb) {
   const br = new BufferReader(buffer)
 
-  br.readUInt16()
-  br.readUInt8()
+  br.position += 3
 
   const commandCount = br.readUInt8()
 
-  br.readInt32()
-  br.readInt32()
+  br.position += 8
 
   const commandHeaderLength = 12
   const signifierByteLength = 1
@@ -18,13 +15,11 @@ function onEventParser(buffer, cb) {
   for (let i = 0; i < commandCount; i++) {
     const commandType = br.readUInt8()
 
-    br.readUInt8()
-    br.readUInt8()
-    br.readUInt8()
+    br.position += 3
 
     let commandLength = br.readInt32BE()
 
-    br.readInt32()
+    br.position += 4
 
     if (commandType === 4) {
       continue
@@ -52,7 +47,7 @@ function onEventParser(buffer, cb) {
       const eventData = parseEvent(new BufferReader(payload), true)
 
       if (eventData.Code === 1 && eventData.Parameters[252] === 260) {
-        return onLootGrabbedEvent(eventData)
+        cb(onLootGrabbedEvent(eventData))
       }
     } else {
       br.position += operationLength
@@ -76,29 +71,33 @@ function onLootGrabbedEvent(eventData) {
 
 function parseEvent(br) {
   const Code = br.readUInt8()
-  const Parameters = {}
+
+  if (Code !== 1) {
+    return { Code }
+  }
 
   const paramsLength = br.readUInt16BE()
+
+  // grabbed loot event should have 6 params
+  if (paramsLength !== 6) {
+    return { Code: 2 }
+  }
+
+  const Parameters = {}
 
   for (let i = 0; i < paramsLength; i++) {
     const key = br.readUInt8()
     const op = br.readUInt8()
 
     if (op === 0x6b) {
-      // 107
       Parameters[key] = br.readUInt16BE()
     } else if (op === 0x62) {
-      // 98
       Parameters[key] = br.readUInt8()
-    } else if (op === 0x69) {
-      // 98
-      Parameters[key] = br.readInt32BE()
     } else if (op === 0x73) {
-      // 115
       const valueLength = br.readUInt16BE()
       Parameters[key] = br.readBytes(valueLength).toString()
     } else {
-      return { Code: 2, key, op }
+      return { Code: 2 }
     }
   }
 

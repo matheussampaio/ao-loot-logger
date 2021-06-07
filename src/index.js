@@ -3,11 +3,12 @@ const { Cap, decoders } = require('cap')
 const items = require('./items')
 const logger = require('./logger')
 const { onEventParser } = require('./parser')
+const checkNewVersion = require('./check-new-version')
 
 main()
 
 async function main() {
-  await items.init()
+  await Promise.all([checkNewVersion(), items.init()])
 
   const addrs = []
 
@@ -43,11 +44,16 @@ async function main() {
 }
 
 function onKeypressed(key) {
-  if (key === '\u0003') {
+  const CTRL_C = '\u0003'
+  const ROTATE_LOGGER_FILE_KEY = 'd'
+
+  if (key === CTRL_C) {
+    console.info('Ctrl+C detected. Stopping app.')
+
     process.exit()
   }
 
-  if (key.toLowerCase() === 'd') {
+  if (key.toLowerCase() === ROTATE_LOGGER_FILE_KEY) {
     logger.init()
   }
 }
@@ -55,7 +61,9 @@ function onKeypressed(key) {
 function addListener(addr) {
   const c = new Cap()
 
-  const filter = 'ip and udp port 5056'
+  const ALBION_PORT = 5056
+
+  const filter = `ip and udp port ${ALBION_PORT}`
   const bufSize = 10 * 65536
   const buffer = Buffer.alloc(65535)
   const device = Cap.findDevice(addr)
@@ -89,26 +97,21 @@ function addListener(addr) {
 
     ret = decoders.UDP(buffer, ret.offset)
 
-    let event
-
     try {
-      event = onEventParser(
-        buffer.slice(ret.offset, ret.offset + ret.info.length)
+      onEventParser(
+        buffer.slice(ret.offset, ret.offset + ret.info.length),
+        (event) => {
+          const { itemId, itemName } = items.get(event.itemNumId)
+
+          const line = `${new Date().toISOString()};${
+            event.lootedBy
+          };${itemId};${event.quantity};${event.lootedFrom};${itemName}`
+
+          console.info(line)
+
+          logger.log(line)
+        }
       )
     } catch {}
-
-    if (event == null) {
-      return
-    }
-
-    const { itemId, itemName } = items.get(event.itemNumId)
-
-    const line = `${new Date().toISOString()};${event.lootedBy};${itemId};${
-      event.quantity
-    };${event.lootedFrom};${itemName}`
-
-    console.info(line)
-
-    logger.log(line)
   })
 }

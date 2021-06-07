@@ -4,6 +4,9 @@
   "description": "Logs loots grabbed by other players in Albion Online",
   "main": "src/index.js",
   "bin": "src/index.js",
+  "private": true,
+  "homepage": "https://github.com/matheussampaio/ao-loot-logger#readme",
+  "license": "GNU GPLv3",
   "repository": {
     "type": "git",
     "url": "https://github.com/matheussampaio/ao-loot-logger.git"
@@ -12,8 +15,28 @@
     "start": "node src/index.js",
     "semantic-release": "semantic-release"
   },
-  "author": "Matheus Sampaio <matheus@sampaio.us>",
+  "author": {
+    "name": "Matheus Sampaio",
+    "email": "matheus@sampaio.us",
+    "url": "https://matheus.sampaio.us/"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://www.buymeacoffee.com/matheussampaio"
+  },
+  "bugs": {
+    "url": "https://github.com/matheussampaio/ao-loot-logger/issues",
+    "email": "matheus@sampaio.us"
+  },
+  "keywords": [
+    "node",
+    "albion"
+  ],
+  "engines": {
+    "node": "12.22.1"
+  },
   "dependencies": {
+    "axios": "^0.21.1",
     "cap": "^0.2.1"
   },
   "devDependencies": {
@@ -33,11 +56,17 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
-      ["@semantic-release/github", {
-        "assets": [
-          {"path": "dist/ao-loot-logger.exe", "label": "ao-loot-logger.exe"}
-        ]
-      }]
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "dist/ao-loot-logger.exe",
+              "label": "ao-loot-logger.exe"
+            }
+          ]
+        }
+      ]
     ]
   }
 }

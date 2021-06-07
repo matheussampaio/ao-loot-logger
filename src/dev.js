@@ -47,15 +47,15 @@ async function dev() {
 
     const buffer = Buffer.from(data)
 
-    const event = onEventParser(buffer)
+    onEventParser(buffer, (event) => {
+      const { itemId, itemName } = items.get(event.itemNumId)
 
-    const { itemId, itemName } = items.get(event.itemNumId)
+      const line = `${new Date().toISOString()};${event.lootedBy};${itemId};${
+        event.quantity
+      };${event.lootedFrom};${itemName}`
 
-    const line = `${new Date().toISOString()};${event.lootedBy};${itemId};${
-      event.quantity
-    };${event.lootedFrom};${itemName}`
-
-    console.info(line)
+      console.info(line)
+    })
   }
 }
 
