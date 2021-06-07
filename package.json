@@ -1,13 +1,18 @@
 {
   "name": "ao-loot-logger",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Logs loots grabbed by other players in Albion Online",
   "main": "src/index.js",
   "bin": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matheussampaio/ao-loot-logger.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
-    "pkg": "sh pkg.sh"
+    "pkg": "sh pkg.sh",
+    "semantic-release": "semantic-release"
   },
   "author": "Matheus Sampaio <matheus@sampaio.us>",
   "dependencies": {
@@ -19,5 +24,22 @@
       "node12-win-x64"
     ],
     "outputPath": "dist"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      ["@semantic-release/github", {
+        "assets": [
+          {"path": "dist/ao-loot-logger.exe", "label": "AO Loot Logger"}
+        ]
+      }]
+    ]
+  },
+  "devDependencies": {
+    "semantic-release": "^17.4.3"
   }
 }
