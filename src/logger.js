@@ -1,41 +1,41 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs')
+const path = require('path')
 
-let logFileName = null;
-let stream = null;
+let logFileName = null
+let stream = null
 
 function log(line) {
   if (stream == null) {
-    init();
+    init()
   }
 
-  stream.write(line);
+  stream.write(line + '\n')
 }
 
 function init() {
   if (stream != null) {
-    stream.close();
+    stream.close()
 
-    process.removeListener("SIGTERM", closeStream);
+    process.removeListener('SIGTERM', closeStream)
   }
 
-  const d = new Date();
+  const d = new Date()
 
-  logFileName = `log-${d.getUTCDay()}-${d.getUTCMonth()}-${d.getUTCFullYear()}-${d.getUTCHours()}-${d.getUTCMinutes()}-${d.getUTCSeconds()}.txt`;
+  logFileName = `log-${d.getUTCDay()}-${d.getUTCMonth()}-${d.getUTCFullYear()}-${d.getUTCHours()}-${d.getUTCMinutes()}-${d.getUTCSeconds()}.txt`
 
-  stream = fs.createWriteStream(logFileName, { flags: "a" });
+  stream = fs.createWriteStream(logFileName, { flags: 'a' })
 
-  process.once("SIGTERM", () => {});
+  process.once('SIGTERM', () => {})
 
-  console.info("Logs will be saved to", path.join(process.cwd(), logFileName));
+  console.info('Logs will be saved to', path.join(process.cwd(), logFileName))
 }
 
 function closeStream() {
-  stream.close();
+  stream.close()
 }
 
 function getFilename() {
-  return logFileName;
+  return logFileName
 }
 
-module.exports = { log, init, getFilename };
+module.exports = { log, init, getFilename }

@@ -6,20 +6,15 @@
   "bin": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "pkg": "sh pkg.sh"
   },
   "author": "Matheus Sampaio <matheus@sampaio.us>",
   "dependencies": {
-    "cap": "^0.2.1",
-    "edge-js": "^15.5.2"
+    "cap": "^0.2.1"
   },
   "pkg": {
     "scripts": "src/**/*.js",
-    "assets": [
-      "lib/Photon3Unity3D.dll",
-      "node_modules/edge-js/lib/native/win32/x64/12.13.0/edge_nativeclr.node",
-      "node_modules/edge-cs/lib/edge-cs.dll"
-    ],
     "targets": [
       "node12-win-x64"
     ],

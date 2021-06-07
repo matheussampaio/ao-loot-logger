@@ -7737,4 +7737,4 @@ module.exports = `   1: UNIQUE_HIDEOUT                                          
 7737: T7_JOURNAL_FISHING_EMPTY                                         : Grandmaster Fisherman's Journal (Empty)
 7738: T7_JOURNAL_FISHING_FULL                                          : Grandmaster Fisherman's Journal (Full)
 7739: T8_JOURNAL_FISHING_EMPTY                                         : Elder Fisherman's Journal (Empty)
-7740: T8_JOURNAL_FISHING_FULL                                          : Elder Fisherman's Journal (Full)`;
+7740: T8_JOURNAL_FISHING_FULL                                          : Elder Fisherman's Journal (Full)`

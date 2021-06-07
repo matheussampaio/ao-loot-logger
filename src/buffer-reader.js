@@ -1,54 +1,64 @@
-const { prettyPrintBuffer } = require("./utils");
-
 class BufferReader {
   constructor(buffer) {
-    this.buffer = buffer;
-    this.position = 0;
+    this.buffer = buffer
+    this.position = 0
   }
 
-  ReadUInt16() {
-    const n = this.buffer.readUInt16LE(this.position);
+  readUInt8() {
+    const n = this.buffer.readUInt8(this.position)
 
-    this.position += 2;
+    this.position += 1
 
-    return n;
+    return n
   }
 
-  ReadInt32() {
-    const n = this.buffer.readInt32LE(this.position);
+  readUInt16() {
+    const n = this.buffer.readUInt16LE(this.position)
 
-    this.position += 4;
+    this.position += 2
 
-    return n;
+    return n
   }
 
-  ReadInt32BE() {
-    const n = this.buffer.readInt32BE(this.position);
+  readUInt16BE() {
+    const n = this.buffer.readUInt16BE(this.position)
 
-    this.position += 4;
+    this.position += 2
 
-    return n;
+    return n
   }
 
-  ReadByte() {
-    const n = this.buffer.readInt8(this.position);
+  readInt32() {
+    const n = this.buffer.readInt32LE(this.position)
 
-    this.position += 1;
+    this.position += 4
 
-    return n;
+    return n
   }
 
-  ReadBytes(length) {
-    const bytes = this.buffer.slice(this.position, this.position + length);
+  readInt32BE() {
+    const n = this.buffer.readInt32BE(this.position)
 
-    this.position += length;
+    this.position += 4
 
-    return bytes;
+    return n
   }
 
-  toString() {
-    return prettyPrintBuffer(this.buffer);
+  readInt8() {
+    const n = this.buffer.readInt8(this.position)
+
+    this.position += 1
+
+    return n
+  }
+
+  readBytes(length) {
+    const bytes = this.buffer.slice(this.position, this.position + length)
+
+    this.position += length
+
+    return bytes
   }
 }
 
-module.exports = BufferReader;
+module.exports = BufferReader
