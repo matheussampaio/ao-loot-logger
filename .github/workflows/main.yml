@@ -25,11 +25,11 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Install pkg
-        run: |
-          npm install -g pkg
-          npm install
-      - name: Package
-        run: pkg package.json --debug
+        run: npm install -g pkg
+      - name: Install dependecies
+        run: npm install
+      - name: Create executable
+        run: pkg package.json
       - name: version
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
