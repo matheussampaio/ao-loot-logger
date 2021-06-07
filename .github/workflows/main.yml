@@ -31,4 +31,6 @@ jobs:
       - name: Package
         run: pkg package.json --debug
       - name: version
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npm run semantic-release
