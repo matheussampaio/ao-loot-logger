@@ -3,23 +3,31 @@ const fallback = require('./items-fallback.js')
 
 const items = {}
 
-const regex = /(?<itemNumId>\d+): (?<itemId>\w+)\s+: (?<itemName>[^\n]+)/g
-
 async function init() {
   let data = ''
 
   try {
-    data = await axios.get(
-      'https://raw.githubusercontent.com/broderickhyman/ao-bin-dumps/master/formatted/items.txtxxx'
+    const response = await axios.get(
+      'https://raw.githubusercontent.com/broderickhyman/ao-bin-dumps/master/formatted/items.txt'
     )
+
+    data = response.data
   } catch (error) {
     data = fallback
   }
 
-  const matches = data.matchAll(regex)
+  for (const line of data.trim().split('\n')) {
+    const raw = line.split(':')
 
-  for (const match of matches) {
-    items[match.groups.itemNumId] = { ...match.groups }
+    const itemNumId = parseInt(raw[0].trim(), 10)
+    const itemId = raw[1].trim()
+    const itemName = raw[2] != null ? raw[2].trim() : itemId
+
+    items[itemNumId] = {
+      itemNumId,
+      itemId,
+      itemName
+    }
   }
 }
 
