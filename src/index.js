@@ -1,11 +1,13 @@
 const { Cap, decoders } = require('cap')
 
 const items = require('./items')
-const logger = require('./logger')
+const Logger = require('./logger')
 const { onEventParser } = require('./parser')
 const checkNewVersion = require('./check-new-version')
 
-main()
+const logger = new Logger()
+
+main().catch((error) => console.error(error))
 
 async function main() {
   await Promise.all([checkNewVersion(), items.init()])
@@ -39,8 +41,6 @@ async function main() {
   process.on('SIGTERM', () => {
     process.stdin.removeListener(onKeypressed)
   })
-
-  logger.init()
 }
 
 function onKeypressed(key) {
@@ -68,19 +68,9 @@ function addListener(addr) {
   const buffer = Buffer.alloc(65535)
   const device = Cap.findDevice(addr)
 
-  const linkType = c.open(device, filter, bufSize, buffer)
-
-  if (linkType !== 'ETHERNET') {
-    return c.close()
-  }
-
   process.on('SIGTERM', () => {
     c.close()
   })
-
-  if (c.setMinBytes != null) {
-    c.setMinBytes(0)
-  }
 
   c.on('packet', () => {
     let ret = decoders.Ethernet(buffer)
@@ -97,21 +87,32 @@ function addListener(addr) {
 
     ret = decoders.UDP(buffer, ret.offset)
 
+    const slice = buffer.slice(ret.offset, ret.offset + ret.info.length)
+
     try {
-      onEventParser(
-        buffer.slice(ret.offset, ret.offset + ret.info.length),
-        (event) => {
-          const { itemId, itemName } = items.get(event.itemNumId)
+      onEventParser(slice, (event) => {
+        const { itemId, itemName } = items.get(event.itemNumId)
 
-          const line = `${new Date().toISOString()};${
-            event.lootedBy
-          };${itemId};${event.quantity};${event.lootedFrom};${itemName}`
+        const line = `${new Date().toISOString()};${event.lootedBy};${itemId};${
+          event.quantity
+        };${event.lootedFrom};${itemName}`
 
-          console.info(line)
+        console.info(line)
 
-          logger.log(line)
-        }
-      )
-    } catch {}
+        logger.log(line)
+      })
+    } catch (error) {
+      console.error(error, slice)
+    }
   })
+
+  const linkType = c.open(device, filter, bufSize, buffer)
+
+  if (c.setMinBytes != null) {
+    c.setMinBytes(0)
+  }
+
+  if (linkType !== 'ETHERNET') {
+    return c.close()
+  }
 }

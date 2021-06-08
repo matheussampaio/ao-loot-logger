@@ -1,4 +1,10 @@
 const BufferReader = require('./buffer-reader')
+const Logger = require('./logger')
+const { prettyPrintBuffer } = require('./utils')
+
+const logger = process.env.DUMP ? new Logger('dump.txt') : null
+
+const flag = Buffer.from([0xfc, 0x6b, 0x01, 0x04])
 
 function onEventParser(buffer, cb) {
   const br = new BufferReader(buffer)
@@ -44,10 +50,24 @@ function onEventParser(buffer, cb) {
     if (messageType === 2) {
     } else if (messageType === 3) {
     } else if (messageType === 4) {
-      const eventData = parseEvent(new BufferReader(payload), true)
+      const event = parseEvent(new BufferReader(payload))
 
-      if (eventData.Code === 1 && eventData.Parameters[252] === 260) {
-        cb(onLootGrabbedEvent(eventData))
+      if (
+        event.code === 1 &&
+        event.size === 6 &&
+        event.parameters[252] === 260
+      ) {
+        cb(onLootGrabbedEvent(event))
+      } else if (
+        process.env.DUMP &&
+        payload.indexOf(flag) === payload.length - 4
+      ) {
+        const line = prettyPrintBuffer(payload)
+
+        logger.log(line)
+        logger.log(JSON.stringify(event))
+        console.log('PROB A LOG PACKET NOT WELL PARSED:', line)
+        console.log(JSON.stringify(event))
       }
     } else {
       br.position += operationLength
@@ -55,11 +75,11 @@ function onEventParser(buffer, cb) {
   }
 }
 
-function onLootGrabbedEvent(eventData) {
-  const lootedFrom = eventData.Parameters[1]
-  const lootedBy = eventData.Parameters[2]
-  const itemNumId = eventData.Parameters[4]
-  const quantity = eventData.Parameters[5]
+function onLootGrabbedEvent(event) {
+  const lootedFrom = event.parameters[1]
+  const lootedBy = event.parameters[2]
+  const itemNumId = event.parameters[4]
+  const quantity = event.parameters[5]
 
   return {
     lootedFrom,
@@ -70,38 +90,40 @@ function onLootGrabbedEvent(eventData) {
 }
 
 function parseEvent(br) {
-  const Code = br.readUInt8()
+  const code = br.readUInt8()
 
-  if (Code !== 1) {
-    return { Code }
+  if (code !== 1) {
+    return { code }
   }
 
-  const paramsLength = br.readUInt16BE()
+  const size = br.readUInt16BE()
 
   // grabbed loot event should have 6 params
-  if (paramsLength !== 6) {
-    return { Code: 2 }
-  }
+  // if (Params !== 6) {
+  // return { Code: 2 }
+  // }
 
-  const Parameters = {}
+  const parameters = {}
 
-  for (let i = 0; i < paramsLength; i++) {
+  for (let i = 0; i < size; i++) {
     const key = br.readUInt8()
     const op = br.readUInt8()
 
     if (op === 0x6b) {
-      Parameters[key] = br.readUInt16BE()
-    } else if (op === 0x62) {
-      Parameters[key] = br.readUInt8()
+      parameters[key] = br.readUInt16BE()
+    } else if (op === 0x62 || op === 0x6f) {
+      parameters[key] = br.readUInt8()
+    } else if (op === 0x69) {
+      parameters[key] = br.readInt32BE()
     } else if (op === 0x73) {
       const valueLength = br.readUInt16BE()
-      Parameters[key] = br.readBytes(valueLength).toString()
+      parameters[key] = br.readBytes(valueLength).toString()
     } else {
-      return { Code: 2 }
+      return { Code: 2, key, op }
     }
   }
 
-  return { Code, Parameters }
+  return { code, size, parameters }
 }
 
-module.exports = { onEventParser, onLootGrabbedEvent }
+module.exports = { onEventParser, onLootGrabbedEvent, parseEvent }

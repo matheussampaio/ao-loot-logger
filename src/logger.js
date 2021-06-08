@@ -1,41 +1,49 @@
 const fs = require('fs')
 const path = require('path')
 
-let logFileName = null
-let stream = null
+class Logger {
+  constructor(filename) {
+    this.stream = null
 
-function log(line) {
-  if (stream == null) {
-    init()
+    this.filename = filename
   }
 
-  stream.write(line + '\n')
-}
+  init() {
+    if (this.stream != null) {
+      this.stream.close()
 
-function init() {
-  if (stream != null) {
-    stream.close()
+      process.removeListener('SIGTERM', this.close)
+    }
 
-    process.removeListener('SIGTERM', closeStream)
+    const d = new Date()
+
+    this.logFileName =
+      this.filename ||
+      `log-${d.getUTCDay()}-${d.getUTCMonth()}-${d.getUTCFullYear()}-${d.getUTCHours()}-${d.getUTCMinutes()}-${d.getUTCSeconds()}.txt`
+
+    this.stream = fs.createWriteStream(this.logFileName, { flags: 'a' })
+
+    process.once('SIGTERM', () => {
+      this.close()
+    })
+
+    console.info(
+      'Logs will be saved to',
+      path.join(process.cwd(), this.logFileName)
+    )
   }
 
-  const d = new Date()
+  log(line) {
+    if (this.stream == null) {
+      this.init()
+    }
 
-  logFileName = `log-${d.getUTCDay()}-${d.getUTCMonth()}-${d.getUTCFullYear()}-${d.getUTCHours()}-${d.getUTCMinutes()}-${d.getUTCSeconds()}.txt`
+    this.stream.write(line + '\n')
+  }
 
-  stream = fs.createWriteStream(logFileName, { flags: 'a' })
-
-  process.once('SIGTERM', () => {})
-
-  console.info('Logs will be saved to', path.join(process.cwd(), logFileName))
+  close() {
+    this.stream.close()
+  }
 }
 
-function closeStream() {
-  stream.close()
-}
-
-function getFilename() {
-  return logFileName
-}
-
-module.exports = { log, init, getFilename }
+module.exports = Logger

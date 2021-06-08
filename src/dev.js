@@ -1,6 +1,7 @@
+const BufferReader = require('./buffer-reader')
 const items = require('./items')
 
-const { onEventParser } = require('./parser')
+const parser = require('./parser')
 
 dev()
 
@@ -8,34 +9,9 @@ async function dev() {
   await items.init()
 
   const packets = [
-    `00 00 00 01 99 2E EC FF 6B EE
-    BA 1F 06 00 01 00 00 00 00 34
-    00 00 01 B8 F3 04 01 00 06 00
-    6B 1A C2 01 73 00 06 42 65 6C
-    6C 61 67 02 73 00 06 42 65 6C
-    6C 61 67 04 6B 01 D0 05 62 02
-    FC 6B 01 04`,
-    `00 00 00 01 99 2F 09 CE 6B EE
-    BA 1F 06 00 01 00 00 00 00 34
-    00 00 01 B9 F3 04 01 00 06 00
-    6B 1A C2 01 73 00 06 42 65 6C
-    6C 61 67 02 73 00 06 42 65 6C
-    6C 61 67 04 6B 02 00 05 62 03
-    FC 6B 01 04`,
-    `00 00 00 01 99 2F 1E 60 6B EE
-    BA 1F 06 00 01 00 00 00 00 34
-    00 00 01 BA F3 04 01 00 06 00
-    6B 1A C2 01 73 00 06 42 65 6C
-    6C 61 67 02 73 00 06 42 65 6C
-    6C 61 67 04 6B 01 D8 05 62 02
-    FC 6B 01 04`,
-    `00 00 00 01 99 2F 21 DB 6B EE
-    BA 1F 06 00 01 00 00 00 00 34
-    00 00 01 BB F3 04 01 00 06 00
-    6B 1A C2 01 73 00 06 42 65 6C
-    6C 61 67 02 73 00 06 42 65 6C
-    6C 61 67 04 6B 01 C6 05 62 02
-    FC 6B 01 04`
+    // `01 00 06 00 6B 01 36 01 73 00 0E 6D 61 74 68 65 75 73 73 61 6D 70 61 69 6F 02 73 00 08 4A 4D 4C 65 67 65 6E 64 04 6B 05 C7 05 62 01 FC 6B 01 04`,
+    `01 00 06 00 69 00 3E 7F 60 01 73 00 0E 6D 61 74 68 65 75 73 73 61 6D 70 61 69 6F 02 73 00 09 73 61 73 75 6B 65 31 39 39 04 6B 02 28 05 62 02 FC 6B 01 04`,
+    `01 00 05 00 69 00 20 BB 0D 02 73 00 0D 4D 61 73 74 65 72 4F 66 46 6F 72 67 65 03 6F 01 05 69 27 56 CD 00 FC 6B 01 04`
   ]
 
   for (const packet of packets) {
@@ -46,29 +22,8 @@ async function dev() {
       .map((e) => parseInt(e, 16))
 
     const buffer = Buffer.from(data)
+    const br = new BufferReader(buffer)
 
-    onEventParser(buffer, (event) => {
-      const { itemId, itemName } = items.get(event.itemNumId)
-
-      const line = `${new Date().toISOString()};${event.lootedBy};${itemId};${
-        event.quantity
-      };${event.lootedFrom};${itemName}`
-
-      console.info(line)
-    })
+    console.log(parser.parseEvent(br))
   }
-}
-
-function prettyPrintBuffer(buffer, { sep = ' ', col = Infinity } = {}) {
-  const arr = []
-
-  for (let i = 0; i < buffer.length; i += col) {
-    const row = Array.from(buffer.slice(i, i + col))
-      .map((n) => n.toString(16).padStart(2, '0').toUpperCase())
-      .join(sep)
-
-    arr.push(row)
-  }
-
-  return arr.join('\n')
 }

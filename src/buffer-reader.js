@@ -4,7 +4,23 @@ class BufferReader {
     this.position = 0
   }
 
+  readInt8() {
+    if (this.position < 0 || this.position > this.buffer.length - 1) {
+      return -1
+    }
+
+    const n = this.buffer.readInt8(this.position)
+
+    this.position += 1
+
+    return n
+  }
+
   readUInt8() {
+    if (this.position < 0 || this.position > this.buffer.length - 1) {
+      return -1
+    }
+
     const n = this.buffer.readUInt8(this.position)
 
     this.position += 1
@@ -13,6 +29,10 @@ class BufferReader {
   }
 
   readUInt16() {
+    if (this.position < 0 || this.position > this.buffer.length - 2) {
+      return -1
+    }
+
     const n = this.buffer.readUInt16LE(this.position)
 
     this.position += 2
@@ -21,6 +41,10 @@ class BufferReader {
   }
 
   readUInt16BE() {
+    if (this.position < 0 || this.position > this.buffer.length - 2) {
+      return -1
+    }
+
     const n = this.buffer.readUInt16BE(this.position)
 
     this.position += 2
@@ -29,6 +53,10 @@ class BufferReader {
   }
 
   readInt32() {
+    if (this.position < 0 || this.position > this.buffer.length - 4) {
+      return -1
+    }
+
     const n = this.buffer.readInt32LE(this.position)
 
     this.position += 4
@@ -37,17 +65,13 @@ class BufferReader {
   }
 
   readInt32BE() {
+    if (this.position < 0 || this.position > this.buffer.length - 4) {
+      return -1
+    }
+
     const n = this.buffer.readInt32BE(this.position)
 
     this.position += 4
-
-    return n
-  }
-
-  readInt8() {
-    const n = this.buffer.readInt8(this.position)
-
-    this.position += 1
 
     return n
   }
