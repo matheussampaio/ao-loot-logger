@@ -1,10 +1,4 @@
 const BufferReader = require('./buffer-reader')
-const Logger = require('./logger')
-const { prettyPrintBuffer } = require('./utils')
-
-const logger = process.env.DUMP ? new Logger('dump.txt') : null
-
-const flag = Buffer.from([0xfc, 0x6b, 0x01, 0x04])
 
 function onEventParser(buffer, cb) {
   const br = new BufferReader(buffer)
@@ -58,16 +52,6 @@ function onEventParser(buffer, cb) {
         event.parameters[252] === 260
       ) {
         cb(onLootGrabbedEvent(event))
-      } else if (
-        process.env.DUMP &&
-        payload.indexOf(flag) === payload.length - 4
-      ) {
-        const line = prettyPrintBuffer(payload)
-
-        logger.log(line)
-        logger.log(JSON.stringify(event))
-        console.log('PROB A LOG PACKET NOT WELL PARSED:', line)
-        console.log(JSON.stringify(event))
       }
     } else {
       br.position += operationLength

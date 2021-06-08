@@ -12,4 +12,26 @@ function prettyPrintBuffer(buffer, { sep = ' ', col = Infinity } = {}) {
   return arr.join('\n')
 }
 
-module.exports = { prettyPrintBuffer }
+function hexStrToBuffer(str) {
+  return Buffer.from(
+    str
+      .replace(/\s+/g, ' ')
+      .trim()
+      .split(' ')
+      .map((e) => parseInt(e, 16))
+  )
+}
+
+function strToBuffer(str) {
+  return Buffer.from(str)
+}
+
+function bufferToStr(buf) {
+  return buf.toString()
+}
+
+function hexToInt(str) {
+  return parseInt(str, 16)
+}
+
+module.exports = { prettyPrintBuffer, hexStrToBuffer, strToBuffer, hexToInt }

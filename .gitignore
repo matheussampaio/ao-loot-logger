@@ -3,4 +3,4 @@ dist/
 cache/
 build/
 
-log-*.txt
+*.txt

@@ -4,8 +4,21 @@ const items = require('./items')
 const Logger = require('./logger')
 const { onEventParser } = require('./parser')
 const checkNewVersion = require('./check-new-version')
+const { prettyPrintBuffer } = require('./utils')
 
 const logger = new Logger()
+const dumplogger = process.env.DUMP ? new Logger('dump.txt') : null
+
+const players = []
+
+if (process.env.FOLLOW_PLAYERS) {
+  for (const player of process.env.FOLLOW_PLAYERS.split(',')) {
+    players.push({
+      buf: Buffer.from(player),
+      logger: new Logger(`${player}.txt`)
+    })
+  }
+}
 
 main().catch((error) => console.error(error))
 
@@ -18,7 +31,7 @@ async function main() {
     for (const address of device.addresses) {
       if (address.addr.match(/\d+\.\d+\.\d+\.\d+/)) {
         if (device.description) {
-          console.info(`Listening to`, device.description)
+          console.info(`Listening to ${device.description}`)
         }
 
         addrs.push(address.addr)
@@ -64,8 +77,7 @@ function addListener(addr) {
   const ALBION_PORT = 5056
 
   const filter = `ip and udp port ${ALBION_PORT}`
-  const bufSize = 10 * 65536
-  const buffer = Buffer.alloc(65535)
+  const buffer = Buffer.alloc(2024)
   const device = Cap.findDevice(addr)
 
   process.on('SIGTERM', () => {
@@ -89,23 +101,38 @@ function addListener(addr) {
 
     const slice = buffer.slice(ret.offset, ret.offset + ret.info.length)
 
+    if (process.env.DUMP) {
+      dumplogger.log(prettyPrintBuffer(slice))
+    }
+
+    for (const player of players) {
+      if (slice.indexOf(player.buf) !== -1) {
+        player.logger.log(prettyPrintBuffer(slice))
+      }
+    }
+
     try {
       onEventParser(slice, (event) => {
         const { itemId, itemName } = items.get(event.itemNumId)
 
-        const line = `${new Date().toISOString()};${event.lootedBy};${itemId};${
+        const date = new Date()
+
+        const line = `${date.toISOString()};${event.lootedBy};${itemId};${
           event.quantity
         };${event.lootedFrom};${itemName}`
 
         logger.log(line)
-        console.info(line)
+
+        const prettyLine = `[${date}] \x1b[32m${event.lootedBy} looted ${event.quantity}x ${itemName} from ${event.lootedFrom}\x1b[0m`
+
+        console.info(prettyLine)
       })
     } catch (error) {
       console.error(error, slice)
     }
   })
 
-  const linkType = c.open(device, filter, bufSize, buffer)
+  const linkType = c.open(device, filter, 2024, buffer)
 
   if (c.setMinBytes != null) {
     c.setMinBytes(0)
