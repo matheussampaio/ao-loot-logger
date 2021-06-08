@@ -97,9 +97,8 @@ function addListener(addr) {
           event.quantity
         };${event.lootedFrom};${itemName}`
 
-        console.info(line)
-
         logger.log(line)
+        console.info(line)
       })
     } catch (error) {
       console.error(error, slice)
