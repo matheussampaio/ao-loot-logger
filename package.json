@@ -45,7 +45,8 @@
   "pkg": {
     "scripts": "src/**/*.js",
     "targets": [
-      "node12-win-x64"
+      "node12-win-x64",
+      "node12-linux-x64"
     ],
     "outputPath": "dist"
   },
@@ -61,8 +62,12 @@
         {
           "assets": [
             {
-              "path": "dist/ao-loot-logger.exe",
+              "path": "dist/ao-loot-logger-win.exe",
               "label": "ao-loot-logger.exe"
+            },
+            {
+              "path": "dist/ao-loot-logger-linux",
+              "label": "ao-loot-logger"
             }
           ]
         }
