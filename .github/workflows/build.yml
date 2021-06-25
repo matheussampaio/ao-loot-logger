@@ -35,15 +35,10 @@ jobs:
       - name: Install dependecies
         run: npm ci
 
-      - name: Define next build version
+      - name: Set next build version
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        id: semantic-release
-        run: npx semantic-release --dry-run | grep -oE '## ([0-9]+.[0-9]+.[0-9]+)' | sed 's/## /::set-ouput name=version::/'
-
-      - name: Set package.json version
-        if: ${{ steps.semantic-release.outputs.version }}
-        run: npm version ${{ steps.semantic-release.outputs.version }}
+        run: npm --no-git-tag-version --force version $(npx semantic-release --dry-run | grep -oE '## ([0-9]+.[0-9]+.[0-9]+)' | sed 's/## //')
 
       - name: Create executable
         run: npm run build -- --output ao-loot-logger-${{ matrix.platform }}
