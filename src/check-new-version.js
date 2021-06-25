@@ -6,6 +6,7 @@ const url =
   'https://api.github.com/repos/matheussampaio/ao-loot-logger/releases/latest'
 
 async function checkNewVersion() {
+  // only run if bundled by pkg (production exe)
   if (process.pkg == null) {
     return
   }

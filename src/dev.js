@@ -5,6 +5,9 @@ const parser = require('./parser')
 
 dev()
 
+/**
+ * Dev entry point to help debugging packets.
+ */
 async function dev() {
   await items.init()
 

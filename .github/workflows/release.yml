@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  workflow_run:
+    workflows: ['Build']
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+  release:
+    runs-on: ubuntu-18.04
+
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - uses: actions/download-artifact@main
+        with:
+          name: ao-loot-logger-win
+          path: win
+
+      - uses: actions/download-artifact@main
+        with:
+          name: ao-loot-logger-linux
+          path: linux
+
+      - name: Install dependecies
+        run: npm install -g semantic-release@17
+
+      - name: version
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npm run semantic-release

@@ -1,0 +1,48 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-18.04]
+        include:
+          - os: windows-latest
+            platform: win
+          - os: ubuntu-18.04
+            platform: linux
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install pkg
+        run: npm install -g pkg
+
+      # not sure if we need libpcap to build for linux
+      # users probably need to have it installed in their computer eitherway.
+      - name: Install libpcap
+        if: ${{ matrix.platform == 'linux' }}
+        run: sudo apt-get install libpcap-dev -y
+
+      - name: Install dependecies
+        run: npm install
+
+      - name: Create executable
+        run: pkg package.json --targets host --output ao-loot-logger-${{ matrix.platform }}
+
+      - uses: actions/upload-artifact@main
+        with:
+          name: ao-loot-logger-${{ matrix.platform }}
+          path: ao-loot-logger-${{ matrix.platform }}*
+          if-no-files-found: error
