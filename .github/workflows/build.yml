@@ -35,6 +35,11 @@ jobs:
       - name: Install dependecies
         run: npm ci
 
+      - name: Define next build version
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npx semantic-release --dry-run
+
       - name: Create executable
         run: npm run build -- --output ao-loot-logger-${{ matrix.platform }}
 

@@ -28,7 +28,7 @@ jobs:
       - name: Install semantic release
         run: npm install -g semantic-release@17
 
-      - name: version
+      - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: semantic-release
