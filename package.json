@@ -1,6 +1,6 @@
 {
   "name": "ao-loot-logger",
-  "version": "0.0.0-development",
+  "version": "1.4.2",
   "description": "Logs loots grabbed by other players in Albion Online",
   "main": "src/index.js",
   "bin": "src/index.js",
@@ -33,7 +33,7 @@
     "albion"
   ],
   "engines": {
-    "node": "12.22.1"
+    "node": "^12 || ^14"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -46,7 +46,7 @@
     "scripts": "src/**/*.js",
     "targets": [
       "node12-win-x64",
-      "node12-linux-x64"
+      "node14-linux-x64"
     ],
     "outputPath": "dist"
   },
@@ -62,12 +62,14 @@
         {
           "assets": [
             {
-              "path": "dist/ao-loot-logger-win.exe",
-              "label": "ao-loot-logger.exe"
+              "path": "dist/ao-loot-logger-node12-win.exe",
+              "name": "ao-loot.exe",
+              "label": "ao-loot for Windows-x64"
             },
             {
-              "path": "dist/ao-loot-logger-linux",
-              "label": "ao-loot-logger"
+              "path": "dist/ao-loot-logger-node14-linux",
+              "name": "ao-loot",
+              "label": "ao-loot for Linux-x64"
             }
           ]
         }
