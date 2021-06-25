@@ -1,6 +1,6 @@
 {
   "name": "ao-loot-logger",
-  "version": "1.4.2",
+  "version": "0.0.0-development",
   "description": "Logs loots grabbed by other players in Albion Online",
   "main": "src/index.js",
   "bin": "src/index.js",
