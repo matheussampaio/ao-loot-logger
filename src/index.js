@@ -1,10 +1,12 @@
 const { Cap, decoders } = require('cap')
+const path = require('path')
 
 const items = require('./items')
 const Logger = require('./logger')
 const { onEventParser } = require('./parser')
 const checkNewVersion = require('./check-new-version')
 const { prettyPrintBuffer } = require('./utils')
+const package = require('../package.json')
 
 const logger = new Logger()
 const dumplogger = process.env.DUMP ? new Logger('dump.txt') : null
@@ -20,9 +22,15 @@ if (process.env.FOLLOW_PLAYERS) {
   }
 }
 
-main().catch((error) => console.error(error))
+main().catch((error) => {
+  console.error(error)
+
+  process.exit(1)
+})
 
 async function main() {
+  console.info(`AO Loot Logger - ${package.version}\n`)
+
   await Promise.all([checkNewVersion(), items.init()])
 
   const addrs = []
@@ -38,6 +46,8 @@ async function main() {
       }
     }
   }
+
+  console.info()
 
   for (const addr of addrs) {
     addListener(addr)
@@ -68,7 +78,7 @@ function onKeypressed(key) {
   const ROTATE_LOGGER_FILE_KEY = 'd'
 
   if (key === CTRL_C) {
-    console.info('Ctrl+C detected. Stopping app.')
+    console.info('Exiting...')
 
     process.exit()
   }
