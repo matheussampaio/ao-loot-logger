@@ -25,10 +25,10 @@ jobs:
           workflow: build.yml
           workflow_conclusion: success
 
-      - name: Install dependecies
-        run: npm ci
+      - name: Install semantic release
+        run: npm install -g semantic-release@17
 
       - name: version
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npm run semantic-release
+        run: semantic-release
