@@ -12,11 +12,11 @@ jobs:
 
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-18.04]
+        os: [windows-2019, ubuntu-20.04]
         include:
-          - os: windows-latest
+          - os: windows-2019
             platform: win
-          - os: ubuntu-18.04
+          - os: ubuntu-20.04
             platform: linux
 
     steps:
@@ -26,9 +26,6 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install pkg
-        run: npm install -g pkg
-
       # not sure if we need libpcap to build for linux
       # users probably need to have it installed in their computer eitherway.
       - name: Install libpcap
@@ -36,10 +33,10 @@ jobs:
         run: sudo apt-get install libpcap-dev -y
 
       - name: Install dependecies
-        run: npm install
+        run: npm ci
 
       - name: Create executable
-        run: pkg package.json --targets host --output ao-loot-logger-${{ matrix.platform }}
+        run: npm run build -- --output ao-loot-logger-${{ matrix.platform }}
 
       - uses: actions/upload-artifact@main
         with:

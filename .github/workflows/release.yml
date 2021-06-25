@@ -9,7 +9,7 @@ on:
 
 jobs:
   release:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
@@ -20,18 +20,13 @@ jobs:
         with:
           node-version: 14
 
-      - uses: actions/download-artifact@main
+      - uses: dawidd6/action-download-artifact@v2
         with:
-          name: ao-loot-logger-win
-          path: win
-
-      - uses: actions/download-artifact@main
-        with:
-          name: ao-loot-logger-linux
-          path: linux
+          workflow: build.yml
+          workflow_conclusion: success
 
       - name: Install dependecies
-        run: npm install -g semantic-release@17
+        run: npm ci
 
       - name: version
         env:

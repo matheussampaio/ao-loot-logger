@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "build": "pkg package.json --targets host"
   },
   "author": {
     "name": "Matheus Sampaio",
@@ -39,6 +40,10 @@
     "axios": "^0.21.1",
     "cap": "^0.2.1"
   },
+  "devDependencies": {
+    "pkg": "^5.3.0",
+    "semantic-release": "^17.4.4"
+  },
   "pkg": {
     "scripts": "src/**/*.js",
     "targets": [
@@ -59,12 +64,12 @@
         {
           "assets": [
             {
-              "path": "win/ao-loot-logger-win.exe",
+              "path": "ao-loot-logger-win/ao-loot-logger-win.exe",
               "name": "ao-loot-logger.exe",
               "label": "AO Loot Logger for Windows x64"
             },
             {
-              "path": "linux/ao-loot-logger-linux",
+              "path": "ao-loot-logger-linux/ao-loot-logger-linux",
               "name": "ao-loot-logger",
               "label": "AO Loot Logger for Linux x64"
             }
