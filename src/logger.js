@@ -1,11 +1,13 @@
 const fs = require('fs')
-const path = require('path')
 
 class Logger {
-  constructor(filename) {
+  constructor(overrideFilename) {
     this.stream = null
+    this.logFileName = null
 
-    this.filename = filename
+    this.overrideFilename = overrideFilename
+
+    this.createNewLogFileName()
   }
 
   init() {
@@ -15,22 +17,19 @@ class Logger {
       process.removeListener('SIGTERM', this.close)
     }
 
-    const d = new Date()
-
-    this.logFileName =
-      this.filename ||
-      `log-${d.getUTCDay()}-${d.getUTCMonth()}-${d.getUTCFullYear()}-${d.getUTCHours()}-${d.getUTCMinutes()}-${d.getUTCSeconds()}.txt`
-
     this.stream = fs.createWriteStream(this.logFileName, { flags: 'a' })
 
     process.once('SIGTERM', () => {
       this.close()
     })
+  }
 
-    console.info(
-      'Logs will be saved to',
-      path.join(process.cwd(), this.logFileName)
-    )
+  createNewLogFileName() {
+    const d = new Date()
+
+    this.logFileName =
+      this.overrideFilename ||
+      `log-${d.getUTCDay()}-${d.getUTCMonth()}-${d.getUTCFullYear()}-${d.getUTCHours()}-${d.getUTCMinutes()}-${d.getUTCSeconds()}.txt`
   }
 
   log(line) {
@@ -42,7 +41,11 @@ class Logger {
   }
 
   close() {
-    this.stream.close()
+    if (this.stream != null) {
+      this.stream.close()
+    }
+
+    this.stream = null
   }
 }
 

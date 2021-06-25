@@ -54,6 +54,13 @@ async function main() {
   process.on('SIGTERM', () => {
     process.stdin.removeListener(onKeypressed)
   })
+
+  console.info(
+    'Logs will be saved to',
+    path.join(process.cwd(), logger.logFileName)
+  )
+
+  console.info(`Press "d" to create a new log file.\n`)
 }
 
 function onKeypressed(key) {
@@ -67,7 +74,12 @@ function onKeypressed(key) {
   }
 
   if (key.toLowerCase() === ROTATE_LOGGER_FILE_KEY) {
-    logger.init()
+    logger.createNewLogFileName()
+    logger.close()
+
+    console.info(
+      `Logs will be saved to ${path.join(process.cwd(), logger.logFileName)}\n`
+    )
   }
 }
 
