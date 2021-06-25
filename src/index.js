@@ -77,6 +77,7 @@ function addListener(addr) {
   const ALBION_PORT = 5056
 
   const filter = `ip and udp port ${ALBION_PORT}`
+  const bufSize = 1 * 1024 * 1024
   const buffer = Buffer.alloc(2024)
   const device = Cap.findDevice(addr)
 
@@ -132,7 +133,7 @@ function addListener(addr) {
     }
   })
 
-  const linkType = c.open(device, filter, 2024, buffer)
+  const linkType = c.open(device, filter, bufSize, buffer)
 
   if (c.setMinBytes != null) {
     c.setMinBytes(0)
