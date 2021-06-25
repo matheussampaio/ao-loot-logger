@@ -38,7 +38,12 @@ jobs:
       - name: Define next build version
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npx semantic-release --plugins '@semantic-release/npm'
+        id: semantic-release
+        run: npx semantic-release --dry-run | grep -oE '## ([0-9]+.[0-9]+.[0-9]+)' | sed 's/## /::set-ouput name=version::/'
+
+      - name: Set package.json version
+        if: ${{ steps.semantic-release.outputs.version }}
+        run: npm version ${{ steps.semantic-release.outputs.version }}
 
       - name: Create executable
         run: npm run build -- --output ao-loot-logger-${{ matrix.platform }}
