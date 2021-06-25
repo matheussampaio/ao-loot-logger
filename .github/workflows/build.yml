@@ -38,7 +38,7 @@ jobs:
       - name: Define next build version
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npx semantic-release --dry-run
+        run: npx semantic-release --plugins '@semantic-release/npm'
 
       - name: Create executable
         run: npm run build -- --output ao-loot-logger-${{ matrix.platform }}
