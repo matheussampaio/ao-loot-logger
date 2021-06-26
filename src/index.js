@@ -29,7 +29,7 @@ main().catch((error) => {
 })
 
 async function main() {
-  console.info(`AO Loot Logger - ${package.version}\n`)
+  console.info(`AO Loot Logger - v${package.version}\n`)
 
   await Promise.all([checkNewVersion(), items.init()])
 
