@@ -38,8 +38,18 @@ async function main() {
   for (const device of Cap.deviceList()) {
     for (const address of device.addresses) {
       if (address.addr.match(/\d+\.\d+\.\d+\.\d+/)) {
+        const infos = []
+
+        if (device.name) {
+          infos.push(device.name)
+        }
+
         if (device.description) {
-          console.info(`Listening to ${device.description}`)
+          infos.push(device.description)
+        }
+
+        if (infos.length) {
+          console.info(`Listening to ${infos.join(' - ')}`)
         }
 
         addrs.push(address.addr)
