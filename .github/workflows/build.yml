@@ -38,7 +38,7 @@ jobs:
       - name: Set next build version
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npm --no-git-tag-version --force version $(npx semantic-release --dry-run | grep -oE '## ([0-9]+.[0-9]+.[0-9]+)' | sed 's/## //')
+        run: npm --no-git-tag-version --force version $(npx semantic-release --dry-run --plugins @semantic-release/release-notes-generator | grep -oE '# ([0-9]+.[0-9]+.[0-9]+)' | sed 's/# //')
 
       - name: Create executable
         run: npm run build -- --output ao-loot-logger-${{ matrix.platform }}

@@ -1,6 +1,7 @@
 const axios = require('axios')
 
 const package = require('../package.json')
+const { green } = require('./utils')
 
 const url =
   'https://api.github.com/repos/matheussampaio/ao-loot-logger/releases/latest'
