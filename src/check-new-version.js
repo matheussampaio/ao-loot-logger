@@ -34,7 +34,9 @@ async function checkNewVersion() {
 
     if (isNewVersionAvailable) {
       console.info(
-        `\x1b[32mNew AO Loot Logger ${data.tag_name} available: https://github.com/matheussampaio/ao-loot-logger/releases/latest\x1b[0m\n`
+        green(
+          `New AO Loot Logger ${data.tag_name} available: https://github.com/matheussampaio/ao-loot-logger/releases/latest\n`
+        )
       )
     }
   }

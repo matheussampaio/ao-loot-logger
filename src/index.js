@@ -5,7 +5,7 @@ const items = require('./items')
 const Logger = require('./logger')
 const { onEventParser } = require('./parser')
 const checkNewVersion = require('./check-new-version')
-const { prettyPrintBuffer } = require('./utils')
+const { prettyPrintBuffer, green } = require('./utils')
 const package = require('../package.json')
 
 const logger = new Logger()
@@ -156,7 +156,9 @@ function addListener(addr) {
 
         logger.log(line)
 
-        const prettyLine = `[${date}] \x1b[32m${event.lootedBy} looted ${event.quantity}x ${itemName} from ${event.lootedFrom}\x1b[0m`
+        const prettyLine = `[${date}] ${green(
+          `${event.lootedBy} looted ${event.quantity}x ${itemName} from ${event.lootedFrom}`
+        )}`
 
         console.info(prettyLine)
       })

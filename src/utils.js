@@ -34,4 +34,15 @@ function hexToInt(str) {
   return parseInt(str, 16)
 }
 
-module.exports = { prettyPrintBuffer, hexStrToBuffer, strToBuffer, hexToInt }
+function green(text) {
+  return `\x1b[32m${text}\x1b[0m`
+}
+
+module.exports = {
+  bufferToStr,
+  green,
+  hexStrToBuffer,
+  hexToInt,
+  prettyPrintBuffer,
+  strToBuffer
+}
