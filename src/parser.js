@@ -49,7 +49,7 @@ function onEventParser(buffer, cb) {
       if (
         event.code === 1 &&
         event.size === 6 &&
-        event.parameters[252] === 260
+        event.parameters[252] === 257
       ) {
         cb(onLootGrabbedEvent(event))
       }
