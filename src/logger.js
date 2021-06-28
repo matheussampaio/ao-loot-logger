@@ -1,5 +1,13 @@
 const fs = require('fs')
 
+const streams = []
+
+process.once('SIGTERM', () => {
+  for (const stream of streams) {
+    stream.close()
+  }
+})
+
 class Logger {
   constructor(overrideFilename) {
     this.stream = null
@@ -13,15 +21,11 @@ class Logger {
   init() {
     if (this.stream != null) {
       this.stream.close()
-
-      process.removeListener('SIGTERM', this.close)
     }
 
     this.stream = fs.createWriteStream(this.logFileName, { flags: 'a' })
 
-    process.once('SIGTERM', () => {
-      this.close()
-    })
+    streams.push(this.stream)
   }
 
   createNewLogFileName() {

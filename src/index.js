@@ -13,6 +13,8 @@ const dumplogger = process.env.DUMP ? new Logger('dump.txt') : null
 
 const players = []
 
+const caps = []
+
 if (process.env.FOLLOW_PLAYERS) {
   for (const player of process.env.FOLLOW_PLAYERS.split(',')) {
     players.push({
@@ -71,8 +73,12 @@ async function main() {
 
   process.stdin.on('data', onKeypressed)
 
-  process.on('SIGTERM', () => {
+  process.once('SIGTERM', () => {
     process.stdin.removeListener(onKeypressed)
+
+    for (const cap of caps) {
+      cap.close()
+    }
   })
 
   console.info(
@@ -113,9 +119,7 @@ function addListener(addr) {
   const buffer = Buffer.alloc(2024)
   const device = Cap.findDevice(addr)
 
-  process.on('SIGTERM', () => {
-    c.close()
-  })
+  caps.push(c)
 
   c.on('packet', () => {
     let ret = decoders.Ethernet(buffer)
