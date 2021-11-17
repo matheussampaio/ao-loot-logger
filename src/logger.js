@@ -29,7 +29,7 @@ class Logger {
 
     this.logFileName =
       this.overrideFilename ||
-      `log-${d.getUTCDay()}-${d.getUTCMonth()}-${d.getUTCFullYear()}-${d.getUTCHours()}-${d.getUTCMinutes()}-${d.getUTCSeconds()}.txt`
+      `log-${d.getUTCDate()}-${d.getUTCMonth() + 1}-${d.getUTCFullYear()}-${d.getUTCHours()}-${d.getUTCMinutes()}-${d.getUTCSeconds()}.txt`
   }
 
   log(line) {
