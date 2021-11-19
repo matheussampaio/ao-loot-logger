@@ -76,6 +76,18 @@ class BufferReader {
     return n
   }
 
+  readFloatBE() {
+    if (this.position < 0 || this.position > this.buffer.length - 4) {
+      return -1
+    }
+
+    const n = this.buffer.readFloatBE(this.position)
+
+    this.position += 4
+
+    return n
+  }
+
   readBytes(length) {
     const bytes = this.buffer.slice(this.position, this.position + length)
 

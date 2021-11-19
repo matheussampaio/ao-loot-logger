@@ -1,4 +1,5 @@
 const BufferReader = require('./buffer-reader')
+const { prettyPrintBuffer } = require('./utils')
 
 function onEventParser(buffer, cb) {
   const br = new BufferReader(buffer)
@@ -38,6 +39,7 @@ function onEventParser(buffer, cb) {
     br.position += signifierByteLength
 
     const messageType = br.readUInt8()
+
     const operationLength = commandLength - commandHeaderLength - 2
     const payload = br.readBytes(operationLength)
 
@@ -99,15 +101,10 @@ function parseEvent(br) {
   const code = br.readUInt8()
 
   if (code !== 1) {
-    return { code, payload: br.toString() }
+    return { code }
   }
 
   const size = br.readUInt16BE()
-
-  // grabbed loot event should have 6 params
-  // if (Params !== 6) {
-  // return { Code: 2 }
-  // }
 
   const parameters = {}
 
@@ -119,9 +116,9 @@ function parseEvent(br) {
     if (op === 0x62 || op === 0x6f) {
       parameters[key] = br.readUInt8()
 
-      // ???
+      // read float
     } else if (op === 0x66) {
-      parameters[key] = br.readBytes(4)
+      parameters[key] = br.readFloatBE()
 
       // reads a 32b integer
     } else if (op === 0x69) {
@@ -150,14 +147,43 @@ function parseEvent(br) {
         parameters[key].push(br.readInt8())
       }
 
-      // im guessing op=79 read an array of 32b integers
+      // read an array of floats
     } else if (op === 0x79) {
       const size = br.readUInt16BE()
+      const secondOp = br.readUInt8()
 
       parameters[key] = []
 
       for (let i = 0; i < size; i++) {
-        parameters[key].push(br.readInt32BE())
+        if (secondOp === 0x66) {
+          parameters[key].push(br.readFloatBE())
+        } else if (secondOp === 0x69) {
+          parameters[key].push(br.readInt32BE())
+        } else if (secondOp === 0x6b) {
+          parameters[key].push(br.readUInt16BE())
+        } else if (secondOp === 0x6c) {
+          parameters[key].push(br.readBytes(8))
+        } else if (secondOp === 0x73) {
+          const size = br.readUInt16BE()
+          parameters[key].push(br.readBytes(size).toString())
+        } else if (secondOp === 0x78) {
+          const secsize = br.readInt32BE()
+          const arr = []
+
+          for (let j = 0; j < secsize; j++) {
+            arr.push(br.readInt8())
+          }
+
+          parameters[key].push(arr)
+        } else {
+          return {
+            error: `unknown second op`,
+            key: `0x${key.toString(16).toUpperCase().padStart(2, 0)}`,
+            op: `0x${op.toString(16).toUpperCase().padStart(2, 0)}`,
+            secondOp: `0x${secondOp.toString(16).toUpperCase().padStart(2, 0)}`,
+            parameters
+          }
+        }
       }
     } else {
       return {
