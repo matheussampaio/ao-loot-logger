@@ -46,12 +46,34 @@ function onEventParser(buffer, cb) {
     } else if (messageType === 4) {
       const event = parseEvent(new BufferReader(payload))
 
-      if (
-        event.code === 1 &&
-        event.size === 6 &&
-        event.parameters[252] === 257
-      ) {
-        cb(onLootGrabbedEvent(event))
+      let eventId = event && event.parameters && event.parameters[252]
+
+      // Move event
+      if (event && event.code === 3) {
+        eventId = 3
+      }
+
+      // in case we can't parse the event, try to search for the
+      // event id at the end of the payload
+      if (!eventId) {
+        const b = payload.slice(-4, -2)
+
+        if (b.readUInt8() == 252 && b.readUInt8(1) == 0x6b) {
+          eventId = payload.slice(-2).readUInt16BE()
+        }
+      }
+
+      switch (eventId) {
+        // OtherGrabbedLoot
+        case 256:
+        case 257:
+          if (event.code === 1 && event.size === 6) {
+            cb(onLootGrabbedEvent(event))
+          }
+          break
+        // Ignore a few events
+        default:
+          break
       }
     } else {
       br.position += operationLength
@@ -77,7 +99,7 @@ function parseEvent(br) {
   const code = br.readUInt8()
 
   if (code !== 1) {
-    return { code }
+    return { code, payload: br.toString() }
   }
 
   const size = br.readUInt16BE()
@@ -93,17 +115,57 @@ function parseEvent(br) {
     const key = br.readUInt8()
     const op = br.readUInt8()
 
-    if (op === 0x6b) {
-      parameters[key] = br.readUInt16BE()
-    } else if (op === 0x62 || op === 0x6f) {
+    // reads a 8b integer
+    if (op === 0x62 || op === 0x6f) {
       parameters[key] = br.readUInt8()
+
+      // ???
+    } else if (op === 0x66) {
+      parameters[key] = br.readBytes(4)
+
+      // reads a 32b integer
     } else if (op === 0x69) {
       parameters[key] = br.readInt32BE()
+
+      // reads a 16b integer
+    } else if (op === 0x6b) {
+      parameters[key] = br.readUInt16BE()
+
+      // ??? not sure exactly what 6C does, but seems to always read 8 bytes
+    } else if (op === 0x6c) {
+      parameters[key] = br.readBytes(8)
+
+      // read an 16b interger N, then a string with length N
     } else if (op === 0x73) {
-      const valueLength = br.readUInt16BE()
-      parameters[key] = br.readBytes(valueLength).toString()
+      const size = br.readUInt16BE()
+      parameters[key] = br.readBytes(size).toString()
+
+      // read an 32b interger N, then an array of N int8
+    } else if (op === 0x78) {
+      const size = br.readInt32BE()
+
+      parameters[key] = []
+
+      for (let i = 0; i < size; i++) {
+        parameters[key].push(br.readInt8())
+      }
+
+      // im guessing op=79 read an array of 32b integers
+    } else if (op === 0x79) {
+      const size = br.readUInt16BE()
+
+      parameters[key] = []
+
+      for (let i = 0; i < size; i++) {
+        parameters[key].push(br.readInt32BE())
+      }
     } else {
-      return { Code: 2, key, op }
+      return {
+        error: `unknown op`,
+        key: `0x${key.toString(16).toUpperCase().padStart(2, 0)}`,
+        op: `0x${op.toString(16).toUpperCase().padStart(2, 0)}`,
+        parameters
+      }
     }
   }
 

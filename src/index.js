@@ -152,15 +152,17 @@ function addListener(addr) {
       onEventParser(slice, (event) => {
         const { itemId, itemName } = items.get(event.itemNumId)
 
-        const date = new Date().toISOString()
+        const date = new Date()
 
-        const line = `${date};${event.lootedBy};${itemId};${event.quantity};${event.lootedFrom};${itemName}`
+        const line = `${date.toISOString()};${event.lootedBy};${itemId};${
+          event.quantity
+        };${event.lootedFrom};${itemName}`
 
         logger.log(line)
 
-        const prettyLine = `[${date}] ${event.lootedBy} looted ${
-          event.quantity
-        }x ${green(itemName)} from ${event.lootedFrom}`
+        const prettyLine = `[${date.toLocaleString()}] ${
+          event.lootedBy
+        } looted ${event.quantity}x ${green(itemName)} from ${event.lootedFrom}`
 
         console.info(prettyLine)
       })
