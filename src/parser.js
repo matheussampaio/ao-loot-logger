@@ -1,5 +1,4 @@
 const BufferReader = require('./buffer-reader')
-const { prettyPrintBuffer } = require('./utils')
 
 function onEventParser(buffer, cb) {
   const br = new BufferReader(buffer)
@@ -46,36 +45,16 @@ function onEventParser(buffer, cb) {
     if (messageType === 2) {
     } else if (messageType === 3) {
     } else if (messageType === 4) {
-      const event = parseEvent(new BufferReader(payload))
+      let event = null
 
-      let eventId = event && event.parameters && event.parameters[252]
+      try {
+        event = parseEvent(new BufferReader(payload))
 
-      // Move event
-      if (event && event.code === 3) {
-        eventId = 3
-      }
-
-      // in case we can't parse the event, try to search for the
-      // event id at the end of the payload
-      if (!eventId) {
-        const b = payload.slice(-4, -2)
-
-        if (b.readUInt8() == 252 && b.readUInt8(1) == 0x6b) {
-          eventId = payload.slice(-2).readUInt16BE()
+        if (event?.code === 1) {
+          cb(event)
         }
-      }
-
-      switch (eventId) {
-        // OtherGrabbedLoot
-        case 256:
-        case 257:
-          if (event.code === 1 && event.size === 6) {
-            cb(onLootGrabbedEvent(event))
-          }
-          break
-        // Ignore a few events
-        default:
-          break
+      } catch (error) {
+        console.error(error)
       }
     } else {
       br.position += operationLength
@@ -83,26 +62,8 @@ function onEventParser(buffer, cb) {
   }
 }
 
-function onLootGrabbedEvent(event) {
-  const lootedFrom = event.parameters[1]
-  const lootedBy = event.parameters[2]
-  const itemNumId = event.parameters[4]
-  const quantity = event.parameters[5]
-
-  return {
-    lootedFrom,
-    lootedBy,
-    itemNumId,
-    quantity
-  }
-}
-
 function parseEvent(br) {
   const code = br.readUInt8()
-
-  if (code !== 1) {
-    return { code }
-  }
 
   const size = br.readUInt16BE()
 
@@ -112,90 +73,73 @@ function parseEvent(br) {
     const key = br.readUInt8()
     const op = br.readUInt8()
 
-    // reads a 8b integer
-    if (op === 0x62 || op === 0x6f) {
-      parameters[key] = br.readUInt8()
-
-      // read float
-    } else if (op === 0x66) {
-      parameters[key] = br.readFloatBE()
-
-      // reads a 32b integer
-    } else if (op === 0x69) {
-      parameters[key] = br.readInt32BE()
-
-      // reads a 16b integer
-    } else if (op === 0x6b) {
-      parameters[key] = br.readUInt16BE()
-
-      // ??? not sure exactly what 6C does, but seems to always read 8 bytes
-    } else if (op === 0x6c) {
-      parameters[key] = br.readBytes(8)
-
-      // read an 16b interger N, then a string with length N
-    } else if (op === 0x73) {
-      const size = br.readUInt16BE()
-      parameters[key] = br.readBytes(size).toString()
-
-      // read an 32b interger N, then an array of N int8
-    } else if (op === 0x78) {
-      const size = br.readInt32BE()
-
-      parameters[key] = []
-
-      for (let i = 0; i < size; i++) {
-        parameters[key].push(br.readInt8())
-      }
-
-      // read an array of floats
-    } else if (op === 0x79) {
-      const size = br.readUInt16BE()
-      const secondOp = br.readUInt8()
-
-      parameters[key] = []
-
-      for (let i = 0; i < size; i++) {
-        if (secondOp === 0x66) {
-          parameters[key].push(br.readFloatBE())
-        } else if (secondOp === 0x69) {
-          parameters[key].push(br.readInt32BE())
-        } else if (secondOp === 0x6b) {
-          parameters[key].push(br.readUInt16BE())
-        } else if (secondOp === 0x6c) {
-          parameters[key].push(br.readBytes(8))
-        } else if (secondOp === 0x73) {
-          const size = br.readUInt16BE()
-          parameters[key].push(br.readBytes(size).toString())
-        } else if (secondOp === 0x78) {
-          const secsize = br.readInt32BE()
-          const arr = []
-
-          for (let j = 0; j < secsize; j++) {
-            arr.push(br.readInt8())
-          }
-
-          parameters[key].push(arr)
-        } else {
-          return {
-            error: `unknown second op`,
-            key: `0x${key.toString(16).toUpperCase().padStart(2, 0)}`,
-            op: `0x${op.toString(16).toUpperCase().padStart(2, 0)}`,
-            secondOp: `0x${secondOp.toString(16).toUpperCase().padStart(2, 0)}`,
-            parameters
-          }
-        }
-      }
-    } else {
-      return {
-        error: `unknown op`,
-        key: `0x${key.toString(16).toUpperCase().padStart(2, 0)}`,
-        op: `0x${op.toString(16).toUpperCase().padStart(2, 0)}`,
-        parameters
-      }
-    }
+    parameters[key] = readParamFromBuffer(op, br)
   }
 
   return { code, size, parameters }
 }
 
-module.exports = { onEventParser, onLootGrabbedEvent, parseEvent }
+function readParamFromBuffer(op, br) {
+  let size, arr, secondOp
+
+  switch (op) {
+    // reads a 8b integer
+    case 0x62:
+    case 0x6f:
+      return br.readUInt8()
+
+    // read float
+    case 0x66:
+      return br.readFloatBE()
+
+    // reads a 32b integer
+    case 0x69:
+      return br.readInt32BE()
+
+    // reads a 16b integer
+    case 0x6b:
+      return br.readUInt16BE()
+
+    // ??? not sure exactly what 6C does, but seems to always read 8 bytes
+    case 0x6c:
+      return br.readBytes(8)
+
+    // read an 16b interger N, then a string with length N
+    case 0x73:
+      size = br.readUInt16BE()
+
+      return br.readBytes(size).toString()
+
+    // read an 32b interger N, then an array of N int8
+    case 0x78:
+      size = br.readInt32BE()
+
+      arr = []
+
+      for (let i = 0; i < size; i++) {
+        arr.push(br.readInt8())
+      }
+
+      return arr
+
+    // an array of dynamic data
+    case 0x79:
+      size = br.readUInt16BE()
+      secondOp = br.readUInt8()
+
+      arr = []
+
+      for (let i = 0; i < size; i++) {
+        arr.push(readParamFromBuffer(secondOp, br))
+      }
+
+      return arr
+
+    default:
+      throw new Error(
+        `unknown op code: 0x${key.toString(16).toUpperCase().padStart(2, 0)}`
+      )
+  }
+}
+
+module.exports = { onEventParser, parseEvent }

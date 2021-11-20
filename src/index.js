@@ -12,7 +12,7 @@ const logger = new Logger()
 const dumplogger = process.env.DUMP ? new Logger('dump.txt') : null
 
 const players = []
-
+const playersDb = {}
 const caps = []
 
 if (process.env.FOLLOW_PLAYERS) {
@@ -24,13 +24,21 @@ if (process.env.FOLLOW_PLAYERS) {
   }
 }
 
+let alive = true
+
+function keepAlive() {
+  if (alive) {
+    setTimeout(keepAlive, 1000)
+  }
+}
+
 main().catch((error) => {
   console.error(error)
-
-  process.exit(1)
 })
 
 async function main() {
+  // keepAlive()
+
   console.info(`AO Loot Logger - v${package.version}\n`)
 
   await Promise.all([checkNewVersion(), items.init()])
@@ -74,6 +82,8 @@ async function main() {
   process.stdin.on('data', onKeypressed)
 
   process.once('SIGTERM', () => {
+    alive = false
+
     process.stdin.removeListener(onKeypressed)
 
     for (const cap of caps) {
@@ -149,26 +159,14 @@ function addListener(addr) {
     }
 
     try {
-      onEventParser(slice, (event) => {
-        const { itemId, itemName } = items.get(event.itemNumId)
-
-        const date = new Date()
-
-        const line = `${date.toISOString()};${event.lootedBy};${itemId};${
-          event.quantity
-        };${event.lootedFrom};${itemName}`
-
-        logger.log(line)
-
-        const prettyLine = `[${date.toLocaleString()}] ${
-          event.lootedBy
-        } looted ${event.quantity}x ${green(itemName)} from ${event.lootedFrom}`
-
-        console.info(prettyLine)
-      })
+      onEventParser(slice, handleEvent)
     } catch (error) {
       console.error(error, slice)
     }
+  })
+
+  c.on('end', (...args) => {
+    console.log('closed')
   })
 
   const linkType = c.open(device, filter, bufSize, buffer)
@@ -180,4 +178,126 @@ function addListener(addr) {
   if (linkType !== 'ETHERNET') {
     return c.close()
   }
+}
+
+// eventsDump = {}
+
+// setInterval(() => {
+//   console.log(eventsDump)
+
+//   eventsDump = {}
+// }, 60000)
+
+function handleEvent(event) {
+  if (!event || event.code !== 1) {
+    return
+  }
+
+  const eventId = event?.parameters?.[252]
+
+  switch (eventId) {
+    // case 1: // Leave
+    // case 6: // HealthUpdate
+    // case 7: // EnergyUpdate
+    // case 10: // ActiveSpellEffectsUpdate
+    // case 12: // Attack
+    // case 13: // CastStart
+    // case 15: // CastCancel
+    // case 17: // CastFinished
+    // case 18: // CastSpell
+    // case 19: // CastHit
+    // case 20: // CastHits
+    // case 21: // ChannelingEnded
+    case 25: // NewCharacter
+      return onNewCharacter(event)
+    // case 34: // NewSilverObject
+    // case 35: // NewBuilding
+    // case 52: // TakeSilver
+    // case 53: // ActionOnBuildingStart
+    // case 54: // ActionOnBuildingCancel
+    // case 55: // ActionOnBuildingFinished
+    // case 56: // ItemRerollQualityStart
+    // case 58: // ItemRerollQualityFinished
+    // case 62: // CraftItemFinished
+    // case 65: // ChatSay
+    // case 68: // PlayEmote
+    // case 69: // StopEmote
+    // case 96: // InvitedToGuild
+    // case 78: // Respawn
+    // case 80: // CharacterEquipmentChanged  *****
+    // case 81: // RegenerationHealthChanged
+    // case 82: // RegenerationEnergyChanged
+    // case 83: // RegenerationMountHealthChanged
+    // case 86: // RegenerationPlayerComboChanged
+    // case 103: // NewSpellEffectArea
+    // case 132: // ForcedMovement
+    // case 150: // ChangeMountSkin
+    // case 153: // Died
+    // case 154: // KnockedDown
+    // case 196: // MountStart
+    // case 197: // MountCancel
+    // case 247: // ArenaRegistrationInfo
+    // case 250: // EnteringArenaLockStart
+    // case 255: // Unknown255
+    // case 290: // UnrestrictedPvpZoneUpdate
+    // case 336: // SteamAchievementCompleted
+    //   return
+
+    // case 88: // NewLoot *****
+    //   return onNewLoot(event)
+
+    // case 148: // TimeSync *****
+    //   return onTimeSync(event)
+
+    // case 158: // MatchTimeLineEventEvent
+    //   return onMatchTimeLineEventEvent(event)
+
+    // case 151: // GameEvent *****
+    //   return onGameEvent(event)
+
+    case 257: // OtherGrabbedLoot
+      return onOtherGrabbedLoot(event)
+  }
+
+  // if (eventsDump[eventId] == null) {
+  //   eventsDump[eventId] = { count: 0, latest: null }
+  // }
+
+  // eventsDump[eventId].count += 1
+  // eventsDump[eventId].latest = event
+}
+
+function onNewCharacter(event) {
+  const playerName = event.parameters[1]
+  const guildName = event.parameters[8]
+  // const allianceName = event.parameters[43]
+
+  playersDb[playerName] = guildName
+}
+
+function onOtherGrabbedLoot(event) {
+  if (event.size !== 6) {
+    return
+  }
+
+  const lootedFrom = event.parameters[1]
+  const lootedBy = event.parameters[2]
+  const itemNumId = event.parameters[4]
+  const quantity = event.parameters[5]
+
+  const { itemId, itemName } = items.get(itemNumId)
+
+  const date = new Date()
+
+  const line = `${date.toISOString()};${lootedBy};${itemId};${quantity};${lootedFrom};${itemName};${
+    playersDb[lootedBy] ?? ''
+  }`
+
+  logger.log(line)
+
+  const prettyLine = `${date.toLocaleString()}: ${
+    playersDb[lootedBy] ? `[${playersDb[lootedBy]}] ` : ''
+  } ${lootedBy} looted ${quantity}x ${green(itemName)} from ${lootedFrom}`
+
+  console.info(prettyLine)
 }
