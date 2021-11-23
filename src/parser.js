@@ -84,6 +84,10 @@ function readParamFromBuffer(op, br) {
   let size, arr, secondOp
 
   switch (op) {
+    // ??? reads 16 bytes
+    case 0x44:
+      return br.readBytes(16)
+
     // reads a 8b integer
     case 0x62:
     case 0x6f:
@@ -101,9 +105,9 @@ function readParamFromBuffer(op, br) {
     case 0x6b:
       return br.readUInt16BE()
 
-    // ??? not sure exactly what 6C does, but seems to always read 8 bytes
+    // read 64b int (big int)
     case 0x6c:
-      return br.readBytes(8)
+      return br.readBigInt64BE()
 
     // read an 16b interger N, then a string with length N
     case 0x73:
@@ -138,7 +142,7 @@ function readParamFromBuffer(op, br) {
 
     default:
       throw new Error(
-        `unknown op code: 0x${key.toString(16).toUpperCase().padStart(2, 0)}`
+        `unknown op code: 0x${op.toString(16).toUpperCase().padStart(2, 0)}`
       )
   }
 }

@@ -76,6 +76,18 @@ class BufferReader {
     return n
   }
 
+  readBigInt64BE() {
+    if (this.position < 0 || this.position > this.buffer.length - 8) {
+      return -1
+    }
+
+    const n = this.buffer.readBigInt64BE(this.position)
+
+    this.position += 8
+
+    return n
+  }
+
   readFloatBE() {
     if (this.position < 0 || this.position > this.buffer.length - 4) {
       return -1
