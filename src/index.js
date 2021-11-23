@@ -2,7 +2,7 @@ const { Cap, decoders } = require('cap')
 const path = require('path')
 
 const items = require('./items')
-const logger = require('./loot-logger')
+const logger = require('./logger')
 const LootLogger = require('./loot-logger')
 const { onEventParser } = require('./parser')
 const checkNewVersion = require('./check-new-version')
@@ -23,7 +23,7 @@ const caps = []
 // }
 
 main().catch((error) => {
-  logger.error(error)
+  logger.error('exception', error)
 })
 
 async function main() {
@@ -144,7 +144,7 @@ function addListener(addr) {
     try {
       onEventParser(slice, handleEvent)
     } catch (error) {
-      logger.error(error, slice)
+      logger.error('error parsing packet', { error, slice })
     }
   })
 

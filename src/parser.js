@@ -1,5 +1,6 @@
 const BufferReader = require('./buffer-reader')
 const logger = require('./logger')
+const { prettyPrintBuffer } = require('./utils')
 
 function onEventParser(buffer, cb) {
   const br = new BufferReader(buffer)
@@ -55,7 +56,7 @@ function onEventParser(buffer, cb) {
           cb(event)
         }
       } catch (error) {
-        logger.error(error)
+        logger.warn(`Can't parse packet: ${prettyPrintBuffer(payload)}`, error)
       }
     } else {
       br.position += operationLength
