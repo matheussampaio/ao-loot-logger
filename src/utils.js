@@ -50,10 +50,10 @@ function white(text) {
  * Convert array of 16 byte values to UUID string format of the form:
  * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
  */
-const byteToHex = [];
+const byteToHex = []
 
 for (let i = 0; i < 256; ++i) {
-  byteToHex.push((i + 0x100).toString(16).substr(1));
+  byteToHex.push((i + 0x100).toString(16).substr(1))
 }
 
 function uuidStringify(arr, offset = 0) {
@@ -80,7 +80,7 @@ function uuidStringify(arr, offset = 0) {
     byteToHex[arr[offset + 13]] +
     byteToHex[arr[offset + 14]] +
     byteToHex[arr[offset + 15]]
-  ).toLowerCase();
+  ).toLowerCase()
 
   // Consistency check for valid UUID.  If this throws, it's likely due to one
   // of the following:
@@ -88,10 +88,10 @@ function uuidStringify(arr, offset = 0) {
   // "undefined" in the uuid)
   // - Invalid input values for the RFC `version` or `variant` fields
   if (!validate(uuid)) {
-    throw TypeError('Stringified UUID is invalid');
+    throw TypeError('Stringified UUID is invalid')
   }
 
-  return uuid;
+  return uuid
 }
 
 module.exports = {
