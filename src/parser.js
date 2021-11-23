@@ -1,4 +1,5 @@
 const BufferReader = require('./buffer-reader')
+const logger = require('./logger')
 
 function onEventParser(buffer, cb) {
   const br = new BufferReader(buffer)
@@ -54,7 +55,7 @@ function onEventParser(buffer, cb) {
           cb(event)
         }
       } catch (error) {
-        console.error(error)
+        logger.error(error)
       }
     } else {
       br.position += operationLength

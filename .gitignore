@@ -4,3 +4,6 @@ cache/
 build/
 
 *.txt
+*.log
+
+event-codes.js

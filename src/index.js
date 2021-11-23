@@ -2,38 +2,28 @@ const { Cap, decoders } = require('cap')
 const path = require('path')
 
 const items = require('./items')
-const Logger = require('./logger')
+const logger = require('./loot-logger')
+const LootLogger = require('./loot-logger')
 const { onEventParser } = require('./parser')
 const checkNewVersion = require('./check-new-version')
-const { prettyPrintBuffer, green } = require('./utils')
+const { green } = require('./utils')
 const package = require('../package.json')
 
-const logger = new Logger()
-const dumplogger = process.env.DUMP ? new Logger('dump.txt') : null
+const lootLogger = new LootLogger()
 
-const players = []
 const playersDb = {}
 const caps = []
 
-if (process.env.FOLLOW_PLAYERS) {
-  for (const player of process.env.FOLLOW_PLAYERS.split(',')) {
-    players.push({
-      buf: Buffer.from(player),
-      logger: new Logger(`${player}.txt`)
-    })
-  }
-}
+// let alive = true
 
-let alive = true
-
-function keepAlive() {
-  if (alive) {
-    setTimeout(keepAlive, 1000)
-  }
-}
+// function keepAlive() {
+//   if (alive) {
+//     setTimeout(keepAlive, 1000)
+//   }
+// }
 
 main().catch((error) => {
-  console.error(error)
+  logger.error(error)
 })
 
 async function main() {
@@ -82,7 +72,7 @@ async function main() {
   process.stdin.on('data', onKeypressed)
 
   process.once('SIGTERM', () => {
-    alive = false
+    // alive = false
 
     process.stdin.removeListener(onKeypressed)
 
@@ -93,7 +83,7 @@ async function main() {
 
   console.info(
     'Logs will be saved to',
-    path.join(process.cwd(), logger.logFileName)
+    path.join(process.cwd(), lootLogger.logFileName)
   )
 
   console.info(`Press "d" to create a new log file.\n`)
@@ -110,11 +100,14 @@ function onKeypressed(key) {
   }
 
   if (key.toLowerCase() === ROTATE_LOGGER_FILE_KEY) {
-    logger.createNewLogFileName()
-    logger.close()
+    lootLogger.createNewLogFileName()
+    lootLogger.close()
 
     console.info(
-      `Logs will be saved to ${path.join(process.cwd(), logger.logFileName)}\n`
+      `Logs will be saved to ${path.join(
+        process.cwd(),
+        lootLogger.logFileName
+      )}\n`
     )
   }
 }
@@ -148,25 +141,11 @@ function addListener(addr) {
 
     const slice = buffer.slice(ret.offset, ret.offset + ret.info.length)
 
-    if (process.env.DUMP) {
-      dumplogger.log(prettyPrintBuffer(slice))
-    }
-
-    for (const player of players) {
-      if (slice.indexOf(player.buf) !== -1) {
-        player.logger.log(prettyPrintBuffer(slice))
-      }
-    }
-
     try {
       onEventParser(slice, handleEvent)
     } catch (error) {
-      console.error(error, slice)
+      logger.error(error, slice)
     }
-  })
-
-  c.on('end', (...args) => {
-    console.log('closed')
   })
 
   const linkType = c.open(device, filter, bufSize, buffer)
@@ -293,7 +272,7 @@ function onOtherGrabbedLoot(event) {
     playersDb[lootedBy] ?? ''
   }`
 
-  logger.log(line)
+  lootLogger.log(line)
 
   const prettyLine = `${date.toLocaleString()}: ${
     playersDb[lootedBy] ? `[${playersDb[lootedBy]}] ` : ''

@@ -1,56 +1,30 @@
-const fs = require('fs')
+const winston = require('winston')
 
-const streams = []
-
-process.once('SIGTERM', () => {
-  for (const stream of streams) {
-    stream.close()
-  }
+const transport = new winston.transports.File({
+  maxFiles: 5,
+  maxsize: 1024 * 10,
+  tailable: true,
+  filename: 'ao-loot-logger.log'
 })
 
-class Logger {
-  constructor(overrideFilename) {
-    this.stream = null
-    this.logFileName = null
+const logger = winston.createLogger({
+  level: 'debug',
+  format: winston.format.json(),
+  defaultMeta: { service: 'ao-loot-logger' },
+  transports: [transport],
+  exceptionHandlers: [transport]
+})
 
-    this.overrideFilename = overrideFilename
-
-    this.createNewLogFileName()
-  }
-
-  init() {
-    if (this.stream != null) {
-      this.stream.close()
-    }
-
-    this.stream = fs.createWriteStream(this.logFileName, { flags: 'a' })
-
-    streams.push(this.stream)
-  }
-
-  createNewLogFileName() {
-    const d = new Date()
-
-    this.logFileName =
-      this.overrideFilename ||
-      `log-${d.getUTCDate()}-${d.getUTCMonth() + 1}-${d.getUTCFullYear()}-${d.getUTCHours()}-${d.getUTCMinutes()}-${d.getUTCSeconds()}.txt`
-  }
-
-  log(line) {
-    if (this.stream == null) {
-      this.init()
-    }
-
-    this.stream.write(line + '\n')
-  }
-
-  close() {
-    if (this.stream != null) {
-      this.stream.close()
-    }
-
-    this.stream = null
-  }
+//
+// If we're not in production then log to the `console` with the format:
+// `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
+//
+if (process.env.NODE_ENV !== 'production') {
+  logger.add(
+    new winston.transports.Console({
+      format: winston.format.simple()
+    })
+  )
 }
 
-module.exports = Logger
+module.exports = logger
