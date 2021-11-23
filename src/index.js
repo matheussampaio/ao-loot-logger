@@ -6,7 +6,7 @@ const logger = require('./logger')
 const LootLogger = require('./loot-logger')
 const { onEventParser } = require('./parser')
 const checkNewVersion = require('./check-new-version')
-const { green } = require('./utils')
+const { green, gray, white } = require('./utils')
 const package = require('../package.json')
 
 const lootLogger = new LootLogger()
@@ -187,8 +187,6 @@ function handleEvent(event) {
     // case 19: // CastHit
     // case 20: // CastHits
     // case 21: // ChannelingEnded
-    case 25: // NewCharacter
-      return onNewCharacter(event)
     // case 34: // NewSilverObject
     // case 35: // NewBuilding
     // case 52: // TakeSilver
@@ -208,11 +206,15 @@ function handleEvent(event) {
     // case 82: // RegenerationEnergyChanged
     // case 83: // RegenerationMountHealthChanged
     // case 86: // RegenerationPlayerComboChanged
+    // case 88: // NewLoot *****
     // case 103: // NewSpellEffectArea
     // case 132: // ForcedMovement
+    // case 148: // TimeSync *****
     // case 150: // ChangeMountSkin
+    // case 151: // GameEvent *****
     // case 153: // Died
     // case 154: // KnockedDown
+    // case 158: // MatchTimeLineEventEvent
     // case 196: // MountStart
     // case 197: // MountCancel
     // case 247: // ArenaRegistrationInfo
@@ -222,17 +224,8 @@ function handleEvent(event) {
     // case 336: // SteamAchievementCompleted
     //   return
 
-    // case 88: // NewLoot *****
-    //   return onNewLoot(event)
-
-    // case 148: // TimeSync *****
-    //   return onTimeSync(event)
-
-    // case 158: // MatchTimeLineEventEvent
-    //   return onMatchTimeLineEventEvent(event)
-
-    // case 151: // GameEvent *****
-    //   return onGameEvent(event)
+    case 25: // NewCharacter
+      return onNewCharacter(event)
 
     case 257: // OtherGrabbedLoot
       return onOtherGrabbedLoot(event)
@@ -249,9 +242,9 @@ function handleEvent(event) {
 function onNewCharacter(event) {
   const playerName = event.parameters[1]
   const guildName = event.parameters[8]
-  // const allianceName = event.parameters[43]
+  const allianceName = event.parameters[43]
 
-  playersDb[playerName] = guildName
+  playersDb[playerName] = { guildName, allianceName }
 }
 
 function onOtherGrabbedLoot(event) {
@@ -268,15 +261,46 @@ function onOtherGrabbedLoot(event) {
 
   const date = new Date()
 
-  const line = `${date.toISOString()};${lootedBy};${itemId};${quantity};${lootedFrom};${itemName};${
-    playersDb[lootedBy] ?? ''
-  }`
+  const line = [
+    date.toISOString(),
+    playersDb?.[lootedBy]?.allianceName ?? '',
+    playersDb?.[lootedBy]?.guildName ?? '',
+    lootedBy,
+    itemId,
+    quantity,
+    playersDb?.[lootedFrom]?.allianceName ?? '',
+    playersDb?.[lootedFrom]?.guildName ?? '',
+    lootedFrom,
+    itemName
+  ].join(';')
 
-  lootLogger.log(line)
+  lootLogger.write(line)
 
-  const prettyLine = `${date.toLocaleString()}: ${
-    playersDb[lootedBy] ? `[${playersDb[lootedBy]}] ` : ''
-  } ${lootedBy} looted ${quantity}x ${green(itemName)} from ${lootedFrom}`
+  const prettyLine = `${date.toLocaleTimeString()}: ${formatPlayerName(
+    lootedBy
+  )} looted ${quantity}x ${green(itemName)} from ${formatPlayerName(
+    lootedFrom
+  )}`
 
   console.info(prettyLine)
+}
+
+function formatPlayerName(playerName) {
+  let result = ''
+
+  const allianceName = playersDb?.[playerName]?.allianceName
+
+  if (allianceName) {
+    result += gray('{' + allianceName + '}') + ' '
+  }
+
+  const guildName = playersDb?.[playerName]?.guildName
+
+  if (guildName) {
+    result += gray('[' + guildName + ']') + ' '
+  }
+
+  result += white(playerName)
+
+  return
 }

@@ -38,6 +38,14 @@ function green(text) {
   return `\x1b[32m${text}\x1b[0m`
 }
 
+function gray(text) {
+  return `\x1b[2m${text}\x1b[0m`
+}
+
+function white(text) {
+  return `\x1b[2m${text}\x1b[0m`
+}
+
 /**
  * Convert array of 16 byte values to UUID string format of the form:
  * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -93,5 +101,7 @@ module.exports = {
   hexToInt,
   prettyPrintBuffer,
   strToBuffer,
-  uuidStringify
+  uuidStringify,
+  gray,
+  white
 }
