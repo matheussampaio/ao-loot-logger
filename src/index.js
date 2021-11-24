@@ -6,7 +6,7 @@ const logger = require('./logger')
 const LootLogger = require('./loot-logger')
 const { onEventParser } = require('./parser')
 const checkNewVersion = require('./check-new-version')
-const { green, gray, white } = require('./utils')
+const { green, gray, red } = require('./utils')
 const package = require('../package.json')
 
 const lootLogger = new LootLogger()
@@ -276,16 +276,25 @@ function onOtherGrabbedLoot(event) {
 
   lootLogger.write(line)
 
-  const prettyLine = `${date.toLocaleTimeString()}: ${formatPlayerName(
-    lootedBy
-  )} looted ${quantity}x ${green(itemName)} from ${formatPlayerName(
-    lootedFrom
-  )}`
-
-  console.info(prettyLine)
+  console.info(
+    formatLootLog({
+      date,
+      lootedBy,
+      lootedFrom,
+      quantity,
+      itemName
+    })
+  )
 }
 
-function formatPlayerName(playerName) {
+function formatLootLog({ date, lootedBy, itemName, lootedFrom, quantity }) {
+  return `${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds()} UTC: ${formatPlayerName(
+    lootedBy,
+    green
+  )} looted ${quantity}x ${itemName} from ${red(lootedFrom)}.`
+}
+
+function formatPlayerName(playerName, color) {
   let result = ''
 
   const allianceName = playersDb?.[playerName]?.allianceName
@@ -300,7 +309,7 @@ function formatPlayerName(playerName) {
     result += gray('[' + guildName + ']') + ' '
   }
 
-  result += white(playerName)
+  result += color ? color(playerName) : playerName
 
-  return
+  return result
 }

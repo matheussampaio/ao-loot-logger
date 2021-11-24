@@ -39,11 +39,11 @@ function green(text) {
 }
 
 function gray(text) {
-  return `\x1b[2m${text}\x1b[0m`
+  return `\x1b[90m${text}\x1b[0m`
 }
 
-function white(text) {
-  return `\x1b[2m${text}\x1b[0m`
+function red(text) {
+  return `\x1b[31m${text}\x1b[0m`
 }
 
 /**
@@ -103,5 +103,5 @@ module.exports = {
   strToBuffer,
   uuidStringify,
   gray,
-  white
+  red
 }

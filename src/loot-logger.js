@@ -29,9 +29,9 @@ class LootLogger {
   createNewLogFileName() {
     const d = new Date()
 
-    this.logFileName = `log-${d.getUTCDate()}-${
-      d.getUTCMonth() + 1
-    }-${d.getUTCFullYear()}-${d.getUTCHours()}-${d.getUTCMinutes()}-${d.getUTCSeconds()}.txt`
+    this.logFileName = `log-${d.getDate()}-${
+      d.getMonth() + 1
+    }-${d.getFullYear()}-${d.getHours()}-${d.getMinutes()}-${d.getSeconds()}.txt`
   }
 
   write(line) {
