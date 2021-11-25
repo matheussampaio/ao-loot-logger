@@ -71,81 +71,98 @@ function parseEvent(br) {
 
   const parameters = {}
 
+  if (br.debug) br.debug.push('    ')
+
   for (let i = 0; i < size; i++) {
     const key = br.readUInt8()
     const op = br.readUInt8()
 
+    if (br.debug) br.debug.push('    ')
     parameters[key] = readParamFromBuffer(op, br)
+    if (br.debug) br.debug.pop()
   }
 
   return { code, size, parameters }
 }
 
 function readParamFromBuffer(op, br) {
-  let size, arr, secondOp
+  // process an dict
+  if (op === 0x44) {
+    const op1 = br.readUInt8()
+    const op2 = br.readUInt8()
+    const size = br.readUInt16BE()
+    const dict = {}
 
-  switch (op) {
-    // ??? reads 16 bytes
-    case 0x44:
-      return br.readBytes(16)
+    for (let i = 0; i < size; i++) {
+      dict[readParamFromBuffer(op1, br)] = readParamFromBuffer(op2, br)
+    }
 
-    // reads a 8b integer
-    case 0x62:
-    case 0x6f:
-      return br.readUInt8()
-
-    // read float
-    case 0x66:
-      return br.readFloatBE()
-
-    // reads a 32b integer
-    case 0x69:
-      return br.readInt32BE()
-
-    // reads a 16b integer
-    case 0x6b:
-      return br.readUInt16BE()
-
-    // read 64b int (big int)
-    case 0x6c:
-      return br.readBigInt64BE()
-
-    // read an 16b interger N, then a string with length N
-    case 0x73:
-      size = br.readUInt16BE()
-
-      return br.readBytes(size).toString()
-
-    // read an 32b interger N, then an array of N int8
-    case 0x78:
-      size = br.readInt32BE()
-
-      arr = []
-
-      for (let i = 0; i < size; i++) {
-        arr.push(br.readInt8())
-      }
-
-      return arr
-
-    // an array of dynamic data
-    case 0x79:
-      size = br.readUInt16BE()
-      secondOp = br.readUInt8()
-
-      arr = []
-
-      for (let i = 0; i < size; i++) {
-        arr.push(readParamFromBuffer(secondOp, br))
-      }
-
-      return arr
-
-    default:
-      throw new Error(
-        `unknown op code: 0x${op.toString(16).toUpperCase().padStart(2, 0)}`
-      )
+    return dict
   }
+
+  // reads a 8b integer
+  if (op === 0x62 || op === 0x6f) {
+    return br.readUInt8()
+  }
+
+  // read float
+  if (op === 0x66) {
+    return br.readFloatBE()
+  }
+
+  // reads a 32b integer
+  if (op === 0x69) {
+    return br.readInt32BE()
+  }
+
+  // reads a 16b integer
+  if (op === 0x6b) {
+    return br.readUInt16BE()
+  }
+
+  // read 64b int (big int)
+  if (op === 0x6c) {
+    return br.readBigInt64BE()
+  }
+
+  // read an 16b interger N, then a string with length N
+  if (op === 0x73) {
+    const size = br.readUInt16BE()
+
+    return br.readBytes(size).toString()
+  }
+
+  // read an 32b interger N, then an array of N int8
+  if (op === 0x78) {
+    const size = br.readInt32BE()
+    const arr = []
+
+    for (let i = 0; i < size; i++) {
+      arr.push(br.readUInt8())
+    }
+
+    return arr
+  }
+
+  // an array of dynamic data
+  if (op === 0x79) {
+    const size = br.readUInt16BE()
+    const secondOp = br.readUInt8()
+    const arr = []
+
+    for (let i = 0; i < size; i++) {
+      arr.push(readParamFromBuffer(secondOp, br))
+    }
+
+    return arr
+  }
+
+  throw new Error(
+    `unknown op code. op=0x${op
+      .toString(16)
+      .toUpperCase()
+      .padStart(2, 0)} position=${br.position - 1}`
+  )
 }
 
 module.exports = { onEventParser, parseEvent }

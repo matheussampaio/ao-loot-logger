@@ -6,12 +6,13 @@ const logger = require('./logger')
 const LootLogger = require('./loot-logger')
 const { onEventParser } = require('./parser')
 const checkNewVersion = require('./check-new-version')
-const { green, gray, red } = require('./utils')
+const { green, gray, red, uuidStringify } = require('./utils')
 const package = require('../package.json')
 
 const lootLogger = new LootLogger()
 
 const playersDb = {}
+const guildDb = {}
 const caps = []
 
 // let alive = true
@@ -159,84 +160,59 @@ function addListener(addr) {
   }
 }
 
-// eventsDump = {}
-
-// setInterval(() => {
-//   console.log(eventsDump)
-
-//   eventsDump = {}
-// }, 60000)
-
 function handleEvent(event) {
   if (!event || event.code !== 1) {
     return
   }
 
+  // const str = JSON.stringify(event, (key, value) =>
+  //   typeof value === 'bigint' ? value.toString() + 'n' : value
+  // )
+
   const eventId = event?.parameters?.[252]
 
   switch (eventId) {
-    // case 1: // Leave
-    // case 6: // HealthUpdate
-    // case 7: // EnergyUpdate
-    // case 10: // ActiveSpellEffectsUpdate
-    // case 12: // Attack
-    // case 13: // CastStart
-    // case 15: // CastCancel
-    // case 17: // CastFinished
-    // case 18: // CastSpell
-    // case 19: // CastHit
-    // case 20: // CastHits
-    // case 21: // ChannelingEnded
-    // case 34: // NewSilverObject
-    // case 35: // NewBuilding
-    // case 52: // TakeSilver
-    // case 53: // ActionOnBuildingStart
-    // case 54: // ActionOnBuildingCancel
-    // case 55: // ActionOnBuildingFinished
-    // case 56: // ItemRerollQualityStart
-    // case 58: // ItemRerollQualityFinished
-    // case 62: // CraftItemFinished
-    // case 65: // ChatSay
-    // case 68: // PlayEmote
-    // case 69: // StopEmote
-    // case 96: // InvitedToGuild
-    // case 78: // Respawn
-    // case 80: // CharacterEquipmentChanged  *****
-    // case 81: // RegenerationHealthChanged
-    // case 82: // RegenerationEnergyChanged
-    // case 83: // RegenerationMountHealthChanged
-    // case 86: // RegenerationPlayerComboChanged
-    // case 88: // NewLoot *****
-    // case 103: // NewSpellEffectArea
-    // case 132: // ForcedMovement
-    // case 148: // TimeSync *****
-    // case 150: // ChangeMountSkin
-    // case 151: // GameEvent *****
-    // case 153: // Died
-    // case 154: // KnockedDown
-    // case 158: // MatchTimeLineEventEvent
-    // case 196: // MountStart
-    // case 197: // MountCancel
-    // case 247: // ArenaRegistrationInfo
-    // case 250: // EnteringArenaLockStart
-    // case 255: // Unknown255
-    // case 290: // UnrestrictedPvpZoneUpdate
-    // case 336: // SteamAchievementCompleted
-    //   return
+    case 130: // CharacterStats
+      return onCharacterStats(event)
 
-    case 25: // NewCharacter
+    case 133: // GuildStats
+      return onGuildStats(event)
+
+    case 26: // NewCharacter
       return onNewCharacter(event)
 
-    case 257: // OtherGrabbedLoot
+    case 256: // OtherGrabbedLoot
       return onOtherGrabbedLoot(event)
   }
+}
 
-  // if (eventsDump[eventId] == null) {
-  //   eventsDump[eventId] = { count: 0, latest: null }
-  // }
+function onCharacterStats(event) {
+  const playerName = event.parameters[1]
+  const guildName = event.parameters[2]
+  const allianceName = event.parameters[4]
 
-  // eventsDump[eventId].count += 1
-  // eventsDump[eventId].latest = event
+  if (guildName && guildDb[guildName] == null) {
+    guildDb[guildName] = { guildName }
+  }
+
+  if (allianceName && guildDb[guildName].allianceName !== allianceName) {
+    guildDb[guildName].allianceName = allianceName
+  }
+
+  playersDb[playerName] = guildDb[guildName]
+}
+
+function onGuildStats(event) {
+  const guildName = event.parameters[1]
+  const uuid = uuidStringify(event.parameters[2])
+
+  if (guildName && guildDb[guildName] == null) {
+    guildDb[guildName] = { uuid, guildName }
+  }
+
+  if (uuid && guildDb[guildName] && guildDb[guildName].uuid !== uuid) {
+    guildDb[guildName].uuid = uuid
+  }
 }
 
 function onNewCharacter(event) {
@@ -244,7 +220,19 @@ function onNewCharacter(event) {
   const guildName = event.parameters[8]
   const allianceName = event.parameters[43]
 
-  playersDb[playerName] = { guildName, allianceName }
+  if (guildName && guildDb[guildName] == null) {
+    guildDb[guildName] = { guildName }
+  }
+
+  if (
+    allianceName &&
+    guildDb[guildName] &&
+    guildDb[guildName].allianceName !== allianceName
+  ) {
+    guildDb[guildName].allianceName = allianceName
+  }
+
+  playersDb[playerName] = guildDb[guildName]
 }
 
 function onOtherGrabbedLoot(event) {
@@ -261,20 +249,22 @@ function onOtherGrabbedLoot(event) {
 
   const date = new Date()
 
-  const line = [
-    date.toISOString(),
-    playersDb?.[lootedBy]?.allianceName ?? '',
-    playersDb?.[lootedBy]?.guildName ?? '',
-    lootedBy,
+  lootLogger.write({
+    date,
     itemId,
     quantity,
-    playersDb?.[lootedFrom]?.allianceName ?? '',
-    playersDb?.[lootedFrom]?.guildName ?? '',
-    lootedFrom,
-    itemName
-  ].join(';')
-
-  lootLogger.write(line)
+    itemName,
+    lootedBy: {
+      allianceName: playersDb?.[lootedBy]?.allianceName,
+      guildName: playersDb?.[lootedBy]?.guildName,
+      playerName: lootedBy
+    },
+    lootedFrom: {
+      allianceName: playersDb?.[lootedFrom]?.allianceName,
+      guildName: playersDb?.[lootedFrom]?.guildName,
+      playerName: lootedFrom
+    }
+  })
 
   console.info(
     formatLootLog({
@@ -288,7 +278,11 @@ function onOtherGrabbedLoot(event) {
 }
 
 function formatLootLog({ date, lootedBy, itemName, lootedFrom, quantity }) {
-  return `${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds()} UTC: ${formatPlayerName(
+  const hours = date.getUTCHours().toString().padStart(2, '0')
+  const minute = date.getUTCMinutes().toString().padStart(2, '0')
+  const seconds = date.getUTCSeconds().toString().padStart(2, '0')
+
+  return `${hours}:${minute}:${seconds} UTC: ${formatPlayerName(
     lootedBy,
     green
   )} looted ${quantity}x ${itemName} from ${red(lootedFrom)}.`

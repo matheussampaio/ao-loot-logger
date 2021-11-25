@@ -23,6 +23,21 @@ class LootLogger {
 
     this.stream = fs.createWriteStream(this.logFileName, { flags: 'a' })
 
+    const header = [
+      'timestamp_utc',
+      'looted_by__alliance',
+      'looted_by__guild',
+      'looted_by__name',
+      'item_id',
+      'item_name',
+      'quantity',
+      'looted_from__alliance',
+      'looted_from__guild',
+      'looted_from__name'
+    ].join(';')
+
+    this.stream.write(header + '\n')
+
     streams.push(this.stream)
   }
 
@@ -34,10 +49,23 @@ class LootLogger {
     }-${d.getFullYear()}-${d.getHours()}-${d.getMinutes()}-${d.getSeconds()}.txt`
   }
 
-  write(line) {
+  write({ date, itemId, quantity, itemName, lootedBy, lootedFrom }) {
     if (this.stream == null) {
       this.init()
     }
+
+    const line = [
+      date.toISOString(),
+      lootedBy.allianceName ?? '',
+      lootedBy.guildName ?? '',
+      lootedBy.playerName,
+      itemId,
+      itemName,
+      quantity,
+      lootedFrom.allianceName ?? '',
+      lootedFrom.guildName ?? '',
+      lootedFrom.playerName
+    ].join(';')
 
     this.stream.write(line + '\n')
   }
