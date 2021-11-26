@@ -11,7 +11,7 @@
   "pkg_cache_path": ".pkg-cache",
   "icon": "assets/logo.ico",
   "name": "ao-loot-logger-win",
-  "description": "Albion Loot Logger",
+  "description": "AO Loot Logger",
   "company": "matheussampaio",
   "copyright": "MIT",
   "file": "src/index.js"
