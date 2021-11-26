@@ -25,8 +25,8 @@ async function dev() {
       .map((e) => parseInt(e, 16))
 
     const buffer = Buffer.from(data)
-    const br = new BufferReader(buffer)
+    const br = new BufferReader(buffer, ['    '])
 
-    console.log(parser.parseEvent(br))
+    console.log(parser.parseEvent(br, true))
   }
 }
