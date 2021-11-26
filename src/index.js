@@ -30,6 +30,14 @@ main().catch((error) => {
 async function main() {
   // keepAlive()
 
+  // set terminal title
+  process.stdout.write(
+    String.fromCharCode(27) +
+      ']0;' +
+      `AO Loot Logger - v${package.version}` +
+      String.fromCharCode(7)
+  )
+
   console.info(`AO Loot Logger - v${package.version}\n`)
 
   await Promise.all([checkNewVersion(), items.init()])

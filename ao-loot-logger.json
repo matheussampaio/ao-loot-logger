@@ -1,0 +1,18 @@
+{
+  "pkg": {
+    "scripts": "src/**/*.js",
+    "targets": [
+      "host"
+    ],
+    "outputPath": "dist"
+  },
+  "pkg_fetch_version": "3.2",
+  "node_version": "16.12.0",
+  "pkg_cache_path": ".pkg-cache",
+  "icon": "assets/logo.ico",
+  "name": "ao-loot-logger-win",
+  "description": "Albion Loot Logger",
+  "company": "matheussampaio",
+  "copyright": "MIT",
+  "file": "src/index.js"
+}

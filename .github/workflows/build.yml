@@ -2,34 +2,51 @@ name: build
 
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
 
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [windows-2019, ubuntu-20.04]
-        include:
-          - os: windows-2019
-            platform: win
-          - os: ubuntu-20.04
-            platform: linux
+  build-win:
+    runs-on: windows-2019
 
     steps:
       - uses: actions/checkout@v2
 
       - uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: '16.12.0'
+
+      - name: Install dependecies
+        run: npm ci
+
+      - name: Set next build version
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npm --no-git-tag-version --force version $(npx semantic-release --dry-run --plugins @semantic-release/release-notes-generator | grep -oE '# ([0-9]+.[0-9]+.[0-9]+)' | sed 's/# //')
+
+      - name: Create executable
+        run: node build.js ao-loot-logger
+
+      - uses: actions/upload-artifact@main
+        with:
+          name: ao-loot-logger-win
+          path: dist/ao-loot-logger-win*
+          if-no-files-found: error
+
+  build-linux:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.12.0'
 
       # not sure if we need libpcap to build for linux
       # users probably need to have it installed in their computer eitherway.
       - name: Install libpcap
-        if: ${{ matrix.platform == 'linux' }}
         run: sudo apt-get install libpcap-dev -y
 
       - name: Install dependecies
@@ -41,10 +58,10 @@ jobs:
         run: npm --no-git-tag-version --force version $(npx semantic-release --dry-run --plugins @semantic-release/release-notes-generator | grep -oE '# ([0-9]+.[0-9]+.[0-9]+)' | sed 's/# //')
 
       - name: Create executable
-        run: npm run build -- --output ao-loot-logger-${{ matrix.platform }}
+        run: npx pkg package.json --targets host --output ao-loot-logger-linux
 
       - uses: actions/upload-artifact@main
         with:
-          name: ao-loot-logger-${{ matrix.platform }}
-          path: ao-loot-logger-${{ matrix.platform }}*
+          name: ao-loot-logger-linux
+          path: ao-loot-logger-linux*
           if-no-files-found: error
