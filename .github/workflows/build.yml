@@ -63,5 +63,5 @@ jobs:
       - uses: actions/upload-artifact@main
         with:
           name: ao-loot-logger-linux
-          path: ao-loot-logger-linux*
+          path: dist/ao-loot-logger-linux*
           if-no-files-found: error
