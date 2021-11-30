@@ -1,6 +1,5 @@
 {
   "pkg": {
-    "scripts": "src/**/*.js",
     "targets": [
       "host"
     ],

@@ -1,38 +1,43 @@
 const axios = require('axios')
-const fallback = require('./items-fallback.js')
 
-const items = {}
+const fallback = require('./items-fallback')
 
-async function init() {
-  let data = ''
-
-  try {
-    const response = await axios.get(
-      'https://raw.githubusercontent.com/broderickhyman/ao-bin-dumps/master/formatted/items.txt'
-    )
-
-    data = response.data
-  } catch (error) {
-    data = fallback
+class Items {
+  constructor() {
+    this.items = {}
   }
 
-  for (const line of data.trim().split('\n')) {
-    const raw = line.split(':')
+  async init() {
+    let data = ''
 
-    const itemNumId = parseInt(raw[0].trim(), 10)
-    const itemId = raw[1].trim()
-    const itemName = raw[2] != null ? raw[2].trim() : itemId
+    try {
+      const response = await axios.get(
+        'https://raw.githubusercontent.com/broderickhyman/ao-bin-dumps/master/formatted/items.txt'
+      )
 
-    items[itemNumId] = {
-      itemNumId,
-      itemId,
-      itemName
+      data = response.data
+    } catch (error) {
+      data = fallback
+    }
+
+    for (const line of data.trim().split('\n')) {
+      const raw = line.split(':')
+
+      const itemNumId = parseInt(raw[0].trim(), 10)
+      const itemId = raw[1].trim()
+      const itemName = raw[2] != null ? raw[2].trim() : itemId
+
+      this.items[itemNumId] = {
+        itemNumId,
+        itemId,
+        itemName
+      }
     }
   }
+
+  get(itemNumId) {
+    return this.items[itemNumId]
+  }
 }
 
-function get(itemNumId) {
-  return items[itemNumId]
-}
-
-module.exports = { init, get }
+module.exports = new Items()

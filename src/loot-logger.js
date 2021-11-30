@@ -1,13 +1,5 @@
 const fs = require('fs')
 
-const streams = []
-
-process.once('SIGTERM', () => {
-  for (const stream of streams) {
-    stream.close()
-  }
-})
-
 class LootLogger {
   constructor() {
     this.stream = null
@@ -38,7 +30,9 @@ class LootLogger {
 
     this.stream.write(header + '\n')
 
-    streams.push(this.stream)
+    process.on('exit', () => {
+      this.close()
+    })
   }
 
   createNewLogFileName() {
@@ -79,4 +73,4 @@ class LootLogger {
   }
 }
 
-module.exports = LootLogger
+module.exports = new LootLogger()

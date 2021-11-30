@@ -7,4 +7,5 @@ build/
 *.txt
 *.log
 
-event-codes.js
+event-codes.txt
+operation-codes.txt

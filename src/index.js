@@ -1,317 +1,110 @@
-const { Cap, decoders } = require('cap')
 const path = require('path')
 
-const items = require('./items')
-const logger = require('./logger')
-const LootLogger = require('./loot-logger')
-const { onEventParser } = require('./parser')
+const { green, red } = require('./utils/colors')
+const AlbionNetwork = require('./network/albion-network')
 const checkNewVersion = require('./check-new-version')
-const { green, gray, red, uuidStringify } = require('./utils')
-const package = require('../package.json')
+const DataHandler = require('./data-handler/data-handler')
+const Items = require('./items')
+const KeyboardInput = require('./keyboard-input')
+const LootLogger = require('./loot-logger')
 
-const lootLogger = new LootLogger()
+const { version } = require('../package.json')
 
-const playersDb = {}
-const guildDb = {}
-const caps = []
+const CTRL_C = '\u0003'
+const ROTATE_LOGGER_FILE_KEY = 'd'
+const RESTART_NETWORK_FILE_KEY = 'r'
+const TITLE = `AO Loot Logger - v${version}`
 
-// let alive = true
-
-// function keepAlive() {
-//   if (alive) {
-//     setTimeout(keepAlive, 1000)
-//   }
-// }
-
-main().catch((error) => {
-  logger.error('exception', error)
-})
+main()
 
 async function main() {
-  // keepAlive()
+  setWindowTitle(TITLE)
 
-  // set terminal title
-  process.stdout.write(
-    String.fromCharCode(27) +
-      ']0;' +
-      `AO Loot Logger - v${package.version}` +
-      String.fromCharCode(7)
-  )
+  console.info(`${TITLE}\n`)
 
-  console.info(`AO Loot Logger - v${package.version}\n`)
+  await Promise.all([checkNewVersion(), Items.init()])
 
-  await Promise.all([checkNewVersion(), items.init()])
-
-  const addrs = []
-
-  for (const device of Cap.deviceList()) {
-    for (const address of device.addresses) {
-      if (address.addr.match(/\d+\.\d+\.\d+\.\d+/)) {
-        const infos = []
-
-        if (device.name) {
-          infos.push(device.name)
-        }
-
-        if (device.description) {
-          infos.push(device.description)
-        }
-
-        if (infos.length) {
-          console.info(`Listening to ${infos.join(' - ')}`)
-        }
-
-        addrs.push(address.addr)
-      }
-    }
-  }
-
-  console.info()
-
-  for (const addr of addrs) {
-    addListener(addr)
-  }
-
-  process.stdin.setRawMode(true)
-
-  process.stdin.resume()
-
-  process.stdin.setEncoding('utf8')
-
-  process.stdin.on('data', onKeypressed)
-
-  process.once('SIGTERM', () => {
-    // alive = false
-
-    process.stdin.removeListener(onKeypressed)
-
-    for (const cap of caps) {
-      cap.close()
-    }
+  AlbionNetwork.on('add-listener', (device) => {
+    console.info(`Listening to ${device.name}`)
   })
 
-  console.info(
-    'Logs will be saved to',
-    path.join(process.cwd(), lootLogger.logFileName)
-  )
+  AlbionNetwork.on('event-data', DataHandler.handleEventData)
+  AlbionNetwork.on('request-data', DataHandler.handleRequestData)
+  AlbionNetwork.on('response-data', DataHandler.handleResponseData)
 
-  console.info(`Press "d" to create a new log file.\n`)
-}
+  AlbionNetwork.on('online', () => {
+    console.info(`\n\t${green('ONLINE')}. Loot events should be detected.\n`)
+    setWindowTitle(`[ON] ${TITLE}`)
+  })
 
-function onKeypressed(key) {
-  const CTRL_C = '\u0003'
-  const ROTATE_LOGGER_FILE_KEY = 'd'
-
-  if (key === CTRL_C) {
-    console.info('Exiting...')
-
-    process.exit()
-  }
-
-  if (key.toLowerCase() === ROTATE_LOGGER_FILE_KEY) {
-    lootLogger.createNewLogFileName()
-    lootLogger.close()
-
+  AlbionNetwork.on('offline', () => {
     console.info(
-      `Logs will be saved to ${path.join(
-        process.cwd(),
-        lootLogger.logFileName
-      )}\n`
+      `\n\t${red(
+        'OFFLINE'
+      )}.\n\n\tIf Albion is running and you're logged in with one character, ${green(
+        `press "${RESTART_NETWORK_FILE_KEY}" to restart`
+      )} the network listeners.\n`
     )
-  }
-}
 
-function addListener(addr) {
-  const c = new Cap()
-
-  const ALBION_PORT = 5056
-
-  const filter = `ip and udp port ${ALBION_PORT}`
-  const bufSize = 1 * 1024 * 1024
-  const buffer = Buffer.alloc(2024)
-  const device = Cap.findDevice(addr)
-
-  caps.push(c)
-
-  c.on('packet', () => {
-    let ret = decoders.Ethernet(buffer)
-
-    if (ret.info.type !== decoders.PROTOCOL.ETHERNET.IPV4) {
-      return
-    }
-
-    ret = decoders.IPV4(buffer, ret.offset)
-
-    if (ret.info.protocol !== decoders.PROTOCOL.IP.UDP) {
-      return
-    }
-
-    ret = decoders.UDP(buffer, ret.offset)
-
-    const slice = buffer.slice(ret.offset, ret.offset + ret.info.length)
-
-    try {
-      onEventParser(slice, handleEvent)
-    } catch (error) {
-      logger.error('error parsing packet', { error, slice })
-    }
+    setWindowTitle(`[OFF] ${TITLE}`)
   })
 
-  const linkType = c.open(device, filter, bufSize, buffer)
-
-  if (c.setMinBytes != null) {
-    c.setMinBytes(0)
-  }
-
-  if (linkType !== 'ETHERNET') {
-    return c.close()
-  }
-}
-
-function handleEvent(event) {
-  if (!event || event.code !== 1) {
-    return
-  }
-
-  // const str = JSON.stringify(event, (key, value) =>
-  //   typeof value === 'bigint' ? value.toString() + 'n' : value
-  // )
-
-  const eventId = event?.parameters?.[252]
-
-  switch (eventId) {
-    case 130: // CharacterStats
-      return onCharacterStats(event)
-
-    case 133: // GuildStats
-      return onGuildStats(event)
-
-    case 26: // NewCharacter
-      return onNewCharacter(event)
-
-    case 256: // OtherGrabbedLoot
-      return onOtherGrabbedLoot(event)
-  }
-}
-
-function onCharacterStats(event) {
-  const playerName = event.parameters[1]
-  const guildName = event.parameters[2]
-  const allianceName = event.parameters[4]
-
-  if (guildName && guildDb[guildName] == null) {
-    guildDb[guildName] = { guildName }
-  }
-
-  if (allianceName && guildDb[guildName].allianceName !== allianceName) {
-    guildDb[guildName].allianceName = allianceName
-  }
-
-  playersDb[playerName] = guildDb[guildName]
-}
-
-function onGuildStats(event) {
-  const guildName = event.parameters[1]
-  const uuid = uuidStringify(event.parameters[2])
-
-  if (guildName && guildDb[guildName] == null) {
-    guildDb[guildName] = { uuid, guildName }
-  }
-
-  if (uuid && guildDb[guildName] && guildDb[guildName].uuid !== uuid) {
-    guildDb[guildName].uuid = uuid
-  }
-}
-
-function onNewCharacter(event) {
-  const playerName = event.parameters[1]
-  const guildName = event.parameters[8]
-  const allianceName = event.parameters[43]
-
-  if (guildName && guildDb[guildName] == null) {
-    guildDb[guildName] = { guildName }
-  }
-
-  if (
-    allianceName &&
-    guildDb[guildName] &&
-    guildDb[guildName].allianceName !== allianceName
-  ) {
-    guildDb[guildName].allianceName = allianceName
-  }
-
-  playersDb[playerName] = guildDb[guildName]
-}
-
-function onOtherGrabbedLoot(event) {
-  if (event.size !== 6) {
-    return
-  }
-
-  const lootedFrom = event.parameters[1]
-  const lootedBy = event.parameters[2]
-  const itemNumId = event.parameters[4]
-  const quantity = event.parameters[5]
-
-  const { itemId, itemName } = items.get(itemNumId)
-
-  const date = new Date()
-
-  lootLogger.write({
-    date,
-    itemId,
-    quantity,
-    itemName,
-    lootedBy: {
-      allianceName: playersDb?.[lootedBy]?.allianceName,
-      guildName: playersDb?.[lootedBy]?.guildName,
-      playerName: lootedBy
-    },
-    lootedFrom: {
-      allianceName: playersDb?.[lootedFrom]?.allianceName,
-      guildName: playersDb?.[lootedFrom]?.guildName,
-      playerName: lootedFrom
-    }
-  })
+  AlbionNetwork.init()
 
   console.info(
-    formatLootLog({
-      date,
-      lootedBy,
-      lootedFrom,
-      quantity,
-      itemName
-    })
+    '\nLogs will be written to',
+    path.join(process.cwd(), LootLogger.logFileName)
+  )
+
+  KeyboardInput.on('key-pressed', (key) => {
+    switch (key) {
+      case CTRL_C:
+        return exit()
+
+      case RESTART_NETWORK_FILE_KEY.toLocaleLowerCase():
+      case RESTART_NETWORK_FILE_KEY.toUpperCase():
+        return restartNetwork()
+
+      case ROTATE_LOGGER_FILE_KEY.toLocaleLowerCase():
+      case ROTATE_LOGGER_FILE_KEY.toUpperCase():
+        return rotateLogFile()
+    }
+  })
+
+  KeyboardInput.init()
+
+  console.info(
+    `\n\tYou can always press "${ROTATE_LOGGER_FILE_KEY}" to start a new log file.\n`
   )
 }
 
-function formatLootLog({ date, lootedBy, itemName, lootedFrom, quantity }) {
-  const hours = date.getUTCHours().toString().padStart(2, '0')
-  const minute = date.getUTCMinutes().toString().padStart(2, '0')
-  const seconds = date.getUTCSeconds().toString().padStart(2, '0')
-
-  return `${hours}:${minute}:${seconds} UTC: ${formatPlayerName(
-    lootedBy,
-    green
-  )} looted ${quantity}x ${itemName} from ${red(lootedFrom)}.`
+function restartNetwork() {
+  if (!AlbionNetwork.isLive) {
+    AlbionNetwork.close()
+    AlbionNetwork.init()
+  }
 }
 
-function formatPlayerName(playerName, color) {
-  let result = ''
+function setWindowTitle(title) {
+  process.stdout.write(
+    String.fromCharCode(27) + ']0;' + title + String.fromCharCode(7)
+  )
+}
 
-  const allianceName = playersDb?.[playerName]?.allianceName
+function exit() {
+  console.info('Exiting...')
 
-  if (allianceName) {
-    result += gray('{' + allianceName + '}') + ' '
-  }
+  process.exit(0)
+}
 
-  const guildName = playersDb?.[playerName]?.guildName
+function rotateLogFile() {
+  LootLogger.close()
+  LootLogger.createNewLogFileName()
 
-  if (guildName) {
-    result += gray('[' + guildName + ']') + ' '
-  }
-
-  result += color ? color(playerName) : playerName
-
-  return result
+  console.info(
+    `From now on, logs will be written to ${path.join(
+      process.cwd(),
+      LootLogger.logFileName
+    )}\n`
+  )
 }

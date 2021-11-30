@@ -1,32 +1,29 @@
-const BufferReader = require('./buffer-reader')
-const items = require('./items')
+const PhotonParser = require('./network/photon/photon-parser')
 
-const parser = require('./parser')
-
-dev()
-
-/**
- * Dev entry point to help debugging packets.
- */
 async function dev() {
-  await items.init()
+  const pp = new PhotonParser([])
+
+  pp.on('event-data', (event) => {
+    Logger.debug(event)
+  })
 
   const packets = [
-    // `01 00 06 00 6B 01 36 01 73 00 0E 6D 61 74 68 65 75 73 73 61 6D 70 61 69 6F 02 73 00 08 4A 4D 4C 65 67 65 6E 64 04 6B 05 C7 05 62 01 FC 6B 01 04`,
-    `01 00 06 00 69 00 3E 7F 60 01 73 00 0E 6D 61 74 68 65 75 73 73 61 6D 70 61 69 6F 02 73 00 09 73 61 73 75 6B 65 31 39 39 04 6B 02 28 05 62 02 FC 6B 01 04`,
-    `01 00 05 00 69 00 20 BB 0D 02 73 00 0D 4D 61 73 74 65 72 4F 66 46 6F 72 67 65 03 6F 01 05 69 27 56 CD 00 FC 6B 01 04`
+    `01 78 00 00 00 60 1A EA 33 BB D8 E8 70 50 F1 3D E1 F7 D9 15 90 1D 01 3D 03 2F 56 5E 31 1C 82 CA D6 0F D6 B8 56 A5 76
+    D6 63 0B 1B 99 05 49 3E EB 96 F2 67 4C B7 C4 B1 50 56 FC 52 28 B7 BA 89 0B 97 A5 5E B8 24 70 A0 B7 60 BD 0B C0 47 AF
+    35 EF 7F 3A DD B9 5D 58 BE 79 99 39 77 BF 7C 16 A9 F6 C5 BB AA 22 2D 4F`
   ]
 
   for (const packet of packets) {
-    const data = packet
-      .replace(/\s+/g, ' ')
-      .trim()
-      .split(' ')
-      .map((e) => parseInt(e, 16))
+    const data = Buffer.from(
+      packet
+        .replace(/\s+/g, ' ')
+        .trim()
+        .split(' ')
+        .map((e) => parseInt(e, 16))
+    )
 
-    const buffer = Buffer.from(data)
-    const br = new BufferReader(buffer, ['    '])
-
-    console.log(parser.parseEvent(br, true))
+    pp.handleParamsTable({ parametersCount: 1, data })
   }
 }
+
+dev()

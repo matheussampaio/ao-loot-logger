@@ -1,7 +1,7 @@
 const axios = require('axios')
 
-const package = require('../package.json')
-const { green } = require('./utils')
+const { version } = require('../package.json')
+const { green } = require('./utils/colors')
 
 const url =
   'https://api.github.com/repos/matheussampaio/ao-loot-logger/releases/latest'
@@ -24,9 +24,9 @@ async function checkNewVersion() {
 
   const { data } = response
 
-  if (data.tag_name !== package.version) {
+  if (data.tag_name !== version) {
     const latestVersion = parseVersion(data.tag_name)
-    const currentVersion = parseVersion(package.version)
+    const currentVersion = parseVersion(version)
 
     const isNewVersionAvailable =
       currentVersion.major < latestVersion.major ||
