@@ -24,7 +24,7 @@ const logger = winston.createLogger({
   ),
   transports: [
     new winston.transports.File({
-      level: process.pkg != null ? 'info' : 'silly',
+      level: 'debug',
       maxFiles: 5,
       maxsize: 1024 * 1024 * 10, // 10mb
       tailable: true,
