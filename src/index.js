@@ -79,10 +79,10 @@ async function main() {
 }
 
 function restartNetwork() {
-  if (!AlbionNetwork.isLive) {
-    AlbionNetwork.close()
-    AlbionNetwork.init()
-  }
+  AlbionNetwork.close()
+  AlbionNetwork.init()
+
+  setWindowTitle(TITLE)
 }
 
 function setWindowTitle(title) {

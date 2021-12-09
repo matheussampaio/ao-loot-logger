@@ -11,11 +11,14 @@ class AlbionNetwork extends PhotonParser {
     super()
 
     this.caps = []
-
     this.lastReceivedTime = null
     this.isLive = null
 
     setInterval(() => this.checkOffline(), 5001)
+
+    process.on('exit', () => {
+      this.close()
+    })
   }
 
   checkOffline() {
@@ -59,10 +62,6 @@ class AlbionNetwork extends PhotonParser {
     for (const info of infos) {
       this.addListener(info)
     }
-
-    process.on('exit', () => {
-      this.close()
-    })
   }
 
   close() {
@@ -71,6 +70,8 @@ class AlbionNetwork extends PhotonParser {
     }
 
     this.caps = []
+    this.lastReceivedTime = null
+    this.isLive = null
   }
 
   addListener(info) {
