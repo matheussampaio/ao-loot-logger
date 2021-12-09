@@ -79,9 +79,10 @@ class AlbionNetwork extends PhotonParser {
 
     const c = new Cap()
 
+    // ip and udp and (port 5056 or port 5055 or port 4535)
     const filter = `udp port ${ALBION_PORT}`
     const bufSize = 1 * 1024 * 1024
-    const buffer = Buffer.alloc(2024)
+    const buffer = Buffer.alloc(bufSize)
     const device = Cap.findDevice(info.addr)
 
     this.caps.push(c)
