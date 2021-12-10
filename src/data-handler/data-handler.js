@@ -42,7 +42,7 @@ class DataHandler {
           return EventData.EvOtherGrabbedLoot(event)
 
         case 278: // PartyLootItems
-          return EventData.EvEvPartyLootItems(event)
+          return EventData.EvPartyLootItems(event)
 
         case 279: // PartyLootItemsRemoved
           return EventData.EvPartyLootItemsRemoved(event)
@@ -92,8 +92,6 @@ class DataHandler {
       Logger.error(error, event)
     }
   }
-
-  static scan(event) {}
 }
 
 module.exports = DataHandler

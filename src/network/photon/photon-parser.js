@@ -4,6 +4,7 @@ const BufferReader = require('../../utils/buffer-reader')
 const Protocol16 = require('../protocol16/protocol16')
 const { CrcCalculator } = require('../protocol16/crc-calculator')
 const { COMMAND_TYPE, MESSAGE_TYPE } = require('./constants')
+const Logger = require('../../utils/logger')
 
 const PHOTON_COMMAND_HEADER_LENGTH = 12
 const PHOTON_HEADER_LENGTH = 12
@@ -77,11 +78,13 @@ class PhotonParser extends EventEmitter {
       switch (commandType) {
         case COMMAND_TYPE.DISCONNECT:
           return
+
         case COMMAND_TYPE.SEND_UNRELIABLE:
           br.position += 4
           commandLength -= 4
-        // when a SEND_UNRELIABLE_TYPE command is received, we skip 4 bytes and
-        // handle as SEND_RELIABLE_TYPE. The `break` is intentionally ommited.
+          this.handleSendReliable(br.readBytes(commandLength))
+          break
+
         case COMMAND_TYPE.SEND_RELIABLE:
           this.handleSendReliable(br.readBytes(commandLength))
           break
@@ -155,30 +158,35 @@ class PhotonParser extends EventEmitter {
     }
 
     switch (messageType) {
-      case MESSAGE_TYPE.OPERATION_REQUEST:
+      case MESSAGE_TYPE.OPERATION_REQUEST: {
         const requestData = Protocol16.decodeOperationRequest(br)
 
         this.emit('request-data', requestData)
         break
-      case MESSAGE_TYPE.OPERATION_RESPONSE:
+      }
+
+      case MESSAGE_TYPE.OPERATION_RESPONSE: {
         const responseData = Protocol16.decodeOperationResponse(br)
 
         this.emit('response-data', responseData)
         break
+      }
 
-      case MESSAGE_TYPE.EVENT_DATA_TYPE:
+      case MESSAGE_TYPE.EVENT_DATA_TYPE: {
         const eventData = Protocol16.decodeEventData(br)
 
         this.emit('event-data', eventData)
         break
+      }
 
-      case MESSAGE_TYPE.INTERNAL_OPERATION_REQUEST:
+      case MESSAGE_TYPE.INTERNAL_OPERATION_REQUEST: {
         const internalRequestData = Protocol16.decodeOperationRequest(br)
 
         internalRequestData.parameters[88] = this.tickCount
 
         this.emit('request-data', internalRequestData)
         break
+      }
 
       case MESSAGE_TYPE.INTERNAL_OPERATION_RESPONSE: {
         const internalResponseData = Protocol16.decodeOperationResponse(br)

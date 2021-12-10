@@ -1,6 +1,7 @@
 const BufferReader = require('../../utils/buffer-reader')
 const { DATA_TYPE } = require('./data-type')
 const { prettyPrintBuffer } = require('../../utils/binary')
+const Logger = require('../../utils/logger')
 
 class Protocol16 {
   static decodeOperationRequest(buffer, debug) {

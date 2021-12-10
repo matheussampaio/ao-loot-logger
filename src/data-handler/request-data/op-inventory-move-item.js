@@ -27,6 +27,7 @@ function OpInventoryMoveItem(event) {
   const toUuid = uuidStringify(toEncodedUuid)
 
   if (fromUuid === toUuid) {
+    return
   }
 
   let container = MemoryStorage.containers.getByUUID(fromUuid)

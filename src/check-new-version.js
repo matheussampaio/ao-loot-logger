@@ -2,6 +2,7 @@ const axios = require('axios')
 
 const { version } = require('../package.json')
 const { green } = require('./utils/colors')
+const Logger = require('./utils/logger')
 
 const url =
   'https://api.github.com/repos/matheussampaio/ao-loot-logger/releases/latest'
@@ -16,7 +17,9 @@ async function checkNewVersion() {
 
   try {
     response = await axios.get(url)
-  } catch {}
+  } catch (error) {
+    Logger.debug('error fetching github api for version', error)
+  }
 
   if (response == null) {
     return

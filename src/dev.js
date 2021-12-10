@@ -1,4 +1,5 @@
 const PhotonParser = require('./network/photon/photon-parser')
+const Logger = require('./utils/logger')
 
 async function dev() {
   const pp = new PhotonParser([])

@@ -44,7 +44,8 @@
   "devDependencies": {
     "pkg": "5.4.1",
     "resedit": "1.2.0",
-    "semantic-release": "17.4.4"
+    "semantic-release": "17.4.4",
+    "eslint": "8.4.1"
   },
   "release": {
     "branches": [

@@ -1,3 +1,5 @@
+const Logger = require('./logger')
+
 class BufferReader {
   constructor(buffer, debug) {
     this.buffer = buffer
