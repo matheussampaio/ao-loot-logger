@@ -54,7 +54,7 @@ class DataHandler {
           return EventData.EvUpdateLootChest(event)
 
         default:
-          if (process.env.LOG_UNPROCESSED) console.log('handleEventData', event.parameters)
+          if (process.env.LOG_UNPROCESSED) Logger.silly('handleEventData', event.parameters)
       }
     } catch (error) {
       Logger.error(error, event)
@@ -70,7 +70,7 @@ class DataHandler {
           return RequestData.OpInventoryMoveItem(event)
 
         default:
-          if (process.env.LOG_UNPROCESSED) console.log('handleRequestData', event.parameters)
+          if (process.env.LOG_UNPROCESSED) Logger.silly('handleRequestData', event.parameters)
       }
     } catch (error) {
       Logger.error(error, event)
@@ -86,7 +86,7 @@ class DataHandler {
           return ResponseData.OpJoin(event)
 
         default:
-          if (process.env.LOG_UNPROCESSED) console.log('handleResponseData', event.parameters)
+          if (process.env.LOG_UNPROCESSED) Logger.silly('handleResponseData', event.parameters)
       }
     } catch (error) {
       Logger.error(error, event)

@@ -77,6 +77,8 @@ async function main() {
 }
 
 function restartNetwork() {
+  console.info(`\n\tRestarting network listeners...\n`)
+
   AlbionNetwork.close()
   AlbionNetwork.init()
 
