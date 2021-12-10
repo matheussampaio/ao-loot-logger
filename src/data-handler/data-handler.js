@@ -52,6 +52,9 @@ class DataHandler {
 
         case 368: // onUpdateLootChest
           return EventData.EvUpdateLootChest(event)
+
+        default:
+          if (process.env.LOG_UNPROCESSED) console.log('handleEventData', event.parameters)
       }
     } catch (error) {
       Logger.error(error, event)
@@ -65,6 +68,9 @@ class DataHandler {
       switch (eventId) {
         case 30: // opJoin
           return RequestData.OpInventoryMoveItem(event)
+
+        default:
+          if (process.env.LOG_UNPROCESSED) console.log('handleRequestData', event.parameters)
       }
     } catch (error) {
       Logger.error(error, event)
@@ -78,6 +84,9 @@ class DataHandler {
       switch (eventId) {
         case 2: // opJoin
           return ResponseData.OpJoin(event)
+
+        default:
+          if (process.env.LOG_UNPROCESSED) console.log('handleResponseData', event.parameters)
       }
     } catch (error) {
       Logger.error(error, event)

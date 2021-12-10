@@ -41,9 +41,7 @@ async function main() {
     console.info(
       `\n\t${red(
         'OFFLINE'
-      )}.\n\n\tIf Albion is running and you're logged in with one character, ${green(
-        `press "${RESTART_NETWORK_FILE_KEY}" to restart`
-      )} the network listeners.\n`
+      )}.\n\n\tPress "${RESTART_NETWORK_FILE_KEY.toUpperCase()}" to restart the network listeners or restart AO Loot Logger.\n`
     )
 
     setWindowTitle(`[OFF] ${TITLE}`)
@@ -74,7 +72,7 @@ async function main() {
   KeyboardInput.init()
 
   console.info(
-    `\n\tYou can always press "${ROTATE_LOGGER_FILE_KEY}" to start a new log file.\n`
+    `\n\tYou can always press "${ROTATE_LOGGER_FILE_KEY.toUpperCase()}" to start a new log file.\n`
   )
 }
 

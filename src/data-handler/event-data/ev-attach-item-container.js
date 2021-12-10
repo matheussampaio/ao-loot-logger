@@ -57,6 +57,8 @@ function EvAttachItemContainer(event) {
 
     container.items[position] = loot
   }
+
+  Logger.debug('EvAttachItemContainer', container)
 }
 
 module.exports = EvAttachItemContainer

@@ -6,6 +6,11 @@ function EvNewItem(event) {
   const objectId = event.parameters[0]
   const itemNumId = event.parameters[1]
   const quantity = event.parameters[2]
+  // const craftedBy = event.parameters[5]
+  // const quality = event.parameters[6] ?? 1
+  // const durability = event.parameters[7] ?? 0
+  // const spells = event.parameters[8]
+  // const passives = event.parameters[9]
 
   if (typeof objectId !== 'number') {
     return Logger.warn('EvNewItem has invalid objectId parameter')
@@ -45,7 +50,7 @@ function EvNewItem(event) {
     loot.quantity = quantity
   }
 
-  Logger.debug('EvNewItem', loot, event)
+  Logger.debug('EvNewItem', loot, event.parameters)
 }
 
 module.exports = EvNewItem

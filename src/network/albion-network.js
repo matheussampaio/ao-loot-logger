@@ -3,7 +3,6 @@ const { Cap, decoders } = require('cap')
 const PhotonParser = require('./photon/photon-parser')
 const Logger = require('../utils/logger')
 
-const ALBION_PORT = 5056
 const MAX_SECONDS_BETWEEN_PACKETS = 5
 
 class AlbionNetwork extends PhotonParser {
@@ -79,8 +78,7 @@ class AlbionNetwork extends PhotonParser {
 
     const c = new Cap()
 
-    // ip and udp and (port 5056 or port 5055 or port 4535)
-    const filter = `udp port ${ALBION_PORT}`
+    const filter = `ip and udp and (port 5056 or port 5055 or port 4535)`
     const bufSize = 1 * 1024 * 1024
     const buffer = Buffer.alloc(bufSize)
     const device = Cap.findDevice(info.addr)
