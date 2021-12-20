@@ -50,8 +50,10 @@ async function main() {
   AlbionNetwork.init()
 
   console.info(
-    '\nLogs will be written to',
-    path.join(process.cwd(), LootLogger.logFileName)
+    green(
+      '\nLogs will be written to ' +
+        path.join(process.cwd(), LootLogger.logFileName)
+    )
   )
 
   KeyboardInput.on('key-pressed', (key) => {
@@ -102,9 +104,11 @@ function rotateLogFile() {
   LootLogger.createNewLogFileName()
 
   console.info(
-    `From now on, logs will be written to ${path.join(
-      process.cwd(),
-      LootLogger.logFileName
-    )}\n`
+    green(
+      `From now on, logs will be written to ${path.join(
+        process.cwd(),
+        LootLogger.logFileName
+      )}\n`
+    )
   )
 }
