@@ -6,6 +6,7 @@ build/
 
 *.txt
 *.log
+*.error
 
 event-codes.txt
 operation-codes.txt
