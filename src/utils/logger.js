@@ -24,11 +24,11 @@ const logger = winston.createLogger({
   ),
   transports: [
     new winston.transports.File({
-      level: 'debug',
-      maxFiles: 5,
-      maxsize: 1024 * 1024 * 10, // 10mb
+      level: process.pkg != null ? 'error' : 'debug',
+      maxFiles: 2,
+      maxsize: 1024 * 1024 * 5, // 10mb
       tailable: true,
-      filename: 'ao-loot-logger.log',
+      filename: 'messages.error',
       zippedArchive: true,
       handleExceptions: true,
       handleRejections: true
