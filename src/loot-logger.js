@@ -38,7 +38,7 @@ class LootLogger {
   createNewLogFileName() {
     const d = new Date()
 
-    this.logFileName = `log-${d.getDate()}-${
+    this.logFileName = `loot-events-${d.getDate()}-${
       d.getMonth() + 1
     }-${d.getFullYear()}-${d.getHours()}-${d.getMinutes()}-${d.getSeconds()}.txt`
   }
