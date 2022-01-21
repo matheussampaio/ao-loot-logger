@@ -25,14 +25,13 @@ You can always [buy me a coffee](https://www.buymeacoffee.com/MatheusSampaio) or
 1. Execute `ao-loot-logger`.
 1. The log is written to file in the same folder as the executable (you can see the full path when the AO Loot Logger starts).
 
-## How to Develop
+## How to run from the code
 
-1. Install Node 14.
+1. Install [Nodejs](https://nodejs.org/en) v16.
 1. If you're on windows, install [Npcap with WinPcap compatibility](https://nmap.org/npcap)
 1. If you're on linux, install `libpcap-dev`: `sudo apt-get install libpcap-dev`.
-1. In the project's folder, run `npm install` to install all dependencies.
-1. Start coding.
-1. Run the project with `npm start` or `node src/index.js`.
+1. In the project's folder, open a terminal and run `npm install` to install all dependencies.
+1. In the project's folder, open a terminal and run `npm start`.
 
 ## Question?
 
