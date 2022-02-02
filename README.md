@@ -3,7 +3,7 @@
 
 # Albion Online Loot Logger
 
-With AO Loot Logger you can write all the loot grabbed by other players to a file. With this file, you can use [Loog Logger Viewer](https://matheus.sampaio.us/albion-loot-logger-helper) to analyze it.
+With AO Loot Logger you can write all the loot grabbed by other players to a file. With this file, you can use [Loot Logger Viewer](https://matheus.sampaio.us/ao-loot-logger-viewer) to analyze it.
 
 **NOTE:** It does not work with a VPN (i.e. Exit Lag) or playing through Geforce Now.
 

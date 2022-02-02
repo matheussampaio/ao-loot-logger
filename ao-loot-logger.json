@@ -1,5 +1,9 @@
 {
   "pkg": {
+    "scripts": "src/**/*.js",
+    "assets": [
+      "./node_modules/cap/build/Release/cap.node"
+    ],
     "targets": [
       "host"
     ],

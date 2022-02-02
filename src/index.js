@@ -1,3 +1,17 @@
+process.on('uncaughtException', async (error, source) => {
+  console.error(error)
+
+  await new Promise((resolve) => setTimeout(resolve, 25000))
+})
+
+process.on('unhandledRejection', async (reason, promise) => {
+  console.error(reason)
+
+  await new Promise((resolve) => setTimeout(resolve, 25000))
+})
+
+const LootLogger = require('./loot-logger')
+
 const path = require('path')
 
 const { green, red } = require('./utils/colors')
@@ -6,8 +20,6 @@ const checkNewVersion = require('./check-new-version')
 const DataHandler = require('./data-handler/data-handler')
 const Items = require('./items')
 const KeyboardInput = require('./keyboard-input')
-const LootLogger = require('./loot-logger')
-
 const { version } = require('../package.json')
 
 const CTRL_C = '\u0003'
