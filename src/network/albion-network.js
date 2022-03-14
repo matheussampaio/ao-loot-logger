@@ -59,7 +59,11 @@ class AlbionNetwork extends PhotonParser {
     }
 
     for (const info of infos) {
-      this.addListener(info)
+      try {
+        this.addListener(info)
+      } catch (error) {
+        Logger.warn(error)
+      }
     }
   }
 

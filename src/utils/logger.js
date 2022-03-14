@@ -24,7 +24,7 @@ const logger = winston.createLogger({
   ),
   transports: [
     new winston.transports.File({
-      level: process.pkg != null ? 'error' : 'debug',
+      level: process.env.NODE_ENV === 'production' ? 'error' : 'debug',
       maxFiles: 2,
       maxsize: 1024 * 1024 * 5, // 10mb
       tailable: true,
@@ -34,7 +34,7 @@ const logger = winston.createLogger({
       handleRejections: true
     }),
     new winston.transports.Console({
-      level: process.pkg != null ? 'error' : 'silly',
+      level: process.env.NODE_ENV === 'production' ? 'error' : 'silly',
       handleExceptions: true,
       handleRejections: true
     })

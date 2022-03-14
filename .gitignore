@@ -3,6 +3,7 @@ dist/
 cache/
 build/
 .pkg-cache/
+ao-loot-logger/
 
 *.txt
 *.log

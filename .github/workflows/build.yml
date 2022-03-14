@@ -15,7 +15,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '16.12.0'
+          node-version: '16.14.0'
 
       - name: Install dependecies
         run: npm ci
@@ -23,15 +23,24 @@ jobs:
       - name: Set next build version
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npm --no-git-tag-version --force version $(npx semantic-release --dry-run --plugins @semantic-release/release-notes-generator | grep -oE '# ([0-9]+.[0-9]+.[0-9]+)' | sed 's/# //')
+        run: npm install --global semantic-release@17 && npm --no-git-tag-version --force version $(semantic-release --dry-run --plugins @semantic-release/release-notes-generator | grep -oE '# ([0-9]+.[0-9]+.[0-9]+)' | sed 's/# //')
 
-      - name: Create executable
-        run: node build.js ao-loot-logger
+      - name: Create package folder
+        run: mkdir -p ao-loot-logger
+
+      - name: Copy assets
+        run: |
+          cp -r node_modules/ ao-loot-logger &&
+          cp -r src/ ao-loot-logger &&
+          cp package.json ao-loot-logger
+
+      - name: Package the app
+        run: npm install --global caxa && caxa --input ao-loot-logger --output "ao-loot-logger-win.exe" -- 'env' 'NODE_ENV=production' '{{caxa}}/node_modules/.bin/node' '{{caxa}}/src/index.js'
 
       - uses: actions/upload-artifact@main
         with:
           name: ao-loot-logger-win
-          path: dist/ao-loot-logger-win*
+          path: ao-loot-logger-win*
           if-no-files-found: error
 
   build-linux:
@@ -42,7 +51,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '16.12.0'
+          node-version: '16.14.0'
 
       # not sure if we need libpcap to build for linux
       # users probably need to have it installed in their computer eitherway.
@@ -55,10 +64,16 @@ jobs:
       - name: Set next build version
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npm --no-git-tag-version --force version $(npx semantic-release --dry-run --plugins @semantic-release/release-notes-generator | grep -oE '# ([0-9]+.[0-9]+.[0-9]+)' | sed 's/# //')
+        run: npm install --global semantic-release@17 && npm --no-git-tag-version --force version $(semantic-release --dry-run --plugins @semantic-release/release-notes-generator | grep -oE '# ([0-9]+.[0-9]+.[0-9]+)' | sed 's/# //')
 
-      - name: Create executable
-        run: npx pkg package.json --targets host --output ao-loot-logger-linux
+      - name: Create package folder
+        run: mkdir -p ao-loot-logger
+
+      - name: Copy assets
+        run: cp -r node_modules/ src/ package.json ao-loot-logger
+
+      - name: Package the app
+        run: npm install --global caxa && caxa --input ao-loot-logger --output "ao-loot-logger-linux" -- 'env' 'NODE_ENV=production' '{{caxa}}/node_modules/.bin/node' '{{caxa}}/src/index.js'
 
       - uses: actions/upload-artifact@main
         with:

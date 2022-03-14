@@ -34,7 +34,7 @@
     "albion"
   ],
   "engines": {
-    "node": "16.12.0"
+    "node": "16.14.0"
   },
   "dependencies": {
     "axios": "0.21.2",
@@ -42,9 +42,6 @@
     "winston": "3.3.3"
   },
   "devDependencies": {
-    "pkg": "5.4.1",
-    "resedit": "1.2.0",
-    "semantic-release": "17.4.4",
     "eslint": "8.4.1"
   },
   "release": {
