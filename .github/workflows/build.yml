@@ -35,7 +35,7 @@ jobs:
           cp package.json ao-loot-logger
 
       - name: Package the app
-        run: npm install --global caxa && caxa --input ao-loot-logger --output "ao-loot-logger-win.exe" -- 'env' 'NODE_ENV=production' '{{caxa}}/node_modules/.bin/node' '{{caxa}}/src/index.js'
+        run: npm install --global caxa && caxa --input ao-loot-logger --output "ao-loot-logger-win.exe" -- '{{caxa}}/node_modules/.bin/node' '{{caxa}}/src/index.js'
 
       - uses: actions/upload-artifact@main
         with:
@@ -73,7 +73,7 @@ jobs:
         run: cp -r node_modules/ src/ package.json ao-loot-logger
 
       - name: Package the app
-        run: npm install --global caxa && caxa --input ao-loot-logger --output "ao-loot-logger-linux" -- 'env' 'NODE_ENV=production' '{{caxa}}/node_modules/.bin/node' '{{caxa}}/src/index.js'
+        run: npm install --global caxa && caxa --input ao-loot-logger --output "ao-loot-logger-linux" -- '{{caxa}}/node_modules/.bin/node' '{{caxa}}/src/index.js'
 
       - uses: actions/upload-artifact@main
         with:

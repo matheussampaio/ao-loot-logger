@@ -3,12 +3,13 @@ const axios = require('axios')
 const { version } = require('../package.json')
 const { green } = require('./utils/colors')
 const Logger = require('./utils/logger')
+const isProd = require('./utils/is-prod')
 
 const url =
   'https://api.github.com/repos/matheussampaio/ao-loot-logger/releases/latest'
 
 async function checkNewVersion() {
-  if (process.env.NODE_ENV !== 'production') {
+  if (!isProd()) {
     return
   }
 

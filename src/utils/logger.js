@@ -1,6 +1,8 @@
 const winston = require('winston')
 const util = require('util')
 
+const isProd = require('./is-prod')
+
 const { combine, timestamp, printf, errors } = winston.format
 
 const logger = winston.createLogger({
@@ -24,7 +26,7 @@ const logger = winston.createLogger({
   ),
   transports: [
     new winston.transports.File({
-      level: process.env.NODE_ENV === 'production' ? 'error' : 'debug',
+      level: isProd() ? 'error' : 'debug',
       maxFiles: 2,
       maxsize: 1024 * 1024 * 5, // 10mb
       tailable: true,
@@ -34,7 +36,7 @@ const logger = winston.createLogger({
       handleRejections: true
     }),
     new winston.transports.Console({
-      level: process.env.NODE_ENV === 'production' ? 'error' : 'silly',
+      level: isProd() ? 'error' : 'silly',
       handleExceptions: true,
       handleRejections: true
     })

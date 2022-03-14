@@ -31,7 +31,7 @@ cp package.json ao-loot-logger
 npm install --no-save caxa
 
 # package the app
-npx caxa --input ao-loot-logger --output "${OUTPUT_FILE}" -- 'env' 'NODE_ENV=production' '{{caxa}}/node_modules/.bin/node' '{{caxa}}/src/index.js'
+npx caxa --input ao-loot-logger --output "${OUTPUT_FILE}" -- '{{caxa}}/node_modules/.bin/node' '{{caxa}}/src/index.js'
 
 # inject the ico into the .exe file
 # if [[ "$LINUX" -eq 0 ]]; then

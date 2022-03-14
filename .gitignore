@@ -8,6 +8,7 @@ ao-loot-logger/
 *.txt
 *.log
 *.error
+*.exe
 
 event-codes.txt
 operation-codes.txt
