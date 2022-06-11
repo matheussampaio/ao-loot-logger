@@ -1,15 +1,11 @@
 const MemoryStorage = require('../../storage/memory-storage')
 const Logger = require('../../utils/logger')
+const ParserError = require('../parser-error')
 
-function OpJoin(event) {
-  const playerName = event.parameters[2]
+const EventId = 2
 
-  if (typeof playerName !== 'string') {
-    return Logger.warn('onOpJoin has invalid playerName parameter')
-  }
-
-  const guildName = event.parameters[51]
-  const allianceName = event.parameters[70]
+function handle(event) {
+  const { allianceName, guildName, playerName } = parse(event)
 
   let player = MemoryStorage.players.getByName(playerName)
 
@@ -30,4 +26,17 @@ function OpJoin(event) {
   Logger.debug('onOpJoin', player)
 }
 
-module.exports = OpJoin
+function parse(event) {
+  const playerName = event.parameters[2]
+
+  if (typeof playerName !== 'string') {
+    throw new ParserError('onOpJoin has invalid playerName parameter')
+  }
+
+  const guildName = event.parameters[51]
+  const allianceName = event.parameters[70]
+
+  return { allianceName, guildName, playerName }
+}
+
+module.exports = { EventId, handle, parse }

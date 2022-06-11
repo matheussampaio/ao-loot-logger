@@ -6,6 +6,7 @@ build/
 ao-loot-logger/
 
 *.txt
+*.gz
 *.log
 *.error
 *.exe

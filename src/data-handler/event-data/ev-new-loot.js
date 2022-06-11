@@ -1,18 +1,11 @@
 const MemoryStorage = require('../../storage/memory-storage')
 const Logger = require('../../utils/logger')
+const ParserError = require('../parser-error')
 
-function EvNewLoot(event) {
-  const id = event.parameters[0]
+const EventId = 89
 
-  if (typeof id !== 'number') {
-    return Logger.warn('EvNewLoot has invalid id parameter')
-  }
-
-  const owner = event.parameters[3]
-
-  if (typeof owner !== 'string') {
-    return Logger.warn('EvNewLoot has invalid owner parameter')
-  }
+function handle(event) {
+  const { id, owner } = parse(event)
 
   let container = MemoryStorage.containers.getById(id)
 
@@ -33,4 +26,20 @@ function EvNewLoot(event) {
   Logger.debug('EvNewLoot', container)
 }
 
-module.exports = EvNewLoot
+function parse(event) {
+  const id = event.parameters[0]
+
+  if (typeof id !== 'number') {
+    throw new ParserError('EvNewLoot has invalid id parameter')
+  }
+
+  const owner = event.parameters[3]
+
+  if (typeof owner !== 'string') {
+    throw new ParserError('EvNewLoot has invalid owner parameter')
+  }
+
+  return { id, owner }
+}
+
+module.exports = { EventId, handle, parse }

@@ -2,6 +2,7 @@ const RequestData = require('./request-data')
 const ResponseData = require('./response-data')
 const EventData = require('./event-data')
 const Logger = require('../utils/logger')
+const ParserError = require('./parser-error')
 
 class DataHandler {
   static handleEventData(event) {
@@ -13,51 +14,53 @@ class DataHandler {
       const eventId = event?.parameters?.[252]
 
       switch (eventId) {
-        case 24: // InventoryPutItem
-          return EventData.EvInventoryPutItem(event)
+        case EventData.EvInventoryPutItems.EventId:
+          return EventData.EvInventoryPutItems.handle(event)
 
-        case 26: // NewCharacter
-          return EventData.EvNewCharacter(event)
+        case EventData.EvNewCharacter.EventId:
+          return EventData.EvNewCharacter.handle(event)
 
-        case 27: // NewEquipmentItem
-        case 28: // NewSimpleItem
-          return EventData.EvNewItem(event)
+        case EventData.EvNewEquipmentItem.EventId:
+        case EventData.EvNewSimpleItem.EventId:
+          return EventData.EvNewSimpleItem.handle(event)
 
-        case 87: // NewLoot
-          return EventData.EvNewLoot(event)
+        case EventData.EvNewLoot.EventId:
+          return EventData.EvNewLoot.handle(event)
 
-        case 88: // AttachItemContainer
-          return EventData.EvAttachItemContainer(event)
+        case EventData.EvAttachItemContainer.EventId:
+          return EventData.EvAttachItemContainer.handle(event)
 
-        case 89: // DetachItemContainer
-          return EventData.EvDetachItemContainer(event)
+        case EventData.EvDetachItemContainer.EventId:
+          return EventData.EvDetachItemContainer.handle(event)
 
-        case 130: // CharacterStats
-          return EventData.EvCharacterStats(event)
+        case EventData.EvCharacterStats.EventId:
+          return EventData.EvCharacterStats.handle(event)
 
-        // case 133: // GuildStats
+        // case 133:
         // return EventData.EvGuildStats(event)
 
-        case 256: // OtherGrabbedLoot
-          return EventData.EvOtherGrabbedLoot(event)
+        case EventData.EvOtherGrabbedLoot.EventId:
+          return EventData.EvOtherGrabbedLoot.handle(event)
 
-        case 278: // PartyLootItems
-          return EventData.EvPartyLootItems(event)
+        // case EventData.EvPartyLootItems.EventId:
+        //   return EventData.EvPartyLootItems.handle(event)
 
-        case 279: // PartyLootItemsRemoved
-          return EventData.EvPartyLootItemsRemoved(event)
+        // case EventData.EvPartyLootItemsRemoved.EventId:
+        //   return EventData.EvPartyLootItemsRemoved.handle(event)
 
-        case 367: // onNewLootChest
-          return EventData.EvNewLootChest(event)
+        case EventData.EvNewLootChest.EventId:
+          return EventData.EvNewLootChest.handle(event)
 
-        case 368: // onUpdateLootChest
-          return EventData.EvUpdateLootChest(event)
+        case EventData.EvUpdateLootChest.EventId:
+          return EventData.EvUpdateLootChest.handle(event)
 
         default:
           if (process.env.LOG_UNPROCESSED) Logger.silly('handleEventData', event.parameters)
       }
     } catch (error) {
-      Logger.error(error, event)
+      if (!error instanceof ParserError) {
+        Logger.error(error, event)
+      }
     }
   }
 
@@ -66,8 +69,8 @@ class DataHandler {
 
     try {
       switch (eventId) {
-        case 30: // opJoin
-          return RequestData.OpInventoryMoveItem(event)
+        case RequestData.OpInventoryMoveItem.EventId:
+          return RequestData.OpInventoryMoveItem.handle(event)
 
         default:
           if (process.env.LOG_UNPROCESSED) Logger.silly('handleRequestData', event.parameters)
@@ -82,8 +85,8 @@ class DataHandler {
 
     try {
       switch (eventId) {
-        case 2: // opJoin
-          return ResponseData.OpJoin(event)
+        case ResponseData.OpJoin.EventId:
+          return ResponseData.OpJoin.handle(event)
 
         default:
           if (process.env.LOG_UNPROCESSED) Logger.silly('handleResponseData', event.parameters)

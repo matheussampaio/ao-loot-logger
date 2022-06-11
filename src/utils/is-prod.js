@@ -1,6 +1,7 @@
 const { version } = require('../../package.json')
 
 function isProd() {
+  return true
   if (process.env.NODE_ENV === 'production') {
     return true
   }

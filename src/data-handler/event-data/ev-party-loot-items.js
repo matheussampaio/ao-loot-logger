@@ -1,37 +1,44 @@
 const Logger = require('../../utils/logger')
+const ParserError = require('../parser-error')
 
-function EvPartyLootItems(event) {
+const EventId = 278
+
+function handle(event) {
+  const { itemIds, itemTypeIds, quantities, names } = parse(event)
+
+  Logger.debug('EvPartyLootItems', event)
+}
+
+function parse(event) {
   const itemIds = event.parameters[1]
 
   if (!Array.isArray(itemIds)) {
-    return Logger.warn('EvPartyLootItems has invalid itemIds parameter', event)
+    throw new ParserError('EvPartyLootItems has invalid itemIds parameter')
   }
 
   const itemTypeIds = event.parameters[2]
 
   if (!Array.isArray(itemTypeIds)) {
-    return Logger.warn(
-      'EvPartyLootItems has invalid itemTypeIds parameter',
-      event
+    throw new ParserError(
+      'EvPartyLootItems has invalid itemTypeIds parameter'
     )
   }
 
   const quantities = event.parameters[9]
 
   if (!Array.isArray(quantities)) {
-    return Logger.warn(
-      'EvPartyLootItems has invalid quantities parameter',
-      event
+    throw new ParserError(
+      'EvPartyLootItems has invalid quantities parameter'
     )
   }
 
   const names = event.parameters[10]
 
   if (!Array.isArray(names)) {
-    return Logger.warn('EvPartyLootItems has invalid names parameter', event)
+    throw new ParserError('EvPartyLootItems has invalid names parameter')
   }
 
-  Logger.debug('EvPartyLootItems', event)
+  return { itemIds, itemTypeIds, quantities, names }
 }
 
-module.exports = EvPartyLootItems
+module.exports = { EventId, handle, parse }

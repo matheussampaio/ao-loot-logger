@@ -1,12 +1,11 @@
 const MemoryStorage = require('../../storage/memory-storage')
 const Logger = require('../../utils/logger')
+const ParserError = require('../parser-error')
 
-function EvUpdateLootChest(event) {
-  const id = event.parameters[0]
+const EventId = 371
 
-  if (typeof id !== 'number') {
-    return Logger.warn('EvUpdateLootChest has invalid id parameter')
-  }
+function handle(event) {
+  const { id } = parse(event)
 
   let container = MemoryStorage.containers.getById(id)
 
@@ -23,4 +22,14 @@ function EvUpdateLootChest(event) {
   Logger.debug('EvUpdateLootChest', container)
 }
 
-module.exports = EvUpdateLootChest
+function parse(event) {
+  const id = event.parameters[0]
+
+  if (typeof id !== 'number') {
+    throw new ParserError('EvUpdateLootChest has invalid id parameter')
+  }
+
+  return { id }
+}
+
+module.exports = { EventId, handle, parse }

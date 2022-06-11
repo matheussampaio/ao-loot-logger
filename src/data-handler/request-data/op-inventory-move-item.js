@@ -3,28 +3,12 @@ const LootLogger = require('../../loot-logger')
 const uuidStringify = require('../../utils/uuid-stringify')
 const formatLootLog = require('../../utils/format-loot-log')
 const Logger = require('../../utils/logger')
+const ParserError = require('../parser-error')
 
-function OpInventoryMoveItem(event) {
-  const fromEncodedUuid = event.parameters[1]
-  const toEncodedUuid = event.parameters[4]
+const EventId = 30
 
-  Logger.debug('OpInventoryMoveItem', event.parameters)
-
-  if (!Array.isArray(fromEncodedUuid) || fromEncodedUuid.length !== 16) {
-    return Logger.warn(
-      'OpInventoryMoveItem has invalid fromEncodedUuid parameter'
-    )
-  }
-
-  const fromUuid = uuidStringify(fromEncodedUuid)
-
-  if (!Array.isArray(toEncodedUuid) || toEncodedUuid.length !== 16) {
-    return Logger.warn(
-      'OpInventoryMoveItem has invalid toEncodedUuid parameter'
-    )
-  }
-
-  const toUuid = uuidStringify(toEncodedUuid)
+function handle(event) {
+  const { fromUuid, toUuid } = parse(event)
 
   if (fromUuid === toUuid) {
     return
@@ -100,7 +84,35 @@ function OpInventoryMoveItem(event) {
       })
     )
   }
-
 }
 
-module.exports = OpInventoryMoveItem
+function parse(event) {
+  const fromEncodedUuid = event.parameters[1]
+
+  if (!Array.isArray(fromEncodedUuid) || fromEncodedUuid.length !== 16) {
+    throw new ParserError(
+      'OpInventoryMoveItem has invalid fromEncodedUuid parameter'
+    )
+  }
+
+  const toEncodedUuid = event.parameters[4]
+
+  if (!Array.isArray(toEncodedUuid) || toEncodedUuid.length !== 16) {
+    throw new ParserError(
+      'OpInventoryMoveItem has invalid toEncodedUuid parameter'
+    )
+  }
+
+  const slotId = event.parameters[3] ?? 0
+
+  if (typeof slotId !== 'number') {
+    throw new ParserError('EvInventoryPutItem has invalid slotId parameter')
+  }
+
+  const fromUuid = uuidStringify(fromEncodedUuid)
+  const toUuid = uuidStringify(toEncodedUuid)
+
+  return { fromUuid, toUuid }
+}
+
+module.exports = { EventId, handle, parse }

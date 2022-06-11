@@ -4,29 +4,43 @@ const EventData = require('./data-handler/event-data')
 const RequestData = require('./data-handler/request-data')
 const ResponseData = require('./data-handler/response-data')
 
-main()
-
-const searching = {
-  EvNewItem: EventData.EvNewItem,
-  OpJoin: ResponseData.OpJoin
-}
+const Logger = require('./utils/logger')
+const ParserError = require('./data-handler/parser-error')
 
 async function main() {
-  AlbionNetwork.on('event-data', (data) => analyze('event-data', data))
-  AlbionNetwork.on('request-data', (data) => analyze('request-data', data))
-  AlbionNetwork.on('response-data', (data) => analyze('response-data', data))
+  Logger.transports[1].level = 'warn'
+
+  AlbionNetwork.on('event-data', (data) => analyze('event-data', EventData, data))
+  AlbionNetwork.on('request-data', (data) => analyze('request-data', RequestData, data))
+  AlbionNetwork.on('response-data', (data) => analyze('response-data', ResponseData, data))
 
   AlbionNetwork.init()
 }
 
-function analyze(type, data) {
-  for (const eventName of Object.values(searching)) {
-    const event = searching[eventName]
+function analyze(type, events, event) {
+  for (const eventName in events) {
+    const Event = events[eventName]
 
-    if (event.matches(data)) {
-      delete searching[eventName]
+    try {
+      const result = Event.parse(event)
 
-      console.info(`${eventName} match:`, type, data)
+      if (result == null) {
+        continue
+      }
+        
+      const diff = Math.abs(Event.EventId - (event.parameters[252] ?? event.parameters[253]))
+
+      if (diff >= 10) {
+        continue
+      }
+
+      console.info(`diff=${diff} [${type}] ${eventName}:`, event.parameters)
+    } catch (error) {
+      if (!error instanceof ParserError) {
+        console.error(error)
+      }
     }
   }
 }
+
+main().catch(console.error)

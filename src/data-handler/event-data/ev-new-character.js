@@ -1,14 +1,11 @@
 const MemoryStorage = require('../../storage/memory-storage')
 const Logger = require('../../utils/logger')
+const ParserError = require('../parser-error')
 
-function EvNewCharacter(event) {
-  const playerName = event.parameters[1]
-  const guildName = event.parameters[8]
-  const allianceName = event.parameters[43]
+const EventId = 27
 
-  if (typeof playerName !== 'string') {
-    return Logger.warn('EvNewCharacter has invalid playerName parameter')
-  }
+function handle(event) {
+  const { allianceName, guildName, playerName } = parse(event)
 
   let player = MemoryStorage.players.getByName(playerName)
 
@@ -27,4 +24,17 @@ function EvNewCharacter(event) {
   Logger.debug('EvNewCharacter', player)
 }
 
-module.exports = EvNewCharacter
+function parse(event) {
+  const playerName = event.parameters[1]
+
+  if (typeof playerName !== 'string') {
+    throw new ParserError('EvNewCharacter has invalid playerName parameter', event)
+  }
+
+  const guildName = event.parameters[8]
+  const allianceName = event.parameters[43]
+
+  return { allianceName, guildName, playerName }
+}
+
+module.exports = { EventId, handle, parse }

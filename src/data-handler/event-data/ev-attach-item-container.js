@@ -1,23 +1,14 @@
 const MemoryStorage = require('../../storage/memory-storage')
 const uuidStringify = require('../../utils/uuid-stringify')
 const Logger = require('../../utils/logger')
+const ParserError = require('../parser-error')
 
-function EvAttachItemContainer(event) {
+const EventId = 90
+
+function handle(event) {
   Logger.debug('EvAttachItemContainer', event.parameters)
 
-  const id = event.parameters[0]
-
-  if (typeof id !== 'number') {
-    return Logger.warn('EvAttachItemContainer has invalid id parameter')
-  }
-
-  const encodedUuid = event.parameters[1]
-
-  if (!Array.isArray(encodedUuid) || encodedUuid.length !== 16) {
-    return Logger.warn('EvAttachItemContainer has invalid uuid parameter')
-  }
-
-  const uuid = uuidStringify(encodedUuid)
+  const { id, uuid } = parse(event)
 
   let container =
     MemoryStorage.containers.getByUUID(uuid) ??
@@ -61,4 +52,33 @@ function EvAttachItemContainer(event) {
   Logger.debug('EvAttachItemContainer', container)
 }
 
-module.exports = EvAttachItemContainer
+function parse(event) {
+  const id = event.parameters[0]
+
+  if (typeof id !== 'number') {
+    throw new ParserError('EvAttachItemContainer has invalid id parameter')
+  }
+
+  const encodedUuid = event.parameters[1]
+
+  if (!Array.isArray(encodedUuid) || encodedUuid.length !== 16) {
+    throw new ParserError('EvAttachItemContainer has invalid uuid parameter')
+  }
+
+  const inventory = event.parameters[3]
+
+  if (typeof inventory !== 'array') {
+    throw new ParserError('EvAttachItemContainer has invalid inventory parameter')
+  }
+
+  const slots = event.parameters[4]
+
+  if (typeof slots !== 'number') {
+    throw new ParserError('EvAttachItemContainer has invalid slots parameter')
+  }
+
+  const uuid = uuidStringify(encodedUuid)
+
+  return { id, uuid, inventory, slots }
+}
+module.exports = { EventId, handle, parse }

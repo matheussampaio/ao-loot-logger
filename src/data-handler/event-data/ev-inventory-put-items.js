@@ -2,13 +2,12 @@ const MemoryStorage = require('../../storage/memory-storage')
 const LootLogger = require('../../loot-logger')
 const formatLootLog = require('../../utils/format-loot-log')
 const Logger = require('../../utils/logger')
+const ParserError = require('../parser-error')
 
-function EvInventoryPutItem(event) {
-  const objectId = event.parameters[0]
+const EventId = 25
 
-  if (typeof objectId !== 'number') {
-    return Logger.warn('EvInventoryPutItem has invalid objectId parameter')
-  }
+function handle(event) {
+  const { objectId } = parse(event)
 
   let loot = MemoryStorage.loots.getById(objectId)
 
@@ -52,4 +51,26 @@ function EvInventoryPutItem(event) {
   Logger.debug('EvInventoryPutItem', loot)
 }
 
-module.exports = EvInventoryPutItem
+function parse(event) {
+  const objectId = event.parameters[0]
+
+  if (typeof objectId !== 'number') {
+    throw new ParserError('EvInventoryPutItem has invalid objectId parameter')
+  }
+
+  const slotId = event.parameters[1]
+
+  if (typeof slotId !== 'number') {
+    throw new ParserError('EvInventoryPutItem has invalid slotId parameter')
+  }
+
+  const containerId = event.parameters[2]
+
+  if (typeof containerId !== 'array') {
+    throw new ParserError('EvInventoryPutItem has invalid containerId parameter')
+  }
+
+  return { objectId }
+}
+
+module.exports = { EventId, handle, parse }
