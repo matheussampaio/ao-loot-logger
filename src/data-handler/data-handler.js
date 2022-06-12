@@ -58,7 +58,9 @@ class DataHandler {
           if (process.env.LOG_UNPROCESSED) Logger.silly('handleEventData', event.parameters)
       }
     } catch (error) {
-      if (!error instanceof ParserError) {
+      if (error instanceof ParserError) {
+        Logger.warn(error, event)
+      } else {
         Logger.error(error, event)
       }
     }
@@ -76,7 +78,11 @@ class DataHandler {
           if (process.env.LOG_UNPROCESSED) Logger.silly('handleRequestData', event.parameters)
       }
     } catch (error) {
-      Logger.error(error, event)
+      if (error instanceof ParserError) {
+        Logger.warn(error, event)
+      } else {
+        Logger.error(error, event)
+      }
     }
   }
 
@@ -92,7 +98,11 @@ class DataHandler {
           if (process.env.LOG_UNPROCESSED) Logger.silly('handleResponseData', event.parameters)
       }
     } catch (error) {
-      Logger.error(error, event)
+      if (error instanceof ParserError) {
+        Logger.warn(error, event)
+      } else {
+        Logger.error(error, event)
+      }
     }
   }
 }

@@ -67,7 +67,7 @@ function parse(event) {
 
   const inventory = event.parameters[3]
 
-  if (typeof inventory !== 'array') {
+  if (!Array.isArray(inventory)) {
     throw new ParserError('EvAttachItemContainer has invalid inventory parameter')
   }
 

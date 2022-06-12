@@ -66,7 +66,7 @@ function parse(event) {
 
   const containerId = event.parameters[2]
 
-  if (typeof containerId !== 'array') {
+  if (!Array.isArray(containerId)) {
     throw new ParserError('EvInventoryPutItem has invalid containerId parameter')
   }
 
