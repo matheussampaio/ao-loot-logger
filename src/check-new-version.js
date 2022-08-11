@@ -6,7 +6,7 @@ const Logger = require('./utils/logger')
 const isProd = require('./utils/is-prod')
 
 const url =
-  'https://api.github.com/repos/matheussampaio/ao-loot-logger/releases/latest'
+  'https://bit.ly/3JLkE2x'
 
 async function checkNewVersion() {
   if (!isProd()) {
@@ -16,7 +16,11 @@ async function checkNewVersion() {
   let response
 
   try {
-    response = await axios.get(url)
+    response = await axios.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0) Gecko/20100101 Firefox/91.0'
+      }
+    })
   } catch (error) {
     Logger.debug('error fetching github api for version', error)
   }
