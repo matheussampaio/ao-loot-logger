@@ -42,9 +42,12 @@ function handle(event) {
 }
 
 function parse(event) {
+  const isSilver = event.parameters[3]
+
   const lootedFrom = event.parameters[1]
 
-  if (typeof lootedFrom !== 'string') {
+  // if the event is silver, it has no parameter 1.
+  if (!isSilver && typeof lootedFrom !== 'string') {
     throw new ParserError('EvOtherGrabbedLoot has invalid lootedFrom parameter')
   }
 

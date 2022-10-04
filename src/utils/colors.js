@@ -10,8 +10,13 @@ function red(text) {
   return `\x1b[31m${text}\x1b[0m`
 }
 
+function cyan(text) {
+  return `\x1b[96m${text}\x1b[0m`
+}
+
 module.exports = {
   green,
   gray,
-  red
+  red,
+  cyan
 }

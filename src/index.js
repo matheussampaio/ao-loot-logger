@@ -14,7 +14,7 @@ const LootLogger = require('./loot-logger')
 
 const path = require('path')
 
-const { green, red } = require('./utils/colors')
+const { green, red, cyan } = require('./utils/colors')
 const AlbionNetwork = require('./network/albion-network')
 const checkNewVersion = require('./check-new-version')
 const DataHandler = require('./data-handler/data-handler')
@@ -32,28 +32,24 @@ main()
 async function main() {
   setWindowTitle(TITLE)
 
-  console.info(`${TITLE}\n`)
+  console.info(`${TITLE}`)
 
   await Promise.all([checkNewVersion(), Items.init()])
-
-  AlbionNetwork.on('add-listener', (device) => {
-    console.info(`Listening to ${device.name}`)
-  })
 
   AlbionNetwork.on('event-data', DataHandler.handleEventData)
   AlbionNetwork.on('request-data', DataHandler.handleRequestData)
   AlbionNetwork.on('response-data', DataHandler.handleResponseData)
 
   AlbionNetwork.on('online', () => {
-    console.info(`\n\t${green('ONLINE')}. Loot events should be detected.\n`)
+    console.info(`\n\t${green('ALBION DETECTED')}. Loot events should be logged.\n`)
     setWindowTitle(`[ON] ${TITLE}`)
   })
 
   AlbionNetwork.on('offline', () => {
     console.info(
       `\n\t${red(
-        'OFFLINE'
-      )}.\n\n\tPress "${RESTART_NETWORK_FILE_KEY.toUpperCase()}" to restart the network listeners or restart AO Loot Logger.\n`
+        'ALBION NOT DETECTED'
+      )}.\n\n\tIf Albion is running, press "${RESTART_NETWORK_FILE_KEY}" to restart the network listeners or restart AO Loot Logger.\n`
     )
 
     setWindowTitle(`[OFF] ${TITLE}`)
@@ -61,12 +57,6 @@ async function main() {
 
   AlbionNetwork.init()
 
-  console.info(
-    green(
-      '\nLogs will be written to ' +
-        path.join(process.cwd(), LootLogger.logFileName)
-    )
-  )
 
   KeyboardInput.on('key-pressed', (key) => {
     switch (key) {
@@ -85,9 +75,14 @@ async function main() {
 
   KeyboardInput.init()
 
-  console.info(
-    `\n\tYou can always press "${ROTATE_LOGGER_FILE_KEY.toUpperCase()}" to start a new log file.\n`
-  )
+  console.info([
+    '',
+    green(`Logs will be written to ${path.join(process.cwd(), LootLogger.logFileName)}`),
+    '',
+    `You can always press "${ROTATE_LOGGER_FILE_KEY}" to start a new log file.`,
+    '',
+    `Join the Discord server: ${cyan('https://discord.gg/fvNMF2abXr')} (Ctrl + click to open).`
+  ].join('\n'))
 }
 
 function restartNetwork() {
@@ -120,7 +115,7 @@ function rotateLogFile() {
       `From now on, logs will be written to ${path.join(
         process.cwd(),
         LootLogger.logFileName
-      )}\n`
+      )}. The file is only created when the first loot event if detected.\n`
     )
   )
 }

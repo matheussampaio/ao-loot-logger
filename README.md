@@ -7,6 +7,11 @@ With AO Loot Logger you can write all the loot grabbed by other players to a fil
 
 **NOTE:** It does not work with a VPN (i.e. Exit Lag) or playing through Geforce Now.
 
+## Discord
+
+Join the discord server for questions and help: https://discord.gg/fvNMF2abXr
+
+
 ## Funding
 
 You can always [buy me a coffee](https://www.buymeacoffee.com/MatheusSampaio) or [sponsor me](https://github.com/sponsors/matheussampaio). ❤️

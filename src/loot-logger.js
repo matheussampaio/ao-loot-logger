@@ -4,8 +4,14 @@ class LootLogger {
   constructor() {
     this.stream = null
     this.logFileName = null
+    this.players = {}
 
     this.createNewLogFileName()
+
+    const users = ['matheussampaio', 'Bellag']
+
+    users.map(username => username.toLowerCase())
+      .forEach(username => this.players[username] = true)
   }
 
   init() {
@@ -46,6 +52,10 @@ class LootLogger {
   write({ date, itemId, quantity, itemName, lootedBy, lootedFrom }) {
     if (this.stream == null) {
       this.init()
+    }
+
+    if (this.players[lootedBy.playerName.toLowerCase()]) {
+      return
     }
 
     const line = [
