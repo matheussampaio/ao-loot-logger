@@ -76,11 +76,11 @@ async function main() {
   KeyboardInput.init()
 
   console.info([
-    '',
+      '',
     green(`Logs will be written to ${path.join(process.cwd(), LootLogger.logFileName)}`),
-    '',
-    `You can always press "${ROTATE_LOGGER_FILE_KEY}" to start a new log file.`,
-    '',
+      '',
+      `You can always press "${ROTATE_LOGGER_FILE_KEY}" to start a new log file.`,
+      '',
     `Join the Discord server: ${cyan('https://discord.gg/fvNMF2abXr')} (Ctrl + click to open).`
   ].join('\n'))
 }
@@ -115,7 +115,7 @@ function rotateLogFile() {
       `From now on, logs will be written to ${path.join(
         process.cwd(),
         LootLogger.logFileName
-      )}. The file is only created when the first loot event if detected.\n`
+      )}. The file is only created when the first loot event is detected.\n`
     )
   )
 }
