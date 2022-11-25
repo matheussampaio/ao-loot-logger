@@ -62,7 +62,7 @@ class PhotonParser extends EventEmitter {
     if (this.debug) this.debug.push('    ')
 
     // read each command
-    for (let i = 0; i < commandCount; i++) {
+    for (let i = 0; i < commandCount && br.position < br.length; i++) {
       // read command headers
       const commandType = br.readUInt8()
       const channelId = br.readUInt8()

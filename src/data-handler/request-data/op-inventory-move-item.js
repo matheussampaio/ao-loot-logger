@@ -5,13 +5,15 @@ const formatLootLog = require('../../utils/format-loot-log')
 const Logger = require('../../utils/logger')
 const ParserError = require('../parser-error')
 
-const EventId = 30
+const name = 'OpInventoryMoveItem'
 
 function handle(event) {
-  const { fromUuid, toUuid } = parse(event)
+  const { fromSlot, fromUuid, toSlot, toUuid } = parse(event)
+
+  Logger.debug('opIventoryMoveItem', { fromSlot, fromUuid, toSlot, toUuid }, event.parameters)
 
   if (fromUuid === toUuid) {
-    return
+    return Logger.debug('OpInventoryMoveItem moving inside same container', fromUuid)
   }
 
   let container = MemoryStorage.containers.getByUUID(fromUuid)
@@ -20,28 +22,18 @@ function handle(event) {
     return Logger.debug('OpInventoryMoveItem cant find container', fromUuid)
   }
 
-  const position = event.parameters[0] ?? 0
-
-  if (typeof position !== 'number') {
-    Logger.warn('OpInventoryMoveItem has invalid position parameter')
-  }
-
   if (container.type !== 'chest') {
-    const loot = container.items[position]
+    const loot = container.items[fromSlot]
 
     if (loot == null) {
-      return
+      return Logger.debug('OpInventoryMoveItem cant find loot', { fromSlot, items: container.items })
     }
 
     MemoryStorage.loots.deleteById(loot.id)
-    delete container.items[position]
+    delete container.items[fromSlot]
 
-    if (fromUuid === toUuid) {
-      return
-    }
-
-    if (loot.onwer == null) {
-      return
+    if (loot.owner == null) {
+      return Logger.debug('OpInventoryMoveItem no owner', fromUuid)
     }
 
     const lootedBy = MemoryStorage.players.self
@@ -57,13 +49,6 @@ function handle(event) {
         event
       )
     }
-
-    Logger.debug('opIventoryMoveItem', {
-      lootedBy,
-      lootedFrom,
-      container,
-      loot
-    })
 
     LootLogger.write({
       date,
@@ -87,12 +72,24 @@ function handle(event) {
 }
 
 function parse(event) {
+  const fromSlot = event.parameters[0] ?? 0
+
+  if (typeof fromSlot !== 'number') {
+    throw new ParserError('OpInventoryMoveItem has invalid fromSlot parameter')
+  }
+
   const fromEncodedUuid = event.parameters[1]
 
   if (!Array.isArray(fromEncodedUuid) || fromEncodedUuid.length !== 16) {
     throw new ParserError(
       'OpInventoryMoveItem has invalid fromEncodedUuid parameter'
     )
+  }
+
+  const toSlot = event.parameters[3] ?? 0
+
+  if (typeof toSlot !== 'number') {
+    throw new ParserError('OpInventoryMoveItem has invalid toSlot parameter')
   }
 
   const toEncodedUuid = event.parameters[4]
@@ -103,16 +100,10 @@ function parse(event) {
     )
   }
 
-  const slotId = event.parameters[3] ?? 0
-
-  if (typeof slotId !== 'number') {
-    throw new ParserError('EvInventoryPutItem has invalid slotId parameter')
-  }
-
   const fromUuid = uuidStringify(fromEncodedUuid)
   const toUuid = uuidStringify(toEncodedUuid)
 
-  return { fromUuid, toUuid }
+  return { fromSlot, fromUuid, toSlot, toUuid }
 }
 
-module.exports = { EventId, handle, parse }
+module.exports = { name, handle, parse }

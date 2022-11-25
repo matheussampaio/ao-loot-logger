@@ -2,7 +2,7 @@ const MemoryStorage = require('../../storage/memory-storage')
 const Logger = require('../../utils/logger')
 const ParserError = require('../parser-error')
 
-const EventId = 89
+const name = 'EvNewLoot'
 
 function handle(event) {
   const { id, owner } = parse(event)
@@ -23,7 +23,7 @@ function handle(event) {
     container.type = type
   }
 
-  Logger.debug('EvNewLoot', container)
+  Logger.debug('EvNewLoot', container, event.parameters)
 }
 
 function parse(event) {
@@ -39,7 +39,15 @@ function parse(event) {
     throw new ParserError('EvNewLoot has invalid owner parameter')
   }
 
+  const position = event.parameters[4]
+
+  if (!Array.isArray(position) || position.length !== 2) {
+    throw new ParserError(
+      'EvNewLoot has invalid position parameter'
+    )
+  }
+
   return { id, owner }
 }
 
-module.exports = { EventId, handle, parse }
+module.exports = { name, handle, parse }

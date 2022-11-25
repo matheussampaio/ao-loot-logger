@@ -4,12 +4,14 @@ const formatLootLog = require('../../utils/format-loot-log')
 const Logger = require('../../utils/logger')
 const ParserError = require('../parser-error')
 
-const EventId = 25
+const name = 'EvInventoryPutItem'
 
 function handle(event) {
   const { objectId } = parse(event)
 
   let loot = MemoryStorage.loots.getById(objectId)
+
+  Logger.debug('EvInventoryPutItem', loot, event.parameters)
 
   // when moving items inside cities' chest will be null
   if (loot == null || !loot.owner) {
@@ -47,8 +49,6 @@ function handle(event) {
       itemName
     })
   )
-
-  Logger.debug('EvInventoryPutItem', loot)
 }
 
 function parse(event) {
@@ -58,7 +58,7 @@ function parse(event) {
     throw new ParserError('EvInventoryPutItem has invalid objectId parameter')
   }
 
-  const slotId = event.parameters[1]
+  const slotId = event.parameters[1] ?? 0
 
   if (typeof slotId !== 'number') {
     throw new ParserError('EvInventoryPutItem has invalid slotId parameter')
@@ -73,4 +73,4 @@ function parse(event) {
   return { objectId }
 }
 
-module.exports = { EventId, handle, parse }
+module.exports = { name, handle, parse }

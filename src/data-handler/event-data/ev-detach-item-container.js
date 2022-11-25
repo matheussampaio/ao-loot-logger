@@ -3,14 +3,14 @@ const uuidStringify = require('../../utils/uuid-stringify')
 const Logger = require('../../utils/logger')
 const ParserError = require('../parser-error')
 
-const EventId = 91
+const name = 'EvDetachItemContainer'
 
 function handle(event) {
   const { uuid } = parse(event)
 
   const container = MemoryStorage.containers.deleteByUUID(uuid)
 
-  Logger.debug('EvDetachItemContainer', container)
+  Logger.debug('EvDetachItemContainer', container, event.parameters)
 }
 
 function parse(event) {
@@ -27,4 +27,4 @@ function parse(event) {
   return { uuid }
 }
 
-module.exports = { EventId, handle, parse }
+module.exports = { name, handle, parse }

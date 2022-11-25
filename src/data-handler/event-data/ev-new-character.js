@@ -2,7 +2,7 @@ const MemoryStorage = require('../../storage/memory-storage')
 const Logger = require('../../utils/logger')
 const ParserError = require('../parser-error')
 
-const EventId = 27
+const name = 'EvNewCharacter'
 
 function handle(event) {
   const { allianceName, guildName, playerName } = parse(event)
@@ -21,7 +21,7 @@ function handle(event) {
     player.allianceName = allianceName
   }
 
-  Logger.debug('EvNewCharacter', player)
+  Logger.debug('EvNewCharacter', player, event.parameters)
 }
 
 function parse(event) {
@@ -37,4 +37,4 @@ function parse(event) {
   return { allianceName, guildName, playerName }
 }
 
-module.exports = { EventId, handle, parse }
+module.exports = { name, handle, parse }

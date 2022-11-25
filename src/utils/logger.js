@@ -30,7 +30,7 @@ const logger = winston.createLogger({
       maxFiles: 2,
       maxsize: 1024 * 1024 * 5, // 10mb
       tailable: true,
-      filename: 'messages.error',
+      filename: 'debug-logs.txt',
       zippedArchive: true,
       handleExceptions: true,
       handleRejections: true

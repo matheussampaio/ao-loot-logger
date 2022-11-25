@@ -2,7 +2,7 @@ const MemoryStorage = require('../../storage/memory-storage')
 const Logger = require('../../utils/logger')
 const ParserError = require('../parser-error')
 
-const EventId = 371
+const name = 'EvUpdateLootChest'
 
 function handle(event) {
   const { id } = parse(event)
@@ -32,4 +32,4 @@ function parse(event) {
   return { id }
 }
 
-module.exports = { EventId, handle, parse }
+module.exports = { name, handle, parse }

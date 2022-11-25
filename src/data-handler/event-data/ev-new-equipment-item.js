@@ -3,7 +3,7 @@ const Items = require('../../items')
 const Logger = require('../../utils/logger')
 const ParserError = require('../parser-error')
 
-const EventId = 28
+const name = 'EvNewEquipmentItem'
 
 function handle(event) {
   const { objectId, itemNumId, quantity } = parse(event)
@@ -61,7 +61,7 @@ function parse(event) {
   if (typeof craftedBy !== 'string') {
     throw new ParserError('EvNewEquipmentItem has invalid craftedBy parameter')
   }
-  
+
   const quality = event.parameters[6] ?? 1
   const durability = event.parameters[7] ?? 0
   const spells = event.parameters[8]
@@ -70,4 +70,4 @@ function parse(event) {
   return { objectId, itemNumId, quantity, craftedBy, quality, durability, spells, passives }
 }
 
-module.exports = { EventId, handle, parse }
+module.exports = { name, handle, parse }

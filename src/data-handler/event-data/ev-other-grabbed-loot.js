@@ -3,11 +3,18 @@ const LootLogger = require('../../loot-logger')
 const formatLootLog = require('../../utils/format-loot-log')
 const Items = require('../../items')
 const ParserError = require('../parser-error')
+const Logger = require('../../utils/logger')
 
-const EventId = 258
+const name = 'EvOtherGrabbedLoot'
 
 function handle(event) {
-  const { lootedFrom, lootedBy, itemNumId, quantity } = parse(event)
+  const { isSilver, lootedFrom, lootedBy, itemNumId, quantity } = parse(event)
+
+  Logger.debug('EvOtherGrabbedLoot', { isSilver, lootedFrom, lootedBy, itemNumId, quantity })
+
+  if (isSilver) {
+    return
+  }
 
   const { itemId, itemName } = Items.get(itemNumId)
 
@@ -39,6 +46,7 @@ function handle(event) {
       itemName
     })
   )
+
 }
 
 function parse(event) {
@@ -59,7 +67,7 @@ function parse(event) {
 
   const itemNumId = event.parameters[4]
 
-  if (typeof itemNumId !== 'number') {
+  if (!isSilver && typeof itemNumId !== 'number') {
     throw new ParserError('EvOtherGrabbedLoot has invalid itemNumId parameter')
   }
 
@@ -69,7 +77,7 @@ function parse(event) {
     throw new ParserError('EvOtherGrabbedLoot has invalid quantity parameter')
   }
 
-  return { lootedFrom, lootedBy, itemNumId, quantity }
+  return { isSilver, lootedFrom, lootedBy, itemNumId, quantity }
 }
 
-module.exports = { EventId, handle, parse }
+module.exports = { name, handle, parse }

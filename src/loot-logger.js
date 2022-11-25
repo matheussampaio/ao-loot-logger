@@ -1,5 +1,7 @@
 const fs = require('fs')
 
+const Config = require('./config')
+
 class LootLogger {
   constructor() {
     this.stream = null
@@ -7,11 +9,6 @@ class LootLogger {
     this.players = {}
 
     this.createNewLogFileName()
-
-    const users = ['matheussampaio', 'Bellag']
-
-    users.map(username => username.toLowerCase())
-      .forEach(username => this.players[username] = true)
   }
 
   init() {
@@ -54,7 +51,7 @@ class LootLogger {
       this.init()
     }
 
-    if (this.players[lootedBy.playerName.toLowerCase()]) {
+    if (Config.players[lootedBy.playerName.toLowerCase()]) {
       return
     }
 

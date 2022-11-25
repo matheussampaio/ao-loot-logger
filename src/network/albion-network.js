@@ -2,6 +2,7 @@ const { Cap, decoders } = require('cap')
 
 const PhotonParser = require('./photon/photon-parser')
 const Logger = require('../utils/logger')
+const { prettyPrintBuffer } = require('../utils/binary')
 
 const MAX_SECONDS_BETWEEN_PACKETS = 5
 
@@ -116,6 +117,7 @@ class AlbionNetwork extends PhotonParser {
           this.handlePhotonPacket(packet)
         } catch (error) {
           Logger.warn('error parsing photon packet', error)
+          Logger.warn('packet', prettyPrintBuffer(packet))
         }
       }
     })

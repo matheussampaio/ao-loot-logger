@@ -3,12 +3,12 @@ const uuidStringify = require('../../utils/uuid-stringify')
 const Logger = require('../../utils/logger')
 const ParserError = require('../parser-error')
 
-const EventId = 90
+const name = 'EvAttachItemContainer'
 
 function handle(event) {
   Logger.debug('EvAttachItemContainer', event.parameters)
 
-  const { id, uuid } = parse(event)
+  const { id, uuid, inventory, slots } = parse(event)
 
   let container =
     MemoryStorage.containers.getByUUID(uuid) ??
@@ -26,16 +26,10 @@ function handle(event) {
     container.id = id
   }
 
-  const objectIds = event.parameters[3]
-
-  if (!Array.isArray(objectIds)) {
-    return Logger.warn('EvAttachItemContainer has invalid objectIds parameter')
-  }
-
-  const containerSize = objectIds.length
+  const containerSize = inventory.length
 
   for (let position = 0; position < containerSize; position++) {
-    const objectId = objectIds[position]
+    const objectId = inventory[position]
     const loot = MemoryStorage.loots.getById(objectId)
 
     if (loot == null) {
@@ -49,7 +43,7 @@ function handle(event) {
     container.items[position] = loot
   }
 
-  Logger.debug('EvAttachItemContainer', container)
+  Logger.debug('EvAttachItemContainer', container, event.parameters)
 }
 
 function parse(event) {
@@ -81,4 +75,4 @@ function parse(event) {
 
   return { id, uuid, inventory, slots }
 }
-module.exports = { EventId, handle, parse }
+module.exports = { name, handle, parse }

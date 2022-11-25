@@ -1,10 +1,10 @@
-process.on('uncaughtException', async (error, source) => {
+process.on('uncaughtException', async (error) => {
   console.error(error)
 
   await new Promise((resolve) => setTimeout(resolve, 25000))
 })
 
-process.on('unhandledRejection', async (reason, promise) => {
+process.on('unhandledRejection', async (reason) => {
   console.error(reason)
 
   await new Promise((resolve) => setTimeout(resolve, 25000))
@@ -20,21 +20,21 @@ const checkNewVersion = require('./check-new-version')
 const DataHandler = require('./data-handler/data-handler')
 const Items = require('./items')
 const KeyboardInput = require('./keyboard-input')
-const { version } = require('../package.json')
 
-const CTRL_C = '\u0003'
-const ROTATE_LOGGER_FILE_KEY = 'd'
-const RESTART_NETWORK_FILE_KEY = 'r'
-const TITLE = `AO Loot Logger - v${version}`
+const Config = require('./config')
 
 main()
 
 async function main() {
-  setWindowTitle(TITLE)
+  setWindowTitle(Config.TITLE)
 
-  console.info(`${TITLE}`)
+  console.info(`${Config.TITLE}\n`)
 
-  await Promise.all([checkNewVersion(), Items.init()])
+  await Promise.all([checkNewVersion(), Items.init(), Config.init()])
+
+  AlbionNetwork.on('add-listener', (device) => {
+    console.info(`Listening to ${device.name}`)
+  })
 
   AlbionNetwork.on('event-data', DataHandler.handleEventData)
   AlbionNetwork.on('request-data', DataHandler.handleRequestData)
@@ -42,33 +42,35 @@ async function main() {
 
   AlbionNetwork.on('online', () => {
     console.info(`\n\t${green('ALBION DETECTED')}. Loot events should be logged.\n`)
-    setWindowTitle(`[ON] ${TITLE}`)
+    setWindowTitle(`[ON] ${Config.TITLE}`)
   })
 
   AlbionNetwork.on('offline', () => {
     console.info(
       `\n\t${red(
         'ALBION NOT DETECTED'
-      )}.\n\n\tIf Albion is running, press "${RESTART_NETWORK_FILE_KEY}" to restart the network listeners or restart AO Loot Logger.\n`
+      )}.\n\n\tIf Albion is running, press "${Config.RESTART_NETWORK_FILE_KEY}" to restart the network listeners or restart AO Loot Logger.\n`
     )
 
-    setWindowTitle(`[OFF] ${TITLE}`)
+    setWindowTitle(`[OFF] ${Config.TITLE}`)
   })
 
   AlbionNetwork.init()
 
 
   KeyboardInput.on('key-pressed', (key) => {
+    const CTRL_C = '\u0003'
+
     switch (key) {
       case CTRL_C:
         return exit()
 
-      case RESTART_NETWORK_FILE_KEY.toLocaleLowerCase():
-      case RESTART_NETWORK_FILE_KEY.toUpperCase():
+      case Config.RESTART_NETWORK_FILE_KEY.toLocaleLowerCase():
+      case Config.RESTART_NETWORK_FILE_KEY.toUpperCase():
         return restartNetwork()
 
-      case ROTATE_LOGGER_FILE_KEY.toLocaleLowerCase():
-      case ROTATE_LOGGER_FILE_KEY.toUpperCase():
+      case Config.ROTATE_LOGGER_FILE_KEY.toLocaleLowerCase():
+      case Config.ROTATE_LOGGER_FILE_KEY.toUpperCase():
         return rotateLogFile()
     }
   })
@@ -76,11 +78,11 @@ async function main() {
   KeyboardInput.init()
 
   console.info([
-      '',
-    green(`Logs will be written to ${path.join(process.cwd(), LootLogger.logFileName)}`),
-      '',
-      `You can always press "${ROTATE_LOGGER_FILE_KEY}" to start a new log file.`,
-      '',
+    '',
+    `Logs will be written to ${path.join(process.cwd(), LootLogger.logFileName)}`,
+    '',
+    `You can always press "${Config.ROTATE_LOGGER_FILE_KEY}" to start a new log file.`,
+    '',
     `Join the Discord server: ${cyan('https://discord.gg/fvNMF2abXr')} (Ctrl + click to open).`
   ].join('\n'))
 }
@@ -91,7 +93,7 @@ function restartNetwork() {
   AlbionNetwork.close()
   AlbionNetwork.init()
 
-  setWindowTitle(TITLE)
+  setWindowTitle(Config.TITLE)
 }
 
 function setWindowTitle(title) {
@@ -111,11 +113,9 @@ function rotateLogFile() {
   LootLogger.createNewLogFileName()
 
   console.info(
-    green(
-      `From now on, logs will be written to ${path.join(
-        process.cwd(),
-        LootLogger.logFileName
-      )}. The file is only created when the first loot event is detected.\n`
-    )
+    `From now on, logs will be written to ${path.join(
+      process.cwd(),
+      LootLogger.logFileName
+    )}. The file is only created when the first loot event is detected.\n`
   )
 }

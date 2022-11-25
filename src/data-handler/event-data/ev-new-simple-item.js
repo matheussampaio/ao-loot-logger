@@ -3,7 +3,7 @@ const Items = require('../../items')
 const Logger = require('../../utils/logger')
 const ParserError = require('../parser-error')
 
-const EventId = 29
+const name = 'EvNewSimpleItem'
 
 function handle(event) {
   const { objectId, itemNumId, quantity } = parse(event)
@@ -63,4 +63,4 @@ function parse(event) {
   return { objectId, itemNumId, quantity }
 }
 
-module.exports = { EventId, handle, parse }
+module.exports = { name, handle, parse }

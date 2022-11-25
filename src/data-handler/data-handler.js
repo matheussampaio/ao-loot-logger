@@ -3,6 +3,7 @@ const ResponseData = require('./response-data')
 const EventData = require('./event-data')
 const Logger = require('../utils/logger')
 const ParserError = require('./parser-error')
+const Config = require('../config')
 
 class DataHandler {
   static handleEventData(event) {
@@ -14,44 +15,37 @@ class DataHandler {
       const eventId = event?.parameters?.[252]
 
       switch (eventId) {
-        case EventData.EvInventoryPutItems.EventId:
-          return EventData.EvInventoryPutItems.handle(event)
+        // case Config.events.EvInventoryPutItem:
+        //   return EventData.EvInventoryPutItem.handle(event)
 
-        case EventData.EvNewCharacter.EventId:
+        case Config.events.EvNewCharacter:
           return EventData.EvNewCharacter.handle(event)
 
-        case EventData.EvNewEquipmentItem.EventId:
-        case EventData.EvNewSimpleItem.EventId:
+        case Config.events.EvNewEquipmentItem:
+          return EventData.EvNewEquipmentItem.handle(event)
+
+        case Config.events.EvNewSimpleItem:
           return EventData.EvNewSimpleItem.handle(event)
 
-        case EventData.EvNewLoot.EventId:
+        case Config.events.EvNewLoot:
           return EventData.EvNewLoot.handle(event)
 
-        case EventData.EvAttachItemContainer.EventId:
+        case Config.events.EvAttachItemContainer:
           return EventData.EvAttachItemContainer.handle(event)
 
-        case EventData.EvDetachItemContainer.EventId:
+        case Config.events.EvDetachItemContainer:
           return EventData.EvDetachItemContainer.handle(event)
 
-        case EventData.EvCharacterStats.EventId:
+        case Config.events.EvCharacterStats:
           return EventData.EvCharacterStats.handle(event)
 
-        // case 133:
-        // return EventData.EvGuildStats(event)
-
-        case EventData.EvOtherGrabbedLoot.EventId:
+        case Config.events.EvOtherGrabbedLoot:
           return EventData.EvOtherGrabbedLoot.handle(event)
 
-        // case EventData.EvPartyLootItems.EventId:
-        //   return EventData.EvPartyLootItems.handle(event)
-
-        // case EventData.EvPartyLootItemsRemoved.EventId:
-        //   return EventData.EvPartyLootItemsRemoved.handle(event)
-
-        case EventData.EvNewLootChest.EventId:
+        case Config.events.EvNewLootChest:
           return EventData.EvNewLootChest.handle(event)
 
-        case EventData.EvUpdateLootChest.EventId:
+        case Config.events.EvUpdateLootChest:
           return EventData.EvUpdateLootChest.handle(event)
 
         default:
@@ -71,7 +65,7 @@ class DataHandler {
 
     try {
       switch (eventId) {
-        case RequestData.OpInventoryMoveItem.EventId:
+        case Config.events.OpInventoryMoveItem:
           return RequestData.OpInventoryMoveItem.handle(event)
 
         default:
@@ -91,7 +85,7 @@ class DataHandler {
 
     try {
       switch (eventId) {
-        case ResponseData.OpJoin.EventId:
+        case Config.events.OpJoin:
           return ResponseData.OpJoin.handle(event)
 
         default:

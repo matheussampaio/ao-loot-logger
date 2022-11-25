@@ -2,7 +2,7 @@ const MemoryStorage = require('../../storage/memory-storage')
 const Logger = require('../../utils/logger')
 const ParserError = require('../parser-error')
 
-const EventId = 370
+const name = 'EvNewLootChest'
 
 function handle(event) {
   const { id, owner } = parse(event)
@@ -23,7 +23,7 @@ function handle(event) {
     container.type = type
   }
 
-  Logger.debug('EvNewLootChest', container)
+  Logger.debug('EvNewLootChest', container, event.parameters)
 }
 
 function parse(event) {
@@ -42,4 +42,4 @@ function parse(event) {
   return { id, owner }
 }
 
-module.exports = { EventId, handle, parse }
+module.exports = { name, handle, parse }

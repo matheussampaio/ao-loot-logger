@@ -9,7 +9,7 @@ function formatLootLog({ date, lootedBy, itemName, lootedFrom, quantity }) {
   return `${hours}:${minute}:${seconds} UTC: ${formatPlayerName(
     lootedBy,
     green
-  )} looted ${quantity}x ${itemName} from ${red(lootedFrom.playerName)}.`
+  )} looted ${quantity}x ${itemName} from ${formatPlayerName(lootedFrom, red)}.`
 }
 
 module.exports = formatLootLog

@@ -7,6 +7,10 @@ class BufferReader {
     this.debug = debug
   }
 
+  get length() {
+    return this.buffer.length
+  }
+
   readInt8() {
     if (this.position < 0 || this.position > this.buffer.length - 1) {
       throw new Error('outofboundread')
