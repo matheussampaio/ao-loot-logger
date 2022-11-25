@@ -13,8 +13,7 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "semantic-release": "semantic-release",
-    "build": "node build.js ao-loot-logger"
+    "semantic-release": "semantic-release"
   },
   "author": {
     "name": "Matheus Sampaio",

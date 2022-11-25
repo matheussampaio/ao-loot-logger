@@ -35,19 +35,44 @@ async function checkNewVersion() {
     const latestVersion = parseVersion(data.tag_name)
     const currentVersion = parseVersion(version)
 
-    const isNewVersionAvailable =
-      currentVersion.major < latestVersion.major ||
-      currentVersion.minor < latestVersion.minor ||
-      currentVersion.patch < latestVersion.patch
+    const isNewVersionAvailable = isNewVersion(currentVersion, latestVersion)
 
     if (isNewVersionAvailable) {
       console.info(
         green(
-          `\n\nNew AO Loot Logger ${data.tag_name} available: https://github.com/matheussampaio/ao-loot-logger/releases/latest\n`
+          `\nNew AO Loot Logger ${data.tag_name} available: https://github.com/matheussampaio/ao-loot-logger/releases/latest\n\n`
         )
       )
     }
   }
+}
+
+function isNewVersion(current, latest) {
+  if (current.major > latest.major) {
+    return false
+  }
+
+  if (current.major < latest.major) {
+    return true
+  }
+
+  if (current.minor > latest.minor) {
+    return false
+  }
+
+  if (current.minor < latest.minor) {
+    return true
+  }
+
+  if (current.patch > latest.patch) {
+    return false
+  }
+
+  if (current.patch < latest.patch) {
+    return true
+  }
+
+  return false
 }
 
 function parseVersion(version) {
