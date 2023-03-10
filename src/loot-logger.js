@@ -6,7 +6,6 @@ class LootLogger {
   constructor() {
     this.stream = null
     this.logFileName = null
-    this.players = {}
 
     this.createNewLogFileName()
   }

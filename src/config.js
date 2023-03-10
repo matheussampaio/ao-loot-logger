@@ -6,7 +6,7 @@ const { name, version } = require('../package.json')
 const app = initializeApp({ projectId: name })
 const db = getFirestore(app)
 
-const read = async (collection, docId, defaultValue) => {
+async function read(collection, docId, defaultValue) {
   const docRef = doc(db, collection, docId)
   const docSnap = await getDoc(docRef)
 
@@ -24,7 +24,7 @@ class Config {
   }
 
   async init() {
-    this.events = await read("events", "v1", {})
+    this.events = await read("events", "v2", {})
     this.players = await read("players", "v1", {})
   }
 }
