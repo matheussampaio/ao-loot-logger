@@ -12,7 +12,7 @@ class Items {
 
     try {
       const response = await axios.get(
-        'https://raw.githubusercontent.com/broderickhyman/ao-bin-dumps/master/formatted/items.txt'
+        'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.txt'
       )
 
       data = response.data
