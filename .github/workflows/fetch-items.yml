@@ -1,0 +1,38 @@
+name: Check and update fallback items
+
+on:
+  schedule:
+    - cron: "0 0,6,12,18 * * *"
+
+jobs:
+  update-code:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Make code changes
+      run: |
+        echo "module.exports = \`$(curl -sSL https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.txt)\`" > src/items-fallback.js
+
+    - name: check if needs to create PR
+      id: check_changes
+      run: |
+        if git status --porcelain | grep -q "^.M"; then
+          echo "modified=true" >> $GITHUB_ENV
+        fi
+
+    - name: Create Pull Request
+      if: env.modified == 'true'
+      uses: peter-evans/create-pull-request@v5
+      with:
+        base: main
+        branch: update-items
+        commit-message: "feat: update items fallback"
+        delete-branch: true
+        branch-suffix: timestamp
+        title: "Update items fallback"
+        body: |
+          This PR updates the items fallback.
+        token: ${{ secrets.GH_TOKEN }}
