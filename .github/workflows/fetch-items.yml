@@ -1,0 +1,51 @@
+name: Fetch item list
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  update-code:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Make code changes
+      run: |
+        echo "module.exports = \`$(curl -sSL https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.txt)\`" > src/items-fallback.js
+
+    - name: check if needs to create PR
+      run: |
+        if git status --porcelain | grep -q "^.M"; then
+          echo "::set-output name=modified::true"
+        fi
+
+    - name: Create branch
+      run: |
+        git checkout -b "new-items-$(date +'%Y%m%d%H%M%S')"
+
+    - name: Commit changes
+      run: |
+        git config --global user.name "Matheus Sampaio"
+        git config --global user.email "matheus@sampaio.us"
+        git add .
+        git commit -m "feat: update items fallback"
+
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.6.0
+      if: steps.compare-payload.outputs.modified == 'true'
+      with:
+        branch: ${{ github.ref }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create Pull Request
+      if: steps.compare-payload.outputs.modified == 'true'
+      uses: peter-evans/create-pull-request@v3
+      with:
+        branch: ${{ github.ref }}
+        title: Update items fallback
+        body: |
+          This PR updates the items fallback.
+        token: ${{ secrets.GITHUB_TOKEN }}
