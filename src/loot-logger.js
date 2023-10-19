@@ -40,9 +40,16 @@ class LootLogger {
   createNewLogFileName() {
     const d = new Date()
 
-    this.logFileName = `loot-events-${d.getFullYear()}-${
-      d.getMonth() + 1
-    }-${d.getDate()}-${d.getHours()}-${d.getMinutes()}-${d.getSeconds()}.txt`
+    const datetime = [
+      d.getFullYear(),
+      d.getMonth() + 1,
+      d.getDate(),
+      d.getHours(),
+      d.getMinutes(),
+      d.getSeconds()
+    ].map(n => n.toString().padStart(2, '0')).join('-')
+
+    this.logFileName = `loot-events-${datetime}.txt`
   }
 
   write({ date, itemId, quantity, itemName, lootedBy, lootedFrom }) {
