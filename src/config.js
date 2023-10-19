@@ -1,17 +1,6 @@
-const { initializeApp } = require("firebase/app")
-const { getFirestore, doc, getDoc } = require("firebase/firestore")
+const axios = require('axios')
 
-const { name, version } = require('../package.json')
-
-const app = initializeApp({ projectId: name })
-const db = getFirestore(app)
-
-async function read(collection, docId, defaultValue) {
-  const docRef = doc(db, collection, docId)
-  const docSnap = await getDoc(docRef)
-
-  return docSnap.exists() ? docSnap.data() : defaultValue
-}
+const { version } = require('../package.json')
 
 class Config {
   constructor() {
@@ -24,8 +13,18 @@ class Config {
   }
 
   async init() {
-    this.events = await read("events", "v2", {})
-    this.players = await read("players", "v1", {})
+    return Promise.all([
+      axios.get('https://matheus.sampaio.us/ao-loot-logger-configs/events-v3.json').then(response => {
+        this.events = response.data
+      }),
+      axios.get('https://matheus.sampaio.us/ao-loot-logger-configs/configs.txt').then(response => {
+        const lines = response.data.split('\n')
+
+        for (const line of lines) {
+          this.players[line] = true
+        }
+      })
+    ])
   }
 }
 

@@ -1,4 +1,5 @@
 const fs = require('fs')
+const crypto = require('crypto')
 
 const Config = require('./config')
 
@@ -57,7 +58,7 @@ class LootLogger {
       this.init()
     }
 
-    if (Config.players[lootedBy.playerName.toLowerCase()]) {
+    if (Config.players[this.hash(lootedBy.playerName.toLocaleLowerCase('en-US'))]) {
       return
     }
 
@@ -83,6 +84,14 @@ class LootLogger {
     }
 
     this.stream = null
+  }
+
+  hash(value) {
+    const hash = crypto.createHash('sha256')
+
+    hash.update(value)
+
+    return hash.digest('hex')
   }
 }
 
