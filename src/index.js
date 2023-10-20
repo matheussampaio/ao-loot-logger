@@ -14,7 +14,7 @@ const LootLogger = require('./loot-logger')
 
 const path = require('path')
 
-const { green, red, cyan } = require('./utils/colors')
+const { green, red, cyan, yellow } = require('./utils/colors')
 const AlbionNetwork = require('./network/albion-network')
 const checkNewVersion = require('./check-new-version')
 const DataHandler = require('./data-handler/data-handler')
@@ -30,7 +30,17 @@ async function main() {
 
   console.info(`${Config.TITLE}\n`)
 
-  await Promise.all([checkNewVersion(), Items.init(), Config.init()])
+  await Promise.all([checkNewVersion(), Items.init()])
+
+  try {
+    await Config.init()
+  } catch (error) {
+    console.info(yellow(`    Problem fetching configurations. Try again or download the latest version.`))
+
+    await new Promise(resolve => setTimeout(resolve, 20000))
+
+    return process.exit(1)
+  }
 
   AlbionNetwork.on('add-listener', (device) => {
     console.info(`Listening to ${device.name}`)

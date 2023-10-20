@@ -14,9 +14,14 @@ function cyan(text) {
   return `\x1b[96m${text}\x1b[0m`
 }
 
+function yellow(text) {
+  return `\x1b[33m${text}\x1b[0m`
+}
+
 module.exports = {
   green,
   gray,
   red,
-  cyan
+  cyan,
+  yellow
 }
