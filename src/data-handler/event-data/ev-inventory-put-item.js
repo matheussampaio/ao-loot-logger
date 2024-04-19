@@ -1,6 +1,5 @@
 const MemoryStorage = require('../../storage/memory-storage')
 const LootLogger = require('../../loot-logger')
-const formatLootLog = require('../../utils/format-loot-log')
 const Logger = require('../../utils/logger')
 const ParserError = require('../parser-error')
 
@@ -39,16 +38,6 @@ function handle(event) {
     lootedBy,
     lootedFrom
   })
-
-  console.info(
-    formatLootLog({
-      date,
-      lootedBy,
-      lootedFrom,
-      quantity,
-      itemName
-    })
-  )
 }
 
 function parse(event) {

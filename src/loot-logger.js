@@ -2,6 +2,8 @@ const fs = require('fs')
 const crypto = require('crypto')
 
 const Config = require('./config')
+const { red, green } = require('./utils/colors')
+const formatPlayerName = require('./utils/format-player-name')
 
 class LootLogger {
   constructor() {
@@ -48,7 +50,9 @@ class LootLogger {
       d.getHours(),
       d.getMinutes(),
       d.getSeconds()
-    ].map(n => n.toString().padStart(2, '0')).join('-')
+    ]
+      .map((n) => n.toString().padStart(2, '0'))
+      .join('-')
 
     this.logFileName = `loot-events-${datetime}.txt`
   }
@@ -58,7 +62,9 @@ class LootLogger {
       this.init()
     }
 
-    if (Config.players[this.hash(lootedBy.playerName.toLocaleLowerCase('en-US'))]) {
+    if (
+      Config.players[this.hash(lootedBy.playerName.toLocaleLowerCase('en-US'))]
+    ) {
       return
     }
 
@@ -76,6 +82,30 @@ class LootLogger {
     ].join(';')
 
     this.stream.write(line + '\n')
+
+    console.info(
+      this.formatLootLog({
+        date,
+        lootedBy,
+        lootedFrom,
+        quantity,
+        itemName
+      })
+    )
+  }
+
+  formatLootLog({ date, lootedBy, itemName, lootedFrom, quantity }) {
+    const hours = date.getUTCHours().toString().padStart(2, '0')
+    const minute = date.getUTCMinutes().toString().padStart(2, '0')
+    const seconds = date.getUTCSeconds().toString().padStart(2, '0')
+
+    return `${hours}:${minute}:${seconds} UTC: ${formatPlayerName(
+      lootedBy,
+      green
+    )} looted ${quantity}x ${itemName} from ${formatPlayerName(
+      lootedFrom,
+      red
+    )}.`
   }
 
   close() {

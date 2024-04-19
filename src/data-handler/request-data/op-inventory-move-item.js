@@ -1,7 +1,6 @@
 const MemoryStorage = require('../../storage/memory-storage')
 const LootLogger = require('../../loot-logger')
 const uuidStringify = require('../../utils/uuid-stringify')
-const formatLootLog = require('../../utils/format-loot-log')
 const Logger = require('../../utils/logger')
 const ParserError = require('../parser-error')
 
@@ -10,10 +9,17 @@ const name = 'OpInventoryMoveItem'
 function handle(event) {
   const { fromSlot, fromUuid, toSlot, toUuid } = parse(event)
 
-  Logger.debug('opIventoryMoveItem', { fromSlot, fromUuid, toSlot, toUuid }, event.parameters)
+  Logger.debug(
+    'opIventoryMoveItem',
+    { fromSlot, fromUuid, toSlot, toUuid },
+    event.parameters
+  )
 
   if (fromUuid === toUuid) {
-    return Logger.debug('OpInventoryMoveItem moving inside same container', fromUuid)
+    return Logger.debug(
+      'OpInventoryMoveItem moving inside same container',
+      fromUuid
+    )
   }
 
   let container = MemoryStorage.containers.getByUUID(fromUuid)
@@ -26,7 +32,10 @@ function handle(event) {
     const loot = container.items[fromSlot]
 
     if (loot == null) {
-      return Logger.debug('OpInventoryMoveItem cant find loot', { fromSlot, items: container.items })
+      return Logger.debug('OpInventoryMoveItem cant find loot', {
+        fromSlot,
+        items: container.items
+      })
     }
 
     MemoryStorage.loots.deleteById(loot.id)
@@ -58,16 +67,6 @@ function handle(event) {
       lootedBy,
       lootedFrom
     })
-
-    console.info(
-      formatLootLog({
-        date,
-        lootedBy,
-        lootedFrom,
-        quantity,
-        itemName
-      })
-    )
   }
 }
 

@@ -45,11 +45,12 @@ class DataHandler {
         case Config.events.EvNewLootChest:
           return EventData.EvNewLootChest.handle(event)
 
-        case Config.events.EvUpdateLootChest:
-          return EventData.EvUpdateLootChest.handle(event)
+        // case Config.events.EvUpdateLootChest:
+        //   return EventData.EvUpdateLootChest.handle(event)
 
         default:
-          if (process.env.LOG_UNPROCESSED) Logger.silly('handleEventData', event.parameters)
+          if (process.env.LOG_UNPROCESSED)
+            Logger.silly('handleEventData', event.parameters)
       }
     } catch (error) {
       if (error instanceof ParserError) {

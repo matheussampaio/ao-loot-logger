@@ -1,6 +1,5 @@
 const MemoryStorage = require('../../storage/memory-storage')
 const LootLogger = require('../../loot-logger')
-const formatLootLog = require('../../utils/format-loot-log')
 const Items = require('../../items')
 const ParserError = require('../parser-error')
 const Logger = require('../../utils/logger')
@@ -10,7 +9,13 @@ const name = 'EvOtherGrabbedLoot'
 function handle(event) {
   const { isSilver, lootedFrom, lootedBy, itemNumId, quantity } = parse(event)
 
-  Logger.debug('EvOtherGrabbedLoot', { isSilver, lootedFrom, lootedBy, itemNumId, quantity })
+  Logger.debug('EvOtherGrabbedLoot', {
+    isSilver,
+    lootedFrom,
+    lootedBy,
+    itemNumId,
+    quantity
+  })
 
   if (isSilver) {
     return
@@ -32,21 +37,6 @@ function handle(event) {
       MemoryStorage.players.getByName(lootedFrom) ??
       MemoryStorage.players.add({ playerName: lootedFrom })
   })
-
-  console.info(
-    formatLootLog({
-      date,
-      lootedBy:
-        MemoryStorage.players.getByName(lootedBy) ??
-        MemoryStorage.players.add({ playerName: lootedBy }),
-      lootedFrom:
-        MemoryStorage.players.getByName(lootedFrom) ??
-        MemoryStorage.players.add({ playerName: lootedFrom }),
-      quantity,
-      itemName
-    })
-  )
-
 }
 
 function parse(event) {

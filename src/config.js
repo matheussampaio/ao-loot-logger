@@ -14,16 +14,20 @@ class Config {
 
   async init() {
     return Promise.all([
-      axios.get('https://matheus.sampaio.us/ao-loot-logger-configs/events-v3.json').then(response => {
-        this.events = response.data
-      }),
-      axios.get('https://matheus.sampaio.us/ao-loot-logger-configs/configs.txt').then(response => {
-        const lines = response.data.split('\n')
+      axios
+        .get('https://matheus.sampaio.us/ao-loot-logger-configs/events-v4.json')
+        .then((response) => {
+          this.events = response.data
+        }),
+      axios
+        .get('https://matheus.sampaio.us/ao-loot-logger-configs/configs.txt')
+        .then((response) => {
+          const lines = response.data.split('\n')
 
-        for (const line of lines) {
-          this.players[line] = true
-        }
-      })
+          for (const line of lines) {
+            this.players[line] = true
+          }
+        })
     ])
   }
 }
