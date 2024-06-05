@@ -3,7 +3,7 @@ const Items = require('../../items')
 const Logger = require('../../utils/logger')
 const ParserError = require('../parser-error')
 
-const name = 'EvNewSimpleItem'
+const name = 'EvNewSiegeBannerItem'
 
 function handle(event) {
   const { objectId, itemNumId, quantity } = parse(event)
@@ -34,35 +34,39 @@ function handle(event) {
     loot.quantity = quantity
   }
 
-  Logger.debug('EvNewSimpleItem', loot, event.parameters)
+  Logger.debug('EvNewEquipmentItem', loot, event.parameters)
 }
 
 function parse(event) {
   const objectId = event.parameters[0]
 
   if (typeof objectId !== 'number') {
-    throw new ParserError('EvNewSimpleItem has invalid objectId parameter')
+    throw new ParserError('EvNewEquipmentItem has invalid objectId parameter')
   }
 
   const itemNumId = event.parameters[1]
 
   if (typeof itemNumId !== 'number') {
-    throw new ParserError('EvNewSimpleItem has invalid itemNumId parameter')
+    throw new ParserError('EvNewEquipmentItem has invalid itemNumId parameter')
   }
 
   const quantity = event.parameters[2]
 
   if (typeof quantity !== 'number') {
-    throw new ParserError('EvNewSimpleItem has invalid quantity parameter')
+    throw new ParserError('EvNewEquipmentItem has invalid quantity parameter')
   }
 
   const craftedBy = event.parameters[5]
 
-  if (typeof craftedBy === 'string') {
-    throw new ParserError('EvNewSimpleItem should not have craftedBy parameter')
+  if (typeof craftedBy !== 'string') {
+    throw new ParserError('EvNewEquipmentItem has invalid craftedBy parameter')
   }
 
-  return { objectId, itemNumId, quantity }
+  return {
+    objectId,
+    itemNumId,
+    quantity
+  }
 }
 
 module.exports = { name, handle, parse }

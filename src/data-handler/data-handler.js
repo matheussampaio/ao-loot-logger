@@ -24,6 +24,9 @@ class DataHandler {
         case Config.events.EvNewEquipmentItem:
           return EventData.EvNewEquipmentItem.handle(event)
 
+        case Config.events.EvNewSiegeBannerItem:
+          return EventData.EvNewSiegeBannerItem.handle(event)
+
         case Config.events.EvNewSimpleItem:
           return EventData.EvNewSimpleItem.handle(event)
 

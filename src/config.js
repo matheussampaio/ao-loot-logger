@@ -12,23 +12,40 @@ class Config {
     this.TITLE = `AO Loot Logger - v${version}`
   }
 
-  async init() {
+  async init({ eventsOverride, configsOverrride } = {}) {
     return Promise.all([
-      axios
-        .get('https://matheus.sampaio.us/ao-loot-logger-configs/events-v4.json')
-        .then((response) => {
-          this.events = response.data
-        }),
-      axios
-        .get('https://matheus.sampaio.us/ao-loot-logger-configs/configs.txt')
-        .then((response) => {
-          const lines = response.data.split('\n')
-
-          for (const line of lines) {
-            this.players[line] = true
-          }
-        })
+      this.loadEvents(eventsOverride),
+      this.loadConfigs(configsOverrride)
     ])
+  }
+
+  async loadEvents(eventsOverride) {
+    console.log(eventsOverride)
+    if (eventsOverride) {
+      return (this.events = eventsOverride)
+    }
+
+    const response = await axios.get(
+      'https://matheus.sampaio.us/ao-loot-logger-configs/events-v5.json'
+    )
+
+    this.events = response.data
+  }
+
+  async loadConfigs(configsOverrride) {
+    if (configsOverrride) {
+      return (this.players = configsOverrride)
+    }
+
+    const response = await axios.get(
+      'https://matheus.sampaio.us/ao-loot-logger-configs/configs.txt'
+    )
+
+    const lines = response.data.split('\n')
+
+    for (const line of lines) {
+      this.players[line] = true
+    }
   }
 }
 
