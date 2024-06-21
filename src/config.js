@@ -20,13 +20,12 @@ class Config {
   }
 
   async loadEvents(eventsOverride) {
-    console.log(eventsOverride)
     if (eventsOverride) {
       return (this.events = eventsOverride)
     }
 
     const response = await axios.get(
-      'https://matheus.sampaio.us/ao-loot-logger-configs/events-v5.json'
+      'https://matheus.sampaio.us/ao-loot-logger-configs/events-v6.0.0.json'
     )
 
     this.events = response.data
