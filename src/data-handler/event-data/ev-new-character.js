@@ -32,7 +32,7 @@ function parse(event) {
   }
 
   const guildName = event.parameters[8]
-  const allianceName = event.parameters[49]
+  const allianceName = event.parameters[51]
 
   return { allianceName, guildName, playerName }
 }
