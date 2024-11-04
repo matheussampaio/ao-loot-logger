@@ -23,16 +23,11 @@ jobs:
           echo "modified=true" >> $GITHUB_ENV
         fi
 
-    - name: Create Pull Request
+    - name: Commit and push changes
       if: env.modified == 'true'
-      uses: peter-evans/create-pull-request@v5
-      with:
-        base: main
-        branch: update-items
-        commit-message: "feat: update items fallback"
-        delete-branch: true
-        branch-suffix: timestamp
-        title: "Update items fallback"
-        body: |
-          This PR updates the items fallback.
-        token: ${{ secrets.GH_TOKEN }}
+      run: |
+        git add src/items-fallback.js
+        git commit -m "feat: update items fallback"
+        git push origin main
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
