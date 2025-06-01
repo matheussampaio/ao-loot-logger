@@ -57,9 +57,9 @@ class DataHandler {
       }
     } catch (error) {
       if (error instanceof ParserError) {
-        Logger.warn(error, event)
+        // Logger.warn(error, event)
       } else {
-        Logger.error(error, event)
+        // Logger.error(error, event)
       }
     }
   }
