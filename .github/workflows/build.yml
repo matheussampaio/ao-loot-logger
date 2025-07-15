@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-win:
-    runs-on: windows-2019
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -44,7 +44,7 @@ jobs:
           if-no-files-found: error
 
   build-linux:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
