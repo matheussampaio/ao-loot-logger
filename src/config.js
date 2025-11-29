@@ -25,7 +25,7 @@ class Config {
     }
 
     const response = await axios.get(
-      'https://matheus.sampaio.us/ao-loot-logger-configs/events-v8.0.0.json'
+      'https://matheus.sampaio.us/ao-loot-logger-configs/events-v9.0.0.json'
     )
 
     this.events = response.data
