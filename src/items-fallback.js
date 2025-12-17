@@ -10474,1405 +10474,1473 @@ module.exports = `   1: UNIQUE_HIDEOUT                                          
 10474: UNIQUE_AVATAR_GVGSEASON_29_BRONZE                                : Avatar: Bronze Hunter
 10475: UNIQUE_AVATAR_GVGSEASON_30_CRYSTAL                               : Avatar: Crystal Harvester
 10476: UNIQUE_AVATAR_GVGSEASON_30_SILVER                                : Avatar: Silver Harvester
-10477: UNIQUE_AVATAR_GVGSEASON_LEGACY_AVATARS_GOLD                      
-10478: UNIQUE_AVATAR_GVGSEASON_LEGACY_AVATARS_BRONZE                    
-10479: T5_CORRUPTED_NONLETHAL_MAP                                       : Corrupted Dungeon Map (Hunter)
-10480: T6_CORRUPTED_LETHAL_MAP                                          : Corrupted Dungeon Map (Stalker/Slayer)
-10481: T6_HELLGATE_2V2_LETHAL_1_MAP                                     : Master's Hellgate Ritual (2v2 - Lethal)
-10482: T7_HELLGATE_5V5_LETHAL_1_MAP                                     : Grandmaster's Hellgate Ritual (5v5 - Lethal)
-10483: T8_HELLGATE_10V10_LETHAL_1_MAP                                   : Elder's Hellgate Ritual (10v10 - Lethal)
-10484: T5_HELLGATE_2V2_NON_LETHAL_1_MAP                                 : Expert's Hellgate Ritual (2v2 - Nonlethal)
-10485: T5_HELLGATE_5V5_NON_LETHAL_1_MAP                                 : Expert's Hellgate Ritual (5v5 - Nonlethal)
-10486: T5_HELLGATE_10V10_NON_LETHAL_1_MAP                               : Expert's Hellgate Ritual (10v10 - Nonlethal)
-10487: T6_RANDOM_DUNGEON_ELITE_TOKEN_1                                  : Master's Dungeon Map (Large Group)
-10488: T7_RANDOM_DUNGEON_ELITE_TOKEN_1                                  : Grandmaster's Dungeon Map (Large Group)
-10489: T8_RANDOM_DUNGEON_ELITE_TOKEN_1                                  : Elder's Dungeon Map (Large Group)
-10490: T6_RANDOM_DUNGEON_ELITE_TOKEN_D1@1                               
-10491: T7_RANDOM_DUNGEON_ELITE_TOKEN_D1@1                               
-10492: T8_RANDOM_DUNGEON_ELITE_TOKEN_D1@1                               
-10493: T6_RANDOM_DUNGEON_ELITE_TOKEN_2@1                                : Uncommon Master's Dungeon Map (Large Group)
-10494: T7_RANDOM_DUNGEON_ELITE_TOKEN_2@1                                : Uncommon Grandmaster's Dungeon Map (Large Group)
-10495: T8_RANDOM_DUNGEON_ELITE_TOKEN_2@1                                : Uncommon Elder's Dungeon Map (Large Group)
-10496: T6_RANDOM_DUNGEON_ELITE_TOKEN_D2@2                               
-10497: T7_RANDOM_DUNGEON_ELITE_TOKEN_D2@2                               
-10498: T8_RANDOM_DUNGEON_ELITE_TOKEN_D2@2                               
-10499: T6_RANDOM_DUNGEON_ELITE_TOKEN_3@2                                : Rare Master's Dungeon Map (Large Group)
-10500: T7_RANDOM_DUNGEON_ELITE_TOKEN_3@2                                : Rare Grandmaster's Dungeon Map (Large Group)
-10501: T8_RANDOM_DUNGEON_ELITE_TOKEN_3@2                                : Rare Elder's Dungeon Map (Large Group)
-10502: T6_RANDOM_DUNGEON_ELITE_TOKEN_D3@3                               
-10503: T7_RANDOM_DUNGEON_ELITE_TOKEN_D3@3                               
-10504: T8_RANDOM_DUNGEON_ELITE_TOKEN_D3@3                               
-10505: T6_RANDOM_DUNGEON_ELITE_TOKEN_4@3                                : Exceptional Master's Dungeon Map (Large Group)
-10506: T7_RANDOM_DUNGEON_ELITE_TOKEN_4@3                                : Exceptional Grandmaster's Dungeon Map (Large Group)
-10507: T8_RANDOM_DUNGEON_ELITE_TOKEN_4@3                                : Exceptional Elder's Dungeon Map (Large Group)
-10508: T6_RANDOM_DUNGEON_ELITE_TOKEN_D4@4                               
-10509: T7_RANDOM_DUNGEON_ELITE_TOKEN_D4@4                               
-10510: T8_RANDOM_DUNGEON_ELITE_TOKEN_D4@4                               
-10511: T2_RANDOM_DUNGEON_SOLO_TOKEN_1                                   
-10512: T3_RANDOM_DUNGEON_SOLO_TOKEN_1                                   : Journeyman's Dungeon Map (Solo)
-10513: T4_RANDOM_DUNGEON_SOLO_TOKEN_1                                   : Adept's Dungeon Map (Solo)
-10514: T5_RANDOM_DUNGEON_SOLO_TOKEN_1                                   : Expert's Dungeon Map (Solo)
-10515: T6_RANDOM_DUNGEON_SOLO_TOKEN_1                                   : Master's Dungeon Map (Solo)
-10516: T7_RANDOM_DUNGEON_SOLO_TOKEN_1                                   : Grandmaster's Dungeon Map (Solo)
-10517: T8_RANDOM_DUNGEON_SOLO_TOKEN_1                                   : Elder's Dungeon Map (Solo)
-10518: T2_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
-10519: T3_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
-10520: T4_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
-10521: T5_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
-10522: T6_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
-10523: T7_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
-10524: T8_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
-10525: T4_RANDOM_DUNGEON_SOLO_TOKEN_2@1                                 : Uncommon Adept's Dungeon Map (Solo)
-10526: T5_RANDOM_DUNGEON_SOLO_TOKEN_2@1                                 : Uncommon Expert's Dungeon Map (Solo)
-10527: T6_RANDOM_DUNGEON_SOLO_TOKEN_2@1                                 : Uncommon Master's Dungeon Map (Solo)
-10528: T7_RANDOM_DUNGEON_SOLO_TOKEN_2@1                                 : Uncommon Grandmaster's Dungeon Map (Solo)
-10529: T8_RANDOM_DUNGEON_SOLO_TOKEN_2@1                                 : Uncommon Elder's Dungeon Map (Solo)
-10530: T4_RANDOM_DUNGEON_SOLO_TOKEN_D2@2                                
-10531: T5_RANDOM_DUNGEON_SOLO_TOKEN_D2@2                                
-10532: T6_RANDOM_DUNGEON_SOLO_TOKEN_D2@2                                
-10533: T7_RANDOM_DUNGEON_SOLO_TOKEN_D2@2                                
-10534: T8_RANDOM_DUNGEON_SOLO_TOKEN_D2@2                                
-10535: T4_RANDOM_DUNGEON_SOLO_TOKEN_3@2                                 : Rare Adept's Dungeon Map (Solo)
-10536: T5_RANDOM_DUNGEON_SOLO_TOKEN_3@2                                 : Rare Expert's Dungeon Map (Solo)
-10537: T6_RANDOM_DUNGEON_SOLO_TOKEN_3@2                                 : Rare Master's Dungeon Map (Solo)
-10538: T7_RANDOM_DUNGEON_SOLO_TOKEN_3@2                                 : Rare Grandmaster's Dungeon Map (Solo)
-10539: T8_RANDOM_DUNGEON_SOLO_TOKEN_3@2                                 : Rare Elder's Dungeon Map (Solo)
-10540: T4_RANDOM_DUNGEON_SOLO_TOKEN_D3@3                                
-10541: T5_RANDOM_DUNGEON_SOLO_TOKEN_D3@3                                
-10542: T6_RANDOM_DUNGEON_SOLO_TOKEN_D3@3                                
-10543: T7_RANDOM_DUNGEON_SOLO_TOKEN_D3@3                                
-10544: T8_RANDOM_DUNGEON_SOLO_TOKEN_D3@3                                
-10545: T4_RANDOM_DUNGEON_SOLO_TOKEN_4@3                                 : Exceptional Adept's Dungeon Map (Solo)
-10546: T5_RANDOM_DUNGEON_SOLO_TOKEN_4@3                                 : Exceptional Expert's Dungeon Map (Solo)
-10547: T6_RANDOM_DUNGEON_SOLO_TOKEN_4@3                                 : Exceptional Master's Dungeon Map (Solo)
-10548: T7_RANDOM_DUNGEON_SOLO_TOKEN_4@3                                 : Exceptional Grandmaster's Dungeon Map (Solo)
-10549: T8_RANDOM_DUNGEON_SOLO_TOKEN_4@3                                 : Exceptional Elder's Dungeon Map (Solo)
-10550: T4_RANDOM_DUNGEON_SOLO_TOKEN_D4@4                                
-10551: T5_RANDOM_DUNGEON_SOLO_TOKEN_D4@4                                
-10552: T6_RANDOM_DUNGEON_SOLO_TOKEN_D4@4                                
-10553: T7_RANDOM_DUNGEON_SOLO_TOKEN_D4@4                                
-10554: T8_RANDOM_DUNGEON_SOLO_TOKEN_D4@4                                
-10555: T4_RANDOM_DUNGEON_TOKEN_1                                        : Adept's Dungeon Map (Group)
-10556: T5_RANDOM_DUNGEON_TOKEN_1                                        : Expert's Dungeon Map (Group)
-10557: T6_RANDOM_DUNGEON_TOKEN_1                                        : Master's Dungeon Map (Group)
-10558: T7_RANDOM_DUNGEON_TOKEN_1                                        : Grandmaster's Dungeon Map (Group)
-10559: T8_RANDOM_DUNGEON_TOKEN_1                                        : Elder's Dungeon Map (Group)
-10560: T4_RANDOM_DUNGEON_TOKEN_D1@1                                     
-10561: T5_RANDOM_DUNGEON_TOKEN_D1@1                                     
-10562: T6_RANDOM_DUNGEON_TOKEN_D1@1                                     
-10563: T7_RANDOM_DUNGEON_TOKEN_D1@1                                     
-10564: T8_RANDOM_DUNGEON_TOKEN_D1@1                                     
-10565: T4_RANDOM_DUNGEON_TOKEN_2@1                                      : Uncommon Adept's Dungeon Map (Group)
-10566: T5_RANDOM_DUNGEON_TOKEN_2@1                                      : Uncommon Expert's Dungeon Map (Group)
-10567: T6_RANDOM_DUNGEON_TOKEN_2@1                                      : Uncommon Master's Dungeon Map (Group)
-10568: T7_RANDOM_DUNGEON_TOKEN_2@1                                      : Uncommon Grandmaster's Dungeon Map (Group)
-10569: T8_RANDOM_DUNGEON_TOKEN_2@1                                      : Uncommon Elder's Dungeon Map (Group)
-10570: T4_RANDOM_DUNGEON_TOKEN_D2@2                                     
-10571: T5_RANDOM_DUNGEON_TOKEN_D2@2                                     
-10572: T6_RANDOM_DUNGEON_TOKEN_D2@2                                     
-10573: T7_RANDOM_DUNGEON_TOKEN_D2@2                                     
-10574: T8_RANDOM_DUNGEON_TOKEN_D2@2                                     
-10575: T4_RANDOM_DUNGEON_TOKEN_3@2                                      : Rare Adept's Dungeon Map (Group)
-10576: T5_RANDOM_DUNGEON_TOKEN_3@2                                      : Rare Expert's Dungeon Map (Group)
-10577: T6_RANDOM_DUNGEON_TOKEN_3@2                                      : Rare Master's Dungeon Map (Group)
-10578: T7_RANDOM_DUNGEON_TOKEN_3@2                                      : Rare Grandmaster's Dungeon Map (Group)
-10579: T8_RANDOM_DUNGEON_TOKEN_3@2                                      : Rare Elder's Dungeon Map (Group)
-10580: T4_RANDOM_DUNGEON_TOKEN_D3@3                                     
-10581: T5_RANDOM_DUNGEON_TOKEN_D3@3                                     
-10582: T6_RANDOM_DUNGEON_TOKEN_D3@3                                     
-10583: T7_RANDOM_DUNGEON_TOKEN_D3@3                                     
-10584: T8_RANDOM_DUNGEON_TOKEN_D3@3                                     
-10585: T4_RANDOM_DUNGEON_TOKEN_4@3                                      : Exceptional Adept's Dungeon Map (Group)
-10586: T5_RANDOM_DUNGEON_TOKEN_4@3                                      : Exceptional Expert's Dungeon Map (Group)
-10587: T6_RANDOM_DUNGEON_TOKEN_4@3                                      : Exceptional Master's Dungeon Map (Group)
-10588: T7_RANDOM_DUNGEON_TOKEN_4@3                                      : Exceptional Grandmaster's Dungeon Map (Group)
-10589: T8_RANDOM_DUNGEON_TOKEN_4@3                                      : Exceptional Elder's Dungeon Map (Group)
-10590: T4_RANDOM_DUNGEON_TOKEN_D4@4                                     
-10591: T5_RANDOM_DUNGEON_TOKEN_D4@4                                     
-10592: T6_RANDOM_DUNGEON_TOKEN_D4@4                                     
-10593: T7_RANDOM_DUNGEON_TOKEN_D4@4                                     
-10594: T8_RANDOM_DUNGEON_TOKEN_D4@4                                     
-10595: SKIN_HORSE_FOUNDER_LEGENDARY                                     : Legendary Explorer's Horse
-10596: UNIQUE_UNLOCK_SKIN_HORSE_FOUNDER_LEGENDARY                       : Riding Horse Skin: Legendary Explorer
-10597: SKIN_HORSE_STARTERPACK                                           : Legendary Adventurer's Horse
-10598: UNIQUE_UNLOCK_SKIN_HORSE_STARTERPACK                             : Riding Horse Skin: Legendary Adventurer
-10599: SKIN_HORSE_TELLAFRIEND                                           : Recruiter's Horse
-10600: UNIQUE_UNLOCK_SKIN_HORSE_TELLAFRIEND                             : Riding Horse Skin: Recruiter
-10601: SKIN_HORSE_PONY_TELLAFRIEND                                      : Recruiter's Pony
-10602: UNIQUE_UNLOCK_SKIN_HORSE_PONY_TELLAFRIEND                        : Riding Horse Skin: Recruiter's Pony
-10603: SKIN_HORSE_UNDEAD                                                : Bonehorse
-10604: UNIQUE_UNLOCK_SKIN_HORSE_UNDEAD                                  : Riding Horse Skin: Bonehorse
-10605: SKIN_HORSE_UNDEAD_HALLOWEEN                                      : Horse Macabre
-10606: UNIQUE_UNLOCK_SKIN_HORSE_UNDEAD_HALLOWEEN                        : Riding Horse Skin: Horse Macabre
-10607: SKIN_HORSE_BROWN                                                 : Brown Mare
-10608: SKIN_HORSE_KEEPER                                                : Keeper Horse
-10609: SKIN_HORSE_UNICORN                                               : Nightshade Unicorn
-10610: SKIN_HORSE_GUILDBANNER                                           : Jousting Horse
-10611: UNIQUE_UNLOCK_SKIN_HORSE_GUILDBANNER                             : Riding Horse Skin: Jousting Horse
-10612: UNIQUE_UNLOCK_SKIN_HORSE_GUILDBANNER_UNTRADEABLE                 
-10613: UNIQUE_UNLOCK_SKIN_HORSE_GUILDBANNER_UNTRADEABLE_2025            
-10614: SKIN_HORSE_UNICORN_WHITE_TELLAFRIEND                             : Unicorn
-10615: UNIQUE_UNLOCK_SKIN_HORSE_UNICORN_WHITE_TELLAFRIEND               : Riding Horse Skin: Unicorn
-10616: UNIQUE_UNLOCK_SKIN_HORSE_UNICORN_WHITE_TELLAFRIEND_UNTRADEABLE   
-10617: UNIQUE_UNLOCK_SKIN_HORSE_UNICORN_WHITE_TELLAFRIEND_UNTRADEABLE_2025
-10618: SKIN_HORSE_JESTER_TELLAFRIEND                                    : Jester Horse
-10619: UNIQUE_UNLOCK_SKIN_HORSE_JESTER_TELLAFRIEND                      : Riding Horse Skin: Jester Horse
-10620: UNIQUE_UNLOCK_SKIN_HORSE_JESTER_TELLAFRIEND_UNTRADEABLE          
-10621: SKIN_HORSE_VAMPIRE_TELLAFRIEND                                   : Horsferatu
-10622: UNIQUE_UNLOCK_SKIN_HORSE_VAMPIRE_TELLAFRIEND                     : Riding Horse Skin: Horsferatu
-10623: UNIQUE_UNLOCK_SKIN_HORSE_VAMPIRE_TELLAFRIEND_UNTRADEABLE         
-10624: UNIQUE_UNLOCK_SKIN_HORSE_VAMPIRE_TELLAFRIEND_UNTRADEABLE_2025    
-10625: SKIN_HORSE_QUESTING_BEAST                                        : Chimera
-10626: UNIQUE_UNLOCK_SKIN_HORSE_QUESTING_BEAST                          : Riding Horse Skin: Chimera
-10627: SKIN_ARMORED_HORSE_ARENA                                         : Arena Veteran's Armored Horse
-10628: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_ARENA_COPY                      : Armored Horse Skin: Arena Veteran
-10629: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_ARENA                           : Armored Horse Skin: Arena Veteran
-10630: SKIN_ARMORED_HORSE_MORGANA                                       : Morgana Mare
-10631: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_MORGANA                         : Armored Horse Skin: Morgana Mare
-10632: SKIN_ARMORED_HORSE_UNDEAD                                        : Armored Bonehorse
-10633: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_UNDEAD                          : Armored Horse Skin: Armored Bonehorse
-10634: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_UNDEAD_UNTRADEABLE              
-10635: SKIN_ARMORED_HORSE_T5_MOUNT_GUILD                                : Expert's Heraldic Warhorse
-10636: SKIN_ARMORED_HORSE_T6_MOUNT_GUILD                                : Master's Heraldic Warhorse
-10637: SKIN_ARMORED_HORSE_T7_MOUNT_GUILD                                : Grandmaster's Heraldic Warhorse
-10638: SKIN_ARMORED_HORSE_T8_MOUNT_GUILD                                : Elder's Heraldic Warhorse
-10639: SKIN_ARMORED_HORSE_PONY_NATIVE_CLIENT                            : Armored Pony
-10640: SKIN_ARMORED_HORSE_GREEN_TELLAFRIEND                             
-10641: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_GREEN_TELLAFRIEND               
-10642: SKIN_ARMORED_HORSE_HERETIC_PONY_TELLAFRIEND                      : Heretic Warsteed
-10643: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_HERETIC_PONY_TELLAFRIEND        : Armored Horse Skin: Heretic Warsteed
-10644: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_HERETIC_PONY_TELLAFRIEND_UNTRADEABLE
-10645: SKIN_OX_FOUNDER_LEGENDARY                                        : Legendary Explorer's Ox
-10646: UNIQUE_UNLOCK_SKIN_OX_FOUNDER_LEGENDARY                          : Transport Ox Skin: Legendary Explorer
-10647: SKIN_OX_CART_STARTERPACK                                         : Legendary Adventurer's Cart
-10648: UNIQUE_UNLOCK_SKIN_OX_CART_STARTERPACK                           : Transport Ox Skin: Legendary Adventurer's Cart
-10649: SKIN_OX_YAK_TELLAFRIEND                                          : Recruiter's Yak
-10650: UNIQUE_UNLOCK_SKIN_OX_YAK_TELLAFRIEND                            : Transport Ox Skin: Recruiter's Yak
-10651: SKIN_OX_TRANSPORT_RAM_TELLAFRIEND                                : Recruiter's Bighorn Ram
-10652: UNIQUE_UNLOCK_SKIN_OX_TRANSPORT_RAM_TELLAFRIEND                  : Transport Ox Skin: Recruiter's Bighorn Ram
-10653: SKIN_OX_BLACKMARKET                                              : Black Market Ox
-10654: SKIN_OX_BISON_AH                                                 : Auction House Ox
-10655: SKIN_OX_BISON_ROYAL                                              : Royal Ox
-10656: SKIN_OX_CART_HERETIC                                             : Heretic Cart
-10657: UNIQUE_UNLOCK_SKIN_OX_CART_HERETIC                               : Transport Ox Skin: Heretic Cart
-10658: SKIN_OX_CART_LUXUS_TELLAFRIEND                                   : Luxury Cart
-10659: UNIQUE_UNLOCK_SKIN_OX_CART_LUXUS_TELLAFRIEND                     : Transport Ox Skin: Luxury Cart
-10660: UNIQUE_UNLOCK_SKIN_OX_CART_LUXUS_TELLAFRIEND_UNTRADEABLE         
-10661: UNIQUE_UNLOCK_SKIN_OX_CART_LUXUS_TELLAFRIEND_UNTRADEABLE_2025    
-10662: SKIN_OX_FARMER_TELLAFRIEND                                       : Farmer's Ox
-10663: UNIQUE_UNLOCK_SKIN_OX_FARMER_TELLAFRIEND                         : Transport Ox Skin: Farmer's Ox
-10664: UNIQUE_UNLOCK_SKIN_OX_FARMER_TELLAFRIEND_UNTRADEABLE             
-10665: SKIN_OX_XMAS_YAK_TELLAFRIEND                                     : Yuletide Yak
-10666: UNIQUE_UNLOCK_SKIN_OX_XMAS_YAK_TELLAFRIEND                       : Transport Ox Skin: Yuletide Yak
-10667: UNIQUE_UNLOCK_SKIN_OX_XMAS_YAK_TELLAFRIEND_UNTRADEABLE           
-10668: SKIN_OX_BETSY_TELLAFRIEND                                        : Ol' Betsy
-10669: UNIQUE_UNLOCK_SKIN_OX_BETSY_TELLAFRIEND                          : Transport Ox Skin: Ol' Betsy
-10670: UNIQUE_UNLOCK_SKIN_OX_BETSY_TELLAFRIEND_UNTRADEABLE              
-10671: SKIN_DIREWOLF_WHITE                                              : Ghostwolf
-10672: UNIQUE_UNLOCK_SKIN_DIREWOLF_WHITE                                : Direwolf Skin: Ghostwolf
-10673: SKIN_DIREWOLF_SPECTER                                            : Specter Wolf
-10674: UNIQUE_UNLOCK_SKIN_DIREWOLF_SPECTER                              : Direwolf Skin: Specter Wolf
-10675: SKIN_DIREWOLF_GREY_TELLAFRIEND                                   : Recruiter's Grey Wolf
-10676: UNIQUE_UNLOCK_SKIN_DIREWOLF_GREY_TELLAFRIEND                     : Direwolf Skin: Recruiter's Grey Wolf
-10677: SKIN_DIREWOLF_BLOODHOUND_TELLAFRIEND                             : Recruiter's Rottweiler
-10678: UNIQUE_UNLOCK_SKIN_DIREWOLF_BLOODHOUND_TELLAFRIEND               : Direwolf Skin: Recruiter's Rottweiler
-10679: SKIN_DIREWOLF_BERNARD_TELLAFRIEND                                : Recruiter's Saint Bernard
-10680: UNIQUE_UNLOCK_SKIN_DIREWOLF_BERNARD_TELLAFRIEND                  : Direwolf Skin: Recruiter's Saint Bernard
-10681: SKIN_DIREWOLF_HUSKYSLEIGH_TELLAFRIEND                            : Recruiter's Husky Sled
-10682: UNIQUE_UNLOCK_SKIN_DIREWOLF_HUSKYSLEIGH_TELLAFRIEND              : Direwolf Skin: Recruiter's Husky Sled
-10683: SKIN_DIREWOLF_DIREFOX_TELLAFRIEND                                : Recruiter's Dire Fox
-10684: UNIQUE_UNLOCK_SKIN_DIREWOLF_DIREFOX_TELLAFRIEND                  : Direwolf Skin: Recruiter's Dire Fox
-10685: SKIN_DIREWOLF_BOBTAIL                                            : Sheepdog
-10686: UNIQUE_UNLOCK_SKIN_DIREWOLF_BOBTAIL                              : Direwolf Skin: Sheepdog
-10687: UNIQUE_UNLOCK_SKIN_DIREWOLF_BOBTAIL_UNTRADEABLE                  
-10688: SKIN_DIREWOLF_HYENA_TELLAFRIEND                                  : Ironjaw Hyena
-10689: UNIQUE_UNLOCK_SKIN_DIREWOLF_HYENA_TELLAFRIEND                    : Direwolf Skin: Ironjaw Hyena
-10690: UNIQUE_UNLOCK_SKIN_DIREWOLF_HYENA_TELLAFRIEND_UNTRADEABLE        
-10691: SKIN_DIREWOLF_SHEPHERD_TELLAFRIEND                               : Shepherd
-10692: UNIQUE_UNLOCK_SKIN_DIREWOLF_SHEPHERD_TELLAFRIEND                 : Direwolf Skin: Shepherd
-10693: UNIQUE_UNLOCK_SKIN_DIREWOLF_SHEPHERD_TELLAFRIEND_UNTRADEABLE     
-10694: SKIN_DIREWOLF_SNOWFOX_TELLAFRIEND                                : Snow Fox
-10695: UNIQUE_UNLOCK_SKIN_DIREWOLF_SNOWFOX_TELLAFRIEND                  : Direwolf Skin: Snow Fox
-10696: UNIQUE_UNLOCK_SKIN_DIREWOLF_SNOWFOX_TELLAFRIEND_UNTRADEABLE      
-10697: SKIN_DIREWOLF_XMAS_DIREFOX_TELLAFRIEND                           
-10698: UNIQUE_UNLOCK_SKIN_DIREWOLF_XMAS_DIREFOX_TELLAFRIEND             
-10699: UNIQUE_UNLOCK_SKIN_DIREWOLF_XMAS_DIREFOX_TELLAFRIEND_UNTRADEABLE 
-10700: SKIN_DIREWOLF_GVGSEASON_1ST_03                                   : Legendary Guild Season Winner
-10701: UNIQUE_UNLOCK_SKIN_DIREWOLF_GVGSEASON_1ST_03                     : Direwolf Skin: Legendary Guild Season Winner
-10702: SKIN_DIREWOLF_GVGSEASON_1ST_02                                   : Epic Guild Season Winner
-10703: UNIQUE_UNLOCK_SKIN_DIREWOLF_GVGSEASON_1ST_02                     : Direwolf Skin: Epic Guild Season Winner
-10704: SKIN_DIREWOLF_GVGSEASON_1ST_01                                   : Guild Season Winner
-10705: UNIQUE_UNLOCK_SKIN_DIREWOLF_GVGSEASON_1ST_01                     : Direwolf Skin Set: Guild Season Winner
-10706: SKIN_DIREWOLF_GVGSEASON_2ND_01                                   : Guild Season 2nd Place
-10707: UNIQUE_UNLOCK_SKIN_DIREWOLF_GVGSEASON_2ND_01                     : Direwolf Skin Set: Guild Season 2nd Place
-10708: SKIN_DIREWOLF_GVGSEASON_3RD_01                                   : Guild Season 3rd Place
-10709: UNIQUE_UNLOCK_SKIN_DIREWOLF_GVGSEASON_3RD_01                     : Direwolf Skin: Guild Season 3rd Place
-10710: SKIN_GIANTSTAG_WHITE                                             : Master's Giant Stag
-10711: UNIQUE_UNLOCK_SKIN_GIANTSTAG_WHITE                               : Stag Skin: Master's Giant Stag
-10712: SKIN_GIANTSTAG_TELLAFRIEND                                       : Recruiter's Giant Stag
-10713: UNIQUE_UNLOCK_SKIN_GIANTSTAG_TELLAFRIEND                         : Stag Skin: Recruiter's Giant Stag
-10714: SKIN_GIANTSTAG_XMAS                                              : Yule Stag
-10715: UNIQUE_UNLOCK_SKIN_GIANTSTAG_XMAS                                : Stag Skin: Yule Stag
-10716: SKIN_GIANTSTAG_IMPALA_TELLAFRIEND                                : Recruiter's Impala
-10717: UNIQUE_UNLOCK_SKIN_GIANTSTAG_IMPALA_TELLAFRIEND                  : Stag Skin: Recruiter's Impala
-10718: SKIN_GIANTSTAG_DIVINE                                            : Divine Stag
-10719: UNIQUE_UNLOCK_SKIN_GIANTSTAG_DIVINE                              : Stag Skin: Divine Stag
-10720: SKIN_GIANTSTAG_ALPACA                                            : Stag Skin: Alpaca
-10721: UNIQUE_UNLOCK_SKIN_GIANTSTAG_ALPACA                              : Stag Skin: Alpaca
-10722: UNIQUE_UNLOCK_SKIN_GIANTSTAG_ALPACA_UNTRADEABLE                  
-10723: SKIN_GIANTSTAG_REINDEER_TELLAFRIEND                              : Festive Reindeer
-10724: UNIQUE_UNLOCK_SKIN_GIANTSTAG_REINDEER_TELLAFRIEND                : Stag Skin: Festive Reindeer
-10725: UNIQUE_UNLOCK_SKIN_GIANTSTAG_REINDEER_TELLAFRIEND_UNTRADEABLE    
-10726: UNIQUE_UNLOCK_SKIN_GIANTSTAG_REINDEER_TELLAFRIEND_UNTRADEABLE_2025
-10727: SKIN_GIANTSTAG_FAWN_TELLAFRIEND                                  : Summer Fawn
-10728: UNIQUE_UNLOCK_SKIN_GIANTSTAG_FAWN_TELLAFRIEND                    : Stag Skin: Summer Fawn
-10729: UNIQUE_UNLOCK_SKIN_GIANTSTAG_FAWN_TELLAFRIEND_UNTRADEABLE        
-10730: UNIQUE_UNLOCK_SKIN_GIANTSTAG_FAWN_TELLAFRIEND_UNTRADEABLE_2025   
-10731: SKIN_GIANTSTAG_ICE_MOOSE_TELLAFRIEND                             : Frost Moose
-10732: UNIQUE_UNLOCK_SKIN_GIANTSTAG_ICE_MOOSE_TELLAFRIEND               : Stag Skin: Frost Moose
-10733: UNIQUE_UNLOCK_SKIN_GIANTSTAG_ICE_MOOSE_TELLAFRIEND_UNTRADEABLE   
-10734: SKIN_GIANTSTAG_MIST_DEER_TELLAFRIEND                             : Foglands Doe
-10735: UNIQUE_UNLOCK_SKIN_GIANTSTAG_MIST_DEER_TELLAFRIEND               : Stag Skin: Foglands Doe
-10736: UNIQUE_UNLOCK_SKIN_GIANTSTAG_MIST_DEER_TELLAFRIEND_UNTRADEABLE   
-10737: SKIN_COUGAR_TIGER_WHITE_TELLAFRIEND                              : Recruiter's White Tiger
-10738: UNIQUE_UNLOCK_SKIN_COUGAR_TIGER_WHITE_TELLAFRIEND                : Swiftclaw Skin: Recruiter's White Tiger
-10739: UNIQUE_UNLOCK_SKIN_COUGAR_TIGER_WHITE_TELLAFRIEND_UNTRADEABLE    
-10740: SKIN_COUGAR_TIGER_TELLAFRIEND                                    : Recruiter's Tiger
-10741: UNIQUE_UNLOCK_SKIN_COUGAR_TIGER_TELLAFRIEND                      : Swiftclaw Skin: Recruiter's Tiger
-10742: SKIN_COUGAR_LYNX_TELLAFRIEND                                     : Lynx
-10743: UNIQUE_UNLOCK_SKIN_COUGAR_LYNX_TELLAFRIEND                       : Swiftclaw Skin: Lynx
-10744: UNIQUE_UNLOCK_SKIN_COUGAR_LYNX_TELLAFRIEND_UNTRADEABLE           
-10745: UNIQUE_UNLOCK_SKIN_COUGAR_LYNX_TELLAFRIEND_UNTRADEABLE_2025      
-10746: SKIN_COUGAR_ARENA                                                : Arena Champion's Sabertooth
-10747: UNIQUE_UNLOCK_SKIN_COUGAR_ARENA_COPY                             : Swiftclaw Skin: Arena Champion
-10748: UNIQUE_UNLOCK_SKIN_COUGAR_ARENA                                  : Swiftclaw Skin: Arena Champion
-10749: SKIN_COUGAR_TOURNAMENT                                           : Sabertooth Rex
-10750: UNIQUE_UNLOCK_SKIN_COUGAR_TOURNAMENT                             : Swiftclaw Skin: Sabertooth Rex
-10751: SKIN_COUGAR_TOURNAMENT_02                                        : Saber Tiger Rex
-10752: UNIQUE_UNLOCK_SKIN_COUGAR_TOURNAMENT_02                          : Swiftclaw Skin: Saber Tiger Rex
-10753: SKIN_COUGAR_OCCULT                                               : Occult Cougar
-10754: UNIQUE_UNLOCK_SKIN_COUGAR_OCCULT                                 : Swiftclaw Skin: Occult Cougar
-10755: UNIQUE_UNLOCK_SKIN_COUGAR_OCCULT_UNTRADEABLE                     
-10756: SKIN_COUGAR_ARMORED_GREY                                         : Steelplate Cougar
-10757: UNIQUE_UNLOCK_SKIN_COUGAR_ARMORED_GREY                           : Swiftclaw Skin: Steelplate Cougar
-10758: UNIQUE_UNLOCK_SKIN_COUGAR_ARMORED_GREY_UNTRADEABLE               
-10759: SKIN_COUGAR_MUMMY_TELLAFRIEND                                    : Embalmed Tiger
-10760: UNIQUE_UNLOCK_SKIN_COUGAR_MUMMY_TELLAFRIEND                      : Swiftclaw Skin: Embalmed Tiger
-10761: UNIQUE_UNLOCK_SKIN_COUGAR_MUMMY_TELLAFRIEND_UNTRADEABLE          
-10762: SKIN_COUGAR_SNOWLEOPARD_TELLAFRIEND                              : Snow Leopard
-10763: UNIQUE_UNLOCK_SKIN_COUGAR_SNOWLEOPARD_TELLAFRIEND                : Swiftclaw Skin: Snow Leopard
-10764: UNIQUE_UNLOCK_SKIN_COUGAR_SNOWLEOPARD_TELLAFRIEND_UNTRADEABLE    
-10765: UNIQUE_UNLOCK_SKIN_COUGAR_SNOWLEOPARD_TELLAFRIEND_UNTRADEABLE_2025
-10766: SKIN_COUGAR_JAGUAR_TELLAFRIEND                                   : Recruiter's Jaguar
-10767: UNIQUE_UNLOCK_SKIN_COUGAR_JAGUAR_TELLAFRIEND                     : Swiftclaw Skin: Recruiter's Jaguar
-10768: UNIQUE_UNLOCK_SKIN_COUGAR_JAGUAR_TELLAFRIEND_UNTRADEABLE         
-10769: SKIN_DIREBOAR_HOUSEPIG                                           : Domesticated Hog
-10770: UNIQUE_UNLOCK_SKIN_DIREBOAR_HOUSEPIG                             : Direboar Skin: Domesticated Hog
-10771: SKIN_DIREBOAR_PIG_TELLAFRIEND                                    : Recruiter's Pig
-10772: UNIQUE_UNLOCK_SKIN_DIREBOAR_PIG_TELLAFRIEND                      : Direboar Skin: Recruiter's Pig
-10773: SKIN_DIREBOAR_WHITE_TELLAFRIEND                                  : White Direboar
-10774: UNIQUE_UNLOCK_SKIN_DIREBOAR_WHITE_TELLAFRIEND                    : Direboar Skin: White Direboar
-10775: UNIQUE_UNLOCK_SKIN_DIREBOAR_WHITE_TELLAFRIEND_UNTRADEABLE        
-10776: SKIN_DIREBEAR_PANDA_TELLAFRIEND                                  : Panda
-10777: UNIQUE_UNLOCK_SKIN_DIREBEAR_PANDA_TELLAFRIEND                    : Direbear Skin: Panda
-10778: UNIQUE_UNLOCK_SKIN_DIREBEAR_PANDA_TELLAFRIEND_UNTRADEABLE        
-10779: SKIN_LIZARD_SAND_SALAMANDER_TELLAFRIEND                          : Recruiter's Sand Salamander
-10780: UNIQUE_UNLOCK_SKIN_LIZARD_SAND_SALAMANDER_TELLAFRIEND            : Swamp Dragon Skin: Recruiter's Sand Salamander
-10781: UNIQUE_UNLOCK_SKIN_LIZARD_SAND_SALAMANDER_TELLAFRIEND_UNTRADEABLE
-10782: SKIN_DONKEY_HALLOWEEN                                            : Jack o' Donkey
-10783: UNIQUE_UNLOCK_SKIN_DONKEY_HALLOWEEN                              : Mule Skin: Jack o' Donkey
-10784: SKIN_DONKEY_UNIQUE_TELLAFRIEND                                   : Recruiter's Donkey
-10785: UNIQUE_UNLOCK_SKIN_DONKEY_UNIQUE_TELLAFRIEND                     : Mule Skin: Recruiter's Donkey
-10786: UNIQUE_HEAD_VANITY_DESTINY_SHARDS_05                             
-10787: UNIQUE_HEAD_VANITY_NO_HELMET                                     : Hide Helmet
-10788: UNIQUE_HEAD_VANITY_NO_CAPE                                       : Hide Cape
-10789: UNIQUE_HEAD_VANITY_NO_MAIN_HAND                                  : Hide Main Hand
-10790: UNIQUE_HEAD_VANITY_NO_OFF_HAND                                   : Hide Off-Hand
-10791: UNIQUE_HEAD_VANITY_JESTER                                        : Jester Mask
-10792: UNIQUE_UNLOCK_HEAD_VANITY_JESTER                                 : Wardrobe Skin: Jester Mask
-10793: UNIQUE_ARMOR_VANITY_JESTER                                       : Jester Costume
-10794: UNIQUE_UNLOCK_ARMOR_VANITY_JESTER                                : Wardrobe Skin: Jester Costume
-10795: UNIQUE_SHOES_VANITY_JESTER                                       : Jester Shoes
-10796: UNIQUE_UNLOCK_SHOES_VANITY_JESTER                                : Wardrobe Skin: Jester Shoes
-10797: UNIQUE_HEAD_VANITY_DRESS_RED                                     : Red Tulip Hat
-10798: UNIQUE_UNLOCK_HEAD_VANITY_DRESS_RED                              : Wardrobe Skin: Red Tulip Hat
-10799: UNIQUE_ARMOR_VANITY_DRESS_RED                                    : Red Tulip Dress
-10800: UNIQUE_UNLOCK_ARMOR_VANITY_DRESS_RED                             : Wardrobe Skin: Red Tulip Dress
-10801: UNIQUE_SHOES_VANITY_DRESS_RED                                    : Red Tulip Shoes
-10802: UNIQUE_UNLOCK_SHOES_VANITY_DRESS_RED                             : Wardrobe Skin: Red Tulip Shoes
-10803: UNIQUE_HEAD_VANITY_DRESS_BLACK                                   : Noblewoman's Jewelry
-10804: UNIQUE_ARMOR_VANITY_DRESS_BLACK                                  : Noblewoman's Dress
-10805: UNIQUE_SHOES_VANITY_DRESS_BLACK                                  : Noblewoman's Shoes
-10806: UNIQUE_HEAD_VANITY_DRESS_BLUE                                    : Blue Princess Hat
-10807: UNIQUE_ARMOR_VANITY_DRESS_BLUE                                   : Blue Princess Dress
-10808: UNIQUE_SHOES_VANITY_DRESS_BLUE                                   : Blue Princess Shoes
-10809: UNIQUE_HEAD_VANITY_RICH_NOBLE                                    : Rich Noble's Hat
-10810: UNIQUE_UNLOCK_HEAD_VANITY_RICH_NOBLE                             : Wardrobe Skin: Rich Noble's Hat
-10811: UNIQUE_ARMOR_VANITY_RICH_NOBLE                                   : Rich Noble's Doublet
-10812: UNIQUE_UNLOCK_ARMOR_VANITY_RICH_NOBLE                            : Wardrobe Skin: Rich Noble's Doublet
-10813: UNIQUE_SHOES_VANITY_RICH_NOBLE                                   : Rich Noble's Footwear
-10814: UNIQUE_UNLOCK_SHOES_VANITY_RICH_NOBLE                            : Wardrobe Skin: Rich Noble's Footwear
-10815: UNIQUE_HEAD_VANITY_SANTACLAUS                                    : Yule Hat
-10816: UNIQUE_UNLOCK_HEAD_VANITY_SANTACLAUS                             : Wardrobe Skin: Yule Hat
-10817: UNIQUE_ARMOR_VANITY_SANTACLAUS                                   : Yule Coat
-10818: UNIQUE_UNLOCK_ARMOR_VANITY_SANTACLAUS                            : Wardrobe Skin: Yule Coat
-10819: UNIQUE_SHOES_VANITY_SANTACLAUS                                   : Yule Shoes
-10820: UNIQUE_UNLOCK_SHOES_VANITY_SANTACLAUS                            : Wardrobe Skin: Yule Shoes
-10821: UNIQUE_BACKPACK_VANITY_SANTACLAUS                                : Yule Backpack
-10822: UNIQUE_UNLOCK_BACKPACK_VANITY_SANTACLAUS                         : Wardrobe Skin: Yule Backpack
-10823: UNIQUE_HEAD_VANITY_WEDDING_DRESS                                 : Bridal Veil
-10824: UNIQUE_UNLOCK_HEAD_VANITY_WEDDING_DRESS                          : Wardrobe Skin: Bridal Veil
-10825: UNIQUE_ARMOR_VANITY_WEDDING_DRESS                                : Bridal Dress
-10826: UNIQUE_UNLOCK_ARMOR_VANITY_WEDDING_DRESS                         : Wardrobe Skin: Bridal Dress
-10827: UNIQUE_SHOES_VANITY_WEDDING_DRESS                                : Bridal Shoes
-10828: UNIQUE_UNLOCK_SHOES_VANITY_WEDDING_DRESS                         : Wardrobe Skin: Bridal Shoes
-10829: UNIQUE_OFF_VANITY_WEDDING_DRESS                                  : Bridal Bouquet
-10830: UNIQUE_UNLOCK_OFF_VANITY_WEDDING_DRESS                           : Wardrobe Skin: Bridal Bouquet
-10831: UNIQUE_HEAD_VANITY_WEDDING_TUXEDO                                : Groom's Hat
-10832: UNIQUE_UNLOCK_HEAD_VANITY_WEDDING_TUXEDO                         : Wardrobe Skin: Groom's Hat
-10833: UNIQUE_ARMOR_VANITY_WEDDING_TUXEDO                               : Groom's Suit
-10834: UNIQUE_UNLOCK_ARMOR_VANITY_WEDDING_TUXEDO                        : Wardrobe Skin: Groom's Suit
-10835: UNIQUE_SHOES_VANITY_WEDDING_TUXEDO                               : Groom's Shoes
-10836: UNIQUE_UNLOCK_SHOES_VANITY_WEDDING_TUXEDO                        : Wardrobe Skin: Groom's Shoes
-10837: UNIQUE_CAPE_VANITY_WEDDING_TUXEDO                                : Groom's Cape
-10838: UNIQUE_UNLOCK_CAPE_VANITY_WEDDING_TUXEDO                         : Wardrobe Skin: Groom's Cape
-10839: UNIQUE_OFF_VANITY_WEDDING_TUXEDO                                 : Wedding Ring
-10840: UNIQUE_UNLOCK_OFF_VANITY_WEDDING_TUXEDO                          : Wardrobe Skin: Wedding Ring
-10841: UNIQUE_HEAD_VANITY_BARD                                          : Bard's Hat
-10842: UNIQUE_ARMOR_VANITY_BARD                                         : Bard's Suit
-10843: UNIQUE_SHOES_VANITY_BARD                                         : Bard's Shoes
-10844: UNIQUE_HEAD_VANITY_PRIEST                                        : Monk's Hood
-10845: UNIQUE_ARMOR_VANITY_PRIEST                                       : Monk's Robe
-10846: UNIQUE_SHOES_VANITY_PRIEST                                       : Monk's Sandals
-10847: UNIQUE_OFF_VANITY_PRIEST                                         : Monk's Walking Staff
-10848: UNIQUE_HEAD_VANITY_INNKEEPER                                     : Innkeeper's Hat
-10849: UNIQUE_ARMOR_VANITY_INNKEEPER                                    : Innkeeper's Shirt
-10850: UNIQUE_SHOES_VANITY_INNKEEPER                                    : Innkeeper's Shoes
-10851: UNIQUE_OFF_VANITY_INNKEEPER                                      : Innkeeper's Beer Mug
-10852: UNIQUE_HEAD_VANITY_PIRATE                                        : Navigator's Hat
-10853: UNIQUE_ARMOR_VANITY_PIRATE                                       : Navigator's Coat
-10854: UNIQUE_SHOES_VANITY_PIRATE                                       : Navigator's Boots
-10855: UNIQUE_OFF_VANITY_PIRATE                                         : Navigator's Parrot Cage
-10856: UNIQUE_OFF_VANITY_CHARITY_MARCH2020                              : Staff of Hermes
-10857: UNIQUE_UNLOCK_OFF_VANITY_CHARITY_MARCH2020                       : Wardrobe Skin: Staff of Hermes
-10858: UNIQUE_VANITY_2H_FW_BRIDGEWATCH_BANNER                           
-10859: UNIQUE_UNLOCK_VANITY_2H_FW_BRIDGEWATCH_BANNER                    : Bridgewatch Warbanner
-10860: UNIQUE_VANITY_2H_FW_THETFORD_BANNER                              
-10861: UNIQUE_UNLOCK_VANITY_2H_FW_THETFORD_BANNER                       : Thetford Warbanner
-10862: UNIQUE_VANITY_2H_FW_FORTSTERLING_BANNER                          
-10863: UNIQUE_UNLOCK_VANITY_2H_FW_FORTSTERLING_BANNER                   : Fort Sterling Warbanner
-10864: UNIQUE_VANITY_2H_FW_MARTLOCK_BANNER                              
-10865: UNIQUE_UNLOCK_VANITY_2H_FW_MARTLOCK_BANNER                       : Martlock Warbanner
-10866: UNIQUE_VANITY_2H_FW_LYMHURST_BANNER                              
-10867: UNIQUE_UNLOCK_VANITY_2H_FW_LYMHURST_BANNER                       : Lymhurst Warbanner
-10868: UNIQUE_VANITY_2H_FW_CAERLEON_BANNER                              
-10869: UNIQUE_UNLOCK_VANITY_2H_FW_CAERLEON_BANNER                       : Caerleon Warbanner
-10870: UNIQUE_HEAD_VANITY_ARENA_SET_01                                  : Arena Veteran's Circlet
-10871: UNIQUE_UNLOCK_HEAD_VANITY_ARENA_SET_01_COPY                      : Wardrobe Skin: Arena Veteran's Circlet
-10872: UNIQUE_UNLOCK_HEAD_VANITY_ARENA_SET_01                           : Wardrobe Skin: Arena Veteran's Circlet
-10873: UNIQUE_ARMOR_VANITY_ARENA_SET_01                                 : Arena Veteran's Cloak
-10874: UNIQUE_UNLOCK_ARMOR_VANITY_ARENA_SET_01_COPY                     : Wardrobe Skin: Arena Veteran's Cloak
-10875: UNIQUE_UNLOCK_ARMOR_VANITY_ARENA_SET_01                          : Wardrobe Skin: Arena Veteran's Cloak
-10876: UNIQUE_SHOES_VANITY_ARENA_SET_01                                 : Arena Veteran's Boots
-10877: UNIQUE_UNLOCK_SHOES_VANITY_ARENA_SET_01_COPY                     : Wardrobe Skin: Arena Veteran's Boots
-10878: UNIQUE_UNLOCK_SHOES_VANITY_ARENA_SET_01                          : Wardrobe Skin: Arena Veteran's Boots
-10879: UNIQUE_CAPE_VANITY_ARENA_SET_01                                  : Arena Veteran's Cape
-10880: UNIQUE_UNLOCK_CAPE_VANITY_ARENA_SET_01_COPY                      : Wardrobe Skin: Arena Veteran's Cape
-10881: UNIQUE_UNLOCK_CAPE_VANITY_ARENA_SET_01                           : Wardrobe Skin: Arena Veteran's Cape
-10882: UNIQUE_HEAD_VANITY_ARENA_EYEPATCH                                : Arena Veteran's Eyepatch
-10883: UNIQUE_UNLOCK_HEAD_VANITY_ARENA_EYEPATCH_COPY                    : Wardrobe Skin: Arena Veteran's Eyepatch
-10884: UNIQUE_UNLOCK_HEAD_VANITY_ARENA_EYEPATCH                         : Wardrobe Skin: Arena Veteran's Eyepatch
-10885: T4_CAPE_ARENA_BANNER                                             : Arena Veteran's Small Banner
-10886: UNIQUE_UNLOCK_T4_CAPE_ARENA_BANNER_COPY                          : Wardrobe Skin: Small Arena Banner
-10887: UNIQUE_UNLOCK_T4_CAPE_ARENA_BANNER                               : Wardrobe Skin: Small Arena Banner
-10888: T6_CAPE_ARENA_BANNER                                             : Arena Veteran's Medium Banner
-10889: UNIQUE_UNLOCK_T6_CAPE_ARENA_BANNER_COPY                          : Wardrobe Skin: Medium Arena Banner
-10890: UNIQUE_UNLOCK_T6_CAPE_ARENA_BANNER                               : Wardrobe Skin: Medium Arena Banner
-10891: T8_CAPE_ARENA_BANNER                                             : Arena Veteran's Large Banner
-10892: UNIQUE_UNLOCK_T8_CAPE_ARENA_BANNER_COPY                          : Wardrobe Skin: Large Arena Banner
-10893: UNIQUE_UNLOCK_T8_CAPE_ARENA_BANNER                               : Wardrobe Skin: Large Arena Banner
-10894: UNIQUE_UNLOCK_HEAD_VANITY_GLADIATOR_ARENA                        : Wardrobe Skin: Arena Gladiator Helm
-10895: UNIQUE_HEAD_VANITY_GLADIATOR_ARENA                               : Arena Gladiator Helm
-10896: UNIQUE_UNLOCK_ARMOR_VANITY_GLADIATOR_ARENA                       : Wardrobe Skin: Arena Gladiator Armor
-10897: UNIQUE_ARMOR_VANITY_GLADIATOR_ARENA                              : Arena Gladiator Armor
-10898: UNIQUE_UNLOCK_SHOES_VANITY_GLADIATOR_ARENA                       : Wardrobe Skin: Arena Gladiator Boots
-10899: UNIQUE_SHOES_VANITY_GLADIATOR_ARENA                              : Arena Gladiator Boots
-10900: UNIQUE_UNLOCK_CAPE_VANITY_GLADIATOR_ARENA                        : Wardrobe Skin: Arena Gladiator Cape
-10901: UNIQUE_CAPE_VANITY_GLADIATOR_ARENA                               : Arena Gladiator Cape
-10902: UNIQUE_UNLOCK_HEAD_VANITY_GLADIATOR_CRYSTAL                      : Wardrobe Skin: Crystal Gladiator Helm
-10903: UNIQUE_HEAD_VANITY_GLADIATOR_CRYSTAL                             : Crystal Gladiator Helm
-10904: UNIQUE_UNLOCK_ARMOR_VANITY_GLADIATOR_CRYSTAL                     : Wardrobe Skin: Crystal Gladiator Armor
-10905: UNIQUE_ARMOR_VANITY_GLADIATOR_CRYSTAL                            : Crystal Gladiator Armor
-10906: UNIQUE_UNLOCK_SHOES_VANITY_GLADIATOR_CRYSTAL                     : Wardrobe Skin: Crystal Gladiator Boots
-10907: UNIQUE_SHOES_VANITY_GLADIATOR_CRYSTAL                            : Crystal Gladiator Boots
-10908: UNIQUE_UNLOCK_CAPE_VANITY_GLADIATOR_CRYSTAL                      : Wardrobe Skin: Crystal Gladiator Cape
-10909: UNIQUE_CAPE_VANITY_GLADIATOR_CRYSTAL                             : Crystal Gladiator Cape
-10910: UNIQUE_HEAD_TELLAFRIEND_BATRIDER                                 : Master of Bats Helmet
-10911: UNIQUE_UNLOCK_HEAD_TELLAFRIEND_BATRIDER                          : Wardrobe Skin: Master of Bats Helmet
-10912: UNIQUE_HEAD_VANITY_EASTER_WHITE                                  : Snow Bunny Stalker Hat
-10913: UNIQUE_UNLOCK_HEAD_VANITY_EASTER_WHITE                           : Wardrobe Skin: Snow Bunny Stalker Hat
-10914: UNIQUE_HEAD_VANITY_EASTER_BROWN                                  : Bunny Stalker Hat
-10915: UNIQUE_UNLOCK_HEAD_VANITY_EASTER_BROWN                           : Wardrobe Skin: Bunny Stalker Hat
-10916: UNIQUE_ARMOR_VANITY_EASTER                                       : Bunny Stalker Overalls
-10917: UNIQUE_UNLOCK_ARMOR_VANITY_EASTER                                : Wardrobe Skin: Bunny Stalker Overalls
-10918: UNIQUE_SHOES_VANITY_EASTER                                       : Bunny Stalker Shoes
-10919: UNIQUE_UNLOCK_SHOES_VANITY_EASTER                                : Wardrobe Skin: Bunny Stalker Shoes
-10920: UNIQUE_BACKPACK_VANITY_EASTER                                    : Bunny Stalker Basket
-10921: UNIQUE_UNLOCK_BACKPACK_VANITY_EASTER                             : Wardrobe Skin: Bunny Stalker Basket
-10922: UNIQUE_HEAD_VANITY_PLAGUEDOC                                     : Hygienic Mask
-10923: UNIQUE_UNLOCK_HEAD_VANITY_PLAGUEDOC                              : Wardrobe Skin: Hygienic Mask
-10924: UNIQUE_ARMOR_VANITY_PLAGUEDOC                                    : Hygienic Coat
-10925: UNIQUE_UNLOCK_ARMOR_VANITY_PLAGUEDOC                             : Wardrobe Skin: Hygienic Coat
-10926: UNIQUE_SHOES_VANITY_PLAGUEDOC                                    : Hygienic Boots
-10927: UNIQUE_UNLOCK_SHOES_VANITY_PLAGUEDOC                             : Wardrobe Skin: Hygienic Boots
-10928: UNIQUE_HEAD_VANITY_SKELETON                                      : Laughing Skull
-10929: UNIQUE_UNLOCK_HEAD_VANITY_SKELETON                               : Wardrobe Skin: Laughing Skull
-10930: UNIQUE_ARMOR_VANITY_SKELETON                                     : Ribcage
-10931: UNIQUE_UNLOCK_ARMOR_VANITY_SKELETON                              : Wardrobe Skin: Ribcage
-10932: UNIQUE_SHOES_VANITY_SKELETON                                     : Legbones
-10933: UNIQUE_UNLOCK_SHOES_VANITY_SKELETON                              : Wardrobe Skin: Legbones
-10934: UNIQUE_CAPE_VANITY_SKELETON                                      : Ragged Cape
-10935: UNIQUE_UNLOCK_CAPE_VANITY_SKELETON                               : Wardrobe Skin: Ragged Cape
-10936: UNIQUE_HEAD_VANITY_PUMPKIN_01                                    : Grinning Pumpkin Head
-10937: UNIQUE_UNLOCK_HEAD_VANITY_PUMPKIN_01                             : Wardrobe Skin: Grinning Pumpkin Head
-10938: UNIQUE_HEAD_VANITY_PUMPKIN_02                                    : Sad Pumpkin Head
-10939: UNIQUE_UNLOCK_HEAD_VANITY_PUMPKIN_02                             : Wardrobe Skin: Sad Pumpkin Head
-10940: UNIQUE_HEAD_VANITY_PUMPKIN_03                                    : Angry Pumpkin Head
-10941: UNIQUE_UNLOCK_HEAD_VANITY_PUMPKIN_03                             : Wardrobe Skin: Angry Pumpkin Head
-10942: UNIQUE_HEAD_XMAS                                                 : Uncle Frost's Hat
-10943: UNIQUE_UNLOCK_HEAD_XMAS                                          : Wardrobe Skin: Uncle Frost's Hat
-10944: UNIQUE_VANITY_2H_PORTALGUN_TELLAFRIEND                           : Recruiter's Portal Cannon
-10945: UNIQUE_UNLOCK_VANITY_2H_PORTALGUN_TELLAFRIEND                    : Wardrobe Skin: Recruiter's Portal Cannon
-10946: UNIQUE_VANITY_2H_CHICKENGUN_EASTER                               : The Eggsecutioner
-10947: UNIQUE_UNLOCK_VANITY_2H_GUN_ANNIVERSARY                          : Firework Launcher: Chromacannon
-10948: UNIQUE_VANITY_2H_GUN_ANNIVERSARY                                 : Chromacannon
-10949: UNIQUE_AVATARRING_ANNIVERSARY_2022                               : Fifth Anniversary Ring
-10950: UNIQUE_AVATARRING_ANNIVERSARY_2023                               : Sixth Anniversary Ring
-10951: UNIQUE_AVATARRING_ANNIVERSARY_2024                               : Seventh Anniversary Ring
-10952: UNIQUE_AVATARRING_ANNIVERSARY_2025                               : Eighth Anniversary Ring
-10953: UNIQUE_AVATAR_ANNIVERSARY_2022                                   : Fifth Anniversary Avatar
-10954: UNIQUE_AVATAR_ANNIVERSARY_2023                                   : Sixth Anniversary Avatar
-10955: UNIQUE_AVATAR_ANNIVERSARY_2024                                   : Seventh Anniversary Avatar
-10956: UNIQUE_AVATAR_ANNIVERSARY_2025                                   : Eighth Anniversary Avatar
-10957: UNIQUE_ROTTEN_CAKE                                               : Spoiled Anniversary Cake
-10958: UNIQUE_CONSUMABLE_EVENT_ANNIVERSARY_CAKE                         : Anniversary Cake
-10959: UNIQUE_CONSUMABLE_EVENT_ANNIVERSARY_CAKE_2025                    
-10960: SKIN_HORSE_ANNIVERSARY_2022                                      : Fifth-Year Stallion
-10961: UNIQUE_UNLOCK_SKIN_HORSE_ANNIVERSARY_2022                        : Riding Horse Skin: Fifth-Year Stallion
-10962: SKIN_HORSE_ANNIVERSARY_2023                                      : Sixth-Year Stallion
-10963: UNIQUE_UNLOCK_SKIN_HORSE_ANNIVERSARY_2023                        : Riding Horse Skin: Sixth-Year Stallion
-10964: SKIN_HORSE_ANNIVERSARY_2024                                      : Seventh-Year Stallion
-10965: UNIQUE_UNLOCK_SKIN_HORSE_ANNIVERSARY_2024                        : Riding Horse Skin: Seventh-Year Stallion
-10966: SKIN_HORSE_ANNIVERSARY_2025                                      : Eighth-Year Stallion
-10967: UNIQUE_UNLOCK_SKIN_HORSE_ANNIVERSARY_2025                        : Riding Horse Skin: Eighth-Year Stallion
-10968: UNIQUE_FURNITUREITEM_CARPET_ANNIVERSARY_2022                     : Fifth Anniversary Carpet
-10969: UNIQUE_ROTTEN_CANDY                                              : Rotten Allhallows Treat
-10970: UNIQUE_CONSUMABLE_EVENT_HALLOWEEN_CANDY                          : Allhallows Treat
-10971: UNIQUE_CONSUMABLE_EVENT_HALLOWEEN_CANDY_2025                     
-10972: UNIQUE_UNLOCK_UNIQUE_VANITY_2H_CHICKENGUN_EASTER                 : Wardrobe Skin: The Eggsecutioner
-10973: UNIQUE_VANITY_MAIN_BEERMUG_TELLAFRIEND                           : Recruiter's Beer Mug
-10974: UNIQUE_UNLOCK_VANITY_MAIN_BEERMUG_TELLAFRIEND                    : Wardrobe Skin: Recruiter's Beer Mug
-10975: UNIQUE_VANITY_MAIN_HORN_TELLAFRIEND                              : Recruiter's Hunter Horn
-10976: UNIQUE_UNLOCK_VANITY_MAIN_HORN_TELLAFRIEND                       : Wardrobe Skin: Recruiter's Hunter Horn
-10977: UNIQUE_VANITY_MAIN_FOXCROP_TELLAFRIEND                           : Recruiter's Fox Crop
-10978: UNIQUE_UNLOCK_VANITY_MAIN_FOXCROP_TELLAFRIEND                    : Wardrobe Skin: Recruiter's Fox Crop
-10979: UNIQUE_VANITY_MAIN_TRUMPET_TELLAFRIEND                           : Recruiter's Trumpet
-10980: UNIQUE_UNLOCK_VANITY_MAIN_TRUMPET_TELLAFRIEND                    : Wardrobe Skin: Recruiter's Trumpet
-10981: UNIQUE_VANITY_MAIN_BEERMUG_02_TELLAFRIEND                        : Recruiter's Ale Mug
-10982: UNIQUE_UNLOCK_VANITY_MAIN_BEERMUG_02_TELLAFRIEND                 : Wardrobe Skin: Recruiter's Ale Mug
-10983: UNIQUE_CAPE_FOUNDER_LEGENDARY                                    : Legendary Explorer's Cloak
-10984: UNIQUE_UNLOCK_CAPE_FOUNDER_LEGENDARY                             : Wardrobe Skin: Legendary Explorer's Cloak
-10985: UNIQUE_HEAD_FOUNDER_LEGENDARY                                    : Legendary Explorer's Hat
-10986: UNIQUE_UNLOCK_HEAD_FOUNDER_LEGENDARY                             : Wardrobe Skin: Legendary Explorer's Hat
-10987: UNIQUE_ARMOR_FOUNDER_LEGENDARY                                   : Legendary Explorer's Armor
-10988: UNIQUE_UNLOCK_ARMOR_FOUNDER_LEGENDARY                            : Wardrobe Skin: Legendary Explorer's Armor
-10989: UNIQUE_SHOES_FOUNDER_LEGENDARY                                   : Legendary Explorer's Boots
-10990: UNIQUE_UNLOCK_SHOES_FOUNDER_LEGENDARY                            : Wardrobe Skin: Legendary Explorer's Boots
-10991: UNIQUE_HEAD_FOUNDER_ELITE                                        : Explorer's Hat
-10992: UNIQUE_UNLOCK_HEAD_FOUNDER_ELITE                                 : Wardrobe Skin: Explorer's Hat
-10993: UNIQUE_ARMOR_FOUNDER_ELITE                                       : Explorer's Armor
-10994: UNIQUE_UNLOCK_ARMOR_FOUNDER_ELITE                                : Wardrobe Skin: Explorer's Armor
-10995: UNIQUE_SHOES_FOUNDER_ELITE                                       : Explorer's Boots
-10996: UNIQUE_UNLOCK_SHOES_FOUNDER_ELITE                                : Wardrobe Skin: Explorer's Boots
-10997: UNIQUE_CAPE_STARTERPACK_LEGENDARY                                : Legendary Adventurer's Cloak
-10998: UNIQUE_UNLOCK_CAPE_STARTERPACK_LEGENDARY                         : Wardrobe Skin: Legendary Adventurer's Cloak
-10999: UNIQUE_HEAD_STARTERPACK_LEGENDARY                                : Legendary Adventurer's Hat
-11000: UNIQUE_UNLOCK_HEAD_STARTERPACK_LEGENDARY                         : Wardrobe Skin: Legendary Adventurer's Hat
-11001: UNIQUE_ARMOR_STARTERPACK_LEGENDARY                               : Legendary Adventurer's Armor
-11002: UNIQUE_UNLOCK_ARMOR_STARTERPACK_LEGENDARY                        : Wardrobe Skin: Legendary Adventurer's Armor
-11003: UNIQUE_SHOES_STARTERPACK_LEGENDARY                               : Legendary Adventurer's Boots
-11004: UNIQUE_UNLOCK_SHOES_STARTERPACK_LEGENDARY                        : Wardrobe Skin: Legendary Adventurer's Boots
-11005: UNIQUE_HEAD_STARTERPACK_ELITE                                    : Adventurer's Helmet
-11006: UNIQUE_UNLOCK_HEAD_STARTERPACK_ELITE                             : Wardrobe Skin: Adventurer's Helmet
-11007: UNIQUE_ARMOR_STARTERPACK_ELITE                                   : Adventurer's Jacket
-11008: UNIQUE_UNLOCK_ARMOR_STARTERPACK_ELITE                            : Wardrobe Skin: Adventurer's Jacket
-11009: UNIQUE_SHOES_STARTERPACK_ELITE                                   : Adventurer's Shoes
-11010: UNIQUE_UNLOCK_SHOES_STARTERPACK_ELITE                            : Wardrobe Skin: Adventurer's Shoes
-11011: UNIQUE_HEAD_VANITY_SKELETON_UNDEAD                               : Undead Skull
-11012: UNIQUE_UNLOCK_HEAD_VANITY_SKELETON_UNDEAD                        : Wardrobe Skin: Undead Skull
-11013: UNIQUE_ARMOR_VANITY_SKELETON_UNDEAD                              : Undead Ribcage
-11014: UNIQUE_UNLOCK_ARMOR_VANITY_SKELETON_UNDEAD                       : Wardrobe Skin: Undead Ribcage
-11015: UNIQUE_SHOES_VANITY_SKELETON_UNDEAD                              : Undead Legs
-11016: UNIQUE_UNLOCK_SHOES_VANITY_SKELETON_UNDEAD                       : Wardrobe Skin: Undead Legs
-11017: UNIQUE_CAPE_VANITY_SKELETON_UNDEAD                               : Ragged Undead Cape
-11018: UNIQUE_UNLOCK_CAPE_VANITY_SKELETON_UNDEAD                        : Wardrobe Skin: Ragged Undead Cape
-11019: UNIQUE_CAPE_TELLAFRIEND                                          : Recruiter's Cape
-11020: UNIQUE_UNLOCK_CAPE_TELLAFRIEND                                   : Wardrobe Skin: Recruiter's Cape
-11021: UNIQUE_CAPE_TELLAFRIEND_02                                       : Riuros Cape
-11022: UNIQUE_UNLOCK_CAPE_TELLAFRIEND_02                                : Wardrobe Skin: Riuros Cape
-11023: UNIQUE_CAPE_TELLAFRIEND_BATRIDER                                 : Master of Bats Cape
-11024: UNIQUE_UNLOCK_CAPE_TELLAFRIEND_BATRIDER                          : Wardrobe Skin: Master of Bats Cape
-11025: UNIQUE_CAPE_TELLAFRIEND_BANNER                                   : Recruiter's Banner
-11026: UNIQUE_UNLOCK_CAPE_TELLAFRIEND_BANNER                            : Wardrobe Skin: Recruiter's Banner
-11027: UNIQUE_CAPE_TELLAFRIEND_BANNER_02                                : Ogronios Banner
-11028: UNIQUE_UNLOCK_CAPE_TELLAFRIEND_BANNER_02                         : Wardrobe Skin: Ogronios Banner
-11029: UNIQUE_CAPE_TOAD_TELLAFRIEND                                     : Recruiter's Cape - Toad
-11030: UNIQUE_UNLOCK_CAPE_TOAD_TELLAFRIEND                              : Wardrobe Skin: Recruiter's Cape - Toad
-11031: UNIQUE_CAPE_BLOODHOUND_TELLAFRIEND                               : Recruiter's Cape - Rottweiler
-11032: UNIQUE_UNLOCK_CAPE_BLOODHOUND_TELLAFRIEND                        : Wardrobe Skin: Recruiter's Cape - Rottweiler
-11033: UNIQUE_CAPE_TIGER_TELLAFRIEND                                    : Recruiter's Tiger Cape
-11034: UNIQUE_UNLOCK_CAPE_TIGER_TELLAFRIEND                             : Wardrobe Skin: Recruiter's Tiger Cape
-11035: UNIQUE_CAPE_RAM_TELLAFRIEND                                      : Recruiter's Fur Cape
-11036: UNIQUE_UNLOCK_CAPE_RAM_TELLAFRIEND                               : Wardrobe Skin: Recruiter's Fur Cape
-11037: UNIQUE_CAPE_WOLF_GREY_TELLAFRIEND                                : Recruiter's Grey Wolf Cape
-11038: UNIQUE_UNLOCK_CAPE_WOLF_GREY_TELLAFRIEND                         : Wardrobe Skin: Recruiter's Grey Wolf Cape
-11039: T6_CAPE_PLATE_UNDEAD                                             : Decorative Undead Platemail Cape
-11040: UNIQUE_UNLOCK_T6_CAPE_PLATE_UNDEAD                               : Wardrobe Skin: Decorative Undead Platemail Cape
-11041: T6_CAPE_LEATHER_UNDEAD                                           : Decorative Undead Leather Cape
-11042: UNIQUE_UNLOCK_T6_CAPE_LEATHER_UNDEAD                             : Wardrobe Skin: Decorative Undead Leather Cape
-11043: T6_CAPE_CLOTH_UNDEAD                                             : Decorative Undead Cloth Cape
-11044: UNIQUE_UNLOCK_T6_CAPE_CLOTH_UNDEAD                               : Wardrobe Skin: Decorative Undead Cloth Cape
-11045: T6_CAPE_PLATE_KEEPER                                             : Decorative Keeper Platemail Cape
-11046: UNIQUE_UNLOCK_T6_CAPE_PLATE_KEEPER                               : Wardrobe Skin: Decorative Keeper Platemail Cape
-11047: T6_CAPE_LEATHER_KEEPER                                           : Decorative Keeper Leather Cape
-11048: UNIQUE_UNLOCK_T6_CAPE_LEATHER_KEEPER                             : Wardrobe Skin: Decorative Keeper Leather Cape
-11049: T6_CAPE_CLOTH_KEEPER                                             : Decorative Keeper Cloth Cape
-11050: UNIQUE_UNLOCK_T6_CAPE_CLOTH_KEEPER                               : Wardrobe Skin: Decorative Keeper Cloth Cape
-11051: T6_CAPE_PLATE_MORGANA                                            : Decorative Morgana Platemail Cape
-11052: UNIQUE_UNLOCK_T6_CAPE_PLATE_MORGANA                              : Wardrobe Skin: Decorative Morgana Platemail Cape
-11053: T6_CAPE_LEATHER_MORGANA                                          : Decorative Morgana Leather Cape
-11054: UNIQUE_UNLOCK_T6_CAPE_LEATHER_MORGANA                            : Wardrobe Skin: Decorative Morgana Leather Cape
-11055: T6_CAPE_CLOTH_MORGANA                                            : Decorative Morgana Cloth Cape
-11056: UNIQUE_UNLOCK_T6_CAPE_CLOTH_MORGANA                              : Wardrobe Skin: Decorative Morgana Cloth Cape
-11057: UNIQUE_HEAD_VANITY_ROGUE                                         : Rogue Adventurer's Hood
-11058: UNIQUE_ARMOR_VANITY_ROGUE                                        : Rogue Adventurer's Armor
-11059: UNIQUE_SHOES_VANITY_ROGUE                                        : Rogue Adventurer's Boots
-11060: UNIQUE_CAPE_VANITY_ROGUE                                         : Rogue Adventurer's Cape
-11061: UNIQUE_VANITY_MAIN_POISONBOTTLE_ROGUE                            : Rogue Adventurer's Poison Bottle
-11062: SKIN_ARMORED_HORSE_ROGUE                                         : Rogue Adventurer's Armored Horse
-11063: UNIQUE_ARMOR_VANITY_ROGUE_GUILD_COLORED                          : Rogue Adventurer's Heraldic Armor
-11064: UNIQUE_CAPE_VANITY_ROGUE_GUILD_COLORED                           : Rogue Adventurer's Heraldic Cape
-11065: SKIN_ARMORED_HORSE_ROGUE_GUILD_COLORED                           : Rogue Adventurer's Heraldic Armored Horse
-11066: UNIQUE_HEAD_VANITY_KNIGHT                                        : Knight Adventurer's Helmet
-11067: UNIQUE_ARMOR_VANITY_KNIGHT                                       : Knight Adventurer's Armor
-11068: UNIQUE_SHOES_VANITY_KNIGHT                                       : Knight Adventurer's Boots
-11069: UNIQUE_CAPE_VANITY_KNIGHT                                        : Knight Adventurer's Cape
-11070: UNIQUE_VANITY_2H_BANNER_KNIGHT_GUILD_COLORED                     : Knight Adventurer's Warbanner
-11071: SKIN_ARMORED_HORSE_KNIGHT                                        : Knight Adventurer's Armored Horse
-11072: UNIQUE_HEAD_VANITY_KNIGHT_GUILD_COLORED                          : Knight Adventurer's Heraldic Helmet
-11073: UNIQUE_ARMOR_VANITY_KNIGHT_GUILD_COLORED                         : Knight Adventurer's Heraldic Armor
-11074: UNIQUE_CAPE_VANITY_KNIGHT_GUILD_COLORED                          : Knight Adventurer's Heraldic Cape
-11075: SKIN_ARMORED_HORSE_KNIGHT_GUILD_COLORED                          : Knight Adventurer's Heraldic Armored Horse
-11076: UNIQUE_HEAD_VANITY_MAGE                                          : Mage Adventurer's Hat
-11077: UNIQUE_ARMOR_VANITY_MAGE                                         : Mage Adventurer's Armor
-11078: UNIQUE_SHOES_VANITY_MAGE                                         : Mage Adventurer's Boots
-11079: UNIQUE_CAPE_VANITY_MAGE                                          : Mage Adventurer's Cape
-11080: UNIQUE_VANITY_2H_SPELLBOOK_MAGE                                  : Mage Adventurer's Spellbook
-11081: SKIN_ARMORED_HORSE_MAGE                                          : Mage Adventurer's Armored Horse
-11082: UNIQUE_HEAD_VANITY_MAGE_GUILD_COLORED                            : Mage Adventurer's Heraldic Hat
-11083: UNIQUE_ARMOR_VANITY_MAGE_GUILD_COLORED                           : Mage Adventurer's Heraldic Armor
-11084: UNIQUE_CAPE_VANITY_MAGE_GUILD_COLORED                            : Mage Adventurer's Heraldic Cape
-11085: SKIN_ARMORED_HORSE_MAGE_GUILD_COLORED                            : Mage Adventurer's Heraldic Armored Horse
-11086: SKIN_COUGAR_MIST                                                 : Miststalker
-11087: UNIQUE_HEAD_VANITY_BARBARIAN                                     : Barbarian's Helmet
-11088: UNIQUE_ARMOR_VANITY_BARBARIAN                                    : Barbarian's Harness
-11089: UNIQUE_SHOES_VANITY_BARBARIAN                                    : Barbarian's Boots
-11090: UNIQUE_CAPE_VANITY_BARBARIAN                                     : Barbarian's Cape
-11091: SKIN_DIREWOLF_BARBARIAN                                          : War Beast
-11092: UNIQUE_HEAD_VANITY_SOULKEEPER                                    : Keeper of Souls Cowl
-11093: UNIQUE_ARMOR_VANITY_SOULKEEPER                                   : Keeper of Souls Armor
-11094: UNIQUE_SHOES_VANITY_SOULKEEPER                                   : Keeper of Souls Boots
-11095: UNIQUE_CAPE_VANITY_SOULKEEPER                                    : Keeper of Souls Cape
-11096: UNIQUE_VANITY_2H_PHYLACTERY_SOULKEEPER                           : Phylactery of Souls
-11097: SKIN_STAG_SOULKEEPER                                             : Keeper of Souls Stag
-11098: SKIN_HORSE_HELL                                                  : Hell Mare
-11099: SKIN_COUGAR_DARK                                                 : Darkfang
-11100: UNIQUE_HEAD_VANITY_PALADIN                                       : Paladin's Helmet
-11101: UNIQUE_ARMOR_VANITY_PALADIN                                      : Paladin's Armor
-11102: UNIQUE_SHOES_VANITY_PALADIN                                      : Paladin's Boots
-11103: UNIQUE_CAPE_VANITY_PALADIN                                       : Paladin's Cape
-11104: SKIN_ARMORED_HORSE_PALADIN                                       : Paladin's Warhorse
-11105: UNIQUE_ARMOR_VANITY_PALADIN_GUILD_COLORED                        : Paladin's Heraldic Armor
-11106: UNIQUE_CAPE_VANITY_PALADIN_GUILD_COLORED                         : Paladin's Heraldic Cape
-11107: SKIN_ARMORED_HORSE_PALADIN_GUILD_COLORED                         : Paladin's Heraldic Warhorse
-11108: UNIQUE_HEAD_VANITY_PALADIN_ANNIVERSARY                           : Anniversary Paladin's Helmet
-11109: UNIQUE_ARMOR_VANITY_PALADIN_ANNIVERSARY                          : Anniversary Paladin's Armor
-11110: UNIQUE_SHOES_VANITY_PALADIN_ANNIVERSARY                          : Anniversary Paladin's Boots
-11111: UNIQUE_CAPE_VANITY_PALADIN_ANNIVERSARY                           : Anniversary Paladin's Cape
-11112: SKIN_ARMORED_HORSE_PALADIN_ANNIVERSARY                           : Anniversary Paladin's Warhorse
-11113: SKIN_OX_MIST                                                     : Mistbison
-11114: UNIQUE_HEAD_VANITY_DEMONHUNTER                                   : Demon Hunter's Hat
-11115: UNIQUE_ARMOR_VANITY_DEMONHUNTER                                  : Demon Hunter's Coat
-11116: UNIQUE_SHOES_VANITY_DEMONHUNTER                                  : Demon Hunter's Boots
-11117: UNIQUE_CAPE_VANITY_DEMONHUNTER                                   : Demon Hunter's Cape
-11118: SKIN_HORSE_DEMONHUNTER                                           : Demon Hunter's Horse
-11119: SKIN_DIREWOLF_MIST                                               : Mistwolf
-11120: UNIQUE_HEAD_VANITY_DRUID                                         : Druid's Horns
-11121: UNIQUE_ARMOR_VANITY_DRUID                                        : Druid's Vestments
-11122: UNIQUE_SHOES_VANITY_DRUID                                        : Druid's Shoes
-11123: UNIQUE_CAPE_VANITY_DRUID                                         : Druid's Cape
-11124: SKIN_STAG_DRUID                                                  : Druid's Stag
-11125: SKIN_COUGAR_SHADOWCAT                                            : Shadowcat
-11126: UNIQUE_HEAD_VANITY_DEMONICWARRIOR                                : Demonic Warrior's Helmet
-11127: UNIQUE_ARMOR_VANITY_DEMONICWARRIOR                               : Demonic Warrior's Armor
-11128: UNIQUE_SHOES_VANITY_DEMONICWARRIOR                               : Demonic Warrior's Boots
-11129: UNIQUE_CAPE_VANITY_DEMONICWARRIOR                                : Demonic Warrior's Cape
-11130: SKIN_DIREWOLF_DEMONICWARRIOR                                     : Saddled Hellhound
-11131: UNIQUE_HEAD_VANITY_MONK                                          : Master of Fists Tattoo
-11132: UNIQUE_HEAD_VANITY_MONK_HAT                                      : Master of Fists Hat
-11133: UNIQUE_HEAD_VANITY_MONK_MASK                                     : Master of Fists Mask
-11134: UNIQUE_ARMOR_VANITY_MONK                                         : Master of Fists Robes
-11135: UNIQUE_SHOES_VANITY_MONK                                         : Master of Fists Sandals
-11136: UNIQUE_CAPE_VANITY_MONK                                          : Master of Fists Scroll
-11137: SKIN_HORSE_MONK                                                  : Master of Fists Horse
-11138: UNIQUE_HEAD_VANITY_MONK_MASK_GUILD_COLORED                       : Master of Fists Heraldic Mask
-11139: UNIQUE_ARMOR_VANITY_MONK_GUILD_COLORED                           : Master of Fists Heraldic Robes
-11140: SKIN_DIREWOLF_UNDEAD                                             : Undead Direwolf
-11141: UNIQUE_HEAD_VANITY_MARAUDER                                      : Reaver's Helmet
-11142: UNIQUE_ARMOR_VANITY_MARAUDER                                     : Reaver's Armor
-11143: UNIQUE_SHOES_VANITY_MARAUDER                                     : Reaver's Boots
-11144: UNIQUE_CAPE_VANITY_MARAUDER                                      : Reaver's Cape
-11145: SKIN_ARMORED_HORSE_MARAUDER                                      : Reaver's Armored Horse
-11146: UNIQUE_HEAD_VANITY_FIREMAGE                                      : Pyromancer's Aspect
-11147: UNIQUE_ARMOR_VANITY_FIREMAGE                                     : Pyromancer's Robe
-11148: UNIQUE_SHOES_VANITY_FIREMAGE                                     : Pyromancer's Boots
-11149: UNIQUE_CAPE_VANITY_FIREMAGE                                      : Pyromancer's Cape
-11150: SKIN_COUGAR_FIREMAGE                                             : Flamebeast
-11151: UNIQUE_HEAD_VANITY_FROSTMAGE                                     : Cryomancer's Aspect
-11152: UNIQUE_ARMOR_VANITY_FROSTMAGE                                    : Cryomancer's Robe
-11153: UNIQUE_SHOES_VANITY_FROSTMAGE                                    : Cryomancer's Boots
-11154: UNIQUE_CAPE_VANITY_FROSTMAGE                                     : Cryomancer's Cape
-11155: SKIN_COUGAR_FROSTMAGE                                            : Frostbeast
-11156: SKIN_DIREBOAR_OCCULT                                             : Cursed Direboar
-11157: UNIQUE_HEAD_VANITY_PRIEST_HOLY                                   : Priest's Hood
-11158: UNIQUE_ARMOR_VANITY_PRIEST_HOLY                                  : Priest's Robe
-11159: UNIQUE_SHOES_VANITY_PRIEST_HOLY                                  : Priest's Boots
-11160: UNIQUE_CAPE_VANITY_PRIEST_HOLY                                   : Priest's Cape
-11161: SKIN_HORSE_PRIEST_HOLY                                           : Ethereal Horse
-11162: UNIQUE_HEAD_VANITY_RANGER_HOOD                                   : Ranger's Hood
-11163: UNIQUE_HEAD_VANITY_RANGER_MASK                                   : Ranger's Mask
-11164: UNIQUE_ARMOR_VANITY_RANGER                                       : Ranger's Armor
-11165: UNIQUE_SHOES_VANITY_RANGER                                       : Ranger's Boots
-11166: UNIQUE_CAPE_VANITY_RANGER                                        : Ranger's Cape
-11167: SKIN_COUGAR_RANGER                                               : Mistprowler
-11168: UNIQUE_HEAD_VANITY_BATTLEMAGE                                    : Arcanist's Helmet
-11169: UNIQUE_ARMOR_VANITY_BATTLEMAGE                                   : Arcanist's Armor
-11170: UNIQUE_SHOES_VANITY_BATTLEMAGE                                   : Arcanist's Boots
-11171: UNIQUE_CAPE_VANITY_BATTLEMAGE                                    : Arcanist's Cape
-11172: SKIN_DIREBOAR_BATTLEMAGE                                         : Arcane Direboar
-11173: UNIQUE_HEAD_VANITY_ZEALOT                                        : Zealot's Hood
-11174: UNIQUE_ARMOR_VANITY_ZEALOT                                       : Zealot's Harness
-11175: UNIQUE_SHOES_VANITY_ZEALOT                                       : Zealot's Shoes
-11176: UNIQUE_CAPE_VANITY_ZEALOT                                        : Zealot's Cape
-11177: SKIN_DIREWOLF_ZEALOT                                             : Cursed Hound
-11178: UNIQUE_HEAD_VANITY_TITAN                                         : Titan's Helmet
-11179: UNIQUE_ARMOR_VANITY_TITAN                                        : Titan's Armor
-11180: UNIQUE_SHOES_VANITY_TITAN                                        : Titan's Boots
-11181: UNIQUE_CAPE_VANITY_TITAN                                         : Titan's Cape
-11182: SKIN_ARMORED_HORSE_TITAN                                         : Titan's Warhorse
-11183: UNIQUE_HEAD_VANITY_ASSASSIN                                      : Assassin's Mask
-11184: UNIQUE_ARMOR_VANITY_ASSASSIN                                     : Assassin's Armor
-11185: UNIQUE_SHOES_VANITY_ASSASSIN                                     : Assassin's Boots
-11186: UNIQUE_CAPE_VANITY_ASSASSIN                                      : Assassin's Swords
-11187: SKIN_COUGAR_ASSASSIN                                             : Assassin's Panther
-11188: UNIQUE_HEAD_VANITY_TRACKER                                       : Tracker's Hood
-11189: UNIQUE_ARMOR_VANITY_TRACKER                                      : Tracker's Armor
-11190: UNIQUE_SHOES_VANITY_TRACKER                                      : Tracker's Boots
-11191: UNIQUE_CAPE_VANITY_TRACKER                                       : Tracker's Spear
-11192: SKIN_HORSE_TRACKER                                               : Tracker's Horse
-11193: UNIQUE_HEAD_VANITY_ALCHEMIST                                     : Alchemist's Glasses
-11194: UNIQUE_ARMOR_VANITY_ALCHEMIST                                    : Alchemist's Armor
-11195: UNIQUE_SHOES_VANITY_ALCHEMIST                                    : Alchemist's Boots
-11196: UNIQUE_CAPE_VANITY_ALCHEMIST                                     : Alchemist's Backpack
-11197: SKIN_DIREBOAR_ALCHEMIST                                          : Alchemist's Packboar
-11198: UNIQUE_HEAD_VANITY_FROSTKNIGHT                                   : Frost Knight's Helmet
-11199: UNIQUE_ARMOR_VANITY_FROSTKNIGHT                                  : Frost Knight's Armor
-11200: UNIQUE_SHOES_VANITY_FROSTKNIGHT                                  : Frost Knight's Boots
-11201: UNIQUE_CAPE_VANITY_FROSTKNIGHT                                   : Frost Knight's Cape
-11202: SKIN_ARMORED_HORSE_FROSTKNIGHT                                   : Frost Knight's Warhorse
-11203: UNIQUE_HEAD_VANITY_DUELIST                                       : Duelist's Hat
-11204: UNIQUE_ARMOR_VANITY_DUELIST                                      : Duelist's Armor
-11205: UNIQUE_SHOES_VANITY_DUELIST                                      : Duelist's Boots
-11206: UNIQUE_CAPE_VANITY_DUELIST                                       : Duelist's Cape
-11207: SKIN_COUGAR_DUELIST                                              : Duelist's Lynx
-11208: UNIQUE_HEAD_VANITY_DUELIST_01                                    
-11209: UNIQUE_ARMOR_VANITY_DUELIST_01                                   
-11210: UNIQUE_SHOES_VANITY_DUELIST_01                                   
-11211: UNIQUE_CAPE_VANITY_DUELIST_01                                    
-11212: SKIN_COUGAR_DUELIST_01                                           
-11213: UNIQUE_HEAD_VANITY_CORRUPTED_PREACHER                            : Corrupted Preacher's Hat
-11214: UNIQUE_ARMOR_VANITY_CORRUPTED_PREACHER                           : Corrupted Preacher's Coat
-11215: UNIQUE_SHOES_VANITY_CORRUPTED_PREACHER                           : Corrupted Preacher's Boots
-11216: UNIQUE_CAPE_VANITY_CORRUPTED_PREACHER                            : Corrupted Preacher's Cape
-11217: SKIN_OX_CORRUPTED_PREACHER                                       : Corrupted Preacher's Ox
-11218: UNIQUE_HEAD_VANITY_BARBARIAN_ANNIVERSARY                         : Anniversary Barbarian's Helmet
-11219: UNIQUE_ARMOR_VANITY_BARBARIAN_ANNIVERSARY                        : Anniversary Barbarian's Harness
-11220: UNIQUE_SHOES_VANITY_BARBARIAN_ANNIVERSARY                        : Anniversary Barbarian's Boots
-11221: UNIQUE_CAPE_VANITY_BARBARIAN_ANNIVERSARY                         : Anniversary Barbarian's Cape
-11222: SKIN_DIREWOLF_BARBARIAN_ANNIVERSARY                              : Anniversary War Beast
-11223: UNIQUE_HEAD_VANITY_PRIEST_HOLY_ANNIVERSARY                       : Anniversary Priest's Hood
-11224: UNIQUE_ARMOR_VANITY_PRIEST_HOLY_ANNIVERSARY                      : Anniversary Priest's Robe
-11225: UNIQUE_SHOES_VANITY_PRIEST_HOLY_ANNIVERSARY                      : Anniversary Priest's Boots
-11226: UNIQUE_CAPE_VANITY_PRIEST_HOLY_ANNIVERSARY                       : Anniversary Priest's Cape
-11227: SKIN_HORSE_PRIEST_HOLY_ANNIVERSARY                               : Anniversary Ethereal Horse
-11228: UNIQUE_HEAD_VANITY_FW_COMMANDER                                  : Commander's Aspect
-11229: UNIQUE_ARMOR_VANITY_FW_COMMANDER                                 : Commander's Armor
-11230: UNIQUE_ARMOR_VANITY_FW_COMMANDER_GUILD_COLORED                   : Commander's Heraldic Armor
-11231: UNIQUE_SHOES_VANITY_FW_COMMANDER                                 : Commander's Shoes
-11232: UNIQUE_CAPE_VANITY_FW_COMMANDER                                  : Commander's Cape
-11233: UNIQUE_CAPE_VANITY_FW_COMMANDER_GUILD_COLORED                    : Commander's Heraldic Cape
-11234: SKIN_ARMORED_HORSE_FW_COMMANDER                                  : Commander's Armored Horse
-11235: SKIN_ARMORED_HORSE_FW_COMMANDER_GUILD_COLORED                    : Commander's Heraldic Armored Horse
-11236: UNIQUE_BACKPACK_VANITY_KICKSTART                                 : Warden's Backpack
-11237: UNIQUE_UNLOCK_BACKPACK_VANITY_KICKSTART                          : Wardrobe Skin: Warden's Backpack
-11238: UNIQUE_HEAD_VANITY_KICKSTART_2024_UPGRADE                        : Warden's Legendary Helmet
-11239: UNIQUE_UNLOCK_HEAD_VANITY_KICKSTART_2024_UPGRADE                 : Wardrobe Skin: Warden's Legendary Helmet
-11240: UNIQUE_ARMOR_VANITY_KICKSTART_2024_UPGRADE                       : Warden's Legendary Armor
-11241: UNIQUE_UNLOCK_ARMOR_VANITY_KICKSTART_2024_UPGRADE                : Wardrobe Skin: Warden's Legendary Armor
-11242: UNIQUE_SHOES_VANITY_KICKSTART_2024_UPGRADE                       : Warden's Legendary Boots
-11243: UNIQUE_UNLOCK_SHOES_VANITY_KICKSTART_2024_UPGRADE                : Wardrobe Skin: Warden's Legendary Boots
-11244: UNIQUE_CAPE_VANITY_KICKSTART_2024_UPGRADE                        : Warden's Legendary Axe
-11245: UNIQUE_UNLOCK_CAPE_VANITY_KICKSTART_2024_UPGRADE                 : Wardrobe Skin: Warden's Legendary Axe
-11246: SKIN_HORSE_KICKSTART_2024_UPGRADE                                : Warden's Legendary Steed
-11247: UNIQUE_UNLOCK_HORSE_VANITY_KICKSTART_2024_UPGRADE                : Riding Horse Skin: Warden's Legendary Steed
-11248: UNIQUE_HEAD_VANITY_KICKSTART_2024                                : Warden's Helmet
-11249: UNIQUE_UNLOCK_HEAD_VANITY_KICKSTART_2024                         : Wardrobe Skin: Warden's Helmet
-11250: UNIQUE_ARMOR_VANITY_KICKSTART_2024                               : Warden's Armor
-11251: UNIQUE_UNLOCK_ARMOR_VANITY_KICKSTART_2024                        : Wardrobe Skin: Warden's Armor
-11252: UNIQUE_SHOES_VANITY_KICKSTART_2024                               : Warden's Boots
-11253: UNIQUE_UNLOCK_SHOES_VANITY_KICKSTART_2024                        : Wardrobe Skin: Warden's Boots
-11254: UNIQUE_CAPE_VANITY_KICKSTART_2024                                : Warden's Axe
-11255: UNIQUE_UNLOCK_CAPE_VANITY_KICKSTART_2024                         : Wardrobe Skin: Warden's Axe
-11256: SKIN_HORSE_KICKSTART_2024                                        : Warden's Steed
-11257: UNIQUE_UNLOCK_HORSE_VANITY_KICKSTART_2024                        : Riding Horse Skin: Warden's Steed
-11258: UNIQUE_HEAD_VANITY_KNIGHT_GREEN                                  : Green Knight's Helmet
-11259: UNIQUE_ARMOR_VANITY_KNIGHT_GREEN                                 : Green Knight's Armor
-11260: UNIQUE_SHOES_VANITY_KNIGHT_GREEN                                 : Green Knight's Boots
-11261: UNIQUE_CAPE_VANITY_KNIGHT_GREEN                                  : Green Knight's Cape
-11262: SKIN_ARMORED_HORSE_KNIGHT_GREEN                                  : Green Knight's Armored Horse
-11263: UNIQUE_UNLOCK_HEAD_VANITY_SMUGGLER                               : Wardrobe Skin: Smuggler's Hat
-11264: UNIQUE_HEAD_VANITY_SMUGGLER                                      : Smuggler's Hat
-11265: UNIQUE_UNLOCK_ARMOR_VANITY_SMUGGLER                              : Wardrobe Skin: Smuggler's Coat
-11266: UNIQUE_ARMOR_VANITY_SMUGGLER                                     : Smuggler's Coat
-11267: UNIQUE_UNLOCK_SHOES_VANITY_SMUGGLER                              : Wardrobe Skin: Smuggler's Boots
-11268: UNIQUE_SHOES_VANITY_SMUGGLER                                     : Smuggler's Boots
-11269: UNIQUE_UNLOCK_CAPE_VANITY_SMUGGLER                               : Wardrobe Skin: Smuggler's Cloak
-11270: UNIQUE_CAPE_VANITY_SMUGGLER                                      : Smuggler's Cloak
-11271: UNIQUE_HEAD_VANITY_KNIGHT_AOCP                                   : Noble Knight's Helmet
-11272: UNIQUE_UNLOCK_HEAD_VANITY_KNIGHT_AOCP_NON_TRADABLE               : Wardrobe Skin: Noble Knight's Helmet
-11273: UNIQUE_ARMOR_VANITY_KNIGHT_AOCP                                  : Noble Knight's Armor
-11274: UNIQUE_UNLOCK_ARMOR_VANITY_KNIGHT_AOCP_NON_TRADABLE              : Wardrobe Skin: Noble Knight's Armor
-11275: UNIQUE_SHOES_VANITY_KNIGHT_AOCP                                  : Noble Knight's Shoes
-11276: UNIQUE_UNLOCK_SHOES_VANITY_KNIGHT_AOCP_NON_TRADABLE              : Wardrobe Skin: Noble Knight's Shoes
-11277: UNIQUE_CAPE_VANITY_KNIGHT_AOCP                                   : Noble Knight's Cape
-11278: UNIQUE_UNLOCK_CAPE_VANITY_KNIGHT_AOCP_NON_TRADABLE               : Wardrobe Skin: Noble Knight's Cape
-11279: SKIN_DIREBOAR_FIBER_GATHERER                                     : Buttercup
-11280: UNIQUE_UNLOCK_DIREBOAR_FIBER_GATHERER                            : Direboar Skin: Buttercup
-11281: UNIQUE_OFF_VANITY_PUMPKIN_HAPPY                                  : Snack-O'-Lantern
-11282: UNIQUE_UNLOCK_OFF_VANITY_PUMPKIN_HAPPY_NON_TRADABLE              : Wardrobe Skin: Snack-O'-Lantern
-11283: UNIQUE_OFF_VANITY_PUMPKIN_SAD                                    : Burp-O'-Lantern
-11284: UNIQUE_UNLOCK_OFF_VANITY_PUMPKIN_SAD_NON_TRADABLE                : Wardrobe Skin: Burp-O'-Lantern
-11285: UNIQUE_OFF_VANITY_PUMPKIN_ANGRY                                  : Grump-O'-Lantern
-11286: UNIQUE_UNLOCK_OFF_VANITY_PUMPKIN_ANGRY_NON_TRADABLE              : Wardrobe Skin: Grump-O'-Lantern
-11287: UNIQUE_UNLOCK_HEAD_VANITY_FW_SOLDIER_PLATE                       
-11288: UNIQUE_HEAD_VANITY_FW_SOLDIER_PLATE                              : Faction Legionnaire's Helm
-11289: UNIQUE_UNLOCK_ARMOR_VANITY_FW_SOLDIER_PLATE                      
-11290: UNIQUE_ARMOR_VANITY_FW_SOLDIER_PLATE                             : Faction Legionnaire's Armor
-11291: UNIQUE_UNLOCK_SHOES_VANITY_FW_SOLDIER_PLATE                      
-11292: UNIQUE_SHOES_VANITY_FW_SOLDIER_PLATE                             : Faction Legionnaire's Boots
-11293: UNIQUE_UNLOCK_CAPE_VANITY_FW_SOLDIER_PLATE                       
-11294: UNIQUE_CAPE_VANITY_FW_SOLDIER_PLATE                              : Faction Legionnaire's Cape
-11295: UNIQUE_UNLOCK_AVATAR_FW_SOLDIER                                  
-11296: UNIQUE_UNLOCK_AVATARRING_FW_SOLDIER                              
-11297: UNIQUE_TEST_DUNGEONMAP_PROTOTYPE                                 
-11298: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_01_TEMPLATE                      
-11299: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_02_TEMPLATE                      
-11300: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_03_S11_TEMPLATE                  
-11301: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_03_TEMPLATE                      
-11302: T4_TOKEN_CRYSTALLEAGUE_CITY_NOVENDOR_LVL_02_TEMPLATE             
-11303: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_04_TEMPLATE                      
-11304: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_05_TEMPLATE                      
-11305: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_06_TEMPLATE                      
-11306: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_07_TEMPLATE                      
-11307: T4_TOKEN_CRYSTALLEAGUE_LVL_01_TEMPLATE                           
-11308: T4_TOKEN_CRYSTALLEAGUE_LVL_02_TEMPLATE                           
-11309: T4_TOKEN_CRYSTALLEAGUE_LVL_03_TEMPLATE                           
-11310: T4_TOKEN_CRYSTALLEAGUE_NOVENDOR_LVL_02_TEMPLATE                  
-11311: T4_TOKEN_CRYSTALLEAGUE_NOVENDOR_LVL_03_TEMPLATE                  
-11312: T4_TOKEN_CRYSTALLEAGUE_LVL_04_TEMPLATE                           
-11313: T4_TOKEN_CRYSTALLEAGUE_LVL_05_TEMPLATE                           
-11314: T4_TOKEN_CRYSTALLEAGUE_LVL_06_TEMPLATE                           
-11315: T4_TOKEN_CRYSTALLEAGUE_LVL_07_TEMPLATE                           
-11316: T4_TOKEN_CRYSTALLEAGUE_LVL_08_TEMPLATE                           
-11317: T4_TOKEN_CRYSTALLEAGUE_LVL_09_TEMPLATE                           
-11318: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_01_TEMPLATE                 
-11319: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_02_TEMPLATE                 
-11320: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_03_TEMPLATE                 
-11321: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_04_TEMPLATE                 
-11322: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_05_TEMPLATE                 
-11323: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_06_TEMPLATE                 
-11324: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_07_TEMPLATE                 
-11325: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_08_TEMPLATE                 
-11326: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_09_TEMPLATE                 
-11327: UNIQUE_TOKEN_COMMUNITY                                           : Community Token
-11328: UNIQUE_TOKEN_AOCP                                                : Noble Community Token
-11329: UNIQUE_LOOTCHEST_COMMUNITY_COMMON                                : Common Community Chest
-11330: UNIQUE_LOOTCHEST_COMMUNITY_COMMON_PREMIUM@1                      : Premium Common Community Chest
-11331: UNIQUE_LOOTCHEST_COMMUNITY_RARE                                  : Rare Community Chest
-11332: UNIQUE_LOOTCHEST_COMMUNITY_RARE_PREMIUM@1                        : Premium Rare Community Chest
-11333: UNIQUE_LOOTCHEST_COMMUNITY_EPIC                                  : Epic Community Chest
-11334: UNIQUE_LOOTCHEST_COMMUNITY_EPIC_PREMIUM@1                        : Premium Epic Community Chest
-11335: UNIQUE_LOOTCHEST_COMMUNITY_LEGENDARY                             : Legendary Community Chest
-11336: UNIQUE_LOOTCHEST_COMMUNITY_LEGENDARY_PREMIUM@1                   : Premium Legendary Community Chest
-11337: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_COMMON                      : Common Community Treasure
-11338: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_COMMON_PREMIUM@1            : Premium Common Community Treasure
-11339: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_RARE                        : Rare Community Treasure
-11340: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_RARE_PREMIUM@1              : Premium Rare Community Treasure
-11341: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_EPIC                        : Epic Community Treasure
-11342: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_EPIC_PREMIUM@1              : Premium Epic Community Treasure
-11343: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_LEGENDARY                   : Legendary Community Treasure
-11344: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_LEGENDARY_PREMIUM@1         : Premium Legendary Community Treasure
-11345: UNIQUE_LOOTCHEST_COMMUNITY_GENERIC                               : Community Chest
-11346: UNIQUE_LOOTCHEST_COMMUNITY_GENERIC_PREMIUM@1                     : Premium Community Chest
-11347: UNIQUE_LOOTCHEST_AOCP                                            : Noble Community Chest
-11348: UNIQUE_LOOTCHEST_AOCP_PREMIUM@1                                  : Premium Noble Community Chest
-11349: UNIQUE_UNLOCK_HEAD_VANITY_DRESS_BLUE_NON_TRADABLE                : Wardrobe Skin: Blue Princess Hat
-11350: UNIQUE_UNLOCK_HEAD_VANITY_DRESS_BLACK_NON_TRADABLE               : Wardrobe Skin: Noblewoman's Jewelry
-11351: UNIQUE_UNLOCK_HEAD_VANITY_PRIEST_NON_TRADABLE                    : Wardrobe Skin: Monk's Hood
-11352: UNIQUE_UNLOCK_HEAD_VANITY_WEDDING_DRESS_NON_TRADABLE             : Wardrobe Skin: Bridal Veil
-11353: UNIQUE_UNLOCK_HEAD_VANITY_WEDDING_TUXEDO_NON_TRADABLE            : Wardrobe Skin: Groom's Hat
-11354: UNIQUE_UNLOCK_HEAD_VANITY_BARD_NON_TRADABLE                      : Wardrobe Skin: Bard's Hat
-11355: UNIQUE_UNLOCK_HEAD_VANITY_INNKEEPER_NON_TRADABLE                 : Wardrobe Skin: Innkeeper's Hat
-11356: UNIQUE_UNLOCK_HEAD_VANITY_PIRATE_NON_TRADABLE                    : Wardrobe Skin: Navigator's Hat
-11357: UNIQUE_UNLOCK_ARMOR_VANITY_DRESS_BLUE_NON_TRADABLE               : Wardrobe Skin: Blue Princess Dress
-11358: UNIQUE_UNLOCK_ARMOR_VANITY_DRESS_BLACK_NON_TRADABLE              : Wardrobe Skin: Noblewoman's Dress
-11359: UNIQUE_UNLOCK_ARMOR_VANITY_PRIEST_NON_TRADABLE                   : Wardrobe Skin: Monk's Robe
-11360: UNIQUE_UNLOCK_ARMOR_VANITY_WEDDING_DRESS_NON_TRADABLE            : Wardrobe Skin: Bridal Dress
-11361: UNIQUE_UNLOCK_ARMOR_VANITY_WEDDING_TUXEDO_NON_TRADABLE           : Wardrobe Skin: Groom's Suit
-11362: UNIQUE_UNLOCK_ARMOR_VANITY_BARD_NON_TRADABLE                     : Wardrobe Skin: Bard's Suit
-11363: UNIQUE_UNLOCK_ARMOR_VANITY_INNKEEPER_NON_TRADABLE                : Wardrobe Skin: Innkeeper's Shirt
-11364: UNIQUE_UNLOCK_ARMOR_VANITY_PIRATE_NON_TRADABLE                   : Wardrobe Skin: Navigator's Coat
-11365: UNIQUE_UNLOCK_SHOES_VANITY_DRESS_BLUE_NON_TRADABLE               : Wardrobe Skin: Blue Princess Shoes
-11366: UNIQUE_UNLOCK_SHOES_VANITY_DRESS_BLACK_NON_TRADABLE              : Wardrobe Skin: Noblewoman's Shoes
-11367: UNIQUE_UNLOCK_SHOES_VANITY_PRIEST_NON_TRADABLE                   : Wardrobe Skin: Monk's Sandals
-11368: UNIQUE_UNLOCK_SHOES_VANITY_WEDDING_DRESS_NON_TRADABLE            : Wardrobe Skin: Bridal Shoes
-11369: UNIQUE_UNLOCK_SHOES_VANITY_WEDDING_TUXEDO_NON_TRADABLE           : Wardrobe Skin: Groom's Shoes
-11370: UNIQUE_UNLOCK_SHOES_VANITY_BARD_NON_TRADABLE                     : Wardrobe Skin: Bard's Shoes
-11371: UNIQUE_UNLOCK_SHOES_VANITY_INNKEEPER_NON_TRADABLE                : Wardrobe Skin: Innkeeper's Shoes
-11372: UNIQUE_UNLOCK_SHOES_VANITY_PIRATE_NON_TRADABLE                   : Wardrobe Skin: Navigator's Boots
-11373: UNIQUE_UNLOCK_CAPE_VANITY_WEDDING_TUXEDO_NON_TRADABLE            : Wardrobe Skin: Groom's Cape
-11374: UNIQUE_UNLOCK_VANITY_2H_CHICKENGUN_EASTER_NON_TRADABLE           : Wardrobe Skin: The Eggsecutioner
-11375: UNIQUE_UNLOCK_OFF_VANITY_PRIEST_NON_TRADABLE                     : Wardrobe Skin: Monk's Walking Staff
-11376: UNIQUE_UNLOCK_OFF_VANITY_WEDDING_DRESS_NON_TRADABLE              : Wardrobe Skin: Bridal Bouquet
-11377: UNIQUE_UNLOCK_OFF_VANITY_WEDDING_TUXEDO_NON_TRADABLE             : Wardrobe Skin: Wedding Ring
-11378: UNIQUE_UNLOCK_OFF_VANITY_INNKEEPER_NON_TRADABLE                  : Wardrobe Skin: Innkeeper's Beer Mug
-11379: UNIQUE_UNLOCK_OFF_VANITY_PIRATE_NON_TRADABLE                     : Wardrobe Skin: Navigator's Parrot Cage
-11380: UNIQUE_UNLOCK_SKIN_HORSE_BROWN_NON_TRADABLE                      : Riding Horse Skin: Brown Mare
-11381: UNIQUE_UNLOCK_SKIN_HORSE_KEEPER_NON_TRADABLE                     : Riding Horse Skin: Keeper Horse
-11382: UNIQUE_UNLOCK_SKIN_HORSE_UNICORN_NON_TRADABLE                    : Riding Horse Skin: Nightshade Unicorn
-11383: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_T5_GUILD_NON_TRADABLE           : Armored Horse Skin: Expert's Heraldic Warhorse
-11384: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_T6_GUILD_NON_TRADABLE           : Armored Horse Skin: Master's Heraldic Warhorse
-11385: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_T7_GUILD_NON_TRADABLE           : Armored Horse Skin: Grandmaster's Heraldic Warhorse
-11386: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_T8_GUILD_NON_TRADABLE           : Armored Horse Skin: Elder's Heraldic Warhorse
-11387: UNIQUE_UNLOCK_SKIN_OX_BISON_AH_NON_TRADABLE                      : Transport Ox Skin: Auction House Ox
-11388: UNIQUE_UNLOCK_SKIN_OX_BISON_ROYAL_NON_TRADABLE                   : Transport Ox Skin: Royal Ox
-11389: UNIQUE_UNLOCK_SKIN_OX_BLACKMARKET_NON_TRADABLE                   : Transport Ox Skin: Black Market Ox
-11390: UNIQUE_HEAD_VANITY_DRESS_GREEN                                   : Green Princess Hat
-11391: UNIQUE_UNLOCK_HEAD_VANITY_DRESS_GREEN_NON_TRADABLE               : Wardrobe Skin: Green Princess Hat
-11392: UNIQUE_ARMOR_VANITY_DRESS_GREEN                                  : Green Princess Dress
-11393: UNIQUE_UNLOCK_ARMOR_VANITY_DRESS_GREEN_NON_TRADABLE              : Wardrobe Skin: Green Princess Dress
-11394: UNIQUE_SHOES_VANITY_DRESS_GREEN                                  : Green Princess Shoes
-11395: UNIQUE_UNLOCK_SHOES_VANITY_DRESS_GREEN_NON_TRADABLE              : Wardrobe Skin: Green Princess Shoes
-11396: UNIQUE_HEAD_VANITY_ENTERTAINER                                   : Entertainer's Mask
-11397: UNIQUE_UNLOCK_HEAD_VANITY_ENTERTAINER_NON_TRADABLE               : Wardrobe Skin: Entertainer's Mask
-11398: UNIQUE_ARMOR_VANITY_ENTERTAINER                                  : Entertainer's Costume
-11399: UNIQUE_UNLOCK_ARMOR_VANITY_ENTERTAINER_NON_TRADABLE              : Wardrobe Skin: Entertainer's Costume
-11400: UNIQUE_SHOES_VANITY_ENTERTAINER                                  : Entertainer's Shoes
-11401: UNIQUE_UNLOCK_SHOES_VANITY_ENTERTAINER_NON_TRADABLE              : Wardrobe Skin: Entertainer's Shoes
-11402: UNIQUE_HEAD_VANITY_NIGHTGOWN                                     : Sleeping Cap
-11403: UNIQUE_UNLOCK_HEAD_VANITY_NIGHTGOWN_NON_TRADABLE                 : Wardrobe Skin: Sleeping Cap
-11404: UNIQUE_CAPE_VANITY_HYENA                                         : Hyena Cape
-11405: UNIQUE_UNLOCK_CAPE_VANITY_HYENA_NON_TRADABLE                     : Wardrobe Skin: Hyena Cape
-11406: SKIN_COUGAR_AMETHYST                                             : Amethyst Cougar
-11407: UNIQUE_UNLOCK_SKIN_COUGAR_AMETHYST                               : Swiftclaw Skin: Amethyst Cougar
-11408: SKIN_GIANTSTAG_ALPACA_BROWN                                      : Brown Alpaca
-11409: UNIQUE_UNLOCK_SKIN_GIANTSTAG_ALPACA_BROWN                        : Stag Skin: Brown Alpaca
-11410: SKIN_HORSE_UNICORN_AMETHYST                                      : Amethyst Unicorn
-11411: UNIQUE_UNLOCK_SKIN_HORSE_UNICORN_AMETHYST                        : Riding Horse Skin: Amethyst Unicorn
-11412: UNIQUE_HEAD_VANITY_PIRATE_GREEN                                  : Green Navigator's Hat
-11413: UNIQUE_UNLOCK_HEAD_VANITY_PIRATE_GREEN_NON_TRADABLE              : Wardrobe Skin: Green Navigator's Hat
-11414: UNIQUE_ARMOR_VANITY_PIRATE_GREEN                                 : Green Navigator's Coat
-11415: UNIQUE_UNLOCK_ARMOR_VANITY_PIRATE_GREEN_NON_TRADABLE             : Wardrobe Skin: Green Navigator's Coat
-11416: UNIQUE_SHOES_VANITY_PIRATE_GREEN                                 : Green Navigator's Boots
-11417: UNIQUE_UNLOCK_SHOES_VANITY_PIRATE_GREEN_NON_TRADABLE             : Wardrobe Skin: Green Navigator's Boots
-11418: UNIQUE_OFF_VANITY_PIRATE_RED                                     : Navigator's Red Parrot Cage
-11419: UNIQUE_UNLOCK_OFF_VANITY_PIRATE_RED_NON_TRADABLE                 : Wardrobe Skin: Navigator's Red Parrot Cage
-11420: UNIQUE_OFF_VANITY_PIRATE_GREEN                                   : Navigator's Green Parrot Cage
-11421: UNIQUE_UNLOCK_OFF_VANITY_PIRATE_GREEN_NON_TRADABLE               : Wardrobe Skin: Navigator's Green Parrot Cage
-11422: UNIQUE_OFF_VANITY_PIRATE_COCKATOO                                : Navigator's Cockatoo Cage
-11423: UNIQUE_UNLOCK_OFF_VANITY_PIRATE_COCKATOO_NON_TRADABLE            : Wardrobe Skin: Navigator's Cockatoo Cage
-11424: UNIQUE_HEAD_VANITY_PRIEST_RED                                    : Exiled Monk's Hood
-11425: UNIQUE_UNLOCK_HEAD_VANITY_PRIEST_RED_NON_TRADABLE                : Wardrobe Skin: Exiled Monk's Hood
-11426: UNIQUE_ARMOR_VANITY_PRIEST_RED                                   : Exiled Monk's Robe
-11427: UNIQUE_UNLOCK_ARMOR_VANITY_PRIEST_RED_NON_TRADABLE               : Wardrobe Skin: Exiled Monk's Robe
-11428: UNIQUE_SHOES_VANITY_PRIEST_RED                                   : Exiled Monk's Sandals
-11429: UNIQUE_UNLOCK_SHOES_VANITY_PRIEST_RED_NON_TRADABLE               : Wardrobe Skin: Exiled Monk's Sandals
-11430: UNIQUE_OFF_VANITY_PRIEST_RED                                     : Exiled Monk's Walking Staff
-11431: UNIQUE_UNLOCK_OFF_VANITY_PRIEST_RED_NON_TRADABLE                 : Wardrobe Skin: Exiled Monk's Walking Staff
-11432: UNIQUE_CAPE_VANITY_SNOWLEOPARD                                   : Snow Leopard Cape
-11433: UNIQUE_UNLOCK_CAPE_VANITY_SNOWLEOPARD_NON_TRADABLE               : Wardrobe Skin: Snow Leopard Cape
-11434: UNIQUE_HEAD_VANITY_RICH_NOBLE_PURPLE                             : Purple Rich Noble's Hat
-11435: UNIQUE_UNLOCK_HEAD_VANITY_RICH_NOBLE_PURPLE_NON_TRADABLE         : Wardrobe Skin: Purple Rich Noble's Hat
-11436: UNIQUE_ARMOR_VANITY_RICH_NOBLE_PURPLE                            : Purple Rich Noble's Doublet
-11437: UNIQUE_UNLOCK_ARMOR_VANITY_RICH_NOBLE_PURPLE_NON_TRADABLE        : Wardrobe Skin: Purple Rich Noble's Doublet
-11438: UNIQUE_SHOES_VANITY_RICH_NOBLE_PURPLE                            : Purple Rich Noble's Footwear
-11439: UNIQUE_UNLOCK_SHOES_VANITY_RICH_NOBLE_PURPLE_NON_TRADABLE        : Wardrobe Skin: Purple Rich Noble's Footwear
-11440: UNIQUE_HEAD_VANITY_NIGHTGOWN_BLACK                               : Black Sleeping Cap
-11441: UNIQUE_UNLOCK_HEAD_VANITY_NIGHTGOWN_BLACK_NON_TRADABLE           : Wardrobe Skin: Black Sleeping Cap
-11442: UNIQUE_HEAD_VANITY_NIGHTGOWN_BELL                                : Sleeping Cap with Bell
-11443: UNIQUE_UNLOCK_HEAD_VANITY_NIGHTGOWN_BELL_NON_TRADABLE            : Wardrobe Skin: Sleeping Cap with Bell
-11444: UNIQUE_HEAD_VANITY_BARD_BLUE                                     : Blue Bard's Hat
-11445: UNIQUE_UNLOCK_HEAD_VANITY_BARD_BLUE_NON_TRADABLE                 : Wardrobe Skin: Blue Bard's Hat
-11446: UNIQUE_ARMOR_VANITY_BARD_BLUE                                    : Blue Bard's Suit
-11447: UNIQUE_UNLOCK_ARMOR_VANITY_BARD_BLUE_NON_TRADABLE                : Wardrobe Skin: Blue Bard's Suit
-11448: UNIQUE_SHOES_VANITY_BARD_BLUE                                    : Blue Bard's Shoes
-11449: UNIQUE_UNLOCK_SHOES_VANITY_BARD_BLUE_NON_TRADABLE                : Wardrobe Skin: Blue Bard's Shoes
-11450: SKIN_DIREWOLF_FENNEK                                             : Fennec
-11451: UNIQUE_UNLOCK_SKIN_DIREWOLF_FENNEK                               : Direwolf Skin: Fennec
-11452: SKIN_HORSE_QUESTING_BEAST_GREEN                                  : Green Chimera
-11453: UNIQUE_UNLOCK_SKIN_HORSE_QUESTING_BEAST_GREEN                    : Riding Horse Skin: Green Chimera
-11454: T1_KILL_EMOTE_TOMBSTONE_CHARGES_NONTRADABLE                      : Tombstone Victory Emote Charge
-11455: T1_KILL_EMOTE_FLAG_CHARGES_NONTRADABLE                           : Guild Banner Victory Emote Charge
-11456: T1_KILL_EMOTE_GHOST_CHARGES_NONTRADABLE                          : Ghost Victory Emote Charge
-11457: T1_KILL_EMOTE_OVERGROWN_CHARGES_NONTRADABLE                      : Overgrown Victory Emote Charge
-11458: T1_KILL_EMOTE_HELLGATE_CHARGES_NONTRADABLE                       : Hellgate Victory Emote Charge
-11459: T1_KILL_EMOTE_SWORD_CHARGES_NONTRADABLE                          : Sword Victory Emote Charge
-11460: T1_KILL_EMOTE_HAMMER_CHARGES_NONTRADABLE                         : Hammer Victory Emote Charge
-11461: T1_KILL_EMOTE_FLAG_MOBILE_CHARGES_NONTRADABLE                    : Mobile Banner Victory Emote Charge
-11462: T1_KILL_EMOTE_FLAG_DESKTOP_CHARGES_NONTRADABLE                   : Desktop Banner Victory Emote Charge
-11463: T1_KILL_EMOTE_FLAG_CONTROLLER_CHARGES_NONTRADABLE                : Controller Banner Victory Emote Charge
-11464: T1_KILL_EMOTE_TOMBSTONE_CHARGES_TRADABLE                         
-11465: T1_KILL_EMOTE_FLAG_CHARGES_TRADABLE                              
-11466: T1_KILL_EMOTE_GHOST_CHARGES_TRADABLE                             
-11467: T1_KILL_EMOTE_OVERGROWN_CHARGES_TRADABLE                         
-11468: T1_KILL_EMOTE_HELLGATE_CHARGES_TRADABLE                          
-11469: T1_KILL_EMOTE_SWORD_CHARGES_TRADABLE                             
-11470: T1_KILL_EMOTE_HAMMER_CHARGES_TRADABLE                            
-11471: T1_KILL_EMOTE_FLAG_MOBILE_CHARGES_TRADABLE                       
-11472: T1_KILL_EMOTE_FLAG_DESKTOP_CHARGES_TRADABLE                      
-11473: T1_KILL_EMOTE_FLAG_CONTROLLER_CHARGES_TRADABLE                   
-11474: UNIQUE_UNLOCK_VANITY_HEAD_TUTORIAL_COMPLETED_AJ                  : Wardrobe Skin: Academic Biretta
-11475: UNIQUE_VANITY_HEAD_TUTORIAL_COMPLETED_AJ                         : Academic Biretta
-11476: UNIQUE_AVATARRING_AJ_PVE_01                                      : PvE Avatar Ring
-11477: UNIQUE_AVATAR_AJ_PVE_01                                          : PvE Avatar
-11478: UNIQUE_UNLOCK_SKIN_DIREBEAR_ADVENTURE_AJ                         : Direbear Skin: Delver's Direbear
-11479: SKIN_DIREBEAR_ADVENTURE_AJ                                       : Delver's Direbear
-11480: UNIQUE_UNLOCK_VANITY_MAIN_DICE_SIXSIDED_AJ                       : Wardrobe Skin: Cube of Fate
-11481: UNIQUE_VANITY_MAIN_DICE_SIXSIDED_AJ                              : Cube of Fate
-11482: UNIQUE_UNLOCK_VANITY_MAIN_DICE_TWENTYSIDED_AJ                    : Wardrobe Skin: Icosahedron of Fate
-11483: UNIQUE_VANITY_MAIN_DICE_TWENTYSIDED_AJ                           : Icosahedron of Fate
-11484: UNIQUE_AVATARRING_AJ_GATHERING_01                                : Gatherer's Avatar Ring
-11485: UNIQUE_AVATAR_AJ_GATHERING_01                                    : Gatherer's Avatar
-11486: UNIQUE_UNLOCK_SKIN_DIREBOAR_MECHANICAL_AJ                        : Direboar Skin: Mechanical Boar
-11487: SKIN_DIREBOAR_MECHANICAL_AJ                                      : Mechanical Boar
-11488: UNIQUE_UNLOCK_VANITY_2H_MULTITOOL_AJ                             : Wardrobe Skin: Sharpened Axe
-11489: UNIQUE_VANITY_2H_MULTITOOL_AJ                                    : Sharpened Axe
-11490: UNIQUE_UNLOCK_VANITY_2H_MULTITOOL_OVERCHARGED_AJ                 : Wardrobe Skin: Razor-Sharp Axe
-11491: UNIQUE_VANITY_2H_MULTITOOL_OVERCHARGED_AJ                        : Razor-Sharp Axe
-11492: UNIQUE_AVATARRING_AJ_ECONOMY_01                                  : Merchant's Avatar Ring
-11493: UNIQUE_AVATAR_AJ_ECONOMY_01                                      : Merchant's Avatar
-11494: UNIQUE_UNLOCK_SKIN_MAMMOTH_WEALTHY_AJ                            : Mammoth Skin: Black Market Palanquin
-11495: SKIN_MAMMOTH_WEALTHY_AJ                                          : Black Market Palanquin
-11496: UNIQUE_UNLOCK_ARMOR_VANITY_WEALTHY_NOBLE_AJ                      : Wardrobe Skin: Decadent Robe
-11497: UNIQUE_ARMOR_VANITY_WEALTHY_NOBLE_AJ                             : Decadent Robe
-11498: UNIQUE_UNLOCK_ARMOR_VANITY_VERY_WEALTHY_NOBLE_AJ                 : Wardrobe Skin: Exorbitant Robe
-11499: UNIQUE_ARMOR_VANITY_VERY_WEALTHY_NOBLE_AJ                        : Exorbitant Robe
-11500: UNIQUE_AVATARRING_AJ_FARMER_01                                   : Homesteader's Avatar Ring
-11501: UNIQUE_AVATAR_AJ_FARMER_01                                       : Homesteader's Avatar
-11502: UNIQUE_UNLOCK_SKIN_OX_FARMER_AJ                                  : Transport Ox Skin: Bountiful Harvest Ox
-11503: SKIN_OX_FARMER_AJ                                                : Bountiful Harvest Ox
-11504: UNIQUE_UNLOCK_HEAD_VANITY_FARMER_AJ                              : Wardrobe Skin: Lovely Straw Hat
-11505: UNIQUE_HEAD_VANITY_FARMER_AJ                                     : Lovely Straw Hat
-11506: UNIQUE_UNLOCK_HEAD_VANITY_FARMER_COZY_AJ                         : Wardrobe Skin: Delightful Straw Hat
-11507: UNIQUE_HEAD_VANITY_FARMER_COZY_AJ                                : Delightful Straw Hat
-11508: UNIQUE_AVATARRING_AJ_EXPLORATION_01                              : Explorer's Avatar Ring
-11509: UNIQUE_AVATAR_AJ_EXPLORATION_01                                  : Explorer's Avatar
-11510: UNIQUE_UNLOCK_SKIN_COUGAR_TRAVELING_CAT_AJ                       : Swiftclaw Skin: Voyager's Cat
-11511: SKIN_COUGAR_TRAVELING_CAT_AJ                                     : Voyager's Cat
-11512: UNIQUE_UNLOCK_VANITY_2H_LUTE_AJ                                  : Wardrobe Skin: Wanderer's Lute
-11513: UNIQUE_VANITY_2H_LUTE_AJ                                         : Wanderer's Lute
-11514: UNIQUE_UNLOCK_VANITY_2H_LUTE_MAGNIFICENT_AJ                      : Wardrobe Skin: Troubadour's Lute
-11515: UNIQUE_VANITY_2H_LUTE_MAGNIFICENT_AJ                             : Troubadour's Lute
-11516: UNIQUE_AVATARRING_AJ_PVP_01                                      : PvP Avatar Ring
-11517: UNIQUE_AVATAR_AJ_PVP_01                                          : PvP Avatar
-11518: UNIQUE_UNLOCK_SKIN_DIREWOLF_SHADOW_AJ                            : Direwolf Skin: Lurking Shadow
-11519: SKIN_DIREWOLF_SHADOW_AJ                                          : Lurking Shadow
-11520: UNIQUE_UNLOCK_HEAD_VANITY_SHADOW_HELMET_ORANGE_AJ                : Wardrobe Skin: Sinister Helmet
-11521: UNIQUE_HEAD_VANITY_SHADOW_HELMET_ORANGE_AJ                       : Sinister Helmet
-11522: UNIQUE_UNLOCK_HEAD_VANITY_SHADOW_HELMET_RED_AJ                   : Wardrobe Skin: Malevolent Helmet
-11523: UNIQUE_HEAD_VANITY_SHADOW_HELMET_RED_AJ                          : Malevolent Helmet
-11524: UNIQUE_AVATARRING_AJ_GUILD_01                                    : Guild Avatar Ring
-11525: UNIQUE_AVATAR_AJ_GUILD_01                                        : Guild Avatar
-11526: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_JOUSTING_GUILD_AJ               : Armored Horse Skin: Heraldic Jousting Horse
-11527: SKIN_ARMORED_HORSE_JOUSTING_GUILD_AJ                             : Heraldic Jousting Horse
-11528: UNIQUE_UNLOCK_VANITY_2H_BANNER_GUIDON_AJ                         : Wardrobe Skin: Heraldic Guidon
-11529: UNIQUE_VANITY_2H_BANNER_GUIDON_AJ                                : Heraldic Guidon
-11530: UNIQUE_UNLOCK_VANITY_2H_BANNER_GUIDON_GOLDEN_AJ                  : Wardrobe Skin: Glorious Heraldic Guidon
-11531: UNIQUE_VANITY_2H_BANNER_GUIDON_GOLDEN_AJ                         : Glorious Heraldic Guidon
-11532: UNIQUE_AVATARRING_AJ_CREATURES_01                                : Creatures Avatar Ring
-11533: UNIQUE_AVATAR_AJ_CREATURES_01                                    : Creatures Avatar
-11534: UNIQUE_UNLOCK_SKIN_LIZARD_DRAKE_AJ                               : Swamp Dragon Skin: Emerald Basilisk
-11535: SKIN_LIZARD_DRAKE_AJ                                             : Emerald Basilisk
-11536: UNIQUE_UNLOCK_VANITY_2H_SKULL_UNDEAD_AJ                          : Wardrobe Skin: Undead Skull
-11537: UNIQUE_VANITY_2H_SKULL_UNDEAD_AJ                                 : Undead Skull
-11538: UNIQUE_UNLOCK_VANITY_2H_SKULL_DEMON_AJ                           : Wardrobe Skin: Demon Skull
-11539: UNIQUE_VANITY_2H_SKULL_DEMON_GOLDEN_AJ                           : Demon Skull
-11540: UNIQUE_AVATAR_AJ_CHARACTER_PROGRESSION_01                        : Character Progression Avatar
-11541: UNIQUE_AVATARRING_AJ_CHARACTER_PROGRESSION_01                    : Character Progression Avatar Ring
-11542: UNIQUE_UNLOCK_HEAD_VANITY_DESTINY_STONES_AJ                      : Wardrobe Skin: Destiny's Circlet
-11543: UNIQUE_HEAD_VANITY_DESTINY_STONES_AJ                             : Destiny's Circlet
-11544: UNIQUE_UNLOCK_SKIN_GIANTSTAG_SPIRITBEAST_AJ                      : Stag/Moose Skin: Astral Stag
-11545: SKIN_GIANTSTAG_SPIRITBEAST_AJ                                    : Astral Stag
-11546: UNIQUE_UNLOCK_HEAD_VANITY_DESTINY_STONES_ADVANCED_AJ             : Wardrobe Skin: Fullfilled Destiny's Circlet
-11547: UNIQUE_HEAD_VANITY_DESTINY_STONES_ADVANCED_AJ                    : Fullfilled Destiny's Circlet
-11548: T4_DEBUG_HEAD_HIDDEN                                             
-11549: T4_DEBUG_ARMOR_HIDDEN                                            
-11550: T4_DEBUG_CAPE_HIDDEN                                             
-11551: T4_DEBUG_SHOES_HIDDEN                                            
-11552: T4_DEBUG_MAINHAND_HIDDEN                                         
-11553: T4_DEBUG_OFFHAND_HIDDEN                                          
-11554: T4_SIEGE_BANNER                                                  : Adept's Siege Banner
-11555: T5_SIEGE_BANNER                                                  : Expert's Siege Banner
-11556: T6_SIEGE_BANNER                                                  : Master's Siege Banner
-11557: T7_SIEGE_BANNER                                                  : Grandmaster's Siege Banner
-11558: T8_SIEGE_BANNER                                                  : Elder's Siege Banner
-11559: UNIQUE_FURNITUREITEM_KILLTROPHY_OPENWORLD_LARGE                  : War Memento
-11560: UNIQUE_FURNITUREITEM_KILLTROPHY_OPENWORLD_MEDIUM                 : Battle Memento
-11561: UNIQUE_FURNITUREITEM_KILLTROPHY_OPENWORLD_SMALL                  : Combat Memento
-11562: UNIQUE_FURNITUREITEM_KILLTROPHY_MISTS_LARGE                      : Nebulous Memento
-11563: UNIQUE_FURNITUREITEM_KILLTROPHY_MISTS_MEDIUM                     : Veiled Memento
-11564: UNIQUE_FURNITUREITEM_KILLTROPHY_MISTS_SMALL                      : Shrouded Memento
-11565: UNIQUE_FURNITUREITEM_KILLTROPHY_HELL_LARGE                       : Abyssal Memento
-11566: UNIQUE_FURNITUREITEM_KILLTROPHY_HELL_MEDIUM                      : Infernal Memento
-11567: UNIQUE_FURNITUREITEM_KILLTROPHY_HELL_SMALL                       : Demonic Memento
-11568: T8_HEAD_CLOTH_PROTOTYPE                                          
-11569: T8_HEAD_CLOTH_PROTOTYPE@1                                        
-11570: T8_HEAD_CLOTH_PROTOTYPE@2                                        
-11571: T8_HEAD_CLOTH_PROTOTYPE@3                                        
-11572: T8_HEAD_CLOTH_PROTOTYPE@4                                        
-11573: T8_ARMOR_CLOTH_PROTOTYPE                                         
-11574: T8_ARMOR_CLOTH_PROTOTYPE@1                                       
-11575: T8_ARMOR_CLOTH_PROTOTYPE@2                                       
-11576: T8_ARMOR_CLOTH_PROTOTYPE@3                                       
-11577: T8_ARMOR_CLOTH_PROTOTYPE@4                                       
-11578: T8_SHOES_CLOTH_PROTOTYPE                                         
-11579: T8_SHOES_CLOTH_PROTOTYPE@1                                       
-11580: T8_SHOES_CLOTH_PROTOTYPE@2                                       
-11581: T8_SHOES_CLOTH_PROTOTYPE@3                                       
-11582: T8_SHOES_CLOTH_PROTOTYPE@4                                       
-11583: T8_HEAD_LEATHER_PROTOTYPE                                        
-11584: T8_HEAD_LEATHER_PROTOTYPE@1                                      
-11585: T8_HEAD_LEATHER_PROTOTYPE@2                                      
-11586: T8_HEAD_LEATHER_PROTOTYPE@3                                      
-11587: T8_HEAD_LEATHER_PROTOTYPE@4                                      
-11588: T8_ARMOR_LEATHER_PROTOTYPE                                       
-11589: T8_ARMOR_LEATHER_PROTOTYPE@1                                     
-11590: T8_ARMOR_LEATHER_PROTOTYPE@2                                     
-11591: T8_ARMOR_LEATHER_PROTOTYPE@3                                     
-11592: T8_ARMOR_LEATHER_PROTOTYPE@4                                     
-11593: T8_SHOES_LEATHER_PROTOTYPE                                       
-11594: T8_SHOES_LEATHER_PROTOTYPE@1                                     
-11595: T8_SHOES_LEATHER_PROTOTYPE@2                                     
-11596: T8_SHOES_LEATHER_PROTOTYPE@3                                     
-11597: T8_SHOES_LEATHER_PROTOTYPE@4                                     
-11598: T8_HEAD_PLATE_PROTOTYPE                                          
-11599: T8_HEAD_PLATE_PROTOTYPE@1                                        
-11600: T8_HEAD_PLATE_PROTOTYPE@2                                        
-11601: T8_HEAD_PLATE_PROTOTYPE@3                                        
-11602: T8_HEAD_PLATE_PROTOTYPE@4                                        
-11603: T8_ARMOR_PLATE_PROTOTYPE                                         
-11604: T8_ARMOR_PLATE_PROTOTYPE@1                                       
-11605: T8_ARMOR_PLATE_PROTOTYPE@2                                       
-11606: T8_ARMOR_PLATE_PROTOTYPE@3                                       
-11607: T8_ARMOR_PLATE_PROTOTYPE@4                                       
-11608: T8_SHOES_PLATE_PROTOTYPE                                         
-11609: T8_SHOES_PLATE_PROTOTYPE@1                                       
-11610: T8_SHOES_PLATE_PROTOTYPE@2                                       
-11611: T8_SHOES_PLATE_PROTOTYPE@3                                       
-11612: T8_SHOES_PLATE_PROTOTYPE@4                                       
-11613: T2_JOURNAL_WOOD_EMPTY                                            : Novice Lumberjack's Journal (Empty)
-11614: T2_JOURNAL_WOOD_FULL                                             : Novice Lumberjack's Journal (Full)
-11615: T3_JOURNAL_WOOD_EMPTY                                            : Journeyman Lumberjack's Journal (Empty)
-11616: T3_JOURNAL_WOOD_FULL                                             : Journeyman Lumberjack's Journal (Full)
-11617: T4_JOURNAL_WOOD_EMPTY                                            : Adept Lumberjack's Journal (Empty)
-11618: T4_JOURNAL_WOOD_FULL                                             : Adept Lumberjack's Journal (Full)
-11619: T5_JOURNAL_WOOD_EMPTY                                            : Expert Lumberjack's Journal (Empty)
-11620: T5_JOURNAL_WOOD_FULL                                             : Expert Lumberjack's Journal (Full)
-11621: T6_JOURNAL_WOOD_EMPTY                                            : Master Lumberjack's Journal (Empty)
-11622: T6_JOURNAL_WOOD_FULL                                             : Master Lumberjack's Journal (Full)
-11623: T7_JOURNAL_WOOD_EMPTY                                            : Grandmaster Lumberjack's Journal (Empty)
-11624: T7_JOURNAL_WOOD_FULL                                             : Grandmaster Lumberjack's Journal (Full)
-11625: T8_JOURNAL_WOOD_EMPTY                                            : Elder Lumberjack's Journal (Empty)
-11626: T8_JOURNAL_WOOD_FULL                                             : Elder Lumberjack's Journal (Full)
-11627: T2_JOURNAL_STONE_EMPTY                                           : Novice Stonecutter's Journal (Empty)
-11628: T2_JOURNAL_STONE_FULL                                            : Novice Stonecutter's Journal (Full)
-11629: T3_JOURNAL_STONE_EMPTY                                           : Journeyman Stonecutter's Journal (Empty)
-11630: T3_JOURNAL_STONE_FULL                                            : Journeyman Stonecutter's Journal (Full)
-11631: T4_JOURNAL_STONE_EMPTY                                           : Adept Stonecutter's Journal (Empty)
-11632: T4_JOURNAL_STONE_FULL                                            : Adept Stonecutter's Journal (Full)
-11633: T5_JOURNAL_STONE_EMPTY                                           : Expert Stonecutter's Journal (Empty)
-11634: T5_JOURNAL_STONE_FULL                                            : Expert Stonecutter's Journal (Full)
-11635: T6_JOURNAL_STONE_EMPTY                                           : Master Stonecutter's Journal (Empty)
-11636: T6_JOURNAL_STONE_FULL                                            : Master Stonecutter's Journal (Full)
-11637: T7_JOURNAL_STONE_EMPTY                                           : Grandmaster Stonecutter's Journal (Empty)
-11638: T7_JOURNAL_STONE_FULL                                            : Grandmaster Stonecutter's Journal (Full)
-11639: T8_JOURNAL_STONE_EMPTY                                           : Elder Stonecutter's Journal (Empty)
-11640: T8_JOURNAL_STONE_FULL                                            : Elder Stonecutter's Journal (Full)
-11641: T2_JOURNAL_ORE_EMPTY                                             : Novice Prospector's Journal (Empty)
-11642: T2_JOURNAL_ORE_FULL                                              : Novice Prospector's Journal (Full)
-11643: T3_JOURNAL_ORE_EMPTY                                             : Journeyman Prospector's Journal (Empty)
-11644: T3_JOURNAL_ORE_FULL                                              : Journeyman Prospector's Journal (Full)
-11645: T4_JOURNAL_ORE_EMPTY                                             : Adept Prospector's Journal (Empty)
-11646: T4_JOURNAL_ORE_FULL                                              : Adept Prospector's Journal (Full)
-11647: T5_JOURNAL_ORE_EMPTY                                             : Expert Prospector's Journal (Empty)
-11648: T5_JOURNAL_ORE_FULL                                              : Expert Prospector's Journal (Full)
-11649: T6_JOURNAL_ORE_EMPTY                                             : Master Prospector's Journal (Empty)
-11650: T6_JOURNAL_ORE_FULL                                              : Master Prospector's Journal (Full)
-11651: T7_JOURNAL_ORE_EMPTY                                             : Grandmaster Prospector's Journal (Empty)
-11652: T7_JOURNAL_ORE_FULL                                              : Grandmaster Prospector's Journal (Full)
-11653: T8_JOURNAL_ORE_EMPTY                                             : Elder Prospector's Journal (Empty)
-11654: T8_JOURNAL_ORE_FULL                                              : Elder Prospector's Journal (Full)
-11655: T2_JOURNAL_FIBER_EMPTY                                           : Novice Cropper's Journal (Empty)
-11656: T2_JOURNAL_FIBER_FULL                                            : Novice Cropper's Journal (Full)
-11657: T3_JOURNAL_FIBER_EMPTY                                           : Journeyman Cropper's Journal (Empty)
-11658: T3_JOURNAL_FIBER_FULL                                            : Journeyman Cropper's Journal (Full)
-11659: T4_JOURNAL_FIBER_EMPTY                                           : Adept Cropper's Journal (Empty)
-11660: T4_JOURNAL_FIBER_FULL                                            : Adept Cropper's Journal (Full)
-11661: T5_JOURNAL_FIBER_EMPTY                                           : Expert Cropper's Journal (Empty)
-11662: T5_JOURNAL_FIBER_FULL                                            : Expert Cropper's Journal (Full)
-11663: T6_JOURNAL_FIBER_EMPTY                                           : Master Cropper's Journal (Empty)
-11664: T6_JOURNAL_FIBER_FULL                                            : Master Cropper's Journal (Full)
-11665: T7_JOURNAL_FIBER_EMPTY                                           : Grandmaster Cropper's Journal (Empty)
-11666: T7_JOURNAL_FIBER_FULL                                            : Grandmaster Cropper's Journal (Full)
-11667: T8_JOURNAL_FIBER_EMPTY                                           : Elder Cropper's Journal (Empty)
-11668: T8_JOURNAL_FIBER_FULL                                            : Elder Cropper's Journal (Full)
-11669: T2_JOURNAL_HIDE_EMPTY                                            : Novice Gamekeeper's Journal (Empty)
-11670: T2_JOURNAL_HIDE_FULL                                             : Novice Gamekeeper's Journal (Full)
-11671: T3_JOURNAL_HIDE_EMPTY                                            : Journeyman Gamekeeper's Journal (Empty)
-11672: T3_JOURNAL_HIDE_FULL                                             : Journeyman Gamekeeper's Journal (Full)
-11673: T4_JOURNAL_HIDE_EMPTY                                            : Adept Gamekeeper's Journal (Empty)
-11674: T4_JOURNAL_HIDE_FULL                                             : Adept Gamekeeper's Journal (Full)
-11675: T5_JOURNAL_HIDE_EMPTY                                            : Expert Gamekeeper's Journal (Empty)
-11676: T5_JOURNAL_HIDE_FULL                                             : Expert Gamekeeper's Journal (Full)
-11677: T6_JOURNAL_HIDE_EMPTY                                            : Master Gamekeeper's Journal (Empty)
-11678: T6_JOURNAL_HIDE_FULL                                             : Master Gamekeeper's Journal (Full)
-11679: T7_JOURNAL_HIDE_EMPTY                                            : Grandmaster Gamekeeper's Journal (Empty)
-11680: T7_JOURNAL_HIDE_FULL                                             : Grandmaster Gamekeeper's Journal (Full)
-11681: T8_JOURNAL_HIDE_EMPTY                                            : Elder Gamekeeper's Journal (Empty)
-11682: T8_JOURNAL_HIDE_FULL                                             : Elder Gamekeeper's Journal (Full)
-11683: T2_JOURNAL_WARRIOR_EMPTY                                         : Novice Blacksmith's Journal (Empty)
-11684: T2_JOURNAL_WARRIOR_FULL                                          : Novice Blacksmith's Journal (Full)
-11685: T3_JOURNAL_WARRIOR_EMPTY                                         : Journeyman Blacksmith's Journal (Empty)
-11686: T3_JOURNAL_WARRIOR_FULL                                          : Journeyman Blacksmith's Journal (Full)
-11687: T4_JOURNAL_WARRIOR_EMPTY                                         : Adept Blacksmith's Journal (Empty)
-11688: T4_JOURNAL_WARRIOR_FULL                                          : Adept Blacksmith's Journal (Full)
-11689: T5_JOURNAL_WARRIOR_EMPTY                                         : Expert Blacksmith's Journal (Empty)
-11690: T5_JOURNAL_WARRIOR_FULL                                          : Expert Blacksmith's Journal (Full)
-11691: T6_JOURNAL_WARRIOR_EMPTY                                         : Master Blacksmith's Journal (Empty)
-11692: T6_JOURNAL_WARRIOR_FULL                                          : Master Blacksmith's Journal (Full)
-11693: T7_JOURNAL_WARRIOR_EMPTY                                         : Grandmaster Blacksmith's Journal (Empty)
-11694: T7_JOURNAL_WARRIOR_FULL                                          : Grandmaster Blacksmith's Journal (Full)
-11695: T8_JOURNAL_WARRIOR_EMPTY                                         : Elder Blacksmith's Journal (Empty)
-11696: T8_JOURNAL_WARRIOR_FULL                                          : Elder Blacksmith's Journal (Full)
-11697: T2_JOURNAL_HUNTER_EMPTY                                          : Novice Fletcher's Journal (Empty)
-11698: T2_JOURNAL_HUNTER_FULL                                           : Novice Fletcher's Journal (Full)
-11699: T3_JOURNAL_HUNTER_EMPTY                                          : Journeyman Fletcher's Journal (Empty)
-11700: T3_JOURNAL_HUNTER_FULL                                           : Journeyman Fletcher's Journal (Full)
-11701: T4_JOURNAL_HUNTER_EMPTY                                          : Adept Fletcher's Journal (Empty)
-11702: T4_JOURNAL_HUNTER_FULL                                           : Adept Fletcher's Journal (Full)
-11703: T5_JOURNAL_HUNTER_EMPTY                                          : Expert Fletcher's Journal (Empty)
-11704: T5_JOURNAL_HUNTER_FULL                                           : Expert Fletcher's Journal (Full)
-11705: T6_JOURNAL_HUNTER_EMPTY                                          : Master Fletcher's Journal (Empty)
-11706: T6_JOURNAL_HUNTER_FULL                                           : Master Fletcher's Journal (Full)
-11707: T7_JOURNAL_HUNTER_EMPTY                                          : Grandmaster Fletcher's Journal (Empty)
-11708: T7_JOURNAL_HUNTER_FULL                                           : Grandmaster Fletcher's Journal (Full)
-11709: T8_JOURNAL_HUNTER_EMPTY                                          : Elder Fletcher's Journal (Empty)
-11710: T8_JOURNAL_HUNTER_FULL                                           : Elder Fletcher's Journal (Full)
-11711: T2_JOURNAL_MAGE_EMPTY                                            : Novice Imbuer's Journal (Empty)
-11712: T2_JOURNAL_MAGE_FULL                                             : Novice Imbuer's Journal (Full)
-11713: T3_JOURNAL_MAGE_EMPTY                                            : Journeyman Imbuer's Journal (Empty)
-11714: T3_JOURNAL_MAGE_FULL                                             : Journeyman Imbuer's Journal (Full)
-11715: T4_JOURNAL_MAGE_EMPTY                                            : Adept Imbuer's Journal (Empty)
-11716: T4_JOURNAL_MAGE_FULL                                             : Adept Imbuer's Journal (Full)
-11717: T5_JOURNAL_MAGE_EMPTY                                            : Expert Imbuer's Journal (Empty)
-11718: T5_JOURNAL_MAGE_FULL                                             : Expert Imbuer's Journal (Full)
-11719: T6_JOURNAL_MAGE_EMPTY                                            : Master Imbuer's Journal (Empty)
-11720: T6_JOURNAL_MAGE_FULL                                             : Master Imbuer's Journal (Full)
-11721: T7_JOURNAL_MAGE_EMPTY                                            : Grandmaster Imbuer's Journal (Empty)
-11722: T7_JOURNAL_MAGE_FULL                                             : Grandmaster Imbuer's Journal (Full)
-11723: T8_JOURNAL_MAGE_EMPTY                                            : Elder Imbuer's Journal (Empty)
-11724: T8_JOURNAL_MAGE_FULL                                             : Elder Imbuer's Journal (Full)
-11725: T2_JOURNAL_TOOLMAKER_EMPTY                                       : Novice Tinker's Journal (Empty)
-11726: T2_JOURNAL_TOOLMAKER_FULL                                        : Novice Tinker's Journal (Full)
-11727: T3_JOURNAL_TOOLMAKER_EMPTY                                       : Journeyman Tinker's Journal (Empty)
-11728: T3_JOURNAL_TOOLMAKER_FULL                                        : Journeyman Tinker's Journal (Full)
-11729: T4_JOURNAL_TOOLMAKER_EMPTY                                       : Adept Tinker's Journal (Empty)
-11730: T4_JOURNAL_TOOLMAKER_FULL                                        : Adept Tinker's Journal (Full)
-11731: T5_JOURNAL_TOOLMAKER_EMPTY                                       : Expert Tinker's Journal (Empty)
-11732: T5_JOURNAL_TOOLMAKER_FULL                                        : Expert Tinker's Journal (Full)
-11733: T6_JOURNAL_TOOLMAKER_EMPTY                                       : Master Tinker's Journal (Empty)
-11734: T6_JOURNAL_TOOLMAKER_FULL                                        : Master Tinker's Journal (Full)
-11735: T7_JOURNAL_TOOLMAKER_EMPTY                                       : Grandmaster Tinker's Journal (Empty)
-11736: T7_JOURNAL_TOOLMAKER_FULL                                        : Grandmaster Tinker's Journal (Full)
-11737: T8_JOURNAL_TOOLMAKER_EMPTY                                       : Elder Tinker's Journal (Empty)
-11738: T8_JOURNAL_TOOLMAKER_FULL                                        : Elder Tinker's Journal (Full)
-11739: T2_JOURNAL_MERCENARY_EMPTY                                       : Novice Mercenary's Journal (Empty)
-11740: T2_JOURNAL_MERCENARY_FULL                                        : Novice Mercenary's Journal (Full)
-11741: T3_JOURNAL_MERCENARY_EMPTY                                       : Journeyman Mercenary's Journal (Empty)
-11742: T3_JOURNAL_MERCENARY_FULL                                        : Journeyman Mercenary's Journal (Full)
-11743: T4_JOURNAL_MERCENARY_EMPTY                                       : Adept Mercenary's Journal (Empty)
-11744: T4_JOURNAL_MERCENARY_FULL                                        : Adept Mercenary's Journal (Full)
-11745: T5_JOURNAL_MERCENARY_EMPTY                                       : Expert Mercenary's Journal (Empty)
-11746: T5_JOURNAL_MERCENARY_FULL                                        : Expert Mercenary's Journal (Full)
-11747: T6_JOURNAL_MERCENARY_EMPTY                                       : Master Mercenary's Journal (Empty)
-11748: T6_JOURNAL_MERCENARY_FULL                                        : Master Mercenary's Journal (Full)
-11749: T7_JOURNAL_MERCENARY_EMPTY                                       : Grandmaster Mercenary's Journal (Empty)
-11750: T7_JOURNAL_MERCENARY_FULL                                        : Grandmaster Mercenary's Journal (Full)
-11751: T8_JOURNAL_MERCENARY_EMPTY                                       : Elder Mercenary's Journal (Empty)
-11752: T8_JOURNAL_MERCENARY_FULL                                        : Elder Mercenary's Journal (Full)
-11753: T2_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Novice's Generalist Trophy Journal (Empty)
-11754: T2_JOURNAL_TROPHY_GENERAL_FULL                                   : Novice's Generalist Trophy Journal (Full)
-11755: T3_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Journeyman's Generalist Trophy Journal (Empty)
-11756: T3_JOURNAL_TROPHY_GENERAL_FULL                                   : Journeyman's Generalist Trophy Journal (Full)
-11757: T4_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Adept's Generalist Trophy Journal (Empty)
-11758: T4_JOURNAL_TROPHY_GENERAL_FULL                                   : Adept's Generalist Trophy Journal (Full)
-11759: T5_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Expert's Generalist Trophy Journal (Empty)
-11760: T5_JOURNAL_TROPHY_GENERAL_FULL                                   : Expert's Generalist Trophy Journal (Full)
-11761: T6_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Master's Generalist Trophy Journal (Empty)
-11762: T6_JOURNAL_TROPHY_GENERAL_FULL                                   : Master's Generalist Trophy Journal (Full)
-11763: T7_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Grandmaster's Generalist Trophy Journal (Empty)
-11764: T7_JOURNAL_TROPHY_GENERAL_FULL                                   : Grandmaster's Generalist Trophy Journal (Full)
-11765: T8_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Elder's Generalist Trophy Journal (Empty)
-11766: T8_JOURNAL_TROPHY_GENERAL_FULL                                   : Elder's Generalist Trophy Journal (Full)
-11767: T2_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Novice Mercenary's Trophy Journal (Empty)
-11768: T2_JOURNAL_TROPHY_MERCENARY_FULL                                 : Novice Mercenary's Trophy Journal (Full)
-11769: T3_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Journeyman Mercenary's Trophy Journal (Empty)
-11770: T3_JOURNAL_TROPHY_MERCENARY_FULL                                 : Journeyman Mercenary's Trophy Journal (Full)
-11771: T4_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Adept Mercenary's Trophy Journal (Empty)
-11772: T4_JOURNAL_TROPHY_MERCENARY_FULL                                 : Adept Mercenary's Trophy Journal (Full)
-11773: T5_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Expert Mercenary's Trophy Journal (Empty)
-11774: T5_JOURNAL_TROPHY_MERCENARY_FULL                                 : Expert Mercenary's Trophy Journal (Full)
-11775: T6_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Master Mercenary's Trophy Journal (Empty)
-11776: T6_JOURNAL_TROPHY_MERCENARY_FULL                                 : Master Mercenary's Trophy Journal (Full)
-11777: T7_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Grandmaster Mercenary's Trophy Journal (Empty)
-11778: T7_JOURNAL_TROPHY_MERCENARY_FULL                                 : Grandmaster Mercenary's Trophy Journal (Full)
-11779: T8_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Elder Mercenary's Trophy Journal (Empty)
-11780: T8_JOURNAL_TROPHY_MERCENARY_FULL                                 : Elder Mercenary's Trophy Journal (Full)
-11781: T2_JOURNAL_TROPHY_HIDE_EMPTY                                     : Novice Gamekeeper's Trophy Journal (Empty)
-11782: T2_JOURNAL_TROPHY_HIDE_FULL                                      : Novice Gamekeeper's Trophy Journal (Full)
-11783: T3_JOURNAL_TROPHY_HIDE_EMPTY                                     : Journeyman Gamekeeper's Trophy Journal (Empty)
-11784: T3_JOURNAL_TROPHY_HIDE_FULL                                      : Journeyman Gamekeeper's Trophy Journal (Full)
-11785: T4_JOURNAL_TROPHY_HIDE_EMPTY                                     : Adept Gamekeeper's Trophy Journal (Empty)
-11786: T4_JOURNAL_TROPHY_HIDE_FULL                                      : Adept Gamekeeper's Trophy Journal (Full)
-11787: T5_JOURNAL_TROPHY_HIDE_EMPTY                                     : Expert Gamekeeper's Trophy Journal (Empty)
-11788: T5_JOURNAL_TROPHY_HIDE_FULL                                      : Expert Gamekeeper's Trophy Journal (Full)
-11789: T6_JOURNAL_TROPHY_HIDE_EMPTY                                     : Master Gamekeeper's Trophy Journal (Empty)
-11790: T6_JOURNAL_TROPHY_HIDE_FULL                                      : Master Gamekeeper's Trophy Journal (Full)
-11791: T7_JOURNAL_TROPHY_HIDE_EMPTY                                     : Grandmaster Gamekeeper's Trophy Journal (Empty)
-11792: T7_JOURNAL_TROPHY_HIDE_FULL                                      : Grandmaster Gamekeeper's Trophy Journal (Full)
-11793: T8_JOURNAL_TROPHY_HIDE_EMPTY                                     : Elder Gamekeeper's Trophy Journal (Empty)
-11794: T8_JOURNAL_TROPHY_HIDE_FULL                                      : Elder Gamekeeper's Trophy Journal (Full)
-11795: T2_JOURNAL_TROPHY_WOOD_EMPTY                                     : Novice Lumberjack's Trophy Journal (Empty)
-11796: T2_JOURNAL_TROPHY_WOOD_FULL                                      : Novice Lumberjack's Trophy Journal (Full)
-11797: T3_JOURNAL_TROPHY_WOOD_EMPTY                                     : Journeyman Lumberjack's Trophy Journal (Empty)
-11798: T3_JOURNAL_TROPHY_WOOD_FULL                                      : Journeyman Lumberjack's Trophy Journal (Full)
-11799: T4_JOURNAL_TROPHY_WOOD_EMPTY                                     : Adept Lumberjack's Trophy Journal (Empty)
-11800: T4_JOURNAL_TROPHY_WOOD_FULL                                      : Adept Lumberjack's Trophy Journal (Full)
-11801: T5_JOURNAL_TROPHY_WOOD_EMPTY                                     : Expert Lumberjack's Trophy Journal (Empty)
-11802: T5_JOURNAL_TROPHY_WOOD_FULL                                      : Expert Lumberjack's Trophy Journal (Full)
-11803: T6_JOURNAL_TROPHY_WOOD_EMPTY                                     : Master Lumberjack's Trophy Journal (Empty)
-11804: T6_JOURNAL_TROPHY_WOOD_FULL                                      : Master Lumberjack's Trophy Journal (Full)
-11805: T7_JOURNAL_TROPHY_WOOD_EMPTY                                     : Grandmaster Lumberjack's Trophy Journal (Empty)
-11806: T7_JOURNAL_TROPHY_WOOD_FULL                                      : Grandmaster Lumberjack's Trophy Journal (Full)
-11807: T8_JOURNAL_TROPHY_WOOD_EMPTY                                     : Elder Lumberjack's Trophy Journal (Empty)
-11808: T8_JOURNAL_TROPHY_WOOD_FULL                                      : Elder Lumberjack's Trophy Journal (Full)
-11809: T2_JOURNAL_TROPHY_STONE_EMPTY                                    : Novice Stonecutter's Trophy Journal (Empty)
-11810: T2_JOURNAL_TROPHY_STONE_FULL                                     : Novice Stonecutter's Trophy Journal (Full)
-11811: T3_JOURNAL_TROPHY_STONE_EMPTY                                    : Journeyman Stonecutter's Trophy Journal (Empty)
-11812: T3_JOURNAL_TROPHY_STONE_FULL                                     : Journeyman Stonecutter's Trophy Journal (Full)
-11813: T4_JOURNAL_TROPHY_STONE_EMPTY                                    : Adept Stonecutter's Trophy Journal (Empty)
-11814: T4_JOURNAL_TROPHY_STONE_FULL                                     : Adept Stonecutter's Trophy Journal (Full)
-11815: T5_JOURNAL_TROPHY_STONE_EMPTY                                    : Expert Stonecutter's Trophy Journal (Empty)
-11816: T5_JOURNAL_TROPHY_STONE_FULL                                     : Expert Stonecutter's Trophy Journal (Full)
-11817: T6_JOURNAL_TROPHY_STONE_EMPTY                                    : Master Stonecutter's Trophy Journal (Empty)
-11818: T6_JOURNAL_TROPHY_STONE_FULL                                     : Master Stonecutter's Trophy Journal (Full)
-11819: T7_JOURNAL_TROPHY_STONE_EMPTY                                    : Grandmaster Stonecutter's Trophy Journal (Empty)
-11820: T7_JOURNAL_TROPHY_STONE_FULL                                     : Grandmaster Stonecutter's Trophy Journal (Full)
-11821: T8_JOURNAL_TROPHY_STONE_EMPTY                                    : Elder Stonecutter's Trophy Journal (Empty)
-11822: T8_JOURNAL_TROPHY_STONE_FULL                                     : Elder Stonecutter's Trophy Journal (Full)
-11823: T2_JOURNAL_TROPHY_ORE_EMPTY                                      : Novice Prospector's Trophy Journal (Empty)
-11824: T2_JOURNAL_TROPHY_ORE_FULL                                       : Novice Prospector's Trophy Journal (Full)
-11825: T3_JOURNAL_TROPHY_ORE_EMPTY                                      : Journeyman Prospector's Trophy Journal (Empty)
-11826: T3_JOURNAL_TROPHY_ORE_FULL                                       : Journeyman Prospector's Trophy Journal (Full)
-11827: T4_JOURNAL_TROPHY_ORE_EMPTY                                      : Adept Prospector's Trophy Journal (Empty)
-11828: T4_JOURNAL_TROPHY_ORE_FULL                                       : Adept Prospector's Trophy Journal (Full)
-11829: T5_JOURNAL_TROPHY_ORE_EMPTY                                      : Expert Prospector's Trophy Journal (Empty)
-11830: T5_JOURNAL_TROPHY_ORE_FULL                                       : Expert Prospector's Trophy Journal (Full)
-11831: T6_JOURNAL_TROPHY_ORE_EMPTY                                      : Master Prospector's Trophy Journal (Empty)
-11832: T6_JOURNAL_TROPHY_ORE_FULL                                       : Master Prospector's Trophy Journal (Full)
-11833: T7_JOURNAL_TROPHY_ORE_EMPTY                                      : Grandmaster Prospector's Trophy Journal (Empty)
-11834: T7_JOURNAL_TROPHY_ORE_FULL                                       : Grandmaster Prospector's Trophy Journal (Full)
-11835: T8_JOURNAL_TROPHY_ORE_EMPTY                                      : Elder Prospector's Trophy Journal (Empty)
-11836: T8_JOURNAL_TROPHY_ORE_FULL                                       : Elder Prospector's Trophy Journal (Full)
-11837: T2_JOURNAL_TROPHY_FIBER_EMPTY                                    : Novice Cropper's Trophy Journal (Empty)
-11838: T2_JOURNAL_TROPHY_FIBER_FULL                                     : Novice Cropper's Trophy Journal (Full)
-11839: T3_JOURNAL_TROPHY_FIBER_EMPTY                                    : Journeyman Cropper's Trophy Journal (Empty)
-11840: T3_JOURNAL_TROPHY_FIBER_FULL                                     : Journeyman Cropper's Trophy Journal (Full)
-11841: T4_JOURNAL_TROPHY_FIBER_EMPTY                                    : Adept Cropper's Trophy Journal (Empty)
-11842: T4_JOURNAL_TROPHY_FIBER_FULL                                     : Adept Cropper's Trophy Journal (Full)
-11843: T5_JOURNAL_TROPHY_FIBER_EMPTY                                    : Expert Cropper's Trophy Journal (Empty)
-11844: T5_JOURNAL_TROPHY_FIBER_FULL                                     : Expert Cropper's Trophy Journal (Full)
-11845: T6_JOURNAL_TROPHY_FIBER_EMPTY                                    : Master Cropper's Trophy Journal (Empty)
-11846: T6_JOURNAL_TROPHY_FIBER_FULL                                     : Master Cropper's Trophy Journal (Full)
-11847: T7_JOURNAL_TROPHY_FIBER_EMPTY                                    : Grandmaster Cropper's Trophy Journal (Empty)
-11848: T7_JOURNAL_TROPHY_FIBER_FULL                                     : Grandmaster Cropper's Trophy Journal (Full)
-11849: T8_JOURNAL_TROPHY_FIBER_EMPTY                                    : Elder Cropper's Trophy Journal (Empty)
-11850: T8_JOURNAL_TROPHY_FIBER_FULL                                     : Elder Cropper's Trophy Journal (Full)
-11851: T2_JOURNAL_TROPHY_FISHING_EMPTY                                  : Novice Fisherman's Trophy Journal (Empty)
-11852: T2_JOURNAL_TROPHY_FISHING_FULL                                   : Novice Fisherman's Trophy Journal (Full)
-11853: T3_JOURNAL_TROPHY_FISHING_EMPTY                                  : Journeyman Fisherman's Trophy Journal (Empty)
-11854: T3_JOURNAL_TROPHY_FISHING_FULL                                   : Journeyman Fisherman's Trophy Journal (Full)
-11855: T4_JOURNAL_TROPHY_FISHING_EMPTY                                  : Adept Fisherman's Trophy Journal (Empty)
-11856: T4_JOURNAL_TROPHY_FISHING_FULL                                   : Adept Fisherman's Trophy Journal (Full)
-11857: T5_JOURNAL_TROPHY_FISHING_EMPTY                                  : Expert Fisherman's Trophy Journal (Empty)
-11858: T5_JOURNAL_TROPHY_FISHING_FULL                                   : Expert Fisherman's Trophy Journal (Full)
-11859: T6_JOURNAL_TROPHY_FISHING_EMPTY                                  : Master Fisherman's Trophy Journal (Empty)
-11860: T6_JOURNAL_TROPHY_FISHING_FULL                                   : Master Fisherman's Trophy Journal (Full)
-11861: T7_JOURNAL_TROPHY_FISHING_EMPTY                                  : Grandmaster Fisherman's Trophy Journal (Empty)
-11862: T7_JOURNAL_TROPHY_FISHING_FULL                                   : Grandmaster Fisherman's Trophy Journal (Full)
-11863: T8_JOURNAL_TROPHY_FISHING_EMPTY                                  : Elder Fisherman's Trophy Journal (Empty)
-11864: T8_JOURNAL_TROPHY_FISHING_FULL                                   : Elder Fisherman's Trophy Journal (Full)
-11865: T2_JOURNAL_FISHING_EMPTY                                         : Novice Fisherman's Journal (Empty)
-11866: T2_JOURNAL_FISHING_FULL                                          : Novice Fisherman's Journal (Full)
-11867: T3_JOURNAL_FISHING_EMPTY                                         : Journeyman Fisherman's Journal (Empty)
-11868: T3_JOURNAL_FISHING_FULL                                          : Journeyman Fisherman's Journal (Full)
-11869: T4_JOURNAL_FISHING_EMPTY                                         : Adept Fisherman's Journal (Empty)
-11870: T4_JOURNAL_FISHING_FULL                                          : Adept Fisherman's Journal (Full)
-11871: T5_JOURNAL_FISHING_EMPTY                                         : Expert Fisherman's Journal (Empty)
-11872: T5_JOURNAL_FISHING_FULL                                          : Expert Fisherman's Journal (Full)
-11873: T6_JOURNAL_FISHING_EMPTY                                         : Master Fisherman's Journal (Empty)
-11874: T6_JOURNAL_FISHING_FULL                                          : Master Fisherman's Journal (Full)
-11875: T7_JOURNAL_FISHING_EMPTY                                         : Grandmaster Fisherman's Journal (Empty)
-11876: T7_JOURNAL_FISHING_FULL                                          : Grandmaster Fisherman's Journal (Full)
-11877: T8_JOURNAL_FISHING_EMPTY                                         : Elder Fisherman's Journal (Empty)
-11878: T8_JOURNAL_FISHING_FULL                                          : Elder Fisherman's Journal (Full)`
+10477: UNIQUE_AVATAR_GVGSEASON_31_CRYSTAL                               : Avatar: Crystal Lumberjack
+10478: UNIQUE_AVATAR_GVGSEASON_31_SILVER                                : Avatar: Silver Lumberjack
+10479: UNIQUE_AVATAR_GVGSEASON_32_CRYSTAL                               
+10480: UNIQUE_AVATAR_GVGSEASON_32_SILVER                                
+10481: UNIQUE_AVATAR_GVGSEASON_14_CRYSTAL_SINGLE                        : Crystal Avatar - Season 14
+10482: UNIQUE_AVATAR_GVGSEASON_14_GOLD_SINGLE                           : Gold Avatar - Season 14
+10483: UNIQUE_AVATAR_GVGSEASON_14_SILVER_SINGLE                         : Silver Avatar - Season 14
+10484: UNIQUE_AVATAR_GVGSEASON_14_BRONZE_SINGLE                         : Bronze Avatar - Season 14
+10485: UNIQUE_AVATAR_GVGSEASON_15_CRYSTAL_SINGLE                        : Crystal Avatar - Season 15
+10486: UNIQUE_AVATAR_GVGSEASON_15_GOLD_SINGLE                           : Gold Avatar - Season 15
+10487: UNIQUE_AVATAR_GVGSEASON_15_SILVER_SINGLE                         : Silver Avatar - Season 15
+10488: UNIQUE_AVATAR_GVGSEASON_15_BRONZE_SINGLE                         : Bronze Avatar - Season 15
+10489: UNIQUE_AVATAR_GVGSEASON_16_CRYSTAL_SINGLE                        : Crystal Avatar - Season 16
+10490: UNIQUE_AVATAR_GVGSEASON_16_GOLD_SINGLE                           : Gold Avatar - Season 16
+10491: UNIQUE_AVATAR_GVGSEASON_16_SILVER_SINGLE                         : Silver Avatar - Season 16
+10492: UNIQUE_AVATAR_GVGSEASON_16_BRONZE_SINGLE                         : Bronze Avatar - Season 16
+10493: UNIQUE_AVATAR_GVGSEASON_17_CRYSTAL_SINGLE                        : Crystal Avatar - Season 17
+10494: UNIQUE_AVATAR_GVGSEASON_17_GOLD_SINGLE                           : Gold Avatar - Season 17
+10495: UNIQUE_AVATAR_GVGSEASON_17_SILVER_SINGLE                         : Silver Avatar - Season 17
+10496: UNIQUE_AVATAR_GVGSEASON_17_BRONZE_SINGLE                         : Bronze Avatar - Season 17
+10497: UNIQUE_AVATAR_GVGSEASON_18_CRYSTAL_SINGLE                        : Crystal Avatar - Season 18
+10498: UNIQUE_AVATAR_GVGSEASON_18_GOLD_SINGLE                           : Gold Avatar - Season 18
+10499: UNIQUE_AVATAR_GVGSEASON_18_SILVER_SINGLE                         : Silver Avatar - Season 18
+10500: UNIQUE_AVATAR_GVGSEASON_18_BRONZE_SINGLE                         : Bronze Avatar - Season 18
+10501: UNIQUE_AVATAR_GVGSEASON_19_CRYSTAL_SINGLE                        : Crystal Avatar - Season 19
+10502: UNIQUE_AVATAR_GVGSEASON_19_GOLD_SINGLE                           : Gold Avatar - Season 19
+10503: UNIQUE_AVATAR_GVGSEASON_19_SILVER_SINGLE                         : Silver Avatar - Season 19
+10504: UNIQUE_AVATAR_GVGSEASON_19_BRONZE_SINGLE                         : Bronze Avatar - Season 19
+10505: UNIQUE_AVATAR_GVGSEASON_20_CRYSTAL_SINGLE                        : Crystal Avatar - Season 20
+10506: UNIQUE_AVATAR_GVGSEASON_20_GOLD_SINGLE                           : Gold Avatar - Season 20
+10507: UNIQUE_AVATAR_GVGSEASON_20_SILVER_SINGLE                         : Silver Avatar - Season 20
+10508: UNIQUE_AVATAR_GVGSEASON_20_BRONZE_SINGLE                         : Bronze Avatar - Season 20
+10509: UNIQUE_AVATAR_GVGSEASON_21_CRYSTAL_SINGLE                        : Crystal Avatar - Season 21
+10510: UNIQUE_AVATAR_GVGSEASON_21_GOLD_SINGLE                           : Gold Avatar - Season 21
+10511: UNIQUE_AVATAR_GVGSEASON_21_SILVER_SINGLE                         : Silver Avatar - Season 21
+10512: UNIQUE_AVATAR_GVGSEASON_21_BRONZE_SINGLE                         : Bronze Avatar - Season 21
+10513: UNIQUE_AVATAR_GVGSEASON_22_CRYSTAL_SINGLE                        : Crystal Avatar - Season 22
+10514: UNIQUE_AVATAR_GVGSEASON_22_GOLD_SINGLE                           : Gold Avatar - Season 22
+10515: UNIQUE_AVATAR_GVGSEASON_22_SILVER_SINGLE                         : Silver Avatar - Season 22
+10516: UNIQUE_AVATAR_GVGSEASON_22_BRONZE_SINGLE                         : Bronze Avatar - Season 22
+10517: UNIQUE_AVATAR_GVGSEASON_23_CRYSTAL_SINGLE                        : Crystal Avatar - Season 23
+10518: UNIQUE_AVATAR_GVGSEASON_23_GOLD_SINGLE                           : Gold Avatar - Season 23
+10519: UNIQUE_AVATAR_GVGSEASON_23_SILVER_SINGLE                         : Silver Avatar - Season 23
+10520: UNIQUE_AVATAR_GVGSEASON_23_BRONZE_SINGLE                         : Bronze Avatar - Season 23
+10521: UNIQUE_AVATAR_GVGSEASON_24_CRYSTAL_SINGLE                        : Crystal Avatar - Season 24
+10522: UNIQUE_AVATAR_GVGSEASON_24_GOLD_SINGLE                           : Gold Avatar - Season 24
+10523: UNIQUE_AVATAR_GVGSEASON_24_SILVER_SINGLE                         : Silver Avatar - Season 24
+10524: UNIQUE_AVATAR_GVGSEASON_24_BRONZE_SINGLE                         : Bronze Avatar - Season 24
+10525: UNIQUE_AVATAR_GVGSEASON_25_CRYSTAL_SINGLE                        : Crystal Avatar - Season 25
+10526: UNIQUE_AVATAR_GVGSEASON_25_GOLD_SINGLE                           : Gold Avatar - Season 25
+10527: UNIQUE_AVATAR_GVGSEASON_25_SILVER_SINGLE                         : Silver Avatar - Season 25
+10528: UNIQUE_AVATAR_GVGSEASON_25_BRONZE_SINGLE                         : Bronze Avatar - Season 25
+10529: UNIQUE_AVATAR_GVGSEASON_26_CRYSTAL_SINGLE                        : Crystal Avatar - Season 26
+10530: UNIQUE_AVATAR_GVGSEASON_26_GOLD_SINGLE                           : Gold Avatar - Season 26
+10531: UNIQUE_AVATAR_GVGSEASON_26_SILVER_SINGLE                         : Silver Avatar - Season 26
+10532: UNIQUE_AVATAR_GVGSEASON_26_BRONZE_SINGLE                         : Bronze Avatar - Season 26
+10533: UNIQUE_AVATAR_GVGSEASON_27_CRYSTAL_SINGLE                        : Crystal Avatar - Season 27
+10534: UNIQUE_AVATAR_GVGSEASON_27_GOLD_SINGLE                           : Gold Avatar - Season 27
+10535: UNIQUE_AVATAR_GVGSEASON_27_SILVER_SINGLE                         : Silver Avatar - Season 27
+10536: UNIQUE_AVATAR_GVGSEASON_27_BRONZE_SINGLE                         : Bronze Avatar - Season 27
+10537: UNIQUE_AVATAR_GVGSEASON_28_CRYSTAL_SINGLE                        : Crystal Avatar - Season 28
+10538: UNIQUE_AVATAR_GVGSEASON_28_GOLD_SINGLE                           : Gold Avatar - Season 28
+10539: UNIQUE_AVATAR_GVGSEASON_28_SILVER_SINGLE                         : Silver Avatar - Season 28
+10540: UNIQUE_AVATAR_GVGSEASON_28_BRONZE_SINGLE                         : Bronze Avatar - Season 28
+10541: UNIQUE_AVATAR_GVGSEASON_29_CRYSTAL_SINGLE                        : Crystal Avatar - Season 29
+10542: UNIQUE_AVATAR_GVGSEASON_29_GOLD_SINGLE                           : Gold Avatar - Season 29
+10543: UNIQUE_AVATAR_GVGSEASON_29_SILVER_SINGLE                         : Silver Avatar - Season 29
+10544: UNIQUE_AVATAR_GVGSEASON_29_BRONZE_SINGLE                         : Bronze Avatar - Season 29
+10545: UNIQUE_AVATAR_GVGSEASON_LEGACY_AVATARS_GOLD                      
+10546: UNIQUE_AVATAR_GVGSEASON_LEGACY_AVATARS_BRONZE                    
+10547: T5_CORRUPTED_NONLETHAL_MAP                                       : Corrupted Dungeon Map (Hunter)
+10548: T6_CORRUPTED_LETHAL_MAP                                          : Corrupted Dungeon Map (Stalker/Slayer)
+10549: T6_HELLGATE_2V2_LETHAL_1_MAP                                     : Master's Hellgate Ritual (2v2 - Lethal)
+10550: T7_HELLGATE_5V5_LETHAL_1_MAP                                     : Grandmaster's Hellgate Ritual (5v5 - Lethal)
+10551: T8_HELLGATE_10V10_LETHAL_1_MAP                                   : Elder's Hellgate Ritual (10v10 - Lethal)
+10552: T5_HELLGATE_2V2_NON_LETHAL_1_MAP                                 : Expert's Hellgate Ritual (2v2 - Nonlethal)
+10553: T5_HELLGATE_5V5_NON_LETHAL_1_MAP                                 : Expert's Hellgate Ritual (5v5 - Nonlethal)
+10554: T5_HELLGATE_10V10_NON_LETHAL_1_MAP                               : Expert's Hellgate Ritual (10v10 - Nonlethal)
+10555: T6_RANDOM_DUNGEON_ELITE_TOKEN_1                                  : Master's Dungeon Map (Large Group)
+10556: T7_RANDOM_DUNGEON_ELITE_TOKEN_1                                  : Grandmaster's Dungeon Map (Large Group)
+10557: T8_RANDOM_DUNGEON_ELITE_TOKEN_1                                  : Elder's Dungeon Map (Large Group)
+10558: T6_RANDOM_DUNGEON_ELITE_TOKEN_D1@1                               
+10559: T7_RANDOM_DUNGEON_ELITE_TOKEN_D1@1                               
+10560: T8_RANDOM_DUNGEON_ELITE_TOKEN_D1@1                               
+10561: T6_RANDOM_DUNGEON_ELITE_TOKEN_2@1                                : Uncommon Master's Dungeon Map (Large Group)
+10562: T7_RANDOM_DUNGEON_ELITE_TOKEN_2@1                                : Uncommon Grandmaster's Dungeon Map (Large Group)
+10563: T8_RANDOM_DUNGEON_ELITE_TOKEN_2@1                                : Uncommon Elder's Dungeon Map (Large Group)
+10564: T6_RANDOM_DUNGEON_ELITE_TOKEN_D2@2                               
+10565: T7_RANDOM_DUNGEON_ELITE_TOKEN_D2@2                               
+10566: T8_RANDOM_DUNGEON_ELITE_TOKEN_D2@2                               
+10567: T6_RANDOM_DUNGEON_ELITE_TOKEN_3@2                                : Rare Master's Dungeon Map (Large Group)
+10568: T7_RANDOM_DUNGEON_ELITE_TOKEN_3@2                                : Rare Grandmaster's Dungeon Map (Large Group)
+10569: T8_RANDOM_DUNGEON_ELITE_TOKEN_3@2                                : Rare Elder's Dungeon Map (Large Group)
+10570: T6_RANDOM_DUNGEON_ELITE_TOKEN_D3@3                               
+10571: T7_RANDOM_DUNGEON_ELITE_TOKEN_D3@3                               
+10572: T8_RANDOM_DUNGEON_ELITE_TOKEN_D3@3                               
+10573: T6_RANDOM_DUNGEON_ELITE_TOKEN_4@3                                : Exceptional Master's Dungeon Map (Large Group)
+10574: T7_RANDOM_DUNGEON_ELITE_TOKEN_4@3                                : Exceptional Grandmaster's Dungeon Map (Large Group)
+10575: T8_RANDOM_DUNGEON_ELITE_TOKEN_4@3                                : Exceptional Elder's Dungeon Map (Large Group)
+10576: T6_RANDOM_DUNGEON_ELITE_TOKEN_D4@4                               
+10577: T7_RANDOM_DUNGEON_ELITE_TOKEN_D4@4                               
+10578: T8_RANDOM_DUNGEON_ELITE_TOKEN_D4@4                               
+10579: T2_RANDOM_DUNGEON_SOLO_TOKEN_1                                   
+10580: T3_RANDOM_DUNGEON_SOLO_TOKEN_1                                   : Journeyman's Dungeon Map (Solo)
+10581: T4_RANDOM_DUNGEON_SOLO_TOKEN_1                                   : Adept's Dungeon Map (Solo)
+10582: T5_RANDOM_DUNGEON_SOLO_TOKEN_1                                   : Expert's Dungeon Map (Solo)
+10583: T6_RANDOM_DUNGEON_SOLO_TOKEN_1                                   : Master's Dungeon Map (Solo)
+10584: T7_RANDOM_DUNGEON_SOLO_TOKEN_1                                   : Grandmaster's Dungeon Map (Solo)
+10585: T8_RANDOM_DUNGEON_SOLO_TOKEN_1                                   : Elder's Dungeon Map (Solo)
+10586: T2_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
+10587: T3_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
+10588: T4_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
+10589: T5_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
+10590: T6_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
+10591: T7_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
+10592: T8_RANDOM_DUNGEON_SOLO_TOKEN_D1@1                                
+10593: T4_RANDOM_DUNGEON_SOLO_TOKEN_2@1                                 : Uncommon Adept's Dungeon Map (Solo)
+10594: T5_RANDOM_DUNGEON_SOLO_TOKEN_2@1                                 : Uncommon Expert's Dungeon Map (Solo)
+10595: T6_RANDOM_DUNGEON_SOLO_TOKEN_2@1                                 : Uncommon Master's Dungeon Map (Solo)
+10596: T7_RANDOM_DUNGEON_SOLO_TOKEN_2@1                                 : Uncommon Grandmaster's Dungeon Map (Solo)
+10597: T8_RANDOM_DUNGEON_SOLO_TOKEN_2@1                                 : Uncommon Elder's Dungeon Map (Solo)
+10598: T4_RANDOM_DUNGEON_SOLO_TOKEN_D2@2                                
+10599: T5_RANDOM_DUNGEON_SOLO_TOKEN_D2@2                                
+10600: T6_RANDOM_DUNGEON_SOLO_TOKEN_D2@2                                
+10601: T7_RANDOM_DUNGEON_SOLO_TOKEN_D2@2                                
+10602: T8_RANDOM_DUNGEON_SOLO_TOKEN_D2@2                                
+10603: T4_RANDOM_DUNGEON_SOLO_TOKEN_3@2                                 : Rare Adept's Dungeon Map (Solo)
+10604: T5_RANDOM_DUNGEON_SOLO_TOKEN_3@2                                 : Rare Expert's Dungeon Map (Solo)
+10605: T6_RANDOM_DUNGEON_SOLO_TOKEN_3@2                                 : Rare Master's Dungeon Map (Solo)
+10606: T7_RANDOM_DUNGEON_SOLO_TOKEN_3@2                                 : Rare Grandmaster's Dungeon Map (Solo)
+10607: T8_RANDOM_DUNGEON_SOLO_TOKEN_3@2                                 : Rare Elder's Dungeon Map (Solo)
+10608: T4_RANDOM_DUNGEON_SOLO_TOKEN_D3@3                                
+10609: T5_RANDOM_DUNGEON_SOLO_TOKEN_D3@3                                
+10610: T6_RANDOM_DUNGEON_SOLO_TOKEN_D3@3                                
+10611: T7_RANDOM_DUNGEON_SOLO_TOKEN_D3@3                                
+10612: T8_RANDOM_DUNGEON_SOLO_TOKEN_D3@3                                
+10613: T4_RANDOM_DUNGEON_SOLO_TOKEN_4@3                                 : Exceptional Adept's Dungeon Map (Solo)
+10614: T5_RANDOM_DUNGEON_SOLO_TOKEN_4@3                                 : Exceptional Expert's Dungeon Map (Solo)
+10615: T6_RANDOM_DUNGEON_SOLO_TOKEN_4@3                                 : Exceptional Master's Dungeon Map (Solo)
+10616: T7_RANDOM_DUNGEON_SOLO_TOKEN_4@3                                 : Exceptional Grandmaster's Dungeon Map (Solo)
+10617: T8_RANDOM_DUNGEON_SOLO_TOKEN_4@3                                 : Exceptional Elder's Dungeon Map (Solo)
+10618: T4_RANDOM_DUNGEON_SOLO_TOKEN_D4@4                                
+10619: T5_RANDOM_DUNGEON_SOLO_TOKEN_D4@4                                
+10620: T6_RANDOM_DUNGEON_SOLO_TOKEN_D4@4                                
+10621: T7_RANDOM_DUNGEON_SOLO_TOKEN_D4@4                                
+10622: T8_RANDOM_DUNGEON_SOLO_TOKEN_D4@4                                
+10623: T4_RANDOM_DUNGEON_TOKEN_1                                        : Adept's Dungeon Map (Group)
+10624: T5_RANDOM_DUNGEON_TOKEN_1                                        : Expert's Dungeon Map (Group)
+10625: T6_RANDOM_DUNGEON_TOKEN_1                                        : Master's Dungeon Map (Group)
+10626: T7_RANDOM_DUNGEON_TOKEN_1                                        : Grandmaster's Dungeon Map (Group)
+10627: T8_RANDOM_DUNGEON_TOKEN_1                                        : Elder's Dungeon Map (Group)
+10628: T4_RANDOM_DUNGEON_TOKEN_D1@1                                     
+10629: T5_RANDOM_DUNGEON_TOKEN_D1@1                                     
+10630: T6_RANDOM_DUNGEON_TOKEN_D1@1                                     
+10631: T7_RANDOM_DUNGEON_TOKEN_D1@1                                     
+10632: T8_RANDOM_DUNGEON_TOKEN_D1@1                                     
+10633: T4_RANDOM_DUNGEON_TOKEN_2@1                                      : Uncommon Adept's Dungeon Map (Group)
+10634: T5_RANDOM_DUNGEON_TOKEN_2@1                                      : Uncommon Expert's Dungeon Map (Group)
+10635: T6_RANDOM_DUNGEON_TOKEN_2@1                                      : Uncommon Master's Dungeon Map (Group)
+10636: T7_RANDOM_DUNGEON_TOKEN_2@1                                      : Uncommon Grandmaster's Dungeon Map (Group)
+10637: T8_RANDOM_DUNGEON_TOKEN_2@1                                      : Uncommon Elder's Dungeon Map (Group)
+10638: T4_RANDOM_DUNGEON_TOKEN_D2@2                                     
+10639: T5_RANDOM_DUNGEON_TOKEN_D2@2                                     
+10640: T6_RANDOM_DUNGEON_TOKEN_D2@2                                     
+10641: T7_RANDOM_DUNGEON_TOKEN_D2@2                                     
+10642: T8_RANDOM_DUNGEON_TOKEN_D2@2                                     
+10643: T4_RANDOM_DUNGEON_TOKEN_3@2                                      : Rare Adept's Dungeon Map (Group)
+10644: T5_RANDOM_DUNGEON_TOKEN_3@2                                      : Rare Expert's Dungeon Map (Group)
+10645: T6_RANDOM_DUNGEON_TOKEN_3@2                                      : Rare Master's Dungeon Map (Group)
+10646: T7_RANDOM_DUNGEON_TOKEN_3@2                                      : Rare Grandmaster's Dungeon Map (Group)
+10647: T8_RANDOM_DUNGEON_TOKEN_3@2                                      : Rare Elder's Dungeon Map (Group)
+10648: T4_RANDOM_DUNGEON_TOKEN_D3@3                                     
+10649: T5_RANDOM_DUNGEON_TOKEN_D3@3                                     
+10650: T6_RANDOM_DUNGEON_TOKEN_D3@3                                     
+10651: T7_RANDOM_DUNGEON_TOKEN_D3@3                                     
+10652: T8_RANDOM_DUNGEON_TOKEN_D3@3                                     
+10653: T4_RANDOM_DUNGEON_TOKEN_4@3                                      : Exceptional Adept's Dungeon Map (Group)
+10654: T5_RANDOM_DUNGEON_TOKEN_4@3                                      : Exceptional Expert's Dungeon Map (Group)
+10655: T6_RANDOM_DUNGEON_TOKEN_4@3                                      : Exceptional Master's Dungeon Map (Group)
+10656: T7_RANDOM_DUNGEON_TOKEN_4@3                                      : Exceptional Grandmaster's Dungeon Map (Group)
+10657: T8_RANDOM_DUNGEON_TOKEN_4@3                                      : Exceptional Elder's Dungeon Map (Group)
+10658: T4_RANDOM_DUNGEON_TOKEN_D4@4                                     
+10659: T5_RANDOM_DUNGEON_TOKEN_D4@4                                     
+10660: T6_RANDOM_DUNGEON_TOKEN_D4@4                                     
+10661: T7_RANDOM_DUNGEON_TOKEN_D4@4                                     
+10662: T8_RANDOM_DUNGEON_TOKEN_D4@4                                     
+10663: SKIN_HORSE_FOUNDER_LEGENDARY                                     : Legendary Explorer's Horse
+10664: UNIQUE_UNLOCK_SKIN_HORSE_FOUNDER_LEGENDARY                       : Riding Horse Skin: Legendary Explorer
+10665: SKIN_HORSE_STARTERPACK                                           : Legendary Adventurer's Horse
+10666: UNIQUE_UNLOCK_SKIN_HORSE_STARTERPACK                             : Riding Horse Skin: Legendary Adventurer
+10667: SKIN_HORSE_TELLAFRIEND                                           : Recruiter's Horse
+10668: UNIQUE_UNLOCK_SKIN_HORSE_TELLAFRIEND                             : Riding Horse Skin: Recruiter
+10669: SKIN_HORSE_PONY_TELLAFRIEND                                      : Recruiter's Pony
+10670: UNIQUE_UNLOCK_SKIN_HORSE_PONY_TELLAFRIEND                        : Riding Horse Skin: Recruiter's Pony
+10671: SKIN_HORSE_UNDEAD                                                : Bonehorse
+10672: UNIQUE_UNLOCK_SKIN_HORSE_UNDEAD                                  : Riding Horse Skin: Bonehorse
+10673: SKIN_HORSE_UNDEAD_HALLOWEEN                                      : Horse Macabre
+10674: UNIQUE_UNLOCK_SKIN_HORSE_UNDEAD_HALLOWEEN                        : Riding Horse Skin: Horse Macabre
+10675: SKIN_HORSE_BROWN                                                 : Brown Mare
+10676: SKIN_HORSE_KEEPER                                                : Keeper Horse
+10677: SKIN_HORSE_UNICORN                                               : Nightshade Unicorn
+10678: SKIN_HORSE_GUILDBANNER                                           : Jousting Horse
+10679: UNIQUE_UNLOCK_SKIN_HORSE_GUILDBANNER                             : Riding Horse Skin: Jousting Horse
+10680: UNIQUE_UNLOCK_SKIN_HORSE_GUILDBANNER_UNTRADEABLE                 
+10681: UNIQUE_UNLOCK_SKIN_HORSE_GUILDBANNER_UNTRADEABLE_2025            
+10682: SKIN_HORSE_UNICORN_WHITE_TELLAFRIEND                             : Unicorn
+10683: UNIQUE_UNLOCK_SKIN_HORSE_UNICORN_WHITE_TELLAFRIEND               : Riding Horse Skin: Unicorn
+10684: UNIQUE_UNLOCK_SKIN_HORSE_UNICORN_WHITE_TELLAFRIEND_UNTRADEABLE   
+10685: UNIQUE_UNLOCK_SKIN_HORSE_UNICORN_WHITE_TELLAFRIEND_UNTRADEABLE_2025
+10686: SKIN_HORSE_JESTER_TELLAFRIEND                                    : Jester Horse
+10687: UNIQUE_UNLOCK_SKIN_HORSE_JESTER_TELLAFRIEND                      : Riding Horse Skin: Jester Horse
+10688: UNIQUE_UNLOCK_SKIN_HORSE_JESTER_TELLAFRIEND_UNTRADEABLE          
+10689: SKIN_HORSE_VAMPIRE_TELLAFRIEND                                   : Horsferatu
+10690: UNIQUE_UNLOCK_SKIN_HORSE_VAMPIRE_TELLAFRIEND                     : Riding Horse Skin: Horsferatu
+10691: UNIQUE_UNLOCK_SKIN_HORSE_VAMPIRE_TELLAFRIEND_UNTRADEABLE         
+10692: UNIQUE_UNLOCK_SKIN_HORSE_VAMPIRE_TELLAFRIEND_UNTRADEABLE_2025    
+10693: SKIN_HORSE_QUESTING_BEAST                                        : Chimera
+10694: UNIQUE_UNLOCK_SKIN_HORSE_QUESTING_BEAST                          : Riding Horse Skin: Chimera
+10695: SKIN_ARMORED_HORSE_ARENA                                         : Arena Veteran's Armored Horse
+10696: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_ARENA_COPY                      : Armored Horse Skin: Arena Veteran
+10697: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_ARENA                           : Armored Horse Skin: Arena Veteran
+10698: SKIN_ARMORED_HORSE_MORGANA                                       : Morgana Mare
+10699: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_MORGANA                         : Armored Horse Skin: Morgana Mare
+10700: SKIN_ARMORED_HORSE_UNDEAD                                        : Armored Bonehorse
+10701: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_UNDEAD                          : Armored Horse Skin: Armored Bonehorse
+10702: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_UNDEAD_UNTRADEABLE              
+10703: SKIN_ARMORED_HORSE_T5_MOUNT_GUILD                                : Expert's Heraldic Warhorse
+10704: SKIN_ARMORED_HORSE_T6_MOUNT_GUILD                                : Master's Heraldic Warhorse
+10705: SKIN_ARMORED_HORSE_T7_MOUNT_GUILD                                : Grandmaster's Heraldic Warhorse
+10706: SKIN_ARMORED_HORSE_T8_MOUNT_GUILD                                : Elder's Heraldic Warhorse
+10707: SKIN_ARMORED_HORSE_PONY_NATIVE_CLIENT                            : Armored Pony
+10708: SKIN_ARMORED_HORSE_GREEN_TELLAFRIEND                             
+10709: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_GREEN_TELLAFRIEND               
+10710: SKIN_ARMORED_HORSE_HERETIC_PONY_TELLAFRIEND                      : Heretic Warsteed
+10711: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_HERETIC_PONY_TELLAFRIEND        : Armored Horse Skin: Heretic Warsteed
+10712: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_HERETIC_PONY_TELLAFRIEND_UNTRADEABLE
+10713: SKIN_OX_FOUNDER_LEGENDARY                                        : Legendary Explorer's Ox
+10714: UNIQUE_UNLOCK_SKIN_OX_FOUNDER_LEGENDARY                          : Transport Ox Skin: Legendary Explorer
+10715: SKIN_OX_CART_STARTERPACK                                         : Legendary Adventurer's Cart
+10716: UNIQUE_UNLOCK_SKIN_OX_CART_STARTERPACK                           : Transport Ox Skin: Legendary Adventurer's Cart
+10717: SKIN_OX_YAK_TELLAFRIEND                                          : Recruiter's Yak
+10718: UNIQUE_UNLOCK_SKIN_OX_YAK_TELLAFRIEND                            : Transport Ox Skin: Recruiter's Yak
+10719: SKIN_OX_TRANSPORT_RAM_TELLAFRIEND                                : Recruiter's Bighorn Ram
+10720: UNIQUE_UNLOCK_SKIN_OX_TRANSPORT_RAM_TELLAFRIEND                  : Transport Ox Skin: Recruiter's Bighorn Ram
+10721: SKIN_OX_BLACKMARKET                                              : Black Market Ox
+10722: SKIN_OX_BISON_AH                                                 : Auction House Ox
+10723: SKIN_OX_BISON_ROYAL                                              : Royal Ox
+10724: SKIN_OX_CART_HERETIC                                             : Heretic Cart
+10725: UNIQUE_UNLOCK_SKIN_OX_CART_HERETIC                               : Transport Ox Skin: Heretic Cart
+10726: SKIN_OX_CART_LUXUS_TELLAFRIEND                                   : Luxury Cart
+10727: UNIQUE_UNLOCK_SKIN_OX_CART_LUXUS_TELLAFRIEND                     : Transport Ox Skin: Luxury Cart
+10728: UNIQUE_UNLOCK_SKIN_OX_CART_LUXUS_TELLAFRIEND_UNTRADEABLE         
+10729: UNIQUE_UNLOCK_SKIN_OX_CART_LUXUS_TELLAFRIEND_UNTRADEABLE_2025    
+10730: SKIN_OX_FARMER_TELLAFRIEND                                       : Farmer's Ox
+10731: UNIQUE_UNLOCK_SKIN_OX_FARMER_TELLAFRIEND                         : Transport Ox Skin: Farmer's Ox
+10732: UNIQUE_UNLOCK_SKIN_OX_FARMER_TELLAFRIEND_UNTRADEABLE             
+10733: SKIN_OX_XMAS_YAK_TELLAFRIEND                                     : Yuletide Yak
+10734: UNIQUE_UNLOCK_SKIN_OX_XMAS_YAK_TELLAFRIEND                       : Transport Ox Skin: Yuletide Yak
+10735: UNIQUE_UNLOCK_SKIN_OX_XMAS_YAK_TELLAFRIEND_UNTRADEABLE           
+10736: SKIN_OX_BETSY_TELLAFRIEND                                        : Ol' Betsy
+10737: UNIQUE_UNLOCK_SKIN_OX_BETSY_TELLAFRIEND                          : Transport Ox Skin: Ol' Betsy
+10738: UNIQUE_UNLOCK_SKIN_OX_BETSY_TELLAFRIEND_UNTRADEABLE              
+10739: SKIN_DIREWOLF_WHITE                                              : Ghostwolf
+10740: UNIQUE_UNLOCK_SKIN_DIREWOLF_WHITE                                : Direwolf Skin: Ghostwolf
+10741: SKIN_DIREWOLF_SPECTER                                            : Specter Wolf
+10742: UNIQUE_UNLOCK_SKIN_DIREWOLF_SPECTER                              : Direwolf Skin: Specter Wolf
+10743: SKIN_DIREWOLF_GREY_TELLAFRIEND                                   : Recruiter's Grey Wolf
+10744: UNIQUE_UNLOCK_SKIN_DIREWOLF_GREY_TELLAFRIEND                     : Direwolf Skin: Recruiter's Grey Wolf
+10745: SKIN_DIREWOLF_BLOODHOUND_TELLAFRIEND                             : Recruiter's Rottweiler
+10746: UNIQUE_UNLOCK_SKIN_DIREWOLF_BLOODHOUND_TELLAFRIEND               : Direwolf Skin: Recruiter's Rottweiler
+10747: SKIN_DIREWOLF_BERNARD_TELLAFRIEND                                : Recruiter's Saint Bernard
+10748: UNIQUE_UNLOCK_SKIN_DIREWOLF_BERNARD_TELLAFRIEND                  : Direwolf Skin: Recruiter's Saint Bernard
+10749: SKIN_DIREWOLF_HUSKYSLEIGH_TELLAFRIEND                            : Recruiter's Husky Sled
+10750: UNIQUE_UNLOCK_SKIN_DIREWOLF_HUSKYSLEIGH_TELLAFRIEND              : Direwolf Skin: Recruiter's Husky Sled
+10751: SKIN_DIREWOLF_DIREFOX_TELLAFRIEND                                : Recruiter's Dire Fox
+10752: UNIQUE_UNLOCK_SKIN_DIREWOLF_DIREFOX_TELLAFRIEND                  : Direwolf Skin: Recruiter's Dire Fox
+10753: SKIN_DIREWOLF_BOBTAIL                                            : Sheepdog
+10754: UNIQUE_UNLOCK_SKIN_DIREWOLF_BOBTAIL                              : Direwolf Skin: Sheepdog
+10755: UNIQUE_UNLOCK_SKIN_DIREWOLF_BOBTAIL_UNTRADEABLE                  
+10756: SKIN_DIREWOLF_HYENA_TELLAFRIEND                                  : Ironjaw Hyena
+10757: UNIQUE_UNLOCK_SKIN_DIREWOLF_HYENA_TELLAFRIEND                    : Direwolf Skin: Ironjaw Hyena
+10758: UNIQUE_UNLOCK_SKIN_DIREWOLF_HYENA_TELLAFRIEND_UNTRADEABLE        
+10759: SKIN_DIREWOLF_SHEPHERD_TELLAFRIEND                               : Shepherd
+10760: UNIQUE_UNLOCK_SKIN_DIREWOLF_SHEPHERD_TELLAFRIEND                 : Direwolf Skin: Shepherd
+10761: UNIQUE_UNLOCK_SKIN_DIREWOLF_SHEPHERD_TELLAFRIEND_UNTRADEABLE     
+10762: SKIN_DIREWOLF_SNOWFOX_TELLAFRIEND                                : Snow Fox
+10763: UNIQUE_UNLOCK_SKIN_DIREWOLF_SNOWFOX_TELLAFRIEND                  : Direwolf Skin: Snow Fox
+10764: UNIQUE_UNLOCK_SKIN_DIREWOLF_SNOWFOX_TELLAFRIEND_UNTRADEABLE      
+10765: SKIN_DIREWOLF_XMAS_DIREFOX_TELLAFRIEND                           
+10766: UNIQUE_UNLOCK_SKIN_DIREWOLF_XMAS_DIREFOX_TELLAFRIEND             
+10767: UNIQUE_UNLOCK_SKIN_DIREWOLF_XMAS_DIREFOX_TELLAFRIEND_UNTRADEABLE 
+10768: SKIN_DIREWOLF_GVGSEASON_1ST_03                                   : Legendary Guild Season Winner
+10769: UNIQUE_UNLOCK_SKIN_DIREWOLF_GVGSEASON_1ST_03                     : Direwolf Skin: Legendary Guild Season Winner
+10770: SKIN_DIREWOLF_GVGSEASON_1ST_02                                   : Epic Guild Season Winner
+10771: UNIQUE_UNLOCK_SKIN_DIREWOLF_GVGSEASON_1ST_02                     : Direwolf Skin: Epic Guild Season Winner
+10772: SKIN_DIREWOLF_GVGSEASON_1ST_01                                   : Guild Season Winner
+10773: UNIQUE_UNLOCK_SKIN_DIREWOLF_GVGSEASON_1ST_01                     : Direwolf Skin Set: Guild Season Winner
+10774: SKIN_DIREWOLF_GVGSEASON_2ND_01                                   : Guild Season 2nd Place
+10775: UNIQUE_UNLOCK_SKIN_DIREWOLF_GVGSEASON_2ND_01                     : Direwolf Skin Set: Guild Season 2nd Place
+10776: SKIN_DIREWOLF_GVGSEASON_3RD_01                                   : Guild Season 3rd Place
+10777: UNIQUE_UNLOCK_SKIN_DIREWOLF_GVGSEASON_3RD_01                     : Direwolf Skin: Guild Season 3rd Place
+10778: SKIN_GIANTSTAG_WHITE                                             : Master's Giant Stag
+10779: UNIQUE_UNLOCK_SKIN_GIANTSTAG_WHITE                               : Stag Skin: Master's Giant Stag
+10780: SKIN_GIANTSTAG_TELLAFRIEND                                       : Recruiter's Giant Stag
+10781: UNIQUE_UNLOCK_SKIN_GIANTSTAG_TELLAFRIEND                         : Stag Skin: Recruiter's Giant Stag
+10782: SKIN_GIANTSTAG_XMAS                                              : Yule Stag
+10783: UNIQUE_UNLOCK_SKIN_GIANTSTAG_XMAS                                : Stag Skin: Yule Stag
+10784: SKIN_GIANTSTAG_IMPALA_TELLAFRIEND                                : Recruiter's Impala
+10785: UNIQUE_UNLOCK_SKIN_GIANTSTAG_IMPALA_TELLAFRIEND                  : Stag Skin: Recruiter's Impala
+10786: SKIN_GIANTSTAG_DIVINE                                            : Divine Stag
+10787: UNIQUE_UNLOCK_SKIN_GIANTSTAG_DIVINE                              : Stag Skin: Divine Stag
+10788: SKIN_GIANTSTAG_ALPACA                                            : Stag Skin: Alpaca
+10789: UNIQUE_UNLOCK_SKIN_GIANTSTAG_ALPACA                              : Stag Skin: Alpaca
+10790: UNIQUE_UNLOCK_SKIN_GIANTSTAG_ALPACA_UNTRADEABLE                  
+10791: SKIN_GIANTSTAG_REINDEER_TELLAFRIEND                              : Festive Reindeer
+10792: UNIQUE_UNLOCK_SKIN_GIANTSTAG_REINDEER_TELLAFRIEND                : Stag Skin: Festive Reindeer
+10793: UNIQUE_UNLOCK_SKIN_GIANTSTAG_REINDEER_TELLAFRIEND_UNTRADEABLE    
+10794: UNIQUE_UNLOCK_SKIN_GIANTSTAG_REINDEER_TELLAFRIEND_UNTRADEABLE_2025
+10795: SKIN_GIANTSTAG_FAWN_TELLAFRIEND                                  : Summer Fawn
+10796: UNIQUE_UNLOCK_SKIN_GIANTSTAG_FAWN_TELLAFRIEND                    : Stag Skin: Summer Fawn
+10797: UNIQUE_UNLOCK_SKIN_GIANTSTAG_FAWN_TELLAFRIEND_UNTRADEABLE        
+10798: UNIQUE_UNLOCK_SKIN_GIANTSTAG_FAWN_TELLAFRIEND_UNTRADEABLE_2025   
+10799: SKIN_GIANTSTAG_ICE_MOOSE_TELLAFRIEND                             : Frost Moose
+10800: UNIQUE_UNLOCK_SKIN_GIANTSTAG_ICE_MOOSE_TELLAFRIEND               : Stag Skin: Frost Moose
+10801: UNIQUE_UNLOCK_SKIN_GIANTSTAG_ICE_MOOSE_TELLAFRIEND_UNTRADEABLE   
+10802: SKIN_GIANTSTAG_MIST_DEER_TELLAFRIEND                             : Foglands Doe
+10803: UNIQUE_UNLOCK_SKIN_GIANTSTAG_MIST_DEER_TELLAFRIEND               : Stag Skin: Foglands Doe
+10804: UNIQUE_UNLOCK_SKIN_GIANTSTAG_MIST_DEER_TELLAFRIEND_UNTRADEABLE   
+10805: SKIN_COUGAR_TIGER_WHITE_TELLAFRIEND                              : Recruiter's White Tiger
+10806: UNIQUE_UNLOCK_SKIN_COUGAR_TIGER_WHITE_TELLAFRIEND                : Swiftclaw Skin: Recruiter's White Tiger
+10807: UNIQUE_UNLOCK_SKIN_COUGAR_TIGER_WHITE_TELLAFRIEND_UNTRADEABLE    
+10808: SKIN_COUGAR_TIGER_TELLAFRIEND                                    : Recruiter's Tiger
+10809: UNIQUE_UNLOCK_SKIN_COUGAR_TIGER_TELLAFRIEND                      : Swiftclaw Skin: Recruiter's Tiger
+10810: SKIN_COUGAR_LYNX_TELLAFRIEND                                     : Lynx
+10811: UNIQUE_UNLOCK_SKIN_COUGAR_LYNX_TELLAFRIEND                       : Swiftclaw Skin: Lynx
+10812: UNIQUE_UNLOCK_SKIN_COUGAR_LYNX_TELLAFRIEND_UNTRADEABLE           
+10813: UNIQUE_UNLOCK_SKIN_COUGAR_LYNX_TELLAFRIEND_UNTRADEABLE_2025      
+10814: SKIN_COUGAR_ARENA                                                : Arena Champion's Sabertooth
+10815: UNIQUE_UNLOCK_SKIN_COUGAR_ARENA_COPY                             : Swiftclaw Skin: Arena Champion
+10816: UNIQUE_UNLOCK_SKIN_COUGAR_ARENA                                  : Swiftclaw Skin: Arena Champion
+10817: SKIN_COUGAR_TOURNAMENT                                           : Sabertooth Rex
+10818: UNIQUE_UNLOCK_SKIN_COUGAR_TOURNAMENT                             : Swiftclaw Skin: Sabertooth Rex
+10819: SKIN_COUGAR_TOURNAMENT_02                                        : Saber Tiger Rex
+10820: UNIQUE_UNLOCK_SKIN_COUGAR_TOURNAMENT_02                          : Swiftclaw Skin: Saber Tiger Rex
+10821: SKIN_COUGAR_OCCULT                                               : Occult Cougar
+10822: UNIQUE_UNLOCK_SKIN_COUGAR_OCCULT                                 : Swiftclaw Skin: Occult Cougar
+10823: UNIQUE_UNLOCK_SKIN_COUGAR_OCCULT_UNTRADEABLE                     
+10824: SKIN_COUGAR_ARMORED_GREY                                         : Steelplate Cougar
+10825: UNIQUE_UNLOCK_SKIN_COUGAR_ARMORED_GREY                           : Swiftclaw Skin: Steelplate Cougar
+10826: UNIQUE_UNLOCK_SKIN_COUGAR_ARMORED_GREY_UNTRADEABLE               
+10827: SKIN_COUGAR_MUMMY_TELLAFRIEND                                    : Embalmed Tiger
+10828: UNIQUE_UNLOCK_SKIN_COUGAR_MUMMY_TELLAFRIEND                      : Swiftclaw Skin: Embalmed Tiger
+10829: UNIQUE_UNLOCK_SKIN_COUGAR_MUMMY_TELLAFRIEND_UNTRADEABLE          
+10830: SKIN_COUGAR_SNOWLEOPARD_TELLAFRIEND                              : Snow Leopard
+10831: UNIQUE_UNLOCK_SKIN_COUGAR_SNOWLEOPARD_TELLAFRIEND                : Swiftclaw Skin: Snow Leopard
+10832: UNIQUE_UNLOCK_SKIN_COUGAR_SNOWLEOPARD_TELLAFRIEND_UNTRADEABLE    
+10833: UNIQUE_UNLOCK_SKIN_COUGAR_SNOWLEOPARD_TELLAFRIEND_UNTRADEABLE_2025
+10834: SKIN_COUGAR_JAGUAR_TELLAFRIEND                                   : Recruiter's Jaguar
+10835: UNIQUE_UNLOCK_SKIN_COUGAR_JAGUAR_TELLAFRIEND                     : Swiftclaw Skin: Recruiter's Jaguar
+10836: UNIQUE_UNLOCK_SKIN_COUGAR_JAGUAR_TELLAFRIEND_UNTRADEABLE         
+10837: SKIN_DIREBOAR_HOUSEPIG                                           : Domesticated Hog
+10838: UNIQUE_UNLOCK_SKIN_DIREBOAR_HOUSEPIG                             : Direboar Skin: Domesticated Hog
+10839: SKIN_DIREBOAR_PIG_TELLAFRIEND                                    : Recruiter's Pig
+10840: UNIQUE_UNLOCK_SKIN_DIREBOAR_PIG_TELLAFRIEND                      : Direboar Skin: Recruiter's Pig
+10841: SKIN_DIREBOAR_WHITE_TELLAFRIEND                                  : White Direboar
+10842: UNIQUE_UNLOCK_SKIN_DIREBOAR_WHITE_TELLAFRIEND                    : Direboar Skin: White Direboar
+10843: UNIQUE_UNLOCK_SKIN_DIREBOAR_WHITE_TELLAFRIEND_UNTRADEABLE        
+10844: SKIN_DIREBEAR_PANDA_TELLAFRIEND                                  : Panda
+10845: UNIQUE_UNLOCK_SKIN_DIREBEAR_PANDA_TELLAFRIEND                    : Direbear Skin: Panda
+10846: UNIQUE_UNLOCK_SKIN_DIREBEAR_PANDA_TELLAFRIEND_UNTRADEABLE        
+10847: SKIN_LIZARD_SAND_SALAMANDER_TELLAFRIEND                          : Recruiter's Sand Salamander
+10848: UNIQUE_UNLOCK_SKIN_LIZARD_SAND_SALAMANDER_TELLAFRIEND            : Swamp Dragon Skin: Recruiter's Sand Salamander
+10849: UNIQUE_UNLOCK_SKIN_LIZARD_SAND_SALAMANDER_TELLAFRIEND_UNTRADEABLE
+10850: SKIN_DONKEY_HALLOWEEN                                            : Jack o' Donkey
+10851: UNIQUE_UNLOCK_SKIN_DONKEY_HALLOWEEN                              : Mule Skin: Jack o' Donkey
+10852: SKIN_DONKEY_UNIQUE_TELLAFRIEND                                   : Recruiter's Donkey
+10853: UNIQUE_UNLOCK_SKIN_DONKEY_UNIQUE_TELLAFRIEND                     : Mule Skin: Recruiter's Donkey
+10854: UNIQUE_HEAD_VANITY_DESTINY_SHARDS_05                             
+10855: UNIQUE_HEAD_VANITY_NO_HELMET                                     : Hide Helmet
+10856: UNIQUE_HEAD_VANITY_NO_CAPE                                       : Hide Cape
+10857: UNIQUE_HEAD_VANITY_NO_MAIN_HAND                                  : Hide Main Hand
+10858: UNIQUE_HEAD_VANITY_NO_OFF_HAND                                   : Hide Off-Hand
+10859: UNIQUE_HEAD_VANITY_JESTER                                        : Jester Mask
+10860: UNIQUE_UNLOCK_HEAD_VANITY_JESTER                                 : Wardrobe Skin: Jester Mask
+10861: UNIQUE_ARMOR_VANITY_JESTER                                       : Jester Costume
+10862: UNIQUE_UNLOCK_ARMOR_VANITY_JESTER                                : Wardrobe Skin: Jester Costume
+10863: UNIQUE_SHOES_VANITY_JESTER                                       : Jester Shoes
+10864: UNIQUE_UNLOCK_SHOES_VANITY_JESTER                                : Wardrobe Skin: Jester Shoes
+10865: UNIQUE_HEAD_VANITY_DRESS_RED                                     : Red Tulip Hat
+10866: UNIQUE_UNLOCK_HEAD_VANITY_DRESS_RED                              : Wardrobe Skin: Red Tulip Hat
+10867: UNIQUE_ARMOR_VANITY_DRESS_RED                                    : Red Tulip Dress
+10868: UNIQUE_UNLOCK_ARMOR_VANITY_DRESS_RED                             : Wardrobe Skin: Red Tulip Dress
+10869: UNIQUE_SHOES_VANITY_DRESS_RED                                    : Red Tulip Shoes
+10870: UNIQUE_UNLOCK_SHOES_VANITY_DRESS_RED                             : Wardrobe Skin: Red Tulip Shoes
+10871: UNIQUE_HEAD_VANITY_DRESS_BLACK                                   : Noblewoman's Jewelry
+10872: UNIQUE_ARMOR_VANITY_DRESS_BLACK                                  : Noblewoman's Dress
+10873: UNIQUE_SHOES_VANITY_DRESS_BLACK                                  : Noblewoman's Shoes
+10874: UNIQUE_HEAD_VANITY_DRESS_BLUE                                    : Blue Princess Hat
+10875: UNIQUE_ARMOR_VANITY_DRESS_BLUE                                   : Blue Princess Dress
+10876: UNIQUE_SHOES_VANITY_DRESS_BLUE                                   : Blue Princess Shoes
+10877: UNIQUE_HEAD_VANITY_RICH_NOBLE                                    : Rich Noble's Hat
+10878: UNIQUE_UNLOCK_HEAD_VANITY_RICH_NOBLE                             : Wardrobe Skin: Rich Noble's Hat
+10879: UNIQUE_ARMOR_VANITY_RICH_NOBLE                                   : Rich Noble's Doublet
+10880: UNIQUE_UNLOCK_ARMOR_VANITY_RICH_NOBLE                            : Wardrobe Skin: Rich Noble's Doublet
+10881: UNIQUE_SHOES_VANITY_RICH_NOBLE                                   : Rich Noble's Footwear
+10882: UNIQUE_UNLOCK_SHOES_VANITY_RICH_NOBLE                            : Wardrobe Skin: Rich Noble's Footwear
+10883: UNIQUE_HEAD_VANITY_SANTACLAUS                                    : Yule Hat
+10884: UNIQUE_UNLOCK_HEAD_VANITY_SANTACLAUS                             : Wardrobe Skin: Yule Hat
+10885: UNIQUE_ARMOR_VANITY_SANTACLAUS                                   : Yule Coat
+10886: UNIQUE_UNLOCK_ARMOR_VANITY_SANTACLAUS                            : Wardrobe Skin: Yule Coat
+10887: UNIQUE_SHOES_VANITY_SANTACLAUS                                   : Yule Shoes
+10888: UNIQUE_UNLOCK_SHOES_VANITY_SANTACLAUS                            : Wardrobe Skin: Yule Shoes
+10889: UNIQUE_BACKPACK_VANITY_SANTACLAUS                                : Yule Backpack
+10890: UNIQUE_UNLOCK_BACKPACK_VANITY_SANTACLAUS                         : Wardrobe Skin: Yule Backpack
+10891: UNIQUE_HEAD_VANITY_WEDDING_DRESS                                 : Bridal Veil
+10892: UNIQUE_UNLOCK_HEAD_VANITY_WEDDING_DRESS                          : Wardrobe Skin: Bridal Veil
+10893: UNIQUE_ARMOR_VANITY_WEDDING_DRESS                                : Bridal Dress
+10894: UNIQUE_UNLOCK_ARMOR_VANITY_WEDDING_DRESS                         : Wardrobe Skin: Bridal Dress
+10895: UNIQUE_SHOES_VANITY_WEDDING_DRESS                                : Bridal Shoes
+10896: UNIQUE_UNLOCK_SHOES_VANITY_WEDDING_DRESS                         : Wardrobe Skin: Bridal Shoes
+10897: UNIQUE_OFF_VANITY_WEDDING_DRESS                                  : Bridal Bouquet
+10898: UNIQUE_UNLOCK_OFF_VANITY_WEDDING_DRESS                           : Wardrobe Skin: Bridal Bouquet
+10899: UNIQUE_HEAD_VANITY_WEDDING_TUXEDO                                : Groom's Hat
+10900: UNIQUE_UNLOCK_HEAD_VANITY_WEDDING_TUXEDO                         : Wardrobe Skin: Groom's Hat
+10901: UNIQUE_ARMOR_VANITY_WEDDING_TUXEDO                               : Groom's Suit
+10902: UNIQUE_UNLOCK_ARMOR_VANITY_WEDDING_TUXEDO                        : Wardrobe Skin: Groom's Suit
+10903: UNIQUE_SHOES_VANITY_WEDDING_TUXEDO                               : Groom's Shoes
+10904: UNIQUE_UNLOCK_SHOES_VANITY_WEDDING_TUXEDO                        : Wardrobe Skin: Groom's Shoes
+10905: UNIQUE_CAPE_VANITY_WEDDING_TUXEDO                                : Groom's Cape
+10906: UNIQUE_UNLOCK_CAPE_VANITY_WEDDING_TUXEDO                         : Wardrobe Skin: Groom's Cape
+10907: UNIQUE_OFF_VANITY_WEDDING_TUXEDO                                 : Wedding Ring
+10908: UNIQUE_UNLOCK_OFF_VANITY_WEDDING_TUXEDO                          : Wardrobe Skin: Wedding Ring
+10909: UNIQUE_HEAD_VANITY_BARD                                          : Bard's Hat
+10910: UNIQUE_ARMOR_VANITY_BARD                                         : Bard's Suit
+10911: UNIQUE_SHOES_VANITY_BARD                                         : Bard's Shoes
+10912: UNIQUE_HEAD_VANITY_PRIEST                                        : Monk's Hood
+10913: UNIQUE_ARMOR_VANITY_PRIEST                                       : Monk's Robe
+10914: UNIQUE_SHOES_VANITY_PRIEST                                       : Monk's Sandals
+10915: UNIQUE_OFF_VANITY_PRIEST                                         : Monk's Walking Staff
+10916: UNIQUE_HEAD_VANITY_INNKEEPER                                     : Innkeeper's Hat
+10917: UNIQUE_ARMOR_VANITY_INNKEEPER                                    : Innkeeper's Shirt
+10918: UNIQUE_SHOES_VANITY_INNKEEPER                                    : Innkeeper's Shoes
+10919: UNIQUE_OFF_VANITY_INNKEEPER                                      : Innkeeper's Beer Mug
+10920: UNIQUE_HEAD_VANITY_PIRATE                                        : Navigator's Hat
+10921: UNIQUE_ARMOR_VANITY_PIRATE                                       : Navigator's Coat
+10922: UNIQUE_SHOES_VANITY_PIRATE                                       : Navigator's Boots
+10923: UNIQUE_OFF_VANITY_PIRATE                                         : Navigator's Parrot Cage
+10924: UNIQUE_OFF_VANITY_CHARITY_MARCH2020                              : Staff of Hermes
+10925: UNIQUE_UNLOCK_OFF_VANITY_CHARITY_MARCH2020                       : Wardrobe Skin: Staff of Hermes
+10926: UNIQUE_VANITY_2H_FW_BRIDGEWATCH_BANNER                           
+10927: UNIQUE_UNLOCK_VANITY_2H_FW_BRIDGEWATCH_BANNER                    : Bridgewatch Warbanner
+10928: UNIQUE_VANITY_2H_FW_THETFORD_BANNER                              
+10929: UNIQUE_UNLOCK_VANITY_2H_FW_THETFORD_BANNER                       : Thetford Warbanner
+10930: UNIQUE_VANITY_2H_FW_FORTSTERLING_BANNER                          
+10931: UNIQUE_UNLOCK_VANITY_2H_FW_FORTSTERLING_BANNER                   : Fort Sterling Warbanner
+10932: UNIQUE_VANITY_2H_FW_MARTLOCK_BANNER                              
+10933: UNIQUE_UNLOCK_VANITY_2H_FW_MARTLOCK_BANNER                       : Martlock Warbanner
+10934: UNIQUE_VANITY_2H_FW_LYMHURST_BANNER                              
+10935: UNIQUE_UNLOCK_VANITY_2H_FW_LYMHURST_BANNER                       : Lymhurst Warbanner
+10936: UNIQUE_VANITY_2H_FW_CAERLEON_BANNER                              
+10937: UNIQUE_UNLOCK_VANITY_2H_FW_CAERLEON_BANNER                       : Caerleon Warbanner
+10938: UNIQUE_HEAD_VANITY_ARENA_SET_01                                  : Arena Veteran's Circlet
+10939: UNIQUE_UNLOCK_HEAD_VANITY_ARENA_SET_01_COPY                      : Wardrobe Skin: Arena Veteran's Circlet
+10940: UNIQUE_UNLOCK_HEAD_VANITY_ARENA_SET_01                           : Wardrobe Skin: Arena Veteran's Circlet
+10941: UNIQUE_ARMOR_VANITY_ARENA_SET_01                                 : Arena Veteran's Cloak
+10942: UNIQUE_UNLOCK_ARMOR_VANITY_ARENA_SET_01_COPY                     : Wardrobe Skin: Arena Veteran's Cloak
+10943: UNIQUE_UNLOCK_ARMOR_VANITY_ARENA_SET_01                          : Wardrobe Skin: Arena Veteran's Cloak
+10944: UNIQUE_SHOES_VANITY_ARENA_SET_01                                 : Arena Veteran's Boots
+10945: UNIQUE_UNLOCK_SHOES_VANITY_ARENA_SET_01_COPY                     : Wardrobe Skin: Arena Veteran's Boots
+10946: UNIQUE_UNLOCK_SHOES_VANITY_ARENA_SET_01                          : Wardrobe Skin: Arena Veteran's Boots
+10947: UNIQUE_CAPE_VANITY_ARENA_SET_01                                  : Arena Veteran's Cape
+10948: UNIQUE_UNLOCK_CAPE_VANITY_ARENA_SET_01_COPY                      : Wardrobe Skin: Arena Veteran's Cape
+10949: UNIQUE_UNLOCK_CAPE_VANITY_ARENA_SET_01                           : Wardrobe Skin: Arena Veteran's Cape
+10950: UNIQUE_HEAD_VANITY_ARENA_EYEPATCH                                : Arena Veteran's Eyepatch
+10951: UNIQUE_UNLOCK_HEAD_VANITY_ARENA_EYEPATCH_COPY                    : Wardrobe Skin: Arena Veteran's Eyepatch
+10952: UNIQUE_UNLOCK_HEAD_VANITY_ARENA_EYEPATCH                         : Wardrobe Skin: Arena Veteran's Eyepatch
+10953: T4_CAPE_ARENA_BANNER                                             : Arena Veteran's Small Banner
+10954: UNIQUE_UNLOCK_T4_CAPE_ARENA_BANNER_COPY                          : Wardrobe Skin: Small Arena Banner
+10955: UNIQUE_UNLOCK_T4_CAPE_ARENA_BANNER                               : Wardrobe Skin: Small Arena Banner
+10956: T6_CAPE_ARENA_BANNER                                             : Arena Veteran's Medium Banner
+10957: UNIQUE_UNLOCK_T6_CAPE_ARENA_BANNER_COPY                          : Wardrobe Skin: Medium Arena Banner
+10958: UNIQUE_UNLOCK_T6_CAPE_ARENA_BANNER                               : Wardrobe Skin: Medium Arena Banner
+10959: T8_CAPE_ARENA_BANNER                                             : Arena Veteran's Large Banner
+10960: UNIQUE_UNLOCK_T8_CAPE_ARENA_BANNER_COPY                          : Wardrobe Skin: Large Arena Banner
+10961: UNIQUE_UNLOCK_T8_CAPE_ARENA_BANNER                               : Wardrobe Skin: Large Arena Banner
+10962: UNIQUE_UNLOCK_HEAD_VANITY_GLADIATOR_ARENA                        : Wardrobe Skin: Arena Gladiator Helm
+10963: UNIQUE_HEAD_VANITY_GLADIATOR_ARENA                               : Arena Gladiator Helm
+10964: UNIQUE_UNLOCK_ARMOR_VANITY_GLADIATOR_ARENA                       : Wardrobe Skin: Arena Gladiator Armor
+10965: UNIQUE_ARMOR_VANITY_GLADIATOR_ARENA                              : Arena Gladiator Armor
+10966: UNIQUE_UNLOCK_SHOES_VANITY_GLADIATOR_ARENA                       : Wardrobe Skin: Arena Gladiator Boots
+10967: UNIQUE_SHOES_VANITY_GLADIATOR_ARENA                              : Arena Gladiator Boots
+10968: UNIQUE_UNLOCK_CAPE_VANITY_GLADIATOR_ARENA                        : Wardrobe Skin: Arena Gladiator Cape
+10969: UNIQUE_CAPE_VANITY_GLADIATOR_ARENA                               : Arena Gladiator Cape
+10970: UNIQUE_UNLOCK_HEAD_VANITY_GLADIATOR_CRYSTAL                      : Wardrobe Skin: Crystal Gladiator Helm
+10971: UNIQUE_HEAD_VANITY_GLADIATOR_CRYSTAL                             : Crystal Gladiator Helm
+10972: UNIQUE_UNLOCK_ARMOR_VANITY_GLADIATOR_CRYSTAL                     : Wardrobe Skin: Crystal Gladiator Armor
+10973: UNIQUE_ARMOR_VANITY_GLADIATOR_CRYSTAL                            : Crystal Gladiator Armor
+10974: UNIQUE_UNLOCK_SHOES_VANITY_GLADIATOR_CRYSTAL                     : Wardrobe Skin: Crystal Gladiator Boots
+10975: UNIQUE_SHOES_VANITY_GLADIATOR_CRYSTAL                            : Crystal Gladiator Boots
+10976: UNIQUE_UNLOCK_CAPE_VANITY_GLADIATOR_CRYSTAL                      : Wardrobe Skin: Crystal Gladiator Cape
+10977: UNIQUE_CAPE_VANITY_GLADIATOR_CRYSTAL                             : Crystal Gladiator Cape
+10978: UNIQUE_HEAD_TELLAFRIEND_BATRIDER                                 : Master of Bats Helmet
+10979: UNIQUE_UNLOCK_HEAD_TELLAFRIEND_BATRIDER                          : Wardrobe Skin: Master of Bats Helmet
+10980: UNIQUE_HEAD_VANITY_EASTER_WHITE                                  : Snow Bunny Stalker Hat
+10981: UNIQUE_UNLOCK_HEAD_VANITY_EASTER_WHITE                           : Wardrobe Skin: Snow Bunny Stalker Hat
+10982: UNIQUE_HEAD_VANITY_EASTER_BROWN                                  : Bunny Stalker Hat
+10983: UNIQUE_UNLOCK_HEAD_VANITY_EASTER_BROWN                           : Wardrobe Skin: Bunny Stalker Hat
+10984: UNIQUE_ARMOR_VANITY_EASTER                                       : Bunny Stalker Overalls
+10985: UNIQUE_UNLOCK_ARMOR_VANITY_EASTER                                : Wardrobe Skin: Bunny Stalker Overalls
+10986: UNIQUE_SHOES_VANITY_EASTER                                       : Bunny Stalker Shoes
+10987: UNIQUE_UNLOCK_SHOES_VANITY_EASTER                                : Wardrobe Skin: Bunny Stalker Shoes
+10988: UNIQUE_BACKPACK_VANITY_EASTER                                    : Bunny Stalker Basket
+10989: UNIQUE_UNLOCK_BACKPACK_VANITY_EASTER                             : Wardrobe Skin: Bunny Stalker Basket
+10990: UNIQUE_HEAD_VANITY_PLAGUEDOC                                     : Hygienic Mask
+10991: UNIQUE_UNLOCK_HEAD_VANITY_PLAGUEDOC                              : Wardrobe Skin: Hygienic Mask
+10992: UNIQUE_ARMOR_VANITY_PLAGUEDOC                                    : Hygienic Coat
+10993: UNIQUE_UNLOCK_ARMOR_VANITY_PLAGUEDOC                             : Wardrobe Skin: Hygienic Coat
+10994: UNIQUE_SHOES_VANITY_PLAGUEDOC                                    : Hygienic Boots
+10995: UNIQUE_UNLOCK_SHOES_VANITY_PLAGUEDOC                             : Wardrobe Skin: Hygienic Boots
+10996: UNIQUE_HEAD_VANITY_SKELETON                                      : Laughing Skull
+10997: UNIQUE_UNLOCK_HEAD_VANITY_SKELETON                               : Wardrobe Skin: Laughing Skull
+10998: UNIQUE_ARMOR_VANITY_SKELETON                                     : Ribcage
+10999: UNIQUE_UNLOCK_ARMOR_VANITY_SKELETON                              : Wardrobe Skin: Ribcage
+11000: UNIQUE_SHOES_VANITY_SKELETON                                     : Legbones
+11001: UNIQUE_UNLOCK_SHOES_VANITY_SKELETON                              : Wardrobe Skin: Legbones
+11002: UNIQUE_CAPE_VANITY_SKELETON                                      : Ragged Cape
+11003: UNIQUE_UNLOCK_CAPE_VANITY_SKELETON                               : Wardrobe Skin: Ragged Cape
+11004: UNIQUE_HEAD_VANITY_PUMPKIN_01                                    : Grinning Pumpkin Head
+11005: UNIQUE_UNLOCK_HEAD_VANITY_PUMPKIN_01                             : Wardrobe Skin: Grinning Pumpkin Head
+11006: UNIQUE_HEAD_VANITY_PUMPKIN_02                                    : Sad Pumpkin Head
+11007: UNIQUE_UNLOCK_HEAD_VANITY_PUMPKIN_02                             : Wardrobe Skin: Sad Pumpkin Head
+11008: UNIQUE_HEAD_VANITY_PUMPKIN_03                                    : Angry Pumpkin Head
+11009: UNIQUE_UNLOCK_HEAD_VANITY_PUMPKIN_03                             : Wardrobe Skin: Angry Pumpkin Head
+11010: UNIQUE_HEAD_XMAS                                                 : Uncle Frost's Hat
+11011: UNIQUE_UNLOCK_HEAD_XMAS                                          : Wardrobe Skin: Uncle Frost's Hat
+11012: UNIQUE_VANITY_2H_PORTALGUN_TELLAFRIEND                           : Recruiter's Portal Cannon
+11013: UNIQUE_UNLOCK_VANITY_2H_PORTALGUN_TELLAFRIEND                    : Wardrobe Skin: Recruiter's Portal Cannon
+11014: UNIQUE_VANITY_2H_CHICKENGUN_EASTER                               : The Eggsecutioner
+11015: UNIQUE_UNLOCK_VANITY_2H_GUN_ANNIVERSARY                          : Firework Launcher: Chromacannon
+11016: UNIQUE_VANITY_2H_GUN_ANNIVERSARY                                 : Chromacannon
+11017: UNIQUE_AVATARRING_ANNIVERSARY_2022                               : Fifth Anniversary Ring
+11018: UNIQUE_AVATARRING_ANNIVERSARY_2023                               : Sixth Anniversary Ring
+11019: UNIQUE_AVATARRING_ANNIVERSARY_2024                               : Seventh Anniversary Ring
+11020: UNIQUE_AVATARRING_ANNIVERSARY_2025                               : Eighth Anniversary Ring
+11021: UNIQUE_AVATAR_ANNIVERSARY_2022                                   : Fifth Anniversary Avatar
+11022: UNIQUE_AVATAR_ANNIVERSARY_2023                                   : Sixth Anniversary Avatar
+11023: UNIQUE_AVATAR_ANNIVERSARY_2024                                   : Seventh Anniversary Avatar
+11024: UNIQUE_AVATAR_ANNIVERSARY_2025                                   : Eighth Anniversary Avatar
+11025: UNIQUE_ROTTEN_CAKE                                               : Spoiled Anniversary Cake
+11026: UNIQUE_CONSUMABLE_EVENT_ANNIVERSARY_CAKE                         : Anniversary Cake
+11027: UNIQUE_CONSUMABLE_EVENT_ANNIVERSARY_CAKE_2025                    
+11028: SKIN_HORSE_ANNIVERSARY_2022                                      : Fifth-Year Stallion
+11029: UNIQUE_UNLOCK_SKIN_HORSE_ANNIVERSARY_2022                        : Riding Horse Skin: Fifth-Year Stallion
+11030: SKIN_HORSE_ANNIVERSARY_2023                                      : Sixth-Year Stallion
+11031: UNIQUE_UNLOCK_SKIN_HORSE_ANNIVERSARY_2023                        : Riding Horse Skin: Sixth-Year Stallion
+11032: SKIN_HORSE_ANNIVERSARY_2024                                      : Seventh-Year Stallion
+11033: UNIQUE_UNLOCK_SKIN_HORSE_ANNIVERSARY_2024                        : Riding Horse Skin: Seventh-Year Stallion
+11034: SKIN_HORSE_ANNIVERSARY_2025                                      : Eighth-Year Stallion
+11035: UNIQUE_UNLOCK_SKIN_HORSE_ANNIVERSARY_2025                        : Riding Horse Skin: Eighth-Year Stallion
+11036: UNIQUE_FURNITUREITEM_CARPET_ANNIVERSARY_2022                     : Fifth Anniversary Carpet
+11037: UNIQUE_ROTTEN_CANDY                                              : Rotten Allhallows Treat
+11038: UNIQUE_CONSUMABLE_EVENT_HALLOWEEN_CANDY                          : Allhallows Treat
+11039: UNIQUE_CONSUMABLE_EVENT_HALLOWEEN_CANDY_2025                     
+11040: UNIQUE_UNLOCK_UNIQUE_VANITY_2H_CHICKENGUN_EASTER                 : Wardrobe Skin: The Eggsecutioner
+11041: UNIQUE_VANITY_MAIN_BEERMUG_TELLAFRIEND                           : Recruiter's Beer Mug
+11042: UNIQUE_UNLOCK_VANITY_MAIN_BEERMUG_TELLAFRIEND                    : Wardrobe Skin: Recruiter's Beer Mug
+11043: UNIQUE_VANITY_MAIN_HORN_TELLAFRIEND                              : Recruiter's Hunter Horn
+11044: UNIQUE_UNLOCK_VANITY_MAIN_HORN_TELLAFRIEND                       : Wardrobe Skin: Recruiter's Hunter Horn
+11045: UNIQUE_VANITY_MAIN_FOXCROP_TELLAFRIEND                           : Recruiter's Fox Crop
+11046: UNIQUE_UNLOCK_VANITY_MAIN_FOXCROP_TELLAFRIEND                    : Wardrobe Skin: Recruiter's Fox Crop
+11047: UNIQUE_VANITY_MAIN_TRUMPET_TELLAFRIEND                           : Recruiter's Trumpet
+11048: UNIQUE_UNLOCK_VANITY_MAIN_TRUMPET_TELLAFRIEND                    : Wardrobe Skin: Recruiter's Trumpet
+11049: UNIQUE_VANITY_MAIN_BEERMUG_02_TELLAFRIEND                        : Recruiter's Ale Mug
+11050: UNIQUE_UNLOCK_VANITY_MAIN_BEERMUG_02_TELLAFRIEND                 : Wardrobe Skin: Recruiter's Ale Mug
+11051: UNIQUE_CAPE_FOUNDER_LEGENDARY                                    : Legendary Explorer's Cloak
+11052: UNIQUE_UNLOCK_CAPE_FOUNDER_LEGENDARY                             : Wardrobe Skin: Legendary Explorer's Cloak
+11053: UNIQUE_HEAD_FOUNDER_LEGENDARY                                    : Legendary Explorer's Hat
+11054: UNIQUE_UNLOCK_HEAD_FOUNDER_LEGENDARY                             : Wardrobe Skin: Legendary Explorer's Hat
+11055: UNIQUE_ARMOR_FOUNDER_LEGENDARY                                   : Legendary Explorer's Armor
+11056: UNIQUE_UNLOCK_ARMOR_FOUNDER_LEGENDARY                            : Wardrobe Skin: Legendary Explorer's Armor
+11057: UNIQUE_SHOES_FOUNDER_LEGENDARY                                   : Legendary Explorer's Boots
+11058: UNIQUE_UNLOCK_SHOES_FOUNDER_LEGENDARY                            : Wardrobe Skin: Legendary Explorer's Boots
+11059: UNIQUE_HEAD_FOUNDER_ELITE                                        : Explorer's Hat
+11060: UNIQUE_UNLOCK_HEAD_FOUNDER_ELITE                                 : Wardrobe Skin: Explorer's Hat
+11061: UNIQUE_ARMOR_FOUNDER_ELITE                                       : Explorer's Armor
+11062: UNIQUE_UNLOCK_ARMOR_FOUNDER_ELITE                                : Wardrobe Skin: Explorer's Armor
+11063: UNIQUE_SHOES_FOUNDER_ELITE                                       : Explorer's Boots
+11064: UNIQUE_UNLOCK_SHOES_FOUNDER_ELITE                                : Wardrobe Skin: Explorer's Boots
+11065: UNIQUE_CAPE_STARTERPACK_LEGENDARY                                : Legendary Adventurer's Cloak
+11066: UNIQUE_UNLOCK_CAPE_STARTERPACK_LEGENDARY                         : Wardrobe Skin: Legendary Adventurer's Cloak
+11067: UNIQUE_HEAD_STARTERPACK_LEGENDARY                                : Legendary Adventurer's Hat
+11068: UNIQUE_UNLOCK_HEAD_STARTERPACK_LEGENDARY                         : Wardrobe Skin: Legendary Adventurer's Hat
+11069: UNIQUE_ARMOR_STARTERPACK_LEGENDARY                               : Legendary Adventurer's Armor
+11070: UNIQUE_UNLOCK_ARMOR_STARTERPACK_LEGENDARY                        : Wardrobe Skin: Legendary Adventurer's Armor
+11071: UNIQUE_SHOES_STARTERPACK_LEGENDARY                               : Legendary Adventurer's Boots
+11072: UNIQUE_UNLOCK_SHOES_STARTERPACK_LEGENDARY                        : Wardrobe Skin: Legendary Adventurer's Boots
+11073: UNIQUE_HEAD_STARTERPACK_ELITE                                    : Adventurer's Helmet
+11074: UNIQUE_UNLOCK_HEAD_STARTERPACK_ELITE                             : Wardrobe Skin: Adventurer's Helmet
+11075: UNIQUE_ARMOR_STARTERPACK_ELITE                                   : Adventurer's Jacket
+11076: UNIQUE_UNLOCK_ARMOR_STARTERPACK_ELITE                            : Wardrobe Skin: Adventurer's Jacket
+11077: UNIQUE_SHOES_STARTERPACK_ELITE                                   : Adventurer's Shoes
+11078: UNIQUE_UNLOCK_SHOES_STARTERPACK_ELITE                            : Wardrobe Skin: Adventurer's Shoes
+11079: UNIQUE_HEAD_VANITY_SKELETON_UNDEAD                               : Undead Skull
+11080: UNIQUE_UNLOCK_HEAD_VANITY_SKELETON_UNDEAD                        : Wardrobe Skin: Undead Skull
+11081: UNIQUE_ARMOR_VANITY_SKELETON_UNDEAD                              : Undead Ribcage
+11082: UNIQUE_UNLOCK_ARMOR_VANITY_SKELETON_UNDEAD                       : Wardrobe Skin: Undead Ribcage
+11083: UNIQUE_SHOES_VANITY_SKELETON_UNDEAD                              : Undead Legs
+11084: UNIQUE_UNLOCK_SHOES_VANITY_SKELETON_UNDEAD                       : Wardrobe Skin: Undead Legs
+11085: UNIQUE_CAPE_VANITY_SKELETON_UNDEAD                               : Ragged Undead Cape
+11086: UNIQUE_UNLOCK_CAPE_VANITY_SKELETON_UNDEAD                        : Wardrobe Skin: Ragged Undead Cape
+11087: UNIQUE_CAPE_TELLAFRIEND                                          : Recruiter's Cape
+11088: UNIQUE_UNLOCK_CAPE_TELLAFRIEND                                   : Wardrobe Skin: Recruiter's Cape
+11089: UNIQUE_CAPE_TELLAFRIEND_02                                       : Riuros Cape
+11090: UNIQUE_UNLOCK_CAPE_TELLAFRIEND_02                                : Wardrobe Skin: Riuros Cape
+11091: UNIQUE_CAPE_TELLAFRIEND_BATRIDER                                 : Master of Bats Cape
+11092: UNIQUE_UNLOCK_CAPE_TELLAFRIEND_BATRIDER                          : Wardrobe Skin: Master of Bats Cape
+11093: UNIQUE_CAPE_TELLAFRIEND_BANNER                                   : Recruiter's Banner
+11094: UNIQUE_UNLOCK_CAPE_TELLAFRIEND_BANNER                            : Wardrobe Skin: Recruiter's Banner
+11095: UNIQUE_CAPE_TELLAFRIEND_BANNER_02                                : Ogronios Banner
+11096: UNIQUE_UNLOCK_CAPE_TELLAFRIEND_BANNER_02                         : Wardrobe Skin: Ogronios Banner
+11097: UNIQUE_CAPE_TOAD_TELLAFRIEND                                     : Recruiter's Cape - Toad
+11098: UNIQUE_UNLOCK_CAPE_TOAD_TELLAFRIEND                              : Wardrobe Skin: Recruiter's Cape - Toad
+11099: UNIQUE_CAPE_BLOODHOUND_TELLAFRIEND                               : Recruiter's Cape - Rottweiler
+11100: UNIQUE_UNLOCK_CAPE_BLOODHOUND_TELLAFRIEND                        : Wardrobe Skin: Recruiter's Cape - Rottweiler
+11101: UNIQUE_CAPE_TIGER_TELLAFRIEND                                    : Recruiter's Tiger Cape
+11102: UNIQUE_UNLOCK_CAPE_TIGER_TELLAFRIEND                             : Wardrobe Skin: Recruiter's Tiger Cape
+11103: UNIQUE_CAPE_RAM_TELLAFRIEND                                      : Recruiter's Fur Cape
+11104: UNIQUE_UNLOCK_CAPE_RAM_TELLAFRIEND                               : Wardrobe Skin: Recruiter's Fur Cape
+11105: UNIQUE_CAPE_WOLF_GREY_TELLAFRIEND                                : Recruiter's Grey Wolf Cape
+11106: UNIQUE_UNLOCK_CAPE_WOLF_GREY_TELLAFRIEND                         : Wardrobe Skin: Recruiter's Grey Wolf Cape
+11107: T6_CAPE_PLATE_UNDEAD                                             : Decorative Undead Platemail Cape
+11108: UNIQUE_UNLOCK_T6_CAPE_PLATE_UNDEAD                               : Wardrobe Skin: Decorative Undead Platemail Cape
+11109: T6_CAPE_LEATHER_UNDEAD                                           : Decorative Undead Leather Cape
+11110: UNIQUE_UNLOCK_T6_CAPE_LEATHER_UNDEAD                             : Wardrobe Skin: Decorative Undead Leather Cape
+11111: T6_CAPE_CLOTH_UNDEAD                                             : Decorative Undead Cloth Cape
+11112: UNIQUE_UNLOCK_T6_CAPE_CLOTH_UNDEAD                               : Wardrobe Skin: Decorative Undead Cloth Cape
+11113: T6_CAPE_PLATE_KEEPER                                             : Decorative Keeper Platemail Cape
+11114: UNIQUE_UNLOCK_T6_CAPE_PLATE_KEEPER                               : Wardrobe Skin: Decorative Keeper Platemail Cape
+11115: T6_CAPE_LEATHER_KEEPER                                           : Decorative Keeper Leather Cape
+11116: UNIQUE_UNLOCK_T6_CAPE_LEATHER_KEEPER                             : Wardrobe Skin: Decorative Keeper Leather Cape
+11117: T6_CAPE_CLOTH_KEEPER                                             : Decorative Keeper Cloth Cape
+11118: UNIQUE_UNLOCK_T6_CAPE_CLOTH_KEEPER                               : Wardrobe Skin: Decorative Keeper Cloth Cape
+11119: T6_CAPE_PLATE_MORGANA                                            : Decorative Morgana Platemail Cape
+11120: UNIQUE_UNLOCK_T6_CAPE_PLATE_MORGANA                              : Wardrobe Skin: Decorative Morgana Platemail Cape
+11121: T6_CAPE_LEATHER_MORGANA                                          : Decorative Morgana Leather Cape
+11122: UNIQUE_UNLOCK_T6_CAPE_LEATHER_MORGANA                            : Wardrobe Skin: Decorative Morgana Leather Cape
+11123: T6_CAPE_CLOTH_MORGANA                                            : Decorative Morgana Cloth Cape
+11124: UNIQUE_UNLOCK_T6_CAPE_CLOTH_MORGANA                              : Wardrobe Skin: Decorative Morgana Cloth Cape
+11125: UNIQUE_HEAD_VANITY_ROGUE                                         : Rogue Adventurer's Hood
+11126: UNIQUE_ARMOR_VANITY_ROGUE                                        : Rogue Adventurer's Armor
+11127: UNIQUE_SHOES_VANITY_ROGUE                                        : Rogue Adventurer's Boots
+11128: UNIQUE_CAPE_VANITY_ROGUE                                         : Rogue Adventurer's Cape
+11129: UNIQUE_VANITY_MAIN_POISONBOTTLE_ROGUE                            : Rogue Adventurer's Poison Bottle
+11130: SKIN_ARMORED_HORSE_ROGUE                                         : Rogue Adventurer's Armored Horse
+11131: UNIQUE_ARMOR_VANITY_ROGUE_GUILD_COLORED                          : Rogue Adventurer's Heraldic Armor
+11132: UNIQUE_CAPE_VANITY_ROGUE_GUILD_COLORED                           : Rogue Adventurer's Heraldic Cape
+11133: SKIN_ARMORED_HORSE_ROGUE_GUILD_COLORED                           : Rogue Adventurer's Heraldic Armored Horse
+11134: UNIQUE_HEAD_VANITY_KNIGHT                                        : Knight Adventurer's Helmet
+11135: UNIQUE_ARMOR_VANITY_KNIGHT                                       : Knight Adventurer's Armor
+11136: UNIQUE_SHOES_VANITY_KNIGHT                                       : Knight Adventurer's Boots
+11137: UNIQUE_CAPE_VANITY_KNIGHT                                        : Knight Adventurer's Cape
+11138: UNIQUE_VANITY_2H_BANNER_KNIGHT_GUILD_COLORED                     : Knight Adventurer's Warbanner
+11139: SKIN_ARMORED_HORSE_KNIGHT                                        : Knight Adventurer's Armored Horse
+11140: UNIQUE_HEAD_VANITY_KNIGHT_GUILD_COLORED                          : Knight Adventurer's Heraldic Helmet
+11141: UNIQUE_ARMOR_VANITY_KNIGHT_GUILD_COLORED                         : Knight Adventurer's Heraldic Armor
+11142: UNIQUE_CAPE_VANITY_KNIGHT_GUILD_COLORED                          : Knight Adventurer's Heraldic Cape
+11143: SKIN_ARMORED_HORSE_KNIGHT_GUILD_COLORED                          : Knight Adventurer's Heraldic Armored Horse
+11144: UNIQUE_HEAD_VANITY_MAGE                                          : Mage Adventurer's Hat
+11145: UNIQUE_ARMOR_VANITY_MAGE                                         : Mage Adventurer's Armor
+11146: UNIQUE_SHOES_VANITY_MAGE                                         : Mage Adventurer's Boots
+11147: UNIQUE_CAPE_VANITY_MAGE                                          : Mage Adventurer's Cape
+11148: UNIQUE_VANITY_2H_SPELLBOOK_MAGE                                  : Mage Adventurer's Spellbook
+11149: SKIN_ARMORED_HORSE_MAGE                                          : Mage Adventurer's Armored Horse
+11150: UNIQUE_HEAD_VANITY_MAGE_GUILD_COLORED                            : Mage Adventurer's Heraldic Hat
+11151: UNIQUE_ARMOR_VANITY_MAGE_GUILD_COLORED                           : Mage Adventurer's Heraldic Armor
+11152: UNIQUE_CAPE_VANITY_MAGE_GUILD_COLORED                            : Mage Adventurer's Heraldic Cape
+11153: SKIN_ARMORED_HORSE_MAGE_GUILD_COLORED                            : Mage Adventurer's Heraldic Armored Horse
+11154: SKIN_COUGAR_MIST                                                 : Miststalker
+11155: UNIQUE_HEAD_VANITY_BARBARIAN                                     : Barbarian's Helmet
+11156: UNIQUE_ARMOR_VANITY_BARBARIAN                                    : Barbarian's Harness
+11157: UNIQUE_SHOES_VANITY_BARBARIAN                                    : Barbarian's Boots
+11158: UNIQUE_CAPE_VANITY_BARBARIAN                                     : Barbarian's Cape
+11159: SKIN_DIREWOLF_BARBARIAN                                          : War Beast
+11160: UNIQUE_HEAD_VANITY_SOULKEEPER                                    : Keeper of Souls Cowl
+11161: UNIQUE_ARMOR_VANITY_SOULKEEPER                                   : Keeper of Souls Armor
+11162: UNIQUE_SHOES_VANITY_SOULKEEPER                                   : Keeper of Souls Boots
+11163: UNIQUE_CAPE_VANITY_SOULKEEPER                                    : Keeper of Souls Cape
+11164: UNIQUE_VANITY_2H_PHYLACTERY_SOULKEEPER                           : Phylactery of Souls
+11165: SKIN_STAG_SOULKEEPER                                             : Keeper of Souls Stag
+11166: SKIN_HORSE_HELL                                                  : Hell Mare
+11167: SKIN_COUGAR_DARK                                                 : Darkfang
+11168: UNIQUE_HEAD_VANITY_PALADIN                                       : Paladin's Helmet
+11169: UNIQUE_ARMOR_VANITY_PALADIN                                      : Paladin's Armor
+11170: UNIQUE_SHOES_VANITY_PALADIN                                      : Paladin's Boots
+11171: UNIQUE_CAPE_VANITY_PALADIN                                       : Paladin's Cape
+11172: SKIN_ARMORED_HORSE_PALADIN                                       : Paladin's Warhorse
+11173: UNIQUE_ARMOR_VANITY_PALADIN_GUILD_COLORED                        : Paladin's Heraldic Armor
+11174: UNIQUE_CAPE_VANITY_PALADIN_GUILD_COLORED                         : Paladin's Heraldic Cape
+11175: SKIN_ARMORED_HORSE_PALADIN_GUILD_COLORED                         : Paladin's Heraldic Warhorse
+11176: UNIQUE_HEAD_VANITY_PALADIN_ANNIVERSARY                           : Anniversary Paladin's Helmet
+11177: UNIQUE_ARMOR_VANITY_PALADIN_ANNIVERSARY                          : Anniversary Paladin's Armor
+11178: UNIQUE_SHOES_VANITY_PALADIN_ANNIVERSARY                          : Anniversary Paladin's Boots
+11179: UNIQUE_CAPE_VANITY_PALADIN_ANNIVERSARY                           : Anniversary Paladin's Cape
+11180: SKIN_ARMORED_HORSE_PALADIN_ANNIVERSARY                           : Anniversary Paladin's Warhorse
+11181: SKIN_OX_MIST                                                     : Mistbison
+11182: UNIQUE_HEAD_VANITY_DEMONHUNTER                                   : Demon Hunter's Hat
+11183: UNIQUE_ARMOR_VANITY_DEMONHUNTER                                  : Demon Hunter's Coat
+11184: UNIQUE_SHOES_VANITY_DEMONHUNTER                                  : Demon Hunter's Boots
+11185: UNIQUE_CAPE_VANITY_DEMONHUNTER                                   : Demon Hunter's Cape
+11186: SKIN_HORSE_DEMONHUNTER                                           : Demon Hunter's Horse
+11187: SKIN_DIREWOLF_MIST                                               : Mistwolf
+11188: UNIQUE_HEAD_VANITY_DRUID                                         : Druid's Horns
+11189: UNIQUE_ARMOR_VANITY_DRUID                                        : Druid's Vestments
+11190: UNIQUE_SHOES_VANITY_DRUID                                        : Druid's Shoes
+11191: UNIQUE_CAPE_VANITY_DRUID                                         : Druid's Cape
+11192: SKIN_STAG_DRUID                                                  : Druid's Stag
+11193: SKIN_COUGAR_SHADOWCAT                                            : Shadowcat
+11194: UNIQUE_HEAD_VANITY_DEMONICWARRIOR                                : Demonic Warrior's Helmet
+11195: UNIQUE_ARMOR_VANITY_DEMONICWARRIOR                               : Demonic Warrior's Armor
+11196: UNIQUE_SHOES_VANITY_DEMONICWARRIOR                               : Demonic Warrior's Boots
+11197: UNIQUE_CAPE_VANITY_DEMONICWARRIOR                                : Demonic Warrior's Cape
+11198: SKIN_DIREWOLF_DEMONICWARRIOR                                     : Saddled Hellhound
+11199: UNIQUE_HEAD_VANITY_MONK                                          : Master of Fists Tattoo
+11200: UNIQUE_HEAD_VANITY_MONK_HAT                                      : Master of Fists Hat
+11201: UNIQUE_HEAD_VANITY_MONK_MASK                                     : Master of Fists Mask
+11202: UNIQUE_ARMOR_VANITY_MONK                                         : Master of Fists Robes
+11203: UNIQUE_SHOES_VANITY_MONK                                         : Master of Fists Sandals
+11204: UNIQUE_CAPE_VANITY_MONK                                          : Master of Fists Scroll
+11205: SKIN_HORSE_MONK                                                  : Master of Fists Horse
+11206: UNIQUE_HEAD_VANITY_MONK_MASK_GUILD_COLORED                       : Master of Fists Heraldic Mask
+11207: UNIQUE_ARMOR_VANITY_MONK_GUILD_COLORED                           : Master of Fists Heraldic Robes
+11208: SKIN_DIREWOLF_UNDEAD                                             : Undead Direwolf
+11209: UNIQUE_HEAD_VANITY_MARAUDER                                      : Reaver's Helmet
+11210: UNIQUE_ARMOR_VANITY_MARAUDER                                     : Reaver's Armor
+11211: UNIQUE_SHOES_VANITY_MARAUDER                                     : Reaver's Boots
+11212: UNIQUE_CAPE_VANITY_MARAUDER                                      : Reaver's Cape
+11213: SKIN_ARMORED_HORSE_MARAUDER                                      : Reaver's Armored Horse
+11214: UNIQUE_HEAD_VANITY_FIREMAGE                                      : Pyromancer's Aspect
+11215: UNIQUE_ARMOR_VANITY_FIREMAGE                                     : Pyromancer's Robe
+11216: UNIQUE_SHOES_VANITY_FIREMAGE                                     : Pyromancer's Boots
+11217: UNIQUE_CAPE_VANITY_FIREMAGE                                      : Pyromancer's Cape
+11218: SKIN_COUGAR_FIREMAGE                                             : Flamebeast
+11219: UNIQUE_HEAD_VANITY_FROSTMAGE                                     : Cryomancer's Aspect
+11220: UNIQUE_ARMOR_VANITY_FROSTMAGE                                    : Cryomancer's Robe
+11221: UNIQUE_SHOES_VANITY_FROSTMAGE                                    : Cryomancer's Boots
+11222: UNIQUE_CAPE_VANITY_FROSTMAGE                                     : Cryomancer's Cape
+11223: SKIN_COUGAR_FROSTMAGE                                            : Frostbeast
+11224: SKIN_DIREBOAR_OCCULT                                             : Cursed Direboar
+11225: UNIQUE_HEAD_VANITY_PRIEST_HOLY                                   : Priest's Hood
+11226: UNIQUE_ARMOR_VANITY_PRIEST_HOLY                                  : Priest's Robe
+11227: UNIQUE_SHOES_VANITY_PRIEST_HOLY                                  : Priest's Boots
+11228: UNIQUE_CAPE_VANITY_PRIEST_HOLY                                   : Priest's Cape
+11229: SKIN_HORSE_PRIEST_HOLY                                           : Ethereal Horse
+11230: UNIQUE_HEAD_VANITY_RANGER_HOOD                                   : Ranger's Hood
+11231: UNIQUE_HEAD_VANITY_RANGER_MASK                                   : Ranger's Mask
+11232: UNIQUE_ARMOR_VANITY_RANGER                                       : Ranger's Armor
+11233: UNIQUE_SHOES_VANITY_RANGER                                       : Ranger's Boots
+11234: UNIQUE_CAPE_VANITY_RANGER                                        : Ranger's Cape
+11235: SKIN_COUGAR_RANGER                                               : Mistprowler
+11236: UNIQUE_HEAD_VANITY_BATTLEMAGE                                    : Arcanist's Helmet
+11237: UNIQUE_ARMOR_VANITY_BATTLEMAGE                                   : Arcanist's Armor
+11238: UNIQUE_SHOES_VANITY_BATTLEMAGE                                   : Arcanist's Boots
+11239: UNIQUE_CAPE_VANITY_BATTLEMAGE                                    : Arcanist's Cape
+11240: SKIN_DIREBOAR_BATTLEMAGE                                         : Arcane Direboar
+11241: UNIQUE_HEAD_VANITY_ZEALOT                                        : Zealot's Hood
+11242: UNIQUE_ARMOR_VANITY_ZEALOT                                       : Zealot's Harness
+11243: UNIQUE_SHOES_VANITY_ZEALOT                                       : Zealot's Shoes
+11244: UNIQUE_CAPE_VANITY_ZEALOT                                        : Zealot's Cape
+11245: SKIN_DIREWOLF_ZEALOT                                             : Cursed Hound
+11246: UNIQUE_HEAD_VANITY_TITAN                                         : Titan's Helmet
+11247: UNIQUE_ARMOR_VANITY_TITAN                                        : Titan's Armor
+11248: UNIQUE_SHOES_VANITY_TITAN                                        : Titan's Boots
+11249: UNIQUE_CAPE_VANITY_TITAN                                         : Titan's Cape
+11250: SKIN_ARMORED_HORSE_TITAN                                         : Titan's Warhorse
+11251: UNIQUE_HEAD_VANITY_ASSASSIN                                      : Assassin's Mask
+11252: UNIQUE_ARMOR_VANITY_ASSASSIN                                     : Assassin's Armor
+11253: UNIQUE_SHOES_VANITY_ASSASSIN                                     : Assassin's Boots
+11254: UNIQUE_CAPE_VANITY_ASSASSIN                                      : Assassin's Swords
+11255: SKIN_COUGAR_ASSASSIN                                             : Assassin's Panther
+11256: UNIQUE_HEAD_VANITY_TRACKER                                       : Tracker's Hood
+11257: UNIQUE_ARMOR_VANITY_TRACKER                                      : Tracker's Armor
+11258: UNIQUE_SHOES_VANITY_TRACKER                                      : Tracker's Boots
+11259: UNIQUE_CAPE_VANITY_TRACKER                                       : Tracker's Spear
+11260: SKIN_HORSE_TRACKER                                               : Tracker's Horse
+11261: UNIQUE_HEAD_VANITY_ALCHEMIST                                     : Alchemist's Glasses
+11262: UNIQUE_ARMOR_VANITY_ALCHEMIST                                    : Alchemist's Armor
+11263: UNIQUE_SHOES_VANITY_ALCHEMIST                                    : Alchemist's Boots
+11264: UNIQUE_CAPE_VANITY_ALCHEMIST                                     : Alchemist's Backpack
+11265: SKIN_DIREBOAR_ALCHEMIST                                          : Alchemist's Packboar
+11266: UNIQUE_HEAD_VANITY_FROSTKNIGHT                                   : Frost Knight's Helmet
+11267: UNIQUE_ARMOR_VANITY_FROSTKNIGHT                                  : Frost Knight's Armor
+11268: UNIQUE_SHOES_VANITY_FROSTKNIGHT                                  : Frost Knight's Boots
+11269: UNIQUE_CAPE_VANITY_FROSTKNIGHT                                   : Frost Knight's Cape
+11270: SKIN_ARMORED_HORSE_FROSTKNIGHT                                   : Frost Knight's Warhorse
+11271: UNIQUE_HEAD_VANITY_DUELIST                                       : Duelist's Hat
+11272: UNIQUE_ARMOR_VANITY_DUELIST                                      : Duelist's Armor
+11273: UNIQUE_SHOES_VANITY_DUELIST                                      : Duelist's Boots
+11274: UNIQUE_CAPE_VANITY_DUELIST                                       : Duelist's Cape
+11275: SKIN_COUGAR_DUELIST                                              : Duelist's Lynx
+11276: UNIQUE_HEAD_VANITY_DUELIST_01                                    
+11277: UNIQUE_ARMOR_VANITY_DUELIST_01                                   
+11278: UNIQUE_SHOES_VANITY_DUELIST_01                                   
+11279: UNIQUE_CAPE_VANITY_DUELIST_01                                    
+11280: SKIN_COUGAR_DUELIST_01                                           
+11281: UNIQUE_HEAD_VANITY_CORRUPTED_PREACHER                            : Corrupted Preacher's Hat
+11282: UNIQUE_ARMOR_VANITY_CORRUPTED_PREACHER                           : Corrupted Preacher's Coat
+11283: UNIQUE_SHOES_VANITY_CORRUPTED_PREACHER                           : Corrupted Preacher's Boots
+11284: UNIQUE_CAPE_VANITY_CORRUPTED_PREACHER                            : Corrupted Preacher's Cape
+11285: SKIN_OX_CORRUPTED_PREACHER                                       : Corrupted Preacher's Ox
+11286: UNIQUE_HEAD_VANITY_BARBARIAN_ANNIVERSARY                         : Anniversary Barbarian's Helmet
+11287: UNIQUE_ARMOR_VANITY_BARBARIAN_ANNIVERSARY                        : Anniversary Barbarian's Harness
+11288: UNIQUE_SHOES_VANITY_BARBARIAN_ANNIVERSARY                        : Anniversary Barbarian's Boots
+11289: UNIQUE_CAPE_VANITY_BARBARIAN_ANNIVERSARY                         : Anniversary Barbarian's Cape
+11290: SKIN_DIREWOLF_BARBARIAN_ANNIVERSARY                              : Anniversary War Beast
+11291: UNIQUE_HEAD_VANITY_PRIEST_HOLY_ANNIVERSARY                       : Anniversary Priest's Hood
+11292: UNIQUE_ARMOR_VANITY_PRIEST_HOLY_ANNIVERSARY                      : Anniversary Priest's Robe
+11293: UNIQUE_SHOES_VANITY_PRIEST_HOLY_ANNIVERSARY                      : Anniversary Priest's Boots
+11294: UNIQUE_CAPE_VANITY_PRIEST_HOLY_ANNIVERSARY                       : Anniversary Priest's Cape
+11295: SKIN_HORSE_PRIEST_HOLY_ANNIVERSARY                               : Anniversary Ethereal Horse
+11296: UNIQUE_HEAD_VANITY_FW_COMMANDER                                  : Commander's Aspect
+11297: UNIQUE_ARMOR_VANITY_FW_COMMANDER                                 : Commander's Armor
+11298: UNIQUE_ARMOR_VANITY_FW_COMMANDER_GUILD_COLORED                   : Commander's Heraldic Armor
+11299: UNIQUE_SHOES_VANITY_FW_COMMANDER                                 : Commander's Shoes
+11300: UNIQUE_CAPE_VANITY_FW_COMMANDER                                  : Commander's Cape
+11301: UNIQUE_CAPE_VANITY_FW_COMMANDER_GUILD_COLORED                    : Commander's Heraldic Cape
+11302: SKIN_ARMORED_HORSE_FW_COMMANDER                                  : Commander's Armored Horse
+11303: SKIN_ARMORED_HORSE_FW_COMMANDER_GUILD_COLORED                    : Commander's Heraldic Armored Horse
+11304: UNIQUE_BACKPACK_VANITY_KICKSTART                                 : Warden's Backpack
+11305: UNIQUE_UNLOCK_BACKPACK_VANITY_KICKSTART                          : Wardrobe Skin: Warden's Backpack
+11306: UNIQUE_HEAD_VANITY_KICKSTART_2024_UPGRADE                        : Warden's Legendary Helmet
+11307: UNIQUE_UNLOCK_HEAD_VANITY_KICKSTART_2024_UPGRADE                 : Wardrobe Skin: Warden's Legendary Helmet
+11308: UNIQUE_ARMOR_VANITY_KICKSTART_2024_UPGRADE                       : Warden's Legendary Armor
+11309: UNIQUE_UNLOCK_ARMOR_VANITY_KICKSTART_2024_UPGRADE                : Wardrobe Skin: Warden's Legendary Armor
+11310: UNIQUE_SHOES_VANITY_KICKSTART_2024_UPGRADE                       : Warden's Legendary Boots
+11311: UNIQUE_UNLOCK_SHOES_VANITY_KICKSTART_2024_UPGRADE                : Wardrobe Skin: Warden's Legendary Boots
+11312: UNIQUE_CAPE_VANITY_KICKSTART_2024_UPGRADE                        : Warden's Legendary Axe
+11313: UNIQUE_UNLOCK_CAPE_VANITY_KICKSTART_2024_UPGRADE                 : Wardrobe Skin: Warden's Legendary Axe
+11314: SKIN_HORSE_KICKSTART_2024_UPGRADE                                : Warden's Legendary Steed
+11315: UNIQUE_UNLOCK_HORSE_VANITY_KICKSTART_2024_UPGRADE                : Riding Horse Skin: Warden's Legendary Steed
+11316: UNIQUE_HEAD_VANITY_KICKSTART_2024                                : Warden's Helmet
+11317: UNIQUE_UNLOCK_HEAD_VANITY_KICKSTART_2024                         : Wardrobe Skin: Warden's Helmet
+11318: UNIQUE_ARMOR_VANITY_KICKSTART_2024                               : Warden's Armor
+11319: UNIQUE_UNLOCK_ARMOR_VANITY_KICKSTART_2024                        : Wardrobe Skin: Warden's Armor
+11320: UNIQUE_SHOES_VANITY_KICKSTART_2024                               : Warden's Boots
+11321: UNIQUE_UNLOCK_SHOES_VANITY_KICKSTART_2024                        : Wardrobe Skin: Warden's Boots
+11322: UNIQUE_CAPE_VANITY_KICKSTART_2024                                : Warden's Axe
+11323: UNIQUE_UNLOCK_CAPE_VANITY_KICKSTART_2024                         : Wardrobe Skin: Warden's Axe
+11324: SKIN_HORSE_KICKSTART_2024                                        : Warden's Steed
+11325: UNIQUE_UNLOCK_HORSE_VANITY_KICKSTART_2024                        : Riding Horse Skin: Warden's Steed
+11326: UNIQUE_HEAD_VANITY_KNIGHT_GREEN                                  : Green Knight's Helmet
+11327: UNIQUE_ARMOR_VANITY_KNIGHT_GREEN                                 : Green Knight's Armor
+11328: UNIQUE_SHOES_VANITY_KNIGHT_GREEN                                 : Green Knight's Boots
+11329: UNIQUE_CAPE_VANITY_KNIGHT_GREEN                                  : Green Knight's Cape
+11330: SKIN_ARMORED_HORSE_KNIGHT_GREEN                                  : Green Knight's Armored Horse
+11331: UNIQUE_UNLOCK_HEAD_VANITY_SMUGGLER                               : Wardrobe Skin: Smuggler's Hat
+11332: UNIQUE_HEAD_VANITY_SMUGGLER                                      : Smuggler's Hat
+11333: UNIQUE_UNLOCK_ARMOR_VANITY_SMUGGLER                              : Wardrobe Skin: Smuggler's Coat
+11334: UNIQUE_ARMOR_VANITY_SMUGGLER                                     : Smuggler's Coat
+11335: UNIQUE_UNLOCK_SHOES_VANITY_SMUGGLER                              : Wardrobe Skin: Smuggler's Boots
+11336: UNIQUE_SHOES_VANITY_SMUGGLER                                     : Smuggler's Boots
+11337: UNIQUE_UNLOCK_CAPE_VANITY_SMUGGLER                               : Wardrobe Skin: Smuggler's Cloak
+11338: UNIQUE_CAPE_VANITY_SMUGGLER                                      : Smuggler's Cloak
+11339: UNIQUE_HEAD_VANITY_KNIGHT_AOCP                                   : Noble Knight's Helmet
+11340: UNIQUE_UNLOCK_HEAD_VANITY_KNIGHT_AOCP_NON_TRADABLE               : Wardrobe Skin: Noble Knight's Helmet
+11341: UNIQUE_ARMOR_VANITY_KNIGHT_AOCP                                  : Noble Knight's Armor
+11342: UNIQUE_UNLOCK_ARMOR_VANITY_KNIGHT_AOCP_NON_TRADABLE              : Wardrobe Skin: Noble Knight's Armor
+11343: UNIQUE_SHOES_VANITY_KNIGHT_AOCP                                  : Noble Knight's Shoes
+11344: UNIQUE_UNLOCK_SHOES_VANITY_KNIGHT_AOCP_NON_TRADABLE              : Wardrobe Skin: Noble Knight's Shoes
+11345: UNIQUE_CAPE_VANITY_KNIGHT_AOCP                                   : Noble Knight's Cape
+11346: UNIQUE_UNLOCK_CAPE_VANITY_KNIGHT_AOCP_NON_TRADABLE               : Wardrobe Skin: Noble Knight's Cape
+11347: SKIN_DIREBOAR_FIBER_GATHERER                                     : Buttercup
+11348: UNIQUE_UNLOCK_DIREBOAR_FIBER_GATHERER                            : Direboar Skin: Buttercup
+11349: UNIQUE_OFF_VANITY_PUMPKIN_HAPPY                                  : Snack-O'-Lantern
+11350: UNIQUE_UNLOCK_OFF_VANITY_PUMPKIN_HAPPY_NON_TRADABLE              : Wardrobe Skin: Snack-O'-Lantern
+11351: UNIQUE_OFF_VANITY_PUMPKIN_SAD                                    : Burp-O'-Lantern
+11352: UNIQUE_UNLOCK_OFF_VANITY_PUMPKIN_SAD_NON_TRADABLE                : Wardrobe Skin: Burp-O'-Lantern
+11353: UNIQUE_OFF_VANITY_PUMPKIN_ANGRY                                  : Grump-O'-Lantern
+11354: UNIQUE_UNLOCK_OFF_VANITY_PUMPKIN_ANGRY_NON_TRADABLE              : Wardrobe Skin: Grump-O'-Lantern
+11355: UNIQUE_UNLOCK_HEAD_VANITY_FW_SOLDIER_PLATE                       
+11356: UNIQUE_HEAD_VANITY_FW_SOLDIER_PLATE                              : Faction Legionnaire's Helm
+11357: UNIQUE_UNLOCK_ARMOR_VANITY_FW_SOLDIER_PLATE                      
+11358: UNIQUE_ARMOR_VANITY_FW_SOLDIER_PLATE                             : Faction Legionnaire's Armor
+11359: UNIQUE_UNLOCK_SHOES_VANITY_FW_SOLDIER_PLATE                      
+11360: UNIQUE_SHOES_VANITY_FW_SOLDIER_PLATE                             : Faction Legionnaire's Boots
+11361: UNIQUE_UNLOCK_CAPE_VANITY_FW_SOLDIER_PLATE                       
+11362: UNIQUE_CAPE_VANITY_FW_SOLDIER_PLATE                              : Faction Legionnaire's Cape
+11363: UNIQUE_UNLOCK_AVATAR_FW_SOLDIER                                  
+11364: UNIQUE_UNLOCK_AVATARRING_FW_SOLDIER                              
+11365: UNIQUE_TEST_DUNGEONMAP_PROTOTYPE                                 
+11366: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_01_TEMPLATE                      
+11367: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_02_TEMPLATE                      
+11368: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_03_S11_TEMPLATE                  
+11369: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_03_TEMPLATE                      
+11370: T4_TOKEN_CRYSTALLEAGUE_CITY_NOVENDOR_LVL_02_TEMPLATE             
+11371: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_04_TEMPLATE                      
+11372: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_05_TEMPLATE                      
+11373: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_06_TEMPLATE                      
+11374: T4_TOKEN_CRYSTALLEAGUE_CITY_LVL_07_TEMPLATE                      
+11375: T4_TOKEN_CRYSTALLEAGUE_LVL_01_TEMPLATE                           
+11376: T4_TOKEN_CRYSTALLEAGUE_LVL_02_TEMPLATE                           
+11377: T4_TOKEN_CRYSTALLEAGUE_LVL_03_TEMPLATE                           
+11378: T4_TOKEN_CRYSTALLEAGUE_NOVENDOR_LVL_02_TEMPLATE                  
+11379: T4_TOKEN_CRYSTALLEAGUE_NOVENDOR_LVL_03_TEMPLATE                  
+11380: T4_TOKEN_CRYSTALLEAGUE_LVL_04_TEMPLATE                           
+11381: T4_TOKEN_CRYSTALLEAGUE_LVL_05_TEMPLATE                           
+11382: T4_TOKEN_CRYSTALLEAGUE_LVL_06_TEMPLATE                           
+11383: T4_TOKEN_CRYSTALLEAGUE_LVL_07_TEMPLATE                           
+11384: T4_TOKEN_CRYSTALLEAGUE_LVL_08_TEMPLATE                           
+11385: T4_TOKEN_CRYSTALLEAGUE_LVL_09_TEMPLATE                           
+11386: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_01_TEMPLATE                 
+11387: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_02_TEMPLATE                 
+11388: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_03_TEMPLATE                 
+11389: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_04_TEMPLATE                 
+11390: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_05_TEMPLATE                 
+11391: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_06_TEMPLATE                 
+11392: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_07_TEMPLATE                 
+11393: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_08_TEMPLATE                 
+11394: T4_TOKEN_CRYSTALLEAGUE_NONLETHAL_LVL_09_TEMPLATE                 
+11395: UNIQUE_TOKEN_COMMUNITY                                           : Community Token
+11396: UNIQUE_TOKEN_AOCP                                                : Noble Community Token
+11397: UNIQUE_LOOTCHEST_COMMUNITY_COMMON                                : Common Community Chest
+11398: UNIQUE_LOOTCHEST_COMMUNITY_COMMON_PREMIUM@1                      : Premium Common Community Chest
+11399: UNIQUE_LOOTCHEST_COMMUNITY_RARE                                  : Rare Community Chest
+11400: UNIQUE_LOOTCHEST_COMMUNITY_RARE_PREMIUM@1                        : Premium Rare Community Chest
+11401: UNIQUE_LOOTCHEST_COMMUNITY_EPIC                                  : Epic Community Chest
+11402: UNIQUE_LOOTCHEST_COMMUNITY_EPIC_PREMIUM@1                        : Premium Epic Community Chest
+11403: UNIQUE_LOOTCHEST_COMMUNITY_LEGENDARY                             : Legendary Community Chest
+11404: UNIQUE_LOOTCHEST_COMMUNITY_LEGENDARY_PREMIUM@1                   : Premium Legendary Community Chest
+11405: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_COMMON                      : Common Community Treasure
+11406: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_COMMON_PREMIUM@1            : Premium Common Community Treasure
+11407: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_RARE                        : Rare Community Treasure
+11408: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_RARE_PREMIUM@1              : Premium Rare Community Treasure
+11409: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_EPIC                        : Epic Community Treasure
+11410: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_EPIC_PREMIUM@1              : Premium Epic Community Treasure
+11411: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_LEGENDARY                   : Legendary Community Treasure
+11412: UNIQUE_LOOTCHEST_COMMUNITY_EXCLUSIVE_LEGENDARY_PREMIUM@1         : Premium Legendary Community Treasure
+11413: UNIQUE_LOOTCHEST_COMMUNITY_GENERIC                               : Community Chest
+11414: UNIQUE_LOOTCHEST_COMMUNITY_GENERIC_PREMIUM@1                     : Premium Community Chest
+11415: UNIQUE_LOOTCHEST_AOCP                                            : Noble Community Chest
+11416: UNIQUE_LOOTCHEST_AOCP_PREMIUM@1                                  : Premium Noble Community Chest
+11417: UNIQUE_UNLOCK_HEAD_VANITY_DRESS_BLUE_NON_TRADABLE                : Wardrobe Skin: Blue Princess Hat
+11418: UNIQUE_UNLOCK_HEAD_VANITY_DRESS_BLACK_NON_TRADABLE               : Wardrobe Skin: Noblewoman's Jewelry
+11419: UNIQUE_UNLOCK_HEAD_VANITY_PRIEST_NON_TRADABLE                    : Wardrobe Skin: Monk's Hood
+11420: UNIQUE_UNLOCK_HEAD_VANITY_WEDDING_DRESS_NON_TRADABLE             : Wardrobe Skin: Bridal Veil
+11421: UNIQUE_UNLOCK_HEAD_VANITY_WEDDING_TUXEDO_NON_TRADABLE            : Wardrobe Skin: Groom's Hat
+11422: UNIQUE_UNLOCK_HEAD_VANITY_BARD_NON_TRADABLE                      : Wardrobe Skin: Bard's Hat
+11423: UNIQUE_UNLOCK_HEAD_VANITY_INNKEEPER_NON_TRADABLE                 : Wardrobe Skin: Innkeeper's Hat
+11424: UNIQUE_UNLOCK_HEAD_VANITY_PIRATE_NON_TRADABLE                    : Wardrobe Skin: Navigator's Hat
+11425: UNIQUE_UNLOCK_ARMOR_VANITY_DRESS_BLUE_NON_TRADABLE               : Wardrobe Skin: Blue Princess Dress
+11426: UNIQUE_UNLOCK_ARMOR_VANITY_DRESS_BLACK_NON_TRADABLE              : Wardrobe Skin: Noblewoman's Dress
+11427: UNIQUE_UNLOCK_ARMOR_VANITY_PRIEST_NON_TRADABLE                   : Wardrobe Skin: Monk's Robe
+11428: UNIQUE_UNLOCK_ARMOR_VANITY_WEDDING_DRESS_NON_TRADABLE            : Wardrobe Skin: Bridal Dress
+11429: UNIQUE_UNLOCK_ARMOR_VANITY_WEDDING_TUXEDO_NON_TRADABLE           : Wardrobe Skin: Groom's Suit
+11430: UNIQUE_UNLOCK_ARMOR_VANITY_BARD_NON_TRADABLE                     : Wardrobe Skin: Bard's Suit
+11431: UNIQUE_UNLOCK_ARMOR_VANITY_INNKEEPER_NON_TRADABLE                : Wardrobe Skin: Innkeeper's Shirt
+11432: UNIQUE_UNLOCK_ARMOR_VANITY_PIRATE_NON_TRADABLE                   : Wardrobe Skin: Navigator's Coat
+11433: UNIQUE_UNLOCK_SHOES_VANITY_DRESS_BLUE_NON_TRADABLE               : Wardrobe Skin: Blue Princess Shoes
+11434: UNIQUE_UNLOCK_SHOES_VANITY_DRESS_BLACK_NON_TRADABLE              : Wardrobe Skin: Noblewoman's Shoes
+11435: UNIQUE_UNLOCK_SHOES_VANITY_PRIEST_NON_TRADABLE                   : Wardrobe Skin: Monk's Sandals
+11436: UNIQUE_UNLOCK_SHOES_VANITY_WEDDING_DRESS_NON_TRADABLE            : Wardrobe Skin: Bridal Shoes
+11437: UNIQUE_UNLOCK_SHOES_VANITY_WEDDING_TUXEDO_NON_TRADABLE           : Wardrobe Skin: Groom's Shoes
+11438: UNIQUE_UNLOCK_SHOES_VANITY_BARD_NON_TRADABLE                     : Wardrobe Skin: Bard's Shoes
+11439: UNIQUE_UNLOCK_SHOES_VANITY_INNKEEPER_NON_TRADABLE                : Wardrobe Skin: Innkeeper's Shoes
+11440: UNIQUE_UNLOCK_SHOES_VANITY_PIRATE_NON_TRADABLE                   : Wardrobe Skin: Navigator's Boots
+11441: UNIQUE_UNLOCK_CAPE_VANITY_WEDDING_TUXEDO_NON_TRADABLE            : Wardrobe Skin: Groom's Cape
+11442: UNIQUE_UNLOCK_VANITY_2H_CHICKENGUN_EASTER_NON_TRADABLE           : Wardrobe Skin: The Eggsecutioner
+11443: UNIQUE_UNLOCK_OFF_VANITY_PRIEST_NON_TRADABLE                     : Wardrobe Skin: Monk's Walking Staff
+11444: UNIQUE_UNLOCK_OFF_VANITY_WEDDING_DRESS_NON_TRADABLE              : Wardrobe Skin: Bridal Bouquet
+11445: UNIQUE_UNLOCK_OFF_VANITY_WEDDING_TUXEDO_NON_TRADABLE             : Wardrobe Skin: Wedding Ring
+11446: UNIQUE_UNLOCK_OFF_VANITY_INNKEEPER_NON_TRADABLE                  : Wardrobe Skin: Innkeeper's Beer Mug
+11447: UNIQUE_UNLOCK_OFF_VANITY_PIRATE_NON_TRADABLE                     : Wardrobe Skin: Navigator's Parrot Cage
+11448: UNIQUE_UNLOCK_SKIN_HORSE_BROWN_NON_TRADABLE                      : Riding Horse Skin: Brown Mare
+11449: UNIQUE_UNLOCK_SKIN_HORSE_KEEPER_NON_TRADABLE                     : Riding Horse Skin: Keeper Horse
+11450: UNIQUE_UNLOCK_SKIN_HORSE_UNICORN_NON_TRADABLE                    : Riding Horse Skin: Nightshade Unicorn
+11451: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_T5_GUILD_NON_TRADABLE           : Armored Horse Skin: Expert's Heraldic Warhorse
+11452: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_T6_GUILD_NON_TRADABLE           : Armored Horse Skin: Master's Heraldic Warhorse
+11453: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_T7_GUILD_NON_TRADABLE           : Armored Horse Skin: Grandmaster's Heraldic Warhorse
+11454: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_T8_GUILD_NON_TRADABLE           : Armored Horse Skin: Elder's Heraldic Warhorse
+11455: UNIQUE_UNLOCK_SKIN_OX_BISON_AH_NON_TRADABLE                      : Transport Ox Skin: Auction House Ox
+11456: UNIQUE_UNLOCK_SKIN_OX_BISON_ROYAL_NON_TRADABLE                   : Transport Ox Skin: Royal Ox
+11457: UNIQUE_UNLOCK_SKIN_OX_BLACKMARKET_NON_TRADABLE                   : Transport Ox Skin: Black Market Ox
+11458: UNIQUE_HEAD_VANITY_DRESS_GREEN                                   : Green Princess Hat
+11459: UNIQUE_UNLOCK_HEAD_VANITY_DRESS_GREEN_NON_TRADABLE               : Wardrobe Skin: Green Princess Hat
+11460: UNIQUE_ARMOR_VANITY_DRESS_GREEN                                  : Green Princess Dress
+11461: UNIQUE_UNLOCK_ARMOR_VANITY_DRESS_GREEN_NON_TRADABLE              : Wardrobe Skin: Green Princess Dress
+11462: UNIQUE_SHOES_VANITY_DRESS_GREEN                                  : Green Princess Shoes
+11463: UNIQUE_UNLOCK_SHOES_VANITY_DRESS_GREEN_NON_TRADABLE              : Wardrobe Skin: Green Princess Shoes
+11464: UNIQUE_HEAD_VANITY_ENTERTAINER                                   : Entertainer's Mask
+11465: UNIQUE_UNLOCK_HEAD_VANITY_ENTERTAINER_NON_TRADABLE               : Wardrobe Skin: Entertainer's Mask
+11466: UNIQUE_ARMOR_VANITY_ENTERTAINER                                  : Entertainer's Costume
+11467: UNIQUE_UNLOCK_ARMOR_VANITY_ENTERTAINER_NON_TRADABLE              : Wardrobe Skin: Entertainer's Costume
+11468: UNIQUE_SHOES_VANITY_ENTERTAINER                                  : Entertainer's Shoes
+11469: UNIQUE_UNLOCK_SHOES_VANITY_ENTERTAINER_NON_TRADABLE              : Wardrobe Skin: Entertainer's Shoes
+11470: UNIQUE_HEAD_VANITY_NIGHTGOWN                                     : Sleeping Cap
+11471: UNIQUE_UNLOCK_HEAD_VANITY_NIGHTGOWN_NON_TRADABLE                 : Wardrobe Skin: Sleeping Cap
+11472: UNIQUE_CAPE_VANITY_HYENA                                         : Hyena Cape
+11473: UNIQUE_UNLOCK_CAPE_VANITY_HYENA_NON_TRADABLE                     : Wardrobe Skin: Hyena Cape
+11474: SKIN_COUGAR_AMETHYST                                             : Amethyst Cougar
+11475: UNIQUE_UNLOCK_SKIN_COUGAR_AMETHYST                               : Swiftclaw Skin: Amethyst Cougar
+11476: SKIN_GIANTSTAG_ALPACA_BROWN                                      : Brown Alpaca
+11477: UNIQUE_UNLOCK_SKIN_GIANTSTAG_ALPACA_BROWN                        : Stag Skin: Brown Alpaca
+11478: SKIN_HORSE_UNICORN_AMETHYST                                      : Amethyst Unicorn
+11479: UNIQUE_UNLOCK_SKIN_HORSE_UNICORN_AMETHYST                        : Riding Horse Skin: Amethyst Unicorn
+11480: UNIQUE_HEAD_VANITY_PIRATE_GREEN                                  : Green Navigator's Hat
+11481: UNIQUE_UNLOCK_HEAD_VANITY_PIRATE_GREEN_NON_TRADABLE              : Wardrobe Skin: Green Navigator's Hat
+11482: UNIQUE_ARMOR_VANITY_PIRATE_GREEN                                 : Green Navigator's Coat
+11483: UNIQUE_UNLOCK_ARMOR_VANITY_PIRATE_GREEN_NON_TRADABLE             : Wardrobe Skin: Green Navigator's Coat
+11484: UNIQUE_SHOES_VANITY_PIRATE_GREEN                                 : Green Navigator's Boots
+11485: UNIQUE_UNLOCK_SHOES_VANITY_PIRATE_GREEN_NON_TRADABLE             : Wardrobe Skin: Green Navigator's Boots
+11486: UNIQUE_OFF_VANITY_PIRATE_RED                                     : Navigator's Red Parrot Cage
+11487: UNIQUE_UNLOCK_OFF_VANITY_PIRATE_RED_NON_TRADABLE                 : Wardrobe Skin: Navigator's Red Parrot Cage
+11488: UNIQUE_OFF_VANITY_PIRATE_GREEN                                   : Navigator's Green Parrot Cage
+11489: UNIQUE_UNLOCK_OFF_VANITY_PIRATE_GREEN_NON_TRADABLE               : Wardrobe Skin: Navigator's Green Parrot Cage
+11490: UNIQUE_OFF_VANITY_PIRATE_COCKATOO                                : Navigator's Cockatoo Cage
+11491: UNIQUE_UNLOCK_OFF_VANITY_PIRATE_COCKATOO_NON_TRADABLE            : Wardrobe Skin: Navigator's Cockatoo Cage
+11492: UNIQUE_HEAD_VANITY_PRIEST_RED                                    : Exiled Monk's Hood
+11493: UNIQUE_UNLOCK_HEAD_VANITY_PRIEST_RED_NON_TRADABLE                : Wardrobe Skin: Exiled Monk's Hood
+11494: UNIQUE_ARMOR_VANITY_PRIEST_RED                                   : Exiled Monk's Robe
+11495: UNIQUE_UNLOCK_ARMOR_VANITY_PRIEST_RED_NON_TRADABLE               : Wardrobe Skin: Exiled Monk's Robe
+11496: UNIQUE_SHOES_VANITY_PRIEST_RED                                   : Exiled Monk's Sandals
+11497: UNIQUE_UNLOCK_SHOES_VANITY_PRIEST_RED_NON_TRADABLE               : Wardrobe Skin: Exiled Monk's Sandals
+11498: UNIQUE_OFF_VANITY_PRIEST_RED                                     : Exiled Monk's Walking Staff
+11499: UNIQUE_UNLOCK_OFF_VANITY_PRIEST_RED_NON_TRADABLE                 : Wardrobe Skin: Exiled Monk's Walking Staff
+11500: UNIQUE_CAPE_VANITY_SNOWLEOPARD                                   : Snow Leopard Cape
+11501: UNIQUE_UNLOCK_CAPE_VANITY_SNOWLEOPARD_NON_TRADABLE               : Wardrobe Skin: Snow Leopard Cape
+11502: UNIQUE_HEAD_VANITY_RICH_NOBLE_PURPLE                             : Purple Rich Noble's Hat
+11503: UNIQUE_UNLOCK_HEAD_VANITY_RICH_NOBLE_PURPLE_NON_TRADABLE         : Wardrobe Skin: Purple Rich Noble's Hat
+11504: UNIQUE_ARMOR_VANITY_RICH_NOBLE_PURPLE                            : Purple Rich Noble's Doublet
+11505: UNIQUE_UNLOCK_ARMOR_VANITY_RICH_NOBLE_PURPLE_NON_TRADABLE        : Wardrobe Skin: Purple Rich Noble's Doublet
+11506: UNIQUE_SHOES_VANITY_RICH_NOBLE_PURPLE                            : Purple Rich Noble's Footwear
+11507: UNIQUE_UNLOCK_SHOES_VANITY_RICH_NOBLE_PURPLE_NON_TRADABLE        : Wardrobe Skin: Purple Rich Noble's Footwear
+11508: UNIQUE_HEAD_VANITY_NIGHTGOWN_BLACK                               : Black Sleeping Cap
+11509: UNIQUE_UNLOCK_HEAD_VANITY_NIGHTGOWN_BLACK_NON_TRADABLE           : Wardrobe Skin: Black Sleeping Cap
+11510: UNIQUE_HEAD_VANITY_NIGHTGOWN_BELL                                : Sleeping Cap with Bell
+11511: UNIQUE_UNLOCK_HEAD_VANITY_NIGHTGOWN_BELL_NON_TRADABLE            : Wardrobe Skin: Sleeping Cap with Bell
+11512: UNIQUE_HEAD_VANITY_BARD_BLUE                                     : Blue Bard's Hat
+11513: UNIQUE_UNLOCK_HEAD_VANITY_BARD_BLUE_NON_TRADABLE                 : Wardrobe Skin: Blue Bard's Hat
+11514: UNIQUE_ARMOR_VANITY_BARD_BLUE                                    : Blue Bard's Suit
+11515: UNIQUE_UNLOCK_ARMOR_VANITY_BARD_BLUE_NON_TRADABLE                : Wardrobe Skin: Blue Bard's Suit
+11516: UNIQUE_SHOES_VANITY_BARD_BLUE                                    : Blue Bard's Shoes
+11517: UNIQUE_UNLOCK_SHOES_VANITY_BARD_BLUE_NON_TRADABLE                : Wardrobe Skin: Blue Bard's Shoes
+11518: SKIN_DIREWOLF_FENNEK                                             : Fennec
+11519: UNIQUE_UNLOCK_SKIN_DIREWOLF_FENNEK                               : Direwolf Skin: Fennec
+11520: SKIN_HORSE_QUESTING_BEAST_GREEN                                  : Green Chimera
+11521: UNIQUE_UNLOCK_SKIN_HORSE_QUESTING_BEAST_GREEN                    : Riding Horse Skin: Green Chimera
+11522: T1_KILL_EMOTE_TOMBSTONE_CHARGES_NONTRADABLE                      : Tombstone Victory Emote Charge
+11523: T1_KILL_EMOTE_FLAG_CHARGES_NONTRADABLE                           : Guild Banner Victory Emote Charge
+11524: T1_KILL_EMOTE_GHOST_CHARGES_NONTRADABLE                          : Ghost Victory Emote Charge
+11525: T1_KILL_EMOTE_OVERGROWN_CHARGES_NONTRADABLE                      : Overgrown Victory Emote Charge
+11526: T1_KILL_EMOTE_HELLGATE_CHARGES_NONTRADABLE                       : Hellgate Victory Emote Charge
+11527: T1_KILL_EMOTE_SWORD_CHARGES_NONTRADABLE                          : Sword Victory Emote Charge
+11528: T1_KILL_EMOTE_HAMMER_CHARGES_NONTRADABLE                         : Hammer Victory Emote Charge
+11529: T1_KILL_EMOTE_FLAG_MOBILE_CHARGES_NONTRADABLE                    : Mobile Banner Victory Emote Charge
+11530: T1_KILL_EMOTE_FLAG_DESKTOP_CHARGES_NONTRADABLE                   : Desktop Banner Victory Emote Charge
+11531: T1_KILL_EMOTE_FLAG_CONTROLLER_CHARGES_NONTRADABLE                : Controller Banner Victory Emote Charge
+11532: T1_KILL_EMOTE_TOMBSTONE_CHARGES_TRADABLE                         
+11533: T1_KILL_EMOTE_FLAG_CHARGES_TRADABLE                              
+11534: T1_KILL_EMOTE_GHOST_CHARGES_TRADABLE                             
+11535: T1_KILL_EMOTE_OVERGROWN_CHARGES_TRADABLE                         
+11536: T1_KILL_EMOTE_HELLGATE_CHARGES_TRADABLE                          
+11537: T1_KILL_EMOTE_SWORD_CHARGES_TRADABLE                             
+11538: T1_KILL_EMOTE_HAMMER_CHARGES_TRADABLE                            
+11539: T1_KILL_EMOTE_FLAG_MOBILE_CHARGES_TRADABLE                       
+11540: T1_KILL_EMOTE_FLAG_DESKTOP_CHARGES_TRADABLE                      
+11541: T1_KILL_EMOTE_FLAG_CONTROLLER_CHARGES_TRADABLE                   
+11542: UNIQUE_UNLOCK_VANITY_HEAD_TUTORIAL_COMPLETED_AJ                  : Wardrobe Skin: Academic Biretta
+11543: UNIQUE_VANITY_HEAD_TUTORIAL_COMPLETED_AJ                         : Academic Biretta
+11544: UNIQUE_AVATARRING_AJ_PVE_01                                      : PvE Avatar Ring
+11545: UNIQUE_AVATAR_AJ_PVE_01                                          : PvE Avatar
+11546: UNIQUE_UNLOCK_SKIN_DIREBEAR_ADVENTURE_AJ                         : Direbear Skin: Delver's Direbear
+11547: SKIN_DIREBEAR_ADVENTURE_AJ                                       : Delver's Direbear
+11548: UNIQUE_UNLOCK_VANITY_MAIN_DICE_SIXSIDED_AJ                       : Wardrobe Skin: Cube of Fate
+11549: UNIQUE_VANITY_MAIN_DICE_SIXSIDED_AJ                              : Cube of Fate
+11550: UNIQUE_UNLOCK_VANITY_MAIN_DICE_TWENTYSIDED_AJ                    : Wardrobe Skin: Icosahedron of Fate
+11551: UNIQUE_VANITY_MAIN_DICE_TWENTYSIDED_AJ                           : Icosahedron of Fate
+11552: UNIQUE_AVATARRING_AJ_GATHERING_01                                : Gatherer's Avatar Ring
+11553: UNIQUE_AVATAR_AJ_GATHERING_01                                    : Gatherer's Avatar
+11554: UNIQUE_UNLOCK_SKIN_DIREBOAR_MECHANICAL_AJ                        : Direboar Skin: Mechanical Boar
+11555: SKIN_DIREBOAR_MECHANICAL_AJ                                      : Mechanical Boar
+11556: UNIQUE_UNLOCK_VANITY_2H_MULTITOOL_AJ                             : Wardrobe Skin: Sharpened Axe
+11557: UNIQUE_VANITY_2H_MULTITOOL_AJ                                    : Sharpened Axe
+11558: UNIQUE_UNLOCK_VANITY_2H_MULTITOOL_OVERCHARGED_AJ                 : Wardrobe Skin: Razor-Sharp Axe
+11559: UNIQUE_VANITY_2H_MULTITOOL_OVERCHARGED_AJ                        : Razor-Sharp Axe
+11560: UNIQUE_AVATARRING_AJ_ECONOMY_01                                  : Merchant's Avatar Ring
+11561: UNIQUE_AVATAR_AJ_ECONOMY_01                                      : Merchant's Avatar
+11562: UNIQUE_UNLOCK_SKIN_MAMMOTH_WEALTHY_AJ                            : Mammoth Skin: Black Market Palanquin
+11563: SKIN_MAMMOTH_WEALTHY_AJ                                          : Black Market Palanquin
+11564: UNIQUE_UNLOCK_ARMOR_VANITY_WEALTHY_NOBLE_AJ                      : Wardrobe Skin: Decadent Robe
+11565: UNIQUE_ARMOR_VANITY_WEALTHY_NOBLE_AJ                             : Decadent Robe
+11566: UNIQUE_UNLOCK_ARMOR_VANITY_VERY_WEALTHY_NOBLE_AJ                 : Wardrobe Skin: Exorbitant Robe
+11567: UNIQUE_ARMOR_VANITY_VERY_WEALTHY_NOBLE_AJ                        : Exorbitant Robe
+11568: UNIQUE_AVATARRING_AJ_FARMER_01                                   : Homesteader's Avatar Ring
+11569: UNIQUE_AVATAR_AJ_FARMER_01                                       : Homesteader's Avatar
+11570: UNIQUE_UNLOCK_SKIN_OX_FARMER_AJ                                  : Transport Ox Skin: Bountiful Harvest Ox
+11571: SKIN_OX_FARMER_AJ                                                : Bountiful Harvest Ox
+11572: UNIQUE_UNLOCK_HEAD_VANITY_FARMER_AJ                              : Wardrobe Skin: Lovely Straw Hat
+11573: UNIQUE_HEAD_VANITY_FARMER_AJ                                     : Lovely Straw Hat
+11574: UNIQUE_UNLOCK_HEAD_VANITY_FARMER_COZY_AJ                         : Wardrobe Skin: Delightful Straw Hat
+11575: UNIQUE_HEAD_VANITY_FARMER_COZY_AJ                                : Delightful Straw Hat
+11576: UNIQUE_AVATARRING_AJ_EXPLORATION_01                              : Explorer's Avatar Ring
+11577: UNIQUE_AVATAR_AJ_EXPLORATION_01                                  : Explorer's Avatar
+11578: UNIQUE_UNLOCK_SKIN_COUGAR_TRAVELING_CAT_AJ                       : Swiftclaw Skin: Voyager's Cat
+11579: SKIN_COUGAR_TRAVELING_CAT_AJ                                     : Voyager's Cat
+11580: UNIQUE_UNLOCK_VANITY_2H_LUTE_AJ                                  : Wardrobe Skin: Wanderer's Lute
+11581: UNIQUE_VANITY_2H_LUTE_AJ                                         : Wanderer's Lute
+11582: UNIQUE_UNLOCK_VANITY_2H_LUTE_MAGNIFICENT_AJ                      : Wardrobe Skin: Troubadour's Lute
+11583: UNIQUE_VANITY_2H_LUTE_MAGNIFICENT_AJ                             : Troubadour's Lute
+11584: UNIQUE_AVATARRING_AJ_PVP_01                                      : PvP Avatar Ring
+11585: UNIQUE_AVATAR_AJ_PVP_01                                          : PvP Avatar
+11586: UNIQUE_UNLOCK_SKIN_DIREWOLF_SHADOW_AJ                            : Direwolf Skin: Lurking Shadow
+11587: SKIN_DIREWOLF_SHADOW_AJ                                          : Lurking Shadow
+11588: UNIQUE_UNLOCK_HEAD_VANITY_SHADOW_HELMET_ORANGE_AJ                : Wardrobe Skin: Sinister Helmet
+11589: UNIQUE_HEAD_VANITY_SHADOW_HELMET_ORANGE_AJ                       : Sinister Helmet
+11590: UNIQUE_UNLOCK_HEAD_VANITY_SHADOW_HELMET_RED_AJ                   : Wardrobe Skin: Malevolent Helmet
+11591: UNIQUE_HEAD_VANITY_SHADOW_HELMET_RED_AJ                          : Malevolent Helmet
+11592: UNIQUE_AVATARRING_AJ_GUILD_01                                    : Guild Avatar Ring
+11593: UNIQUE_AVATAR_AJ_GUILD_01                                        : Guild Avatar
+11594: UNIQUE_UNLOCK_SKIN_ARMORED_HORSE_JOUSTING_GUILD_AJ               : Armored Horse Skin: Heraldic Jousting Horse
+11595: SKIN_ARMORED_HORSE_JOUSTING_GUILD_AJ                             : Heraldic Jousting Horse
+11596: UNIQUE_UNLOCK_VANITY_2H_BANNER_GUIDON_AJ                         : Wardrobe Skin: Heraldic Guidon
+11597: UNIQUE_VANITY_2H_BANNER_GUIDON_AJ                                : Heraldic Guidon
+11598: UNIQUE_UNLOCK_VANITY_2H_BANNER_GUIDON_GOLDEN_AJ                  : Wardrobe Skin: Glorious Heraldic Guidon
+11599: UNIQUE_VANITY_2H_BANNER_GUIDON_GOLDEN_AJ                         : Glorious Heraldic Guidon
+11600: UNIQUE_AVATARRING_AJ_CREATURES_01                                : Creatures Avatar Ring
+11601: UNIQUE_AVATAR_AJ_CREATURES_01                                    : Creatures Avatar
+11602: UNIQUE_UNLOCK_SKIN_LIZARD_DRAKE_AJ                               : Swamp Dragon Skin: Emerald Basilisk
+11603: SKIN_LIZARD_DRAKE_AJ                                             : Emerald Basilisk
+11604: UNIQUE_UNLOCK_VANITY_2H_SKULL_UNDEAD_AJ                          : Wardrobe Skin: Undead Skull
+11605: UNIQUE_VANITY_2H_SKULL_UNDEAD_AJ                                 : Undead Skull
+11606: UNIQUE_UNLOCK_VANITY_2H_SKULL_DEMON_AJ                           : Wardrobe Skin: Demon Skull
+11607: UNIQUE_VANITY_2H_SKULL_DEMON_GOLDEN_AJ                           : Demon Skull
+11608: UNIQUE_AVATAR_AJ_CHARACTER_PROGRESSION_01                        : Character Progression Avatar
+11609: UNIQUE_AVATARRING_AJ_CHARACTER_PROGRESSION_01                    : Character Progression Avatar Ring
+11610: UNIQUE_UNLOCK_HEAD_VANITY_DESTINY_STONES_AJ                      : Wardrobe Skin: Destiny's Circlet
+11611: UNIQUE_HEAD_VANITY_DESTINY_STONES_AJ                             : Destiny's Circlet
+11612: UNIQUE_UNLOCK_SKIN_GIANTSTAG_SPIRITBEAST_AJ                      : Stag/Moose Skin: Astral Stag
+11613: SKIN_GIANTSTAG_SPIRITBEAST_AJ                                    : Astral Stag
+11614: UNIQUE_UNLOCK_HEAD_VANITY_DESTINY_STONES_ADVANCED_AJ             : Wardrobe Skin: Fullfilled Destiny's Circlet
+11615: UNIQUE_HEAD_VANITY_DESTINY_STONES_ADVANCED_AJ                    : Fullfilled Destiny's Circlet
+11616: T4_DEBUG_HEAD_HIDDEN                                             
+11617: T4_DEBUG_ARMOR_HIDDEN                                            
+11618: T4_DEBUG_CAPE_HIDDEN                                             
+11619: T4_DEBUG_SHOES_HIDDEN                                            
+11620: T4_DEBUG_MAINHAND_HIDDEN                                         
+11621: T4_DEBUG_OFFHAND_HIDDEN                                          
+11622: T4_SIEGE_BANNER                                                  : Adept's Siege Banner
+11623: T5_SIEGE_BANNER                                                  : Expert's Siege Banner
+11624: T6_SIEGE_BANNER                                                  : Master's Siege Banner
+11625: T7_SIEGE_BANNER                                                  : Grandmaster's Siege Banner
+11626: T8_SIEGE_BANNER                                                  : Elder's Siege Banner
+11627: UNIQUE_FURNITUREITEM_KILLTROPHY_OPENWORLD_LARGE                  : War Memento
+11628: UNIQUE_FURNITUREITEM_KILLTROPHY_OPENWORLD_MEDIUM                 : Battle Memento
+11629: UNIQUE_FURNITUREITEM_KILLTROPHY_OPENWORLD_SMALL                  : Combat Memento
+11630: UNIQUE_FURNITUREITEM_KILLTROPHY_MISTS_LARGE                      : Nebulous Memento
+11631: UNIQUE_FURNITUREITEM_KILLTROPHY_MISTS_MEDIUM                     : Veiled Memento
+11632: UNIQUE_FURNITUREITEM_KILLTROPHY_MISTS_SMALL                      : Shrouded Memento
+11633: UNIQUE_FURNITUREITEM_KILLTROPHY_HELL_LARGE                       : Abyssal Memento
+11634: UNIQUE_FURNITUREITEM_KILLTROPHY_HELL_MEDIUM                      : Infernal Memento
+11635: UNIQUE_FURNITUREITEM_KILLTROPHY_HELL_SMALL                       : Demonic Memento
+11636: T8_HEAD_CLOTH_PROTOTYPE                                          
+11637: T8_HEAD_CLOTH_PROTOTYPE@1                                        
+11638: T8_HEAD_CLOTH_PROTOTYPE@2                                        
+11639: T8_HEAD_CLOTH_PROTOTYPE@3                                        
+11640: T8_HEAD_CLOTH_PROTOTYPE@4                                        
+11641: T8_ARMOR_CLOTH_PROTOTYPE                                         
+11642: T8_ARMOR_CLOTH_PROTOTYPE@1                                       
+11643: T8_ARMOR_CLOTH_PROTOTYPE@2                                       
+11644: T8_ARMOR_CLOTH_PROTOTYPE@3                                       
+11645: T8_ARMOR_CLOTH_PROTOTYPE@4                                       
+11646: T8_SHOES_CLOTH_PROTOTYPE                                         
+11647: T8_SHOES_CLOTH_PROTOTYPE@1                                       
+11648: T8_SHOES_CLOTH_PROTOTYPE@2                                       
+11649: T8_SHOES_CLOTH_PROTOTYPE@3                                       
+11650: T8_SHOES_CLOTH_PROTOTYPE@4                                       
+11651: T8_HEAD_LEATHER_PROTOTYPE                                        
+11652: T8_HEAD_LEATHER_PROTOTYPE@1                                      
+11653: T8_HEAD_LEATHER_PROTOTYPE@2                                      
+11654: T8_HEAD_LEATHER_PROTOTYPE@3                                      
+11655: T8_HEAD_LEATHER_PROTOTYPE@4                                      
+11656: T8_ARMOR_LEATHER_PROTOTYPE                                       
+11657: T8_ARMOR_LEATHER_PROTOTYPE@1                                     
+11658: T8_ARMOR_LEATHER_PROTOTYPE@2                                     
+11659: T8_ARMOR_LEATHER_PROTOTYPE@3                                     
+11660: T8_ARMOR_LEATHER_PROTOTYPE@4                                     
+11661: T8_SHOES_LEATHER_PROTOTYPE                                       
+11662: T8_SHOES_LEATHER_PROTOTYPE@1                                     
+11663: T8_SHOES_LEATHER_PROTOTYPE@2                                     
+11664: T8_SHOES_LEATHER_PROTOTYPE@3                                     
+11665: T8_SHOES_LEATHER_PROTOTYPE@4                                     
+11666: T8_HEAD_PLATE_PROTOTYPE                                          
+11667: T8_HEAD_PLATE_PROTOTYPE@1                                        
+11668: T8_HEAD_PLATE_PROTOTYPE@2                                        
+11669: T8_HEAD_PLATE_PROTOTYPE@3                                        
+11670: T8_HEAD_PLATE_PROTOTYPE@4                                        
+11671: T8_ARMOR_PLATE_PROTOTYPE                                         
+11672: T8_ARMOR_PLATE_PROTOTYPE@1                                       
+11673: T8_ARMOR_PLATE_PROTOTYPE@2                                       
+11674: T8_ARMOR_PLATE_PROTOTYPE@3                                       
+11675: T8_ARMOR_PLATE_PROTOTYPE@4                                       
+11676: T8_SHOES_PLATE_PROTOTYPE                                         
+11677: T8_SHOES_PLATE_PROTOTYPE@1                                       
+11678: T8_SHOES_PLATE_PROTOTYPE@2                                       
+11679: T8_SHOES_PLATE_PROTOTYPE@3                                       
+11680: T8_SHOES_PLATE_PROTOTYPE@4                                       
+11681: T2_JOURNAL_WOOD_EMPTY                                            : Novice Lumberjack's Journal (Empty)
+11682: T2_JOURNAL_WOOD_FULL                                             : Novice Lumberjack's Journal (Full)
+11683: T3_JOURNAL_WOOD_EMPTY                                            : Journeyman Lumberjack's Journal (Empty)
+11684: T3_JOURNAL_WOOD_FULL                                             : Journeyman Lumberjack's Journal (Full)
+11685: T4_JOURNAL_WOOD_EMPTY                                            : Adept Lumberjack's Journal (Empty)
+11686: T4_JOURNAL_WOOD_FULL                                             : Adept Lumberjack's Journal (Full)
+11687: T5_JOURNAL_WOOD_EMPTY                                            : Expert Lumberjack's Journal (Empty)
+11688: T5_JOURNAL_WOOD_FULL                                             : Expert Lumberjack's Journal (Full)
+11689: T6_JOURNAL_WOOD_EMPTY                                            : Master Lumberjack's Journal (Empty)
+11690: T6_JOURNAL_WOOD_FULL                                             : Master Lumberjack's Journal (Full)
+11691: T7_JOURNAL_WOOD_EMPTY                                            : Grandmaster Lumberjack's Journal (Empty)
+11692: T7_JOURNAL_WOOD_FULL                                             : Grandmaster Lumberjack's Journal (Full)
+11693: T8_JOURNAL_WOOD_EMPTY                                            : Elder Lumberjack's Journal (Empty)
+11694: T8_JOURNAL_WOOD_FULL                                             : Elder Lumberjack's Journal (Full)
+11695: T2_JOURNAL_STONE_EMPTY                                           : Novice Stonecutter's Journal (Empty)
+11696: T2_JOURNAL_STONE_FULL                                            : Novice Stonecutter's Journal (Full)
+11697: T3_JOURNAL_STONE_EMPTY                                           : Journeyman Stonecutter's Journal (Empty)
+11698: T3_JOURNAL_STONE_FULL                                            : Journeyman Stonecutter's Journal (Full)
+11699: T4_JOURNAL_STONE_EMPTY                                           : Adept Stonecutter's Journal (Empty)
+11700: T4_JOURNAL_STONE_FULL                                            : Adept Stonecutter's Journal (Full)
+11701: T5_JOURNAL_STONE_EMPTY                                           : Expert Stonecutter's Journal (Empty)
+11702: T5_JOURNAL_STONE_FULL                                            : Expert Stonecutter's Journal (Full)
+11703: T6_JOURNAL_STONE_EMPTY                                           : Master Stonecutter's Journal (Empty)
+11704: T6_JOURNAL_STONE_FULL                                            : Master Stonecutter's Journal (Full)
+11705: T7_JOURNAL_STONE_EMPTY                                           : Grandmaster Stonecutter's Journal (Empty)
+11706: T7_JOURNAL_STONE_FULL                                            : Grandmaster Stonecutter's Journal (Full)
+11707: T8_JOURNAL_STONE_EMPTY                                           : Elder Stonecutter's Journal (Empty)
+11708: T8_JOURNAL_STONE_FULL                                            : Elder Stonecutter's Journal (Full)
+11709: T2_JOURNAL_ORE_EMPTY                                             : Novice Prospector's Journal (Empty)
+11710: T2_JOURNAL_ORE_FULL                                              : Novice Prospector's Journal (Full)
+11711: T3_JOURNAL_ORE_EMPTY                                             : Journeyman Prospector's Journal (Empty)
+11712: T3_JOURNAL_ORE_FULL                                              : Journeyman Prospector's Journal (Full)
+11713: T4_JOURNAL_ORE_EMPTY                                             : Adept Prospector's Journal (Empty)
+11714: T4_JOURNAL_ORE_FULL                                              : Adept Prospector's Journal (Full)
+11715: T5_JOURNAL_ORE_EMPTY                                             : Expert Prospector's Journal (Empty)
+11716: T5_JOURNAL_ORE_FULL                                              : Expert Prospector's Journal (Full)
+11717: T6_JOURNAL_ORE_EMPTY                                             : Master Prospector's Journal (Empty)
+11718: T6_JOURNAL_ORE_FULL                                              : Master Prospector's Journal (Full)
+11719: T7_JOURNAL_ORE_EMPTY                                             : Grandmaster Prospector's Journal (Empty)
+11720: T7_JOURNAL_ORE_FULL                                              : Grandmaster Prospector's Journal (Full)
+11721: T8_JOURNAL_ORE_EMPTY                                             : Elder Prospector's Journal (Empty)
+11722: T8_JOURNAL_ORE_FULL                                              : Elder Prospector's Journal (Full)
+11723: T2_JOURNAL_FIBER_EMPTY                                           : Novice Cropper's Journal (Empty)
+11724: T2_JOURNAL_FIBER_FULL                                            : Novice Cropper's Journal (Full)
+11725: T3_JOURNAL_FIBER_EMPTY                                           : Journeyman Cropper's Journal (Empty)
+11726: T3_JOURNAL_FIBER_FULL                                            : Journeyman Cropper's Journal (Full)
+11727: T4_JOURNAL_FIBER_EMPTY                                           : Adept Cropper's Journal (Empty)
+11728: T4_JOURNAL_FIBER_FULL                                            : Adept Cropper's Journal (Full)
+11729: T5_JOURNAL_FIBER_EMPTY                                           : Expert Cropper's Journal (Empty)
+11730: T5_JOURNAL_FIBER_FULL                                            : Expert Cropper's Journal (Full)
+11731: T6_JOURNAL_FIBER_EMPTY                                           : Master Cropper's Journal (Empty)
+11732: T6_JOURNAL_FIBER_FULL                                            : Master Cropper's Journal (Full)
+11733: T7_JOURNAL_FIBER_EMPTY                                           : Grandmaster Cropper's Journal (Empty)
+11734: T7_JOURNAL_FIBER_FULL                                            : Grandmaster Cropper's Journal (Full)
+11735: T8_JOURNAL_FIBER_EMPTY                                           : Elder Cropper's Journal (Empty)
+11736: T8_JOURNAL_FIBER_FULL                                            : Elder Cropper's Journal (Full)
+11737: T2_JOURNAL_HIDE_EMPTY                                            : Novice Gamekeeper's Journal (Empty)
+11738: T2_JOURNAL_HIDE_FULL                                             : Novice Gamekeeper's Journal (Full)
+11739: T3_JOURNAL_HIDE_EMPTY                                            : Journeyman Gamekeeper's Journal (Empty)
+11740: T3_JOURNAL_HIDE_FULL                                             : Journeyman Gamekeeper's Journal (Full)
+11741: T4_JOURNAL_HIDE_EMPTY                                            : Adept Gamekeeper's Journal (Empty)
+11742: T4_JOURNAL_HIDE_FULL                                             : Adept Gamekeeper's Journal (Full)
+11743: T5_JOURNAL_HIDE_EMPTY                                            : Expert Gamekeeper's Journal (Empty)
+11744: T5_JOURNAL_HIDE_FULL                                             : Expert Gamekeeper's Journal (Full)
+11745: T6_JOURNAL_HIDE_EMPTY                                            : Master Gamekeeper's Journal (Empty)
+11746: T6_JOURNAL_HIDE_FULL                                             : Master Gamekeeper's Journal (Full)
+11747: T7_JOURNAL_HIDE_EMPTY                                            : Grandmaster Gamekeeper's Journal (Empty)
+11748: T7_JOURNAL_HIDE_FULL                                             : Grandmaster Gamekeeper's Journal (Full)
+11749: T8_JOURNAL_HIDE_EMPTY                                            : Elder Gamekeeper's Journal (Empty)
+11750: T8_JOURNAL_HIDE_FULL                                             : Elder Gamekeeper's Journal (Full)
+11751: T2_JOURNAL_WARRIOR_EMPTY                                         : Novice Blacksmith's Journal (Empty)
+11752: T2_JOURNAL_WARRIOR_FULL                                          : Novice Blacksmith's Journal (Full)
+11753: T3_JOURNAL_WARRIOR_EMPTY                                         : Journeyman Blacksmith's Journal (Empty)
+11754: T3_JOURNAL_WARRIOR_FULL                                          : Journeyman Blacksmith's Journal (Full)
+11755: T4_JOURNAL_WARRIOR_EMPTY                                         : Adept Blacksmith's Journal (Empty)
+11756: T4_JOURNAL_WARRIOR_FULL                                          : Adept Blacksmith's Journal (Full)
+11757: T5_JOURNAL_WARRIOR_EMPTY                                         : Expert Blacksmith's Journal (Empty)
+11758: T5_JOURNAL_WARRIOR_FULL                                          : Expert Blacksmith's Journal (Full)
+11759: T6_JOURNAL_WARRIOR_EMPTY                                         : Master Blacksmith's Journal (Empty)
+11760: T6_JOURNAL_WARRIOR_FULL                                          : Master Blacksmith's Journal (Full)
+11761: T7_JOURNAL_WARRIOR_EMPTY                                         : Grandmaster Blacksmith's Journal (Empty)
+11762: T7_JOURNAL_WARRIOR_FULL                                          : Grandmaster Blacksmith's Journal (Full)
+11763: T8_JOURNAL_WARRIOR_EMPTY                                         : Elder Blacksmith's Journal (Empty)
+11764: T8_JOURNAL_WARRIOR_FULL                                          : Elder Blacksmith's Journal (Full)
+11765: T2_JOURNAL_HUNTER_EMPTY                                          : Novice Fletcher's Journal (Empty)
+11766: T2_JOURNAL_HUNTER_FULL                                           : Novice Fletcher's Journal (Full)
+11767: T3_JOURNAL_HUNTER_EMPTY                                          : Journeyman Fletcher's Journal (Empty)
+11768: T3_JOURNAL_HUNTER_FULL                                           : Journeyman Fletcher's Journal (Full)
+11769: T4_JOURNAL_HUNTER_EMPTY                                          : Adept Fletcher's Journal (Empty)
+11770: T4_JOURNAL_HUNTER_FULL                                           : Adept Fletcher's Journal (Full)
+11771: T5_JOURNAL_HUNTER_EMPTY                                          : Expert Fletcher's Journal (Empty)
+11772: T5_JOURNAL_HUNTER_FULL                                           : Expert Fletcher's Journal (Full)
+11773: T6_JOURNAL_HUNTER_EMPTY                                          : Master Fletcher's Journal (Empty)
+11774: T6_JOURNAL_HUNTER_FULL                                           : Master Fletcher's Journal (Full)
+11775: T7_JOURNAL_HUNTER_EMPTY                                          : Grandmaster Fletcher's Journal (Empty)
+11776: T7_JOURNAL_HUNTER_FULL                                           : Grandmaster Fletcher's Journal (Full)
+11777: T8_JOURNAL_HUNTER_EMPTY                                          : Elder Fletcher's Journal (Empty)
+11778: T8_JOURNAL_HUNTER_FULL                                           : Elder Fletcher's Journal (Full)
+11779: T2_JOURNAL_MAGE_EMPTY                                            : Novice Imbuer's Journal (Empty)
+11780: T2_JOURNAL_MAGE_FULL                                             : Novice Imbuer's Journal (Full)
+11781: T3_JOURNAL_MAGE_EMPTY                                            : Journeyman Imbuer's Journal (Empty)
+11782: T3_JOURNAL_MAGE_FULL                                             : Journeyman Imbuer's Journal (Full)
+11783: T4_JOURNAL_MAGE_EMPTY                                            : Adept Imbuer's Journal (Empty)
+11784: T4_JOURNAL_MAGE_FULL                                             : Adept Imbuer's Journal (Full)
+11785: T5_JOURNAL_MAGE_EMPTY                                            : Expert Imbuer's Journal (Empty)
+11786: T5_JOURNAL_MAGE_FULL                                             : Expert Imbuer's Journal (Full)
+11787: T6_JOURNAL_MAGE_EMPTY                                            : Master Imbuer's Journal (Empty)
+11788: T6_JOURNAL_MAGE_FULL                                             : Master Imbuer's Journal (Full)
+11789: T7_JOURNAL_MAGE_EMPTY                                            : Grandmaster Imbuer's Journal (Empty)
+11790: T7_JOURNAL_MAGE_FULL                                             : Grandmaster Imbuer's Journal (Full)
+11791: T8_JOURNAL_MAGE_EMPTY                                            : Elder Imbuer's Journal (Empty)
+11792: T8_JOURNAL_MAGE_FULL                                             : Elder Imbuer's Journal (Full)
+11793: T2_JOURNAL_TOOLMAKER_EMPTY                                       : Novice Tinker's Journal (Empty)
+11794: T2_JOURNAL_TOOLMAKER_FULL                                        : Novice Tinker's Journal (Full)
+11795: T3_JOURNAL_TOOLMAKER_EMPTY                                       : Journeyman Tinker's Journal (Empty)
+11796: T3_JOURNAL_TOOLMAKER_FULL                                        : Journeyman Tinker's Journal (Full)
+11797: T4_JOURNAL_TOOLMAKER_EMPTY                                       : Adept Tinker's Journal (Empty)
+11798: T4_JOURNAL_TOOLMAKER_FULL                                        : Adept Tinker's Journal (Full)
+11799: T5_JOURNAL_TOOLMAKER_EMPTY                                       : Expert Tinker's Journal (Empty)
+11800: T5_JOURNAL_TOOLMAKER_FULL                                        : Expert Tinker's Journal (Full)
+11801: T6_JOURNAL_TOOLMAKER_EMPTY                                       : Master Tinker's Journal (Empty)
+11802: T6_JOURNAL_TOOLMAKER_FULL                                        : Master Tinker's Journal (Full)
+11803: T7_JOURNAL_TOOLMAKER_EMPTY                                       : Grandmaster Tinker's Journal (Empty)
+11804: T7_JOURNAL_TOOLMAKER_FULL                                        : Grandmaster Tinker's Journal (Full)
+11805: T8_JOURNAL_TOOLMAKER_EMPTY                                       : Elder Tinker's Journal (Empty)
+11806: T8_JOURNAL_TOOLMAKER_FULL                                        : Elder Tinker's Journal (Full)
+11807: T2_JOURNAL_MERCENARY_EMPTY                                       : Novice Mercenary's Journal (Empty)
+11808: T2_JOURNAL_MERCENARY_FULL                                        : Novice Mercenary's Journal (Full)
+11809: T3_JOURNAL_MERCENARY_EMPTY                                       : Journeyman Mercenary's Journal (Empty)
+11810: T3_JOURNAL_MERCENARY_FULL                                        : Journeyman Mercenary's Journal (Full)
+11811: T4_JOURNAL_MERCENARY_EMPTY                                       : Adept Mercenary's Journal (Empty)
+11812: T4_JOURNAL_MERCENARY_FULL                                        : Adept Mercenary's Journal (Full)
+11813: T5_JOURNAL_MERCENARY_EMPTY                                       : Expert Mercenary's Journal (Empty)
+11814: T5_JOURNAL_MERCENARY_FULL                                        : Expert Mercenary's Journal (Full)
+11815: T6_JOURNAL_MERCENARY_EMPTY                                       : Master Mercenary's Journal (Empty)
+11816: T6_JOURNAL_MERCENARY_FULL                                        : Master Mercenary's Journal (Full)
+11817: T7_JOURNAL_MERCENARY_EMPTY                                       : Grandmaster Mercenary's Journal (Empty)
+11818: T7_JOURNAL_MERCENARY_FULL                                        : Grandmaster Mercenary's Journal (Full)
+11819: T8_JOURNAL_MERCENARY_EMPTY                                       : Elder Mercenary's Journal (Empty)
+11820: T8_JOURNAL_MERCENARY_FULL                                        : Elder Mercenary's Journal (Full)
+11821: T2_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Novice's Generalist Trophy Journal (Empty)
+11822: T2_JOURNAL_TROPHY_GENERAL_FULL                                   : Novice's Generalist Trophy Journal (Full)
+11823: T3_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Journeyman's Generalist Trophy Journal (Empty)
+11824: T3_JOURNAL_TROPHY_GENERAL_FULL                                   : Journeyman's Generalist Trophy Journal (Full)
+11825: T4_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Adept's Generalist Trophy Journal (Empty)
+11826: T4_JOURNAL_TROPHY_GENERAL_FULL                                   : Adept's Generalist Trophy Journal (Full)
+11827: T5_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Expert's Generalist Trophy Journal (Empty)
+11828: T5_JOURNAL_TROPHY_GENERAL_FULL                                   : Expert's Generalist Trophy Journal (Full)
+11829: T6_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Master's Generalist Trophy Journal (Empty)
+11830: T6_JOURNAL_TROPHY_GENERAL_FULL                                   : Master's Generalist Trophy Journal (Full)
+11831: T7_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Grandmaster's Generalist Trophy Journal (Empty)
+11832: T7_JOURNAL_TROPHY_GENERAL_FULL                                   : Grandmaster's Generalist Trophy Journal (Full)
+11833: T8_JOURNAL_TROPHY_GENERAL_EMPTY                                  : Elder's Generalist Trophy Journal (Empty)
+11834: T8_JOURNAL_TROPHY_GENERAL_FULL                                   : Elder's Generalist Trophy Journal (Full)
+11835: T2_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Novice Mercenary's Trophy Journal (Empty)
+11836: T2_JOURNAL_TROPHY_MERCENARY_FULL                                 : Novice Mercenary's Trophy Journal (Full)
+11837: T3_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Journeyman Mercenary's Trophy Journal (Empty)
+11838: T3_JOURNAL_TROPHY_MERCENARY_FULL                                 : Journeyman Mercenary's Trophy Journal (Full)
+11839: T4_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Adept Mercenary's Trophy Journal (Empty)
+11840: T4_JOURNAL_TROPHY_MERCENARY_FULL                                 : Adept Mercenary's Trophy Journal (Full)
+11841: T5_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Expert Mercenary's Trophy Journal (Empty)
+11842: T5_JOURNAL_TROPHY_MERCENARY_FULL                                 : Expert Mercenary's Trophy Journal (Full)
+11843: T6_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Master Mercenary's Trophy Journal (Empty)
+11844: T6_JOURNAL_TROPHY_MERCENARY_FULL                                 : Master Mercenary's Trophy Journal (Full)
+11845: T7_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Grandmaster Mercenary's Trophy Journal (Empty)
+11846: T7_JOURNAL_TROPHY_MERCENARY_FULL                                 : Grandmaster Mercenary's Trophy Journal (Full)
+11847: T8_JOURNAL_TROPHY_MERCENARY_EMPTY                                : Elder Mercenary's Trophy Journal (Empty)
+11848: T8_JOURNAL_TROPHY_MERCENARY_FULL                                 : Elder Mercenary's Trophy Journal (Full)
+11849: T2_JOURNAL_TROPHY_HIDE_EMPTY                                     : Novice Gamekeeper's Trophy Journal (Empty)
+11850: T2_JOURNAL_TROPHY_HIDE_FULL                                      : Novice Gamekeeper's Trophy Journal (Full)
+11851: T3_JOURNAL_TROPHY_HIDE_EMPTY                                     : Journeyman Gamekeeper's Trophy Journal (Empty)
+11852: T3_JOURNAL_TROPHY_HIDE_FULL                                      : Journeyman Gamekeeper's Trophy Journal (Full)
+11853: T4_JOURNAL_TROPHY_HIDE_EMPTY                                     : Adept Gamekeeper's Trophy Journal (Empty)
+11854: T4_JOURNAL_TROPHY_HIDE_FULL                                      : Adept Gamekeeper's Trophy Journal (Full)
+11855: T5_JOURNAL_TROPHY_HIDE_EMPTY                                     : Expert Gamekeeper's Trophy Journal (Empty)
+11856: T5_JOURNAL_TROPHY_HIDE_FULL                                      : Expert Gamekeeper's Trophy Journal (Full)
+11857: T6_JOURNAL_TROPHY_HIDE_EMPTY                                     : Master Gamekeeper's Trophy Journal (Empty)
+11858: T6_JOURNAL_TROPHY_HIDE_FULL                                      : Master Gamekeeper's Trophy Journal (Full)
+11859: T7_JOURNAL_TROPHY_HIDE_EMPTY                                     : Grandmaster Gamekeeper's Trophy Journal (Empty)
+11860: T7_JOURNAL_TROPHY_HIDE_FULL                                      : Grandmaster Gamekeeper's Trophy Journal (Full)
+11861: T8_JOURNAL_TROPHY_HIDE_EMPTY                                     : Elder Gamekeeper's Trophy Journal (Empty)
+11862: T8_JOURNAL_TROPHY_HIDE_FULL                                      : Elder Gamekeeper's Trophy Journal (Full)
+11863: T2_JOURNAL_TROPHY_WOOD_EMPTY                                     : Novice Lumberjack's Trophy Journal (Empty)
+11864: T2_JOURNAL_TROPHY_WOOD_FULL                                      : Novice Lumberjack's Trophy Journal (Full)
+11865: T3_JOURNAL_TROPHY_WOOD_EMPTY                                     : Journeyman Lumberjack's Trophy Journal (Empty)
+11866: T3_JOURNAL_TROPHY_WOOD_FULL                                      : Journeyman Lumberjack's Trophy Journal (Full)
+11867: T4_JOURNAL_TROPHY_WOOD_EMPTY                                     : Adept Lumberjack's Trophy Journal (Empty)
+11868: T4_JOURNAL_TROPHY_WOOD_FULL                                      : Adept Lumberjack's Trophy Journal (Full)
+11869: T5_JOURNAL_TROPHY_WOOD_EMPTY                                     : Expert Lumberjack's Trophy Journal (Empty)
+11870: T5_JOURNAL_TROPHY_WOOD_FULL                                      : Expert Lumberjack's Trophy Journal (Full)
+11871: T6_JOURNAL_TROPHY_WOOD_EMPTY                                     : Master Lumberjack's Trophy Journal (Empty)
+11872: T6_JOURNAL_TROPHY_WOOD_FULL                                      : Master Lumberjack's Trophy Journal (Full)
+11873: T7_JOURNAL_TROPHY_WOOD_EMPTY                                     : Grandmaster Lumberjack's Trophy Journal (Empty)
+11874: T7_JOURNAL_TROPHY_WOOD_FULL                                      : Grandmaster Lumberjack's Trophy Journal (Full)
+11875: T8_JOURNAL_TROPHY_WOOD_EMPTY                                     : Elder Lumberjack's Trophy Journal (Empty)
+11876: T8_JOURNAL_TROPHY_WOOD_FULL                                      : Elder Lumberjack's Trophy Journal (Full)
+11877: T2_JOURNAL_TROPHY_STONE_EMPTY                                    : Novice Stonecutter's Trophy Journal (Empty)
+11878: T2_JOURNAL_TROPHY_STONE_FULL                                     : Novice Stonecutter's Trophy Journal (Full)
+11879: T3_JOURNAL_TROPHY_STONE_EMPTY                                    : Journeyman Stonecutter's Trophy Journal (Empty)
+11880: T3_JOURNAL_TROPHY_STONE_FULL                                     : Journeyman Stonecutter's Trophy Journal (Full)
+11881: T4_JOURNAL_TROPHY_STONE_EMPTY                                    : Adept Stonecutter's Trophy Journal (Empty)
+11882: T4_JOURNAL_TROPHY_STONE_FULL                                     : Adept Stonecutter's Trophy Journal (Full)
+11883: T5_JOURNAL_TROPHY_STONE_EMPTY                                    : Expert Stonecutter's Trophy Journal (Empty)
+11884: T5_JOURNAL_TROPHY_STONE_FULL                                     : Expert Stonecutter's Trophy Journal (Full)
+11885: T6_JOURNAL_TROPHY_STONE_EMPTY                                    : Master Stonecutter's Trophy Journal (Empty)
+11886: T6_JOURNAL_TROPHY_STONE_FULL                                     : Master Stonecutter's Trophy Journal (Full)
+11887: T7_JOURNAL_TROPHY_STONE_EMPTY                                    : Grandmaster Stonecutter's Trophy Journal (Empty)
+11888: T7_JOURNAL_TROPHY_STONE_FULL                                     : Grandmaster Stonecutter's Trophy Journal (Full)
+11889: T8_JOURNAL_TROPHY_STONE_EMPTY                                    : Elder Stonecutter's Trophy Journal (Empty)
+11890: T8_JOURNAL_TROPHY_STONE_FULL                                     : Elder Stonecutter's Trophy Journal (Full)
+11891: T2_JOURNAL_TROPHY_ORE_EMPTY                                      : Novice Prospector's Trophy Journal (Empty)
+11892: T2_JOURNAL_TROPHY_ORE_FULL                                       : Novice Prospector's Trophy Journal (Full)
+11893: T3_JOURNAL_TROPHY_ORE_EMPTY                                      : Journeyman Prospector's Trophy Journal (Empty)
+11894: T3_JOURNAL_TROPHY_ORE_FULL                                       : Journeyman Prospector's Trophy Journal (Full)
+11895: T4_JOURNAL_TROPHY_ORE_EMPTY                                      : Adept Prospector's Trophy Journal (Empty)
+11896: T4_JOURNAL_TROPHY_ORE_FULL                                       : Adept Prospector's Trophy Journal (Full)
+11897: T5_JOURNAL_TROPHY_ORE_EMPTY                                      : Expert Prospector's Trophy Journal (Empty)
+11898: T5_JOURNAL_TROPHY_ORE_FULL                                       : Expert Prospector's Trophy Journal (Full)
+11899: T6_JOURNAL_TROPHY_ORE_EMPTY                                      : Master Prospector's Trophy Journal (Empty)
+11900: T6_JOURNAL_TROPHY_ORE_FULL                                       : Master Prospector's Trophy Journal (Full)
+11901: T7_JOURNAL_TROPHY_ORE_EMPTY                                      : Grandmaster Prospector's Trophy Journal (Empty)
+11902: T7_JOURNAL_TROPHY_ORE_FULL                                       : Grandmaster Prospector's Trophy Journal (Full)
+11903: T8_JOURNAL_TROPHY_ORE_EMPTY                                      : Elder Prospector's Trophy Journal (Empty)
+11904: T8_JOURNAL_TROPHY_ORE_FULL                                       : Elder Prospector's Trophy Journal (Full)
+11905: T2_JOURNAL_TROPHY_FIBER_EMPTY                                    : Novice Cropper's Trophy Journal (Empty)
+11906: T2_JOURNAL_TROPHY_FIBER_FULL                                     : Novice Cropper's Trophy Journal (Full)
+11907: T3_JOURNAL_TROPHY_FIBER_EMPTY                                    : Journeyman Cropper's Trophy Journal (Empty)
+11908: T3_JOURNAL_TROPHY_FIBER_FULL                                     : Journeyman Cropper's Trophy Journal (Full)
+11909: T4_JOURNAL_TROPHY_FIBER_EMPTY                                    : Adept Cropper's Trophy Journal (Empty)
+11910: T4_JOURNAL_TROPHY_FIBER_FULL                                     : Adept Cropper's Trophy Journal (Full)
+11911: T5_JOURNAL_TROPHY_FIBER_EMPTY                                    : Expert Cropper's Trophy Journal (Empty)
+11912: T5_JOURNAL_TROPHY_FIBER_FULL                                     : Expert Cropper's Trophy Journal (Full)
+11913: T6_JOURNAL_TROPHY_FIBER_EMPTY                                    : Master Cropper's Trophy Journal (Empty)
+11914: T6_JOURNAL_TROPHY_FIBER_FULL                                     : Master Cropper's Trophy Journal (Full)
+11915: T7_JOURNAL_TROPHY_FIBER_EMPTY                                    : Grandmaster Cropper's Trophy Journal (Empty)
+11916: T7_JOURNAL_TROPHY_FIBER_FULL                                     : Grandmaster Cropper's Trophy Journal (Full)
+11917: T8_JOURNAL_TROPHY_FIBER_EMPTY                                    : Elder Cropper's Trophy Journal (Empty)
+11918: T8_JOURNAL_TROPHY_FIBER_FULL                                     : Elder Cropper's Trophy Journal (Full)
+11919: T2_JOURNAL_TROPHY_FISHING_EMPTY                                  : Novice Fisherman's Trophy Journal (Empty)
+11920: T2_JOURNAL_TROPHY_FISHING_FULL                                   : Novice Fisherman's Trophy Journal (Full)
+11921: T3_JOURNAL_TROPHY_FISHING_EMPTY                                  : Journeyman Fisherman's Trophy Journal (Empty)
+11922: T3_JOURNAL_TROPHY_FISHING_FULL                                   : Journeyman Fisherman's Trophy Journal (Full)
+11923: T4_JOURNAL_TROPHY_FISHING_EMPTY                                  : Adept Fisherman's Trophy Journal (Empty)
+11924: T4_JOURNAL_TROPHY_FISHING_FULL                                   : Adept Fisherman's Trophy Journal (Full)
+11925: T5_JOURNAL_TROPHY_FISHING_EMPTY                                  : Expert Fisherman's Trophy Journal (Empty)
+11926: T5_JOURNAL_TROPHY_FISHING_FULL                                   : Expert Fisherman's Trophy Journal (Full)
+11927: T6_JOURNAL_TROPHY_FISHING_EMPTY                                  : Master Fisherman's Trophy Journal (Empty)
+11928: T6_JOURNAL_TROPHY_FISHING_FULL                                   : Master Fisherman's Trophy Journal (Full)
+11929: T7_JOURNAL_TROPHY_FISHING_EMPTY                                  : Grandmaster Fisherman's Trophy Journal (Empty)
+11930: T7_JOURNAL_TROPHY_FISHING_FULL                                   : Grandmaster Fisherman's Trophy Journal (Full)
+11931: T8_JOURNAL_TROPHY_FISHING_EMPTY                                  : Elder Fisherman's Trophy Journal (Empty)
+11932: T8_JOURNAL_TROPHY_FISHING_FULL                                   : Elder Fisherman's Trophy Journal (Full)
+11933: T2_JOURNAL_FISHING_EMPTY                                         : Novice Fisherman's Journal (Empty)
+11934: T2_JOURNAL_FISHING_FULL                                          : Novice Fisherman's Journal (Full)
+11935: T3_JOURNAL_FISHING_EMPTY                                         : Journeyman Fisherman's Journal (Empty)
+11936: T3_JOURNAL_FISHING_FULL                                          : Journeyman Fisherman's Journal (Full)
+11937: T4_JOURNAL_FISHING_EMPTY                                         : Adept Fisherman's Journal (Empty)
+11938: T4_JOURNAL_FISHING_FULL                                          : Adept Fisherman's Journal (Full)
+11939: T5_JOURNAL_FISHING_EMPTY                                         : Expert Fisherman's Journal (Empty)
+11940: T5_JOURNAL_FISHING_FULL                                          : Expert Fisherman's Journal (Full)
+11941: T6_JOURNAL_FISHING_EMPTY                                         : Master Fisherman's Journal (Empty)
+11942: T6_JOURNAL_FISHING_FULL                                          : Master Fisherman's Journal (Full)
+11943: T7_JOURNAL_FISHING_EMPTY                                         : Grandmaster Fisherman's Journal (Empty)
+11944: T7_JOURNAL_FISHING_FULL                                          : Grandmaster Fisherman's Journal (Full)
+11945: T8_JOURNAL_FISHING_EMPTY                                         : Elder Fisherman's Journal (Empty)
+11946: T8_JOURNAL_FISHING_FULL                                          : Elder Fisherman's Journal (Full)`
