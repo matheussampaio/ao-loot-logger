@@ -78,14 +78,8 @@ jobs:
       - name: Build the app
         run: npx package
 
-      - run: ls -la .. && ls -la .
-      - run: mv ../ao-loot-logger.tar.gz ./ao-loot-logger.tar.gz
-      - run: ls -la .. && ls -la .
-      - run: mkdir -p ao-loot-logger && tar -xzf ./ao-loot-logger.tar.gz -C ao-loot-logger
-      - run: ls -la .. && ls -la . && ls -la ao-loot-logger
-
-      # - name: Extract tar.gz and prepare artifact
-        # run: ls -la .. && mv ../ao-loot-logger.tar.gz ./ao-loot-logger.tar.gz && tar -xzf ./ao-loot-logger.tar.gz -C ao-loot-logger
+      - name: Extract tar.gz and prepare artifact
+        run: mv ../ao-loot-logger.tar.gz ./ao-loot-logger.tar.gz && mkdir -p ao-loot-logger && tar -xzf ./ao-loot-logger.tar.gz -C ao-loot-logger
 
       - uses: actions/upload-artifact@main
         with:
