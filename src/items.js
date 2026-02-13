@@ -1,5 +1,3 @@
-const axios = require('axios')
-
 const fallback = require('./items-fallback')
 
 class Items {
@@ -11,11 +9,15 @@ class Items {
     let data = ''
 
     try {
-      const response = await axios.get(
+      const response = await fetch(
         'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.txt'
       )
 
-      data = response.data
+      if (!response.ok) {
+        data = fallback
+      } else {
+        data = await response.text()
+      }
     } catch (error) {
       data = fallback
     }

@@ -32,16 +32,6 @@ async function main() {
 
   await Promise.all([checkNewVersion(), Items.init()])
 
-  try {
-    await Config.init()
-  } catch (error) {
-    console.info(yellow(`    Problem fetching configurations. Try again or download the latest version.`))
-
-    await new Promise(resolve => setTimeout(resolve, 20000))
-
-    return process.exit(1)
-  }
-
   AlbionNetwork.on('add-listener', (device) => {
     console.info(`Listening to ${device.name}`)
   })

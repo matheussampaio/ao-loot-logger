@@ -32,15 +32,12 @@
     "node",
     "albion"
   ],
-  "engines": {
-    "node": "18.16.1"
-  },
   "dependencies": {
-    "axios": "^0.30.2",
     "cap": "^0.2.1",
     "winston": "^3.3.3"
   },
   "devDependencies": {
+    "@radically-straightforward/package": "^2.0.3",
     "eslint": "^8.4.1"
   },
   "release": {

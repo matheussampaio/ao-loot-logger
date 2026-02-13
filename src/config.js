@@ -1,50 +1,28 @@
-const axios = require('axios')
-
 const { version } = require('../package.json')
+
+// Photon/Albion event and operation codes (fixed for the game protocol version in use)
+const EVENTS = {
+  EvInventoryPutItem: 26,
+  EvNewCharacter: 29,
+  EvNewEquipmentItem: 30,
+  EvNewSiegeBannerItem: 31,
+  EvNewSimpleItem: 32,
+  EvNewLoot: 98,
+  EvAttachItemContainer: 99,
+  EvDetachItemContainer: 100,
+  EvCharacterStats: 143,
+  EvOtherGrabbedLoot: 275,
+  OpJoin: 2,
+  OpInventoryMoveItem: 29
+}
 
 class Config {
   constructor() {
-    this.events = {}
-    this.players = {}
+    this.events = EVENTS
 
     this.ROTATE_LOGGER_FILE_KEY = 'd'
     this.RESTART_NETWORK_FILE_KEY = 'r'
     this.TITLE = `AO Loot Logger - v${version}`
-  }
-
-  async init({ eventsOverride, configsOverrride } = {}) {
-    return Promise.all([
-      this.loadEvents(eventsOverride),
-      this.loadConfigs(configsOverrride)
-    ])
-  }
-
-  async loadEvents(eventsOverride) {
-    if (eventsOverride) {
-      return (this.events = eventsOverride)
-    }
-
-    const response = await axios.get(
-      'https://matheus.sampaio.us/ao-loot-logger-configs/events-v9.0.0.json'
-    )
-
-    this.events = response.data
-  }
-
-  async loadConfigs(configsOverrride) {
-    if (configsOverrride) {
-      return (this.players = configsOverrride)
-    }
-
-    const response = await axios.get(
-      'https://matheus.sampaio.us/ao-loot-logger-configs/configs.txt'
-    )
-
-    const lines = response.data.split('\n')
-
-    for (const line of lines) {
-      this.players[line] = true
-    }
   }
 }
 

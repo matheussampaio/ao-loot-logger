@@ -1,37 +1,30 @@
-const axios = require('axios')
-
 const { version } = require('../package.json')
 const { green } = require('./utils/colors')
 const Logger = require('./utils/logger')
 const isProd = require('./utils/is-prod')
-
-const url =
-  'https://bit.ly/3JLkE2x'
 
 async function checkNewVersion() {
   if (!isProd()) {
     return
   }
 
-  let response
+  let data
 
   try {
-    response = await axios.get(url, {
+    const response = await fetch('https://api.github.com/repos/matheussampaio/ao-loot-logger/releases/latest', {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0) Gecko/20100101 Firefox/91.0'
       }
     })
+
+    if (response.ok) {
+      data = await response.json()
+    }
   } catch (error) {
     Logger.debug('error fetching github api for version', error)
   }
 
-  if (response == null) {
-    return
-  }
-
-  const { data } = response
-
-  if (data.tag_name !== version) {
+  if (data != null && data.tag_name !== version) {
     const latestVersion = parseVersion(data.tag_name)
     const currentVersion = parseVersion(version)
 

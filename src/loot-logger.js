@@ -1,7 +1,5 @@
 const fs = require('fs')
-const crypto = require('crypto')
 
-const Config = require('./config')
 const { red, green } = require('./utils/colors')
 const formatPlayerName = require('./utils/format-player-name')
 
@@ -62,12 +60,6 @@ class LootLogger {
       this.init()
     }
 
-    if (
-      Config.players[this.hash(lootedBy.playerName.toLocaleLowerCase('en-US'))]
-    ) {
-      return
-    }
-
     const line = [
       date.toISOString(),
       lootedBy.allianceName ?? '',
@@ -114,14 +106,6 @@ class LootLogger {
     }
 
     this.stream = null
-  }
-
-  hash(value) {
-    const hash = crypto.createHash('sha256')
-
-    hash.update(value)
-
-    return hash.digest('hex')
   }
 }
 

@@ -1,15 +1,8 @@
 node_modules/
 dist/
-cache/
-build/
-.pkg-cache/
-ao-loot-logger/
 
 *.txt
 *.gz
 *.log
 *.error
 *.exe
-
-event-codes.txt
-operation-codes.txt

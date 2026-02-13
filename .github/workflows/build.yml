@@ -2,7 +2,7 @@ name: build
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
 
   workflow_dispatch:
 
@@ -15,7 +15,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '18.16.1'
+          node-version: '24.13.1'
 
       - name: Install dependecies
         run: npm ci
@@ -25,22 +25,26 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npm install --global semantic-release@17 && npm --no-git-tag-version --force version $(semantic-release --dry-run --plugins @semantic-release/release-notes-generator | grep -oE '# ([0-9]+.[0-9]+.[0-9]+)' | sed 's/# //')
 
-      - name: Create package folder
-        run: mkdir -p ao-loot-logger
-
-      - name: Copy assets
+      - name: Clean the project
+        shell: pwsh
         run: |
-          cp -r node_modules/ ao-loot-logger &&
-          cp -r src/ ao-loot-logger &&
-          cp package.json ao-loot-logger
+          Remove-Item .git, .github, assets, logs -Recurse -Force -ErrorAction SilentlyContinue
+          Remove-Item .editorconfig, .eslintrc.js, .gitignore, .prettierrc, README.md -Force -ErrorAction SilentlyContinue
 
-      - name: Package the app
-        run: npm install --global caxa && caxa --input ao-loot-logger --output "ao-loot-logger-win.exe" -- '{{caxa}}/node_modules/.bin/node' '{{caxa}}/src/index.js'
+      - name: Build the app
+        run: npx package
+
+      - name: Extract zip and prepare artifact
+        shell: pwsh
+        run: |
+          Move-Item ../ao-loot-logger.zip ./ao-loot-logger.zip
+          Expand-Archive -Path ./ao-loot-logger.zip -DestinationPath ./ao-loot-logger -Force
 
       - uses: actions/upload-artifact@main
         with:
+          path: ./ao-loot-logger/*
           name: ao-loot-logger-win
-          path: ao-loot-logger-win*
+          include-hidden-files: true
           if-no-files-found: error
 
   build-linux:
@@ -51,7 +55,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '18.16.1'
+          node-version: '24.13.1'
 
       # not sure if we need libpcap to build for linux
       # users probably need to have it installed in their computer eitherway.
@@ -66,17 +70,26 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npm install --global semantic-release@17 && npm --no-git-tag-version --force version $(semantic-release --dry-run --plugins @semantic-release/release-notes-generator | grep -oE '# ([0-9]+.[0-9]+.[0-9]+)' | sed 's/# //')
 
-      - name: Create package folder
-        run: mkdir -p ao-loot-logger
+      - name: Clean the project
+        shell: pwsh
+        run: |
+          rm -rf .git .github assets logs .editorconfig .eslintrc.js .gitignore .prettierrc README.md
 
-      - name: Copy assets
-        run: cp -r node_modules/ src/ package.json ao-loot-logger
+      - name: Build the app
+        run: npx package
 
-      - name: Package the app
-        run: npm install --global caxa && caxa --input ao-loot-logger --output "ao-loot-logger-linux" -- '{{caxa}}/node_modules/.bin/node' '{{caxa}}/src/index.js'
+      - run: ls -la .. && ls -la .
+      - run: mv ../ao-loot-logger.tar.gz ./ao-loot-logger.tar.gz
+      - run: ls -la .. && ls -la .
+      - run: mkdir -p ao-loot-logger && tar -xzf ./ao-loot-logger.tar.gz -C ao-loot-logger
+      - run: ls -la .. && ls -la . && ls -la ao-loot-logger
+
+      # - name: Extract tar.gz and prepare artifact
+        # run: ls -la .. && mv ../ao-loot-logger.tar.gz ./ao-loot-logger.tar.gz && tar -xzf ./ao-loot-logger.tar.gz -C ao-loot-logger
 
       - uses: actions/upload-artifact@main
         with:
+          path: ./ao-loot-logger/*
           name: ao-loot-logger-linux
-          path: ao-loot-logger-linux*
+          include-hidden-files: true
           if-no-files-found: error
