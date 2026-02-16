@@ -37,12 +37,11 @@ jobs:
       - name: Extract zip and prepare artifact
         shell: pwsh
         run: |
-          Move-Item ../ao-loot-logger.zip ./ao-loot-logger.zip
-          Expand-Archive -Path ./ao-loot-logger.zip -DestinationPath ./ao-loot-logger -Force
+          Move-Item ../ao-loot-logger.zip ./ao-loot-logger-win.zip
 
       - uses: actions/upload-artifact@main
         with:
-          path: ./ao-loot-logger/*
+          path: ./ao-loot-logger-win.zip
           name: ao-loot-logger-win
           include-hidden-files: true
           if-no-files-found: error
@@ -57,8 +56,6 @@ jobs:
         with:
           node-version: '24.13.1'
 
-      # not sure if we need libpcap to build for linux
-      # users probably need to have it installed in their computer eitherway.
       - name: Install libpcap
         run: sudo apt-get install libpcap-dev -y
 
@@ -79,11 +76,10 @@ jobs:
         run: npx package
 
       - name: Extract tar.gz and prepare artifact
-        run: mv ../ao-loot-logger.tar.gz ./ao-loot-logger.tar.gz && mkdir -p ao-loot-logger && tar -xzf ./ao-loot-logger.tar.gz -C ao-loot-logger
+        run: mv ../ao-loot-logger.tar.gz ./ao-loot-logger-linux.tar.gz
 
       - uses: actions/upload-artifact@main
         with:
-          path: ./ao-loot-logger/*
+          path: ./ao-loot-logger-linux.tar.gz
           name: ao-loot-logger-linux
-          include-hidden-files: true
           if-no-files-found: error
