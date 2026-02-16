@@ -18,7 +18,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '18.16.1'
+          node-version: '24.13.1'
 
       - uses: dawidd6/action-download-artifact@v6
         with:

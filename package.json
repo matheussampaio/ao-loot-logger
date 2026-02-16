@@ -52,13 +52,13 @@
         {
           "assets": [
             {
-              "path": "ao-loot-logger-win/ao-loot-logger-win.exe",
-              "name": "ao-loot-logger.exe",
+              "path": "ao-loot-logger-win.zip",
+              "name": "ao-loot-logger-win.zip",
               "label": "AO Loot Logger for Windows x64"
             },
             {
-              "path": "ao-loot-logger-linux/ao-loot-logger-linux",
-              "name": "ao-loot-logger",
+              "path": "ao-loot-logger-linux.zip",
+              "name": "ao-loot-logger-linux.zip",
               "label": "AO Loot Logger for Linux x64"
             }
           ]
