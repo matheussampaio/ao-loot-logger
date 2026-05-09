@@ -11,9 +11,9 @@ const EVENTS = {
   EvAttachItemContainer: 99,
   EvDetachItemContainer: 100,
   EvCharacterStats: 143,
-  EvOtherGrabbedLoot: 275,
+  EvOtherGrabbedLoot: 277,
   OpJoin: 2,
-  OpInventoryMoveItem: 29
+  OpInventoryMoveItem: 30
 }
 
 class Config {

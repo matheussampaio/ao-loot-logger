@@ -8,11 +8,17 @@ const Config = require('../config')
 class DataHandler {
   static handleEventData(event) {
     try {
-      if (!event || event.eventCode !== 1) {
-        return
-      }
+      // DEBUG: Log all incoming events for troubleshooting
+      // Remove or comment out after confirming everything works
 
       const eventId = event?.parameters?.[252]
+
+      // Protocol 18 fix: eventCode in header may not always be 1
+      // We filter by checking if parameters[252] exists (event ID parameter)
+      // This is more robust than checking eventCode === 1
+      if (!event || !eventId) {
+        return
+      }
 
       switch (eventId) {
         // case Config.events.EvInventoryPutItem:
@@ -52,8 +58,9 @@ class DataHandler {
         //   return EventData.EvUpdateLootChest.handle(event)
 
         default:
-          if (process.env.LOG_UNPROCESSED)
-            Logger.silly('handleEventData', event.parameters)
+          if (process.env.LOG_UNPROCESSED) {
+            Logger.silly('handleEventData unprocessed', event.parameters)
+          }
       }
     } catch (error) {
       if (error instanceof ParserError) {

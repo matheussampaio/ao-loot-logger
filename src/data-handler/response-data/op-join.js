@@ -33,8 +33,8 @@ function parse(event) {
     throw new ParserError('OpJoin has invalid playerName parameter')
   }
 
-  const guildName = event.parameters[57]
-  const allianceName = event.parameters[77]
+  const guildName = event.parameters[58]
+  const allianceName = event.parameters[79]
 
   return { allianceName, guildName, playerName }
 }
