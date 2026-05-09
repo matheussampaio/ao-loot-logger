@@ -12,9 +12,6 @@ class DataHandler {
       // Remove or comment out after confirming everything works
 
       const eventId = event?.parameters?.[252]
-      // Logger.debug(
-      //  `handleEventData: eventCode=${event?.eventCode}, eventId=${eventId}, keys=[${Object.keys(event?.parameters || {}).join(', ')}]`
-      // )
 
       // Protocol 18 fix: eventCode in header may not always be 1
       // We filter by checking if parameters[252] exists (event ID parameter)
