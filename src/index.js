@@ -113,7 +113,7 @@ function rotateLogFile() {
   LootLogger.createNewLogFileName()
 
   console.info(
-    `From now on, logs will be written to ${path.join(
+    `\nFrom now on, logs will be written to ${path.join(
       process.cwd(),
       LootLogger.logFileName
     )}. The file is only created when the first loot event is detected.\n`
