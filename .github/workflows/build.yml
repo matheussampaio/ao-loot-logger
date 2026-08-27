@@ -83,3 +83,92 @@ jobs:
           path: ./ao-loot-logger-linux.tar.gz
           name: ao-loot-logger-linux
           if-no-files-found: error
+
+  build-rpm:
+    needs: build-linux
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:44
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install packaging tools
+        run: dnf install -y -q rpm-build rpm-sign gnupg2
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: ao-loot-logger-linux
+          path: dist
+
+      - name: Read version from the linux build
+        id: version
+        run: |
+          mkdir -p /tmp/extract
+          tar -xzf dist/ao-loot-logger-linux.tar.gz -C /tmp/extract
+          VERSION=$(grep -m1 '"version"' /tmp/extract/ao-loot-logger/_/package.json | sed -E 's/.*"version"[[:space:]]*:[[:space:]]*"([^"]+)".*/\1/')
+          # RPM's Version tag can't contain a hyphen (e.g. npm's default
+          # "0.0.0-development" placeholder, or a semver prerelease suffix).
+          # "-" -> "~" is the standard RPM idiom for prerelease ordering.
+          VERSION=$(echo "$VERSION" | tr '-' '~')
+          echo "Detected version: $VERSION"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Build RPM
+        run: |
+          cp License dist/LICENSE
+          mkdir -p rpmbuild/{BUILD,RPMS,BUILDROOT}
+          rpmbuild \
+            --define "_topdir $PWD/rpmbuild" \
+            --define "_sourcedir $PWD/dist" \
+            --define "app_version ${{ steps.version.outputs.version }}" \
+            -bb rpm/ao-loot-logger.spec
+
+      - name: Check for RPM signing key
+        id: signing
+        env:
+          RPM_SIGNING_KEY: ${{ secrets.RPM_SIGNING_KEY }}
+        run: |
+          if [ -n "$RPM_SIGNING_KEY" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Import and sign with the RPM signing key
+        if: steps.signing.outputs.enabled == 'true'
+        env:
+          RPM_SIGNING_KEY: ${{ secrets.RPM_SIGNING_KEY }}
+          RPM_SIGNING_KEY_PASSPHRASE: ${{ secrets.RPM_SIGNING_KEY_PASSPHRASE }}
+        run: |
+          export GNUPGHOME="$PWD/.gnupg"
+          rm -rf "$GNUPGHOME"
+          mkdir -m 700 -p "$GNUPGHOME"
+          echo "$RPM_SIGNING_KEY" | gpg --batch --import
+
+          echo "allow-loopback-pinentry" > "$GNUPGHOME/gpg-agent.conf"
+          echo "default-cache-ttl 7200" >> "$GNUPGHOME/gpg-agent.conf"
+          gpgconf --kill gpg-agent || true
+
+          KEY_ID=$(gpg --batch --with-colons --list-secret-keys | awk -F: '/^sec/ {print $5; exit}')
+
+          # Prime gpg-agent's passphrase cache so that rpm's own (non-interactive)
+          # invocation of gpg, which never sees the passphrase itself, can complete.
+          echo "priming" | gpg --batch --pinentry-mode loopback \
+            --passphrase "$RPM_SIGNING_KEY_PASSPHRASE" --local-user "$KEY_ID" \
+            --detach-sign --armor --output /dev/null -
+
+          rpm --define "_gpg_name $KEY_ID" --addsign rpmbuild/RPMS/x86_64/*.rpm
+
+          gpg --export -a "$KEY_ID" > public.asc
+          rpm --import public.asc
+          rpm --checksig rpmbuild/RPMS/x86_64/*.rpm
+
+      - name: Prepare artifact
+        run: cp rpmbuild/RPMS/x86_64/*.rpm ./ao-loot-logger-linux.rpm
+
+      - uses: actions/upload-artifact@main
+        with:
+          path: ./ao-loot-logger-linux.rpm
+          name: ao-loot-logger-rpm
+          if-no-files-found: error

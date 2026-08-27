@@ -60,6 +60,11 @@
               "path": "ao-loot-logger-linux/ao-loot-logger-linux.tar.gz",
               "name": "ao-loot-logger-linux.tar.gz",
               "label": "AO Loot Logger for Linux x64"
+            },
+            {
+              "path": "ao-loot-logger-rpm/ao-loot-logger-linux.rpm",
+              "name": "ao-loot-logger-linux.x86_64.rpm",
+              "label": "AO Loot Logger for Linux x64 (RPM)"
             }
           ]
         }

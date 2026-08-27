@@ -32,3 +32,158 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: semantic-release
+
+  publish-rpm-repo:
+    needs: release
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:44
+    permissions:
+      contents: write
+
+    steps:
+      - name: Install repo tools
+        run: dnf install -y -q createrepo_c gnupg2 rpm rpm-sign git
+
+      - uses: dawidd6/action-download-artifact@v6
+        with:
+          workflow: build.yml
+          workflow_conclusion: success
+          # Pin to the exact build.yml run that triggered this workflow,
+          # rather than "most recent successful build.yml run repo-wide"
+          # (which can grab artifacts from an unrelated branch/run).
+          run_id: ${{ github.event.workflow_run.id }}
+          name: ao-loot-logger-rpm
+          path: dist
+
+      - name: Determine package version
+        id: pkg
+        run: |
+          VERSION=$(rpm -qp --qf '%{VERSION}' dist/ao-loot-logger-linux.rpm)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Fetch (or initialize) the gh-pages branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if git clone --branch gh-pages --single-branch "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" pages; then
+            echo "cloned existing gh-pages branch"
+          else
+            mkdir pages
+            git -C pages init -b gh-pages
+            git -C pages remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          fi
+
+      - name: Add RPM to the repo pool
+        id: add
+        run: |
+          DEST="pages/rpm/x86_64/ao-loot-logger-${{ steps.pkg.outputs.version }}-1.x86_64.rpm"
+          if [ -f "$DEST" ]; then
+            echo "This version is already published, nothing to do."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            mkdir -p pages/rpm/x86_64
+            cp dist/ao-loot-logger-linux.rpm "$DEST"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check for RPM signing key
+        if: steps.add.outputs.changed == 'true'
+        id: signing
+        env:
+          RPM_SIGNING_KEY: ${{ secrets.RPM_SIGNING_KEY }}
+        run: |
+          if [ -n "$RPM_SIGNING_KEY" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::RPM_SIGNING_KEY is not set, publishing an UNSIGNED repo. Add the secret to sign releases."
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Sign the package and repo metadata
+        if: steps.add.outputs.changed == 'true' && steps.signing.outputs.enabled == 'true'
+        env:
+          RPM_SIGNING_KEY: ${{ secrets.RPM_SIGNING_KEY }}
+          RPM_SIGNING_KEY_PASSPHRASE: ${{ secrets.RPM_SIGNING_KEY_PASSPHRASE }}
+        run: |
+          export GNUPGHOME="$PWD/.gnupg"
+          rm -rf "$GNUPGHOME"
+          mkdir -m 700 -p "$GNUPGHOME"
+          echo "$RPM_SIGNING_KEY" | gpg --batch --import
+
+          echo "allow-loopback-pinentry" > "$GNUPGHOME/gpg-agent.conf"
+          echo "default-cache-ttl 7200" >> "$GNUPGHOME/gpg-agent.conf"
+          gpgconf --kill gpg-agent || true
+
+          KEY_ID=$(gpg --batch --with-colons --list-secret-keys | awk -F: '/^sec/ {print $5; exit}')
+
+          # Prime gpg-agent's passphrase cache so that rpm's own (non-interactive)
+          # invocation of gpg, which never sees the passphrase itself, can complete.
+          echo "priming" | gpg --batch --pinentry-mode loopback \
+            --passphrase "$RPM_SIGNING_KEY_PASSPHRASE" --local-user "$KEY_ID" \
+            --detach-sign --armor --output /dev/null -
+
+          rpm --define "_gpg_name $KEY_ID" --addsign "pages/rpm/x86_64/ao-loot-logger-${{ steps.pkg.outputs.version }}-1.x86_64.rpm"
+          gpg --export -a "$KEY_ID" > pages/rpm/RPM-GPG-KEY-ao-loot-logger
+
+      - name: Regenerate repo metadata
+        if: steps.add.outputs.changed == 'true'
+        run: createrepo_c pages/rpm/x86_64
+
+      - name: Generate a package pool index page
+        if: steps.add.outputs.changed == 'true'
+        run: |
+          # GitHub Pages doesn't do directory listings, so without this the
+          # pool directory 404s even though every file in it is reachable
+          # directly.
+          {
+            echo '<!doctype html>'
+            echo '<title>ao-loot-logger RPM packages</title>'
+            echo '<h1>ao-loot-logger RPM packages (x86_64)</h1>'
+            echo '<ul>'
+            for rpm in $(cd pages/rpm/x86_64 && ls -1 *.rpm | sort -V); do
+              echo "<li><a href=\"$rpm\">$rpm</a></li>"
+            done
+            echo '</ul>'
+            echo '<p><a href="repodata/repomd.xml">repodata/repomd.xml</a></p>'
+          } > pages/rpm/x86_64/index.html
+
+      - name: Sign repo metadata
+        if: steps.add.outputs.changed == 'true' && steps.signing.outputs.enabled == 'true'
+        run: |
+          export GNUPGHOME="$PWD/.gnupg"
+          KEY_ID=$(gpg --batch --with-colons --list-secret-keys | awk -F: '/^sec/ {print $5; exit}')
+          gpg --batch --yes --local-user "$KEY_ID" --detach-sign --armor \
+            --output pages/rpm/x86_64/repodata/repomd.xml.asc \
+            pages/rpm/x86_64/repodata/repomd.xml
+
+      - name: Publish the .repo file
+        if: steps.add.outputs.changed == 'true'
+        env:
+          SIGNED: ${{ steps.signing.outputs.enabled }}
+        run: |
+          if [ "$SIGNED" = "true" ]; then
+            GPGCHECK=1
+            GPGKEY_LINE="gpgkey=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/rpm/RPM-GPG-KEY-ao-loot-logger"
+          else
+            GPGCHECK=0
+            GPGKEY_LINE="# no signing key configured yet, see rpm/README.md"
+          fi
+
+          cat > pages/rpm/ao-loot-logger.repo <<EOF
+          [ao-loot-logger]
+          name=AO Loot Logger
+          baseurl=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/rpm/x86_64
+          enabled=1
+          gpgcheck=$GPGCHECK
+          repo_gpgcheck=$GPGCHECK
+          $GPGKEY_LINE
+          EOF
+
+      - name: Commit and push gh-pages
+        if: steps.add.outputs.changed == 'true'
+        run: |
+          cd pages
+          git add -A
+          git commit -m "chore: publish ao-loot-logger ${{ steps.pkg.outputs.version }} rpm"
+          git push origin HEAD:gh-pages

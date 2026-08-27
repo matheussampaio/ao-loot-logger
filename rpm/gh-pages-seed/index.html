@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AO Loot Logger &middot; RPM Repository</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5b5b5b;
+    --border: #e0e0e0;
+    --code-bg: #f5f5f5;
+    --link: #1d6fd6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161a;
+      --fg: #ececec;
+      --muted: #a3a3a3;
+      --border: #2c2f34;
+      --code-bg: #1d2024;
+      --link: #6ab0ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+  }
+  main {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 4rem;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+  .brand img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 8px;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  .tagline {
+    color: var(--muted);
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  h2 {
+    font-size: 1.05rem;
+    margin-top: 2.25rem;
+  }
+  a { color: var(--link); }
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.9rem 1rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-size: 0.85rem;
+  }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">
+    <img src="assets/logo.png" alt="AO Loot Logger logo">
+    <h1>AO Loot Logger</h1>
+  </div>
+  <p class="tagline">RPM repository for Fedora, RHEL, and derivatives</p>
+
+  <p>
+    This page hosts a signed <code>dnf</code>/<code>yum</code> repository for
+    <a href="https://github.com/matheussampaio/ao-loot-logger">AO Loot Logger</a>,
+    which writes loot grabbed by other players in Albion Online to a file.
+  </p>
+
+  <h2>Install</h2>
+  <pre><code>sudo dnf config-manager --add-repo https://matheussampaio.github.io/ao-loot-logger/rpm/ao-loot-logger.repo
+sudo rpm --import https://matheussampaio.github.io/ao-loot-logger/rpm/RPM-GPG-KEY-ao-loot-logger
+sudo dnf install ao-loot-logger</code></pre>
+
+  <h2>Browse the repo</h2>
+  <p>
+    <a href="rpm/x86_64/">Package pool and repo metadata</a> &middot;
+    <a href="rpm/ao-loot-logger.repo">ao-loot-logger.repo</a> &middot;
+    <a href="rpm/RPM-GPG-KEY-ao-loot-logger">signing key</a>
+  </p>
+
+  <footer>
+    Built from <a href="https://github.com/matheussampaio/ao-loot-logger">matheussampaio/ao-loot-logger</a>.
+    Packages and repo metadata on this branch are published automatically by
+    <a href="https://github.com/matheussampaio/ao-loot-logger/blob/main/.github/workflows/release.yml">release.yml</a>.
+  </footer>
+</main>
+</body>
+</html>

@@ -32,6 +32,17 @@ You can always [buy me a coffee](https://www.buymeacoffee.com/MatheusSampaio) or
 4. Run `ao-loot-logger`.
 5. The log is written to a file in the same folder as the executable (you can see the full path when AO Loot Logger starts).
 
+## How to Use (Fedora / RHEL and derivatives via dnf)
+
+1. Add the repo and import the signing key:
+   ```console
+   $ sudo dnf config-manager --add-repo https://matheussampaio.github.io/ao-loot-logger/rpm/ao-loot-logger.repo
+   $ sudo rpm --import https://matheussampaio.github.io/ao-loot-logger/rpm/RPM-GPG-KEY-ao-loot-logger
+   ```
+2. Install: `sudo dnf install ao-loot-logger`
+3. Run `ao-loot-logger` from the folder you want the log written to.
+4. The log is written to a file in your current directory (you can see the full path when AO Loot Logger starts).
+
 ## How to run from source
 
 1. Install [Node.js](https://nodejs.org/) v24 or newer.
